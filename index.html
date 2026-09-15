@@ -182,6 +182,7 @@
     <button data-filter="hair-care" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">Hair Care</button>
     <button data-filter="vitamin-c" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">Vitamin C</button>
     <button data-filter="parfum" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">Parfum</button>
+    <button data-filter="coffee" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">Coffee</button>
   </div>
 
   <div id="shop-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7"></div>
@@ -397,7 +398,7 @@ const SKIN_PRODUCTS = [
     variants:[{label:'5gm',price:190},{label:'10gm',price:340},{label:'الحجم الكامل',price:1050}] },
   { id:'s33', name_ar:'كريم سنتيلا لتنقية المسام', name_en:'Centella Poremizing Cream', image:'centella_poremizing_cream.jpg', tags:['centella'],
     variants:[{label:'5gm',price:190},{label:'10gm',price:340},{label:'الحجم الكامل',price:1050}] },
-  { id:'s34', name_ar:'سيروم حمض الساليسيليك', name_en:'Salicylic Acid', image:'salicylic_acid.jpg', tags:[],
+  { id:'s34', name_ar:'غسول سالسليك اسيد', name_en:'Salicylic Acid', image:'salicylic_acid.jpg', tags:[],
     variants:[{label:'5ml',price:140},{label:'10ml',price:180},{label:'15ml',price:230},{label:'30ml',price:350},{label:'الحجم الكامل',price:1050}] },
   { id:'s35', name_ar:'ماسك ميديكوب بالكولاجين', name_en:'Medicube Collagen Mask', image:'medicube_collagen_mask.jpg', tags:['medicube'],
     variants:[{label:'5gm',price:170},{label:'10gm',price:310},{label:'الحجم الكامل',price:1200}] },
@@ -432,23 +433,45 @@ const SKIN_PRODUCTS = [
   { id:'s49', name_ar:'سِت سنتيلا للتنظيف المزدوج', name_en:'Centella Double Cleansing Set', image:'centella_double_cleansing.jpg', tags:['centella'],
     fixedPrice:1600 },
   { id:'s50', name_ar:'فيتامين سي أرينسيا', name_en:'Arencia Vitamin C', image:'arencia_vit_c.jpg', tags:['vitamin-c'],
-    fixedPrice:1250 },
+    fixedPrice:1100 },
   { id:'s51', name_ar:'صابون كوجي سان', name_en:'Kojie San Soap', image:'kojie_san.jpg', tags:[],
     fixedPrice:250 },
   { id:'s52', name_ar:'ريتينال شوت', name_en:'Retinal Shot', image:'retinal_shot.jpg', tags:[],
     fixedPrice:980 },
   { id:'s53', name_ar:'سيروم العين الفيجن بالكولاجين', name_en:'Vegan Collagen Eye Serum', image:'vegan_collagen_eye_serum.jpg', tags:['eye-care'],
     fixedPrice:950 },
+  { id:'s54', name_ar:'لوشن كوسركس المرطب', name_en:'COSRX Moisturizing Lotion', image:'cosrx_moisturizing_lotion.jpg', tags:[],
+    variants:[{label:'5g',price:165},{label:'10g',price:320},{label:'15g',price:430},{label:'30g',price:580},{label:'الحجم الكامل',price:1150}] },
+];
+
+const COFFEE_PRODUCTS = [
+  { id:'c1', name_ar:'بن العميد تركي', name_en:'Al Ameed Turkish Coffee', image:'al_ameed_turkish.jpg', tags:['coffee'],
+    variants:[
+      {label:'بن وسط محوج',price:485},
+      {label:'بن ساده',price:485},
+      {label:'بن ساده فاتح',price:485},
+      {label:'ساده وسط',price:485},
+      {label:'بن محوج',price:485},
+      {label:'بن محوج فاتح',price:485},
+    ] },
+  { id:'c2', name_ar:'بن العميد فرنسي', name_en:'Al Ameed French Coffee', image:'al_ameed_french.jpg', tags:['coffee'],
+    variants:[
+      {label:'فرنسي حليب',price:530},
+      {label:'فرنسي جوز هند',price:530},
+      {label:'فرنسي بندق',price:530},
+      {label:'فرنسي شكلاته',price:530},
+    ] },
 ];
 
 const ALL_PRODUCTS = [
   ...HAIR_PRODUCTS.map(p => ({...p, cat:'hair'})),
   ...SKIN_PRODUCTS.map(p => ({...p, cat:'skin'})),
+  ...COFFEE_PRODUCTS.map(p => ({...p, cat:'coffee'})),
 ];
 
 const TAG_LABELS = {
   centella:'Centella', anua:'Anua', numbuzin:'Numbuzin', medicube:'Medicube', karsell:'Karsell',
-  'eye-care':'Eye Care', 'hair-care':'Hair Care', 'vitamin-c':'Vitamin C', parfum:'Parfum'
+  'eye-care':'Eye Care', 'hair-care':'Hair Care', 'vitamin-c':'Vitamin C', parfum:'Parfum', coffee:'Coffee'
 };
 
 const BEST_SELLER_IDS = ['h1', 's3', 's11', 's22'];
@@ -473,10 +496,19 @@ function bottleIcon(extraClass) {
   </svg>`;
 }
 
+function cupIcon(extraClass) {
+  return `<svg class="${extraClass}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M4 8h13v6.5A4.5 4.5 0 0 1 12.5 19h-4A4.5 4.5 0 0 1 4 14.5V8z"/>
+    <path d="M17 9.5h1.5a2.5 2.5 0 0 1 0 5H17"/>
+    <path d="M7.5 3.5c0 1-1 1-1 2M11 3.5c0 1-1 1-1 2" stroke-dasharray="2 2"/>
+  </svg>`;
+}
+
 function productMedia(product, iconClass) {
+  const icon = product.cat === 'coffee' ? cupIcon(iconClass) : bottleIcon(iconClass);
   return `
     <div class="product-media relative h-40 rounded-2xl overflow-hidden bg-[#f9f9f9] mb-5">
-      <div class="absolute inset-0 flex items-center justify-center">${bottleIcon(iconClass)}</div>
+      <div class="absolute inset-0 flex items-center justify-center">${icon}</div>
       <img src="${product.image}" alt="${product.name_en}" loading="lazy"
            class="absolute inset-2.5 w-[calc(100%-20px)] h-[calc(100%-20px)] object-contain"
            onerror="this.remove()">
