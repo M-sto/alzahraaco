@@ -82,6 +82,18 @@
 
 <body class="antialiased">
 
+<!-- ============ PROMO COUNTDOWN BANNER ============ -->
+<div id="promo-banner" class="sticky top-0 z-[60] brand-gradient-btn text-white">
+  <div class="max-w-7xl mx-auto px-4 py-2.5 flex flex-wrap items-center justify-center gap-2.5 text-center">
+    <span class="text-sm sm:text-base font-bold">🔥 عرض لفترة محدودة على منتجات فاتيكا وزيت دابر أملا ٥٠٠مل</span>
+    <div id="promo-timer" class="flex items-center gap-1.5 font-black text-sm sm:text-base bg-white/20 rounded-full px-3 py-1">
+      <span id="promo-h">48</span><span class="opacity-70">س</span> :
+      <span id="promo-m">00</span><span class="opacity-70">د</span> :
+      <span id="promo-s">00</span><span class="opacity-70">ث</span>
+    </div>
+  </div>
+</div>
+
 <!-- ============ HEADER ============ -->
 <header id="site-header" class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-bloom-100">
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
@@ -398,7 +410,7 @@ const SKIN_PRODUCTS = [
     variants:[{label:'5gm',price:190},{label:'10gm',price:340},{label:'الحجم الكامل',price:1050}] },
   { id:'s33', name_ar:'كريم سنتيلا لتنقية المسام', name_en:'Centella Poremizing Cream', image:'centella_poremizing_cream.jpg', tags:['centella'],
     variants:[{label:'5gm',price:190},{label:'10gm',price:340},{label:'الحجم الكامل',price:1050}] },
-  { id:'s34', name_ar:'غسول سالسليك اسيد', name_en:'Salicylic Acid', image:'salicylic_acid.jpg', tags:[],
+  { id:'s34', name_ar:'سيروم حمض الساليسيليك', name_en:'Salicylic Acid', image:'salicylic_acid.jpg', tags:[],
     variants:[{label:'5ml',price:140},{label:'10ml',price:180},{label:'15ml',price:230},{label:'30ml',price:350},{label:'الحجم الكامل',price:1050}] },
   { id:'s35', name_ar:'ماسك ميديكوب بالكولاجين', name_en:'Medicube Collagen Mask', image:'medicube_collagen_mask.jpg', tags:['medicube'],
     variants:[{label:'5gm',price:170},{label:'10gm',price:310},{label:'الحجم الكامل',price:1200}] },
@@ -433,7 +445,7 @@ const SKIN_PRODUCTS = [
   { id:'s49', name_ar:'سِت سنتيلا للتنظيف المزدوج', name_en:'Centella Double Cleansing Set', image:'centella_double_cleansing.jpg', tags:['centella'],
     fixedPrice:1600 },
   { id:'s50', name_ar:'فيتامين سي أرينسيا', name_en:'Arencia Vitamin C', image:'arencia_vit_c.jpg', tags:['vitamin-c'],
-    fixedPrice:1100 },
+    fixedPrice:1250 },
   { id:'s51', name_ar:'صابون كوجي سان', name_en:'Kojie San Soap', image:'kojie_san.jpg', tags:[],
     fixedPrice:250 },
   { id:'s52', name_ar:'ريتينال شوت', name_en:'Retinal Shot', image:'retinal_shot.jpg', tags:[],
@@ -479,6 +491,44 @@ const BEST_SELLER_IDS = ['h1', 's3', 's11', 's22'];
 const WHATSAPP_NUMBER = '201027966872';
 const SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzoVA9s6Jca8D3gqBvFIwUezcsi98kkusXTDVsRD7wgvSBhON1nnL0USM4wqc3GPvcS/exec';
 
+/* ===================== 48-HOUR PROMO ===================== */
+// Products on sale + their promo price. For "h7" (Dabur Amla Oil, grouped
+// variants) only the 500ml option is discounted, so a variantLabel is given.
+const PROMO_PRODUCTS = {
+  h11: { promoPrice: 390 }, // Vatika Garlic Oil
+  h12: { promoPrice: 390 }, // Vatika Onion Oil
+  h13: { promoPrice: 390 }, // Vatika Almond Oil
+  h14: { promoPrice: 390 }, // Vatika Coconut Oil
+  h7:  { promoPrice: 460, variantLabel: '500ml' }, // Dabur Amla Oil - 500ml only
+};
+
+const PROMO_STORAGE_KEY = 'alzahraa_promo_end_ts';
+const PROMO_DURATION_MS = 48 * 60 * 60 * 1000; // 48 hours
+
+function getPromoEndTime() {
+  let stored = localStorage.getItem(PROMO_STORAGE_KEY);
+  if (!stored) {
+    stored = String(Date.now() + PROMO_DURATION_MS);
+    localStorage.setItem(PROMO_STORAGE_KEY, stored);
+  }
+  return parseInt(stored, 10);
+}
+
+let promoEndTime = getPromoEndTime();
+function isPromoActive() { return Date.now() < promoEndTime; }
+
+// Returns { original, promo } if this product/variant is on sale right now, else null.
+function getPromoInfo(product) {
+  if (!isPromoActive()) return null;
+  const rule = PROMO_PRODUCTS[product.id];
+  if (!rule) return null;
+  if (rule.variantLabel && currentLabel(product) !== rule.variantLabel) return null;
+  const original = product.fixedPrice
+    ? product.fixedPrice
+    : product.variants[variantSelection[product.id]].price;
+  return { original, promo: rule.promoPrice };
+}
+
 /* ===================== STATE ===================== */
 let cart = [];
 try { cart = JSON.parse(localStorage.getItem('alzahraa_cart')) || []; } catch(e) { cart = []; }
@@ -516,6 +566,8 @@ function productMedia(product, iconClass) {
 }
 
 function currentPrice(product) {
+  const promo = getPromoInfo(product);
+  if (promo) return promo.promo;
   if (product.fixedPrice) return product.fixedPrice;
   return product.variants[variantSelection[product.id]].price;
 }
@@ -523,6 +575,20 @@ function currentLabel(product) {
   if (product.fixedPrice) return null;
   return product.variants[variantSelection[product.id]].label;
 }
+
+// Renders the price block for a product card: shows the promo price next to
+// a struck-through original price when the item is on sale, plain price otherwise.
+function priceBlockHTML(product) {
+  const promo = getPromoInfo(product);
+  if (promo) {
+    return `<span class="price-label flex items-baseline gap-2" data-id="${product.id}">
+      <span style="text-decoration:line-through; opacity:0.6;" class="text-sm text-plum-500">${promo.original} ج.م</span>
+      <span class="font-black text-plum-900 text-lg">${promo.promo} ج.م</span>
+    </span>`;
+  }
+  return `<span class="price-label font-black text-plum-900 text-lg" data-id="${product.id}">${currentPrice(product)} ج.م</span>`;
+}
+
 
 /* ===================== RENDER: SHOP GRID ===================== */
 function renderShopGrid() {
@@ -546,7 +612,7 @@ function renderShopGrid() {
       ` : `<div class="mb-4"></div>`}
 
       <div class="flex items-center justify-between mt-auto pt-4 border-t border-bloom-50">
-        <span class="font-black text-plum-900 text-lg price-label" data-id="${p.id}">${currentPrice(p)} ج.م</span>
+        ${priceBlockHTML(p)}
         <button data-id="${p.id}" data-cat="${p.cat}" class="add-btn brand-gradient-btn text-white text-sm font-bold px-5 py-2.5 rounded-full">أضيفي للسلة</button>
       </div>
     </div>
@@ -561,7 +627,8 @@ function bindProductControls(grid) {
     sel.addEventListener('change', () => {
       variantSelection[sel.dataset.id] = parseInt(sel.value);
       const product = ALL_PRODUCTS.find(x => x.id === sel.dataset.id);
-      grid.querySelector(`.price-label[data-id="${sel.dataset.id}"]`).textContent = `${currentPrice(product)} ج.م`;
+      const priceEl = grid.querySelector(`.price-label[data-id="${sel.dataset.id}"]`);
+      if (priceEl) priceEl.outerHTML = priceBlockHTML(product);
     });
   });
   grid.querySelectorAll('.add-btn').forEach(btn => {
@@ -598,7 +665,7 @@ function renderBestSellers() {
       <h4 class="font-bold text-plum-900 text-sm leading-snug">${p.name_ar}</h4>
       <p class="text-[11px] text-plum-500 mb-3" dir="ltr" style="text-align:right">${p.name_en}</p>
       <div class="flex items-center justify-between mt-auto pt-3 border-t border-bloom-50">
-        <span class="font-black text-plum-900">${currentPrice(p)} ج.م</span>
+        ${priceBlockHTML(p)}
         <button data-cat="${p.cat}" data-id="${p.id}" class="add-best-btn text-lavender-500 text-xs font-bold hover:text-lavender-400">+ أضيفي</button>
       </div>
     </div>
@@ -764,6 +831,58 @@ document.getElementById('confirm-order').addEventListener('click', () => {
   // Immediately continue to WhatsApp so the customer can confirm the order
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
 });
+
+/* ===================== PROMO COUNTDOWN BANNER ===================== */
+function syncHeaderOffset() {
+  const banner = document.getElementById('promo-banner');
+  const header = document.getElementById('site-header');
+  if (!header) return;
+  header.style.top = (banner && banner.offsetParent !== null) ? banner.offsetHeight + 'px' : '0px';
+}
+
+function expirePromo() {
+  const banner = document.getElementById('promo-banner');
+  if (banner) banner.remove();
+  syncHeaderOffset();
+  // Re-render everything so prices/strikethroughs disappear immediately
+  renderShopGrid();
+  renderBestSellers();
+  renderCart();
+}
+
+function tickPromoTimer() {
+  const banner = document.getElementById('promo-banner');
+  if (!banner) return;
+
+  const remaining = promoEndTime - Date.now();
+  if (remaining <= 0) {
+    clearInterval(promoTimerInterval);
+    expirePromo();
+    return;
+  }
+
+  const totalSeconds = Math.floor(remaining / 1000);
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  document.getElementById('promo-h').textContent = String(hours).padStart(2, '0');
+  document.getElementById('promo-m').textContent = String(minutes).padStart(2, '0');
+  document.getElementById('promo-s').textContent = String(seconds).padStart(2, '0');
+}
+
+let promoTimerInterval = null;
+if (isPromoActive()) {
+  tickPromoTimer();
+  promoTimerInterval = setInterval(tickPromoTimer, 1000);
+  syncHeaderOffset();
+  window.addEventListener('resize', syncHeaderOffset);
+} else {
+  // Promo already expired (e.g. returning visitor after 48h) - make sure banner isn't in the DOM
+  const staleBanner = document.getElementById('promo-banner');
+  if (staleBanner) staleBanner.remove();
+  syncHeaderOffset();
+}
 
 /* ===================== INIT ===================== */
 renderShopGrid();
