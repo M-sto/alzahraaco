@@ -809,7 +809,7 @@ document.getElementById('confirm-order').addEventListener('click', () => {
   lines.push(`العنوان / المدينة: ${address}`);
 
   const itemsSummary = cart.map(c => {
-    return c.size ? `(${c.name_ar}: ${c.size})` : `(${c.name_ar})`;
+    return c.size ? `(${c.name_ar}: ${c.size} × ${c.qty})` : `(${c.name_ar} × ${c.qty})`;
   }).join(', ');
 
   const message = lines.join('\n');
