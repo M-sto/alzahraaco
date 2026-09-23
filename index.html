@@ -61,7 +61,7 @@
   .product-card { transition: opacity .3s ease, transform .3s ease; }
   .product-card.hidden-card { display: none; }
 
-  select.variant-select {
+  select.variant-select, select.governorate-select {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236E5486' stroke-width='1.5' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: left .9rem center;
@@ -85,7 +85,7 @@
 <!-- ============ PROMO COUNTDOWN BANNER ============ -->
 <div id="promo-banner" class="sticky top-0 z-[60] brand-gradient-btn text-white">
   <div class="max-w-7xl mx-auto px-4 py-2.5 flex flex-wrap items-center justify-center gap-2.5 text-center">
-    <span class="text-sm sm:text-base font-bold">🔥 عرض لفترة محدودة على منتجات فاتيكا وزيت دابر أملا ٥٠٠مل</span>
+    <span class="text-sm sm:text-base font-bold">🔥 عرض لفترة محدودة على منتجات فاتيكا وزيت دابر أملا ٥٠0مل</span>
     <div id="promo-timer" class="flex items-center gap-1.5 font-black text-sm sm:text-base bg-white/20 rounded-full px-3 py-1">
       <span id="promo-h">48</span><span class="opacity-70">س</span> :
       <span id="promo-m">00</span><span class="opacity-70">د</span> :
@@ -282,7 +282,40 @@
     <div class="space-y-2.5">
       <input id="cust-name" type="text" placeholder="الاسم بالكامل" class="w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm">
       <input id="cust-phone" type="tel" placeholder="رقم الهاتف" class="w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm">
-      <input id="cust-address" type="text" placeholder="العنوان / المدينة" class="w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm">
+      
+      <!-- قائمة اختيار المحافظة -->
+      <select id="cust-governorate" class="governorate-select w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm text-plum-700 bg-white">
+        <option value="" disabled selected>اختر المحافظة...</option>
+        <option value="القاهرة">القاهرة</option>
+        <option value="الجيزة">الجيزة</option>
+        <option value="الأسكندرية">الأسكندرية</option>
+        <option value="الدقهلية">الدقهلية</option>
+        <option value="البحر الأحمر">البحر الأحمر</option>
+        <option value="البحيرة">البحيرة</option>
+        <option value="الفيوم">الفيوم</option>
+        <option value="الغربية">الغربية</option>
+        <option value="الإسماعيلية">الإسماعيلية</option>
+        <option value="المنوفية">المنوفية</option>
+        <option value="المنيا">المنيا</option>
+        <option value="القليوبية">القليوبية</option>
+        <option value="الوادي الجديد">الوادي الجديد</option>
+        <option value="السويس">السويس</option>
+        <option value="الشرقية">الشرقية</option>
+        <option value="أسوان">أسوان</option>
+        <option value="أسيوط">أسيوط</option>
+        <option value="بني سويف">بني سويف</option>
+        <option value="بورسعيد">بورسعيد</option>
+        <option value="دمياط">دمياط</option>
+        <option value="خزام / قنا">قنا</option>
+        <option value="جنوب سيناء">جنوب سيناء</option>
+        <option value="كفر الشيخ">كفر الشيخ</option>
+        <option value="مطروح">مطروح</option>
+        <option value="الأقصر">الأقصر</option>
+        <option value="سوهاج">سوهاج</option>
+        <option value="شمال سيناء">شمال سيناء</option>
+      </select>
+
+      <input id="cust-address" type="text" placeholder="العنوان التفصيلي (المنطقة / الشارع / رقم العمارة)" class="w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm">
     </div>
     <button id="confirm-order" class="w-full brand-gradient-btn text-white font-bold py-3.5 rounded-full shadow-soft flex items-center justify-center gap-2">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
@@ -298,10 +331,6 @@
 
 <script>
 /* ===================== DATA ===================== */
-// image: expected file name in the same root folder as this HTML file (no subfolder prefix).
-// variants: [{label, price}] — products with only one price use fixedPrice instead.
-// tags: which filter chip(s) this product belongs to. A product can carry more than one tag.
-
 const HAIR_PRODUCTS = [
   { id:'h1', name_ar:'ماسك كارسيل بالكولاجين', name_en:'Karseell Collagen Hair Mask', image:'karseell-mask.jpg', tags:['hair-care','karsell'],
     variants:[{label:'50g',price:185},{label:'100g',price:370},{label:'العبوة الكاملة (500g)',price:1100}] },
@@ -315,14 +344,10 @@ const HAIR_PRODUCTS = [
     variants:[{label:'50ml',price:240},{label:'100ml',price:360},{label:'الزجاجة الكاملة',price:1380}] },
   { id:'h6', name_ar:'صابونة الأعشاب لتكثيف الشعر', name_en:'Seven Green Nature Shampoo Bar', image:'herbal-soap-bar.jpg', tags:['hair-care'],
     fixedPrice:700 },
-
-  // ---- Grouped: single card, multiple size variants ----
   { id:'h7', name_ar:'زيت دابر أملا', name_en:'Dabur Amla Oil', image:'dabur_amla.jpg', tags:['hair-care'],
     variants:[{label:'240ml',price:330},{label:'300ml',price:380},{label:'500ml',price:530}] },
   { id:'h8', name_ar:'زيت جوز الهند باراشوت', name_en:'Parachute Coconut Oil', image:'parachute.jpg', tags:['hair-care'],
     variants:[{label:'200ml',price:310},{label:'500ml',price:460},{label:'1 لتر',price:620}] },
-
-  // ---- Standalone: separate card & image each ----
   { id:'h9', name_ar:'زيت دابر أملا للأطفال', name_en:'Dabur Amla Kids', image:'dabur_amla_kids.jpg', tags:['hair-care'],
     fixedPrice:330 },
   { id:'h10', name_ar:'زيت دابر أملا جولد', name_en:'Dabur Amla Gold', image:'dabur_amla_gold.jpg', tags:['hair-care'],
@@ -396,8 +421,6 @@ const SKIN_PRODUCTS = [
     variants:[{label:'5g',price:175},{label:'10g',price:300},{label:'الأنبوبة الكاملة',price:1200}] },
   { id:'s27', name_ar:'بديل الفيلر للعين', name_en:'Secret Black Ciden / Eye Filler Gel', image:'eye-filler.jpg', tags:['eye-care'],
     fixedPrice:1250 },
-
-  // ---- New: Centella / Eye Care / Vitamin C / Parfum (grouped variants) ----
   { id:'s28', name_ar:'سيروم سنتيلا سيكا', name_en:'Centella Serum Cica', image:'centella_serum_cica.jpg', tags:['centella'],
     variants:[{label:'5ml',price:170},{label:'10ml',price:270},{label:'الحجم الكامل',price:1250}] },
   { id:'s29', name_ar:'واقي شمس سنتيلا', name_en:'Centella Sun Block', image:'centella_sunblock.jpg', tags:['centella'],
@@ -436,8 +459,6 @@ const SKIN_PRODUCTS = [
     variants:[{label:'5ml',price:145},{label:'10ml',price:300},{label:'الحجم الكامل',price:1500}] },
   { id:'s46', name_ar:'عطر أساف أروجيت بينك', name_en:'Assaf Arrogate Pink Perfume', image:'assaf_arrogate_pink.jpg', tags:['parfum'],
     variants:[{label:'5ml',price:145},{label:'10ml',price:270},{label:'الحجم الكامل',price:2800}] },
-
-  // ---- New: Standalone (single price, no size selector) ----
   { id:'s47', name_ar:'سِت سنتيلا الوردي', name_en:'Centella Pink Set', image:'centella_pink_set.jpg', tags:['centella'],
     fixedPrice:1400 },
   { id:'s48', name_ar:'سِت سنتيلا البني', name_en:'Centella Brown Set', image:'centella_brown_set.jpg', tags:['centella'],
@@ -492,18 +513,16 @@ const WHATSAPP_NUMBER = '201027966872';
 const SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzoVA9s6Jca8D3gqBvFIwUezcsi98kkusXTDVsRD7wgvSBhON1nnL0USM4wqc3GPvcS/exec';
 
 /* ===================== 48-HOUR PROMO ===================== */
-// Products on sale + their promo price. For "h7" (Dabur Amla Oil, grouped
-// variants) only the 500ml option is discounted, so a variantLabel is given.
 const PROMO_PRODUCTS = {
-  h11: { promoPrice: 390 }, // Vatika Garlic Oil
-  h12: { promoPrice: 390 }, // Vatika Onion Oil
-  h13: { promoPrice: 390 }, // Vatika Almond Oil
-  h14: { promoPrice: 390 }, // Vatika Coconut Oil
-  h7:  { promoPrice: 460, variantLabel: '500ml' }, // Dabur Amla Oil - 500ml only
+  h11: { promoPrice: 390 }, 
+  h12: { promoPrice: 390 }, 
+  h13: { promoPrice: 390 }, 
+  h14: { promoPrice: 390 }, 
+  h7:  { promoPrice: 460, variantLabel: '500ml' }, 
 };
 
 const PROMO_STORAGE_KEY = 'alzahraa_promo_end_ts';
-const PROMO_DURATION_MS = 48 * 60 * 60 * 1000; // 48 hours
+const PROMO_DURATION_MS = 48 * 60 * 60 * 1000; 
 
 function getPromoEndTime() {
   let stored = localStorage.getItem(PROMO_STORAGE_KEY);
@@ -517,7 +536,6 @@ function getPromoEndTime() {
 let promoEndTime = getPromoEndTime();
 function isPromoActive() { return Date.now() < promoEndTime; }
 
-// Returns { original, promo } if this product/variant is on sale right now, else null.
 function getPromoInfo(product) {
   if (!isPromoActive()) return null;
   const rule = PROMO_PRODUCTS[product.id];
@@ -533,7 +551,7 @@ function getPromoInfo(product) {
 let cart = [];
 try { cart = JSON.parse(localStorage.getItem('alzahraa_cart')) || []; } catch(e) { cart = []; }
 
-const variantSelection = {}; // { productId: variantIndex }
+const variantSelection = {}; 
 ALL_PRODUCTS.forEach(p => { if (p.variants) variantSelection[p.id] = 0; });
 
 let activeFilter = 'all';
@@ -576,8 +594,6 @@ function currentLabel(product) {
   return product.variants[variantSelection[product.id]].label;
 }
 
-// Renders the price block for a product card: shows the promo price next to
-// a struck-through original price when the item is on sale, plain price otherwise.
 function priceBlockHTML(product) {
   const promo = getPromoInfo(product);
   if (promo) {
@@ -588,7 +604,6 @@ function priceBlockHTML(product) {
   }
   return `<span class="price-label font-black text-plum-900 text-lg" data-id="${product.id}">${currentPrice(product)} ج.م</span>`;
 }
-
 
 /* ===================== RENDER: SHOP GRID ===================== */
 function renderShopGrid() {
@@ -789,8 +804,15 @@ document.getElementById('confirm-order').addEventListener('click', () => {
 
   const name = document.getElementById('cust-name').value.trim();
   const phone = document.getElementById('cust-phone').value.trim();
+  const governorate = document.getElementById('cust-governorate').value;
   const address = document.getElementById('cust-address').value.trim();
-  if (!name || !phone || !address) { showToast('من فضلك أكملي بيانات التواصل'); return; }
+
+  if (!name || !phone || !governorate || !address) { 
+    showToast('من فضلك أكملي جميع بيانات التواصل والمحافظة'); 
+    return; 
+  }
+
+  const fullAddress = `${governorate} - ${address}`;
 
   const lines = [];
   lines.push('🌸 *طلب جديد من متجر ALZAHRAA*');
@@ -806,7 +828,8 @@ document.getElementById('confirm-order').addEventListener('click', () => {
   lines.push('*بيانات العميل*');
   lines.push(`الاسم: ${name}`);
   lines.push(`الهاتف: ${phone}`);
-  lines.push(`العنوان / المدينة: ${address}`);
+  lines.push(`المحافظة: ${governorate}`);
+  lines.push(`العنوان التفصيلي: ${address}`);
 
   const itemsSummary = cart.map(c => {
     return c.size ? `(${c.name_ar}: ${c.size} × ${c.qty})` : `(${c.name_ar} × ${c.qty})`;
@@ -814,7 +837,7 @@ document.getElementById('confirm-order').addEventListener('click', () => {
 
   const message = lines.join('\n');
 
-  // Log the order to the connected Google Sheet (fire-and-forget)
+  // Log the order to the connected Google Sheet
   fetch(SHEET_WEBHOOK_URL, {
     method: 'POST',
     mode: 'no-cors',
@@ -822,13 +845,12 @@ document.getElementById('confirm-order').addEventListener('click', () => {
     body: JSON.stringify({
       phone: phone,
       name: name,
-      address: address,
+      address: fullAddress,
       items: itemsSummary,
       total: cartTotal()
     })
   }).catch(err => console.error('Sheet webhook error:', err));
 
-  // Immediately continue to WhatsApp so the customer can confirm the order
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
 });
 
@@ -844,7 +866,6 @@ function expirePromo() {
   const banner = document.getElementById('promo-banner');
   if (banner) banner.remove();
   syncHeaderOffset();
-  // Re-render everything so prices/strikethroughs disappear immediately
   renderShopGrid();
   renderBestSellers();
   renderCart();
@@ -878,7 +899,6 @@ if (isPromoActive()) {
   syncHeaderOffset();
   window.addEventListener('resize', syncHeaderOffset);
 } else {
-  // Promo already expired (e.g. returning visitor after 48h) - make sure banner isn't in the DOM
   const staleBanner = document.getElementById('promo-banner');
   if (staleBanner) staleBanner.remove();
   syncHeaderOffset();
