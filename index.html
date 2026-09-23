@@ -837,7 +837,7 @@ document.getElementById('confirm-order').addEventListener('click', () => {
 
   const message = lines.join('\n');
 
-  // Log the order to the connected Google Sheet
+   // Log the order to the connected Google Sheet
   fetch(SHEET_WEBHOOK_URL, {
     method: 'POST',
     mode: 'no-cors',
@@ -845,7 +845,8 @@ document.getElementById('confirm-order').addEventListener('click', () => {
     body: JSON.stringify({
       phone: phone,
       name: name,
-      address: fullAddress,
+      address: address,          // العنوان التفصيلي فقط، من غير المحافظة
+      governorate: governorate,  // المحافظة كحقل منفصل
       items: itemsSummary,
       total: cartTotal()
     })
