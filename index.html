@@ -812,8 +812,6 @@ document.getElementById('confirm-order').addEventListener('click', () => {
     return; 
   }
 
-  const fullAddress = `${governorate} - ${address}`;
-
   const lines = [];
   lines.push('🌸 *طلب جديد من متجر ALZAHRAA*');
   lines.push('—————————————');
@@ -834,6 +832,26 @@ document.getElementById('confirm-order').addEventListener('click', () => {
   const itemsSummary = cart.map(c => {
     return c.size ? `(${c.name_ar}: ${c.size} × ${c.qty})` : `(${c.name_ar} × ${c.qty})`;
   }).join(', ');
+
+  const message = lines.join('\n');
+
+  // إرسال البيانات بشكل منفصل لشيت جوجل
+  fetch(SHEET_WEBHOOK_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      phone: phone,
+      name: name,
+      address: address,            // العنوان التفصيلي فقط ينزل في العمود D
+      governorate: governorate,    // المحافظة تنزل في العمود H
+      items: itemsSummary,
+      total: cartTotal()
+    })
+  }).catch(err => console.error('Sheet webhook error:', err));
+
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+});
 
   const message = lines.join('\n');
 
