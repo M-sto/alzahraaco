@@ -77,22 +77,31 @@
   .float-slow { animation: floatY 6s ease-in-out infinite; }
   .toast { transition: transform .35s ease, opacity .35s ease; }
   .product-media img { transition: opacity .3s ease; }
+
+  /* [MOD 2] Wholesale WhatsApp button: dark plum fill + soft lavender glow, same palette as the site */
+  .wholesale-btn {
+    background: #2E1F3D;               /* plum-900 */
+    color: #ffffff;
+    box-shadow: 0 0 0 2px #C6ABF0, 0 14px 30px -12px rgba(139,95,201,.55);   /* lavender-300 ring */
+    transition: background .25s ease, transform .15s ease;
+    animation: wholesaleGlow 2.6s ease-in-out infinite;
+  }
+  .wholesale-btn:hover { background: #4A3560; transform: translateY(-2px); }   /* plum-700 */
+  @keyframes wholesaleGlow {
+    0%,100% { box-shadow: 0 0 0 2px #C6ABF0, 0 0 0 0 rgba(168,125,224,.45), 0 14px 30px -12px rgba(139,95,201,.55); }
+    50%     { box-shadow: 0 0 0 2px #C6ABF0, 0 0 0 10px rgba(168,125,224,0), 0 14px 30px -12px rgba(139,95,201,.55); }
+  }
+  @media (prefers-reduced-motion: reduce) { .wholesale-btn { animation: none; } }
+
+  /* [MOD 5] Sub-filter panel shown under the main chips when "Hair Care" is selected */
+  #hair-subfilters { display: none; }
+  #hair-subfilters.show { display: flex; }
 </style>
 </head>
 
 <body class="antialiased">
 
-<!-- ============ PROMO COUNTDOWN BANNER ============ -->
-<div id="promo-banner" class="sticky top-0 z-[60] brand-gradient-btn text-white">
-  <div class="max-w-7xl mx-auto px-4 py-2.5 flex flex-wrap items-center justify-center gap-2.5 text-center">
-    <span class="text-sm sm:text-base font-bold">🔥 عرض لفترة محدودة على منتجات فاتيكا وزيت دابر أملا ٥٠0مل</span>
-    <div id="promo-timer" class="flex items-center gap-1.5 font-black text-sm sm:text-base bg-white/20 rounded-full px-3 py-1">
-      <span id="promo-h">48</span><span class="opacity-70">س</span> :
-      <span id="promo-m">00</span><span class="opacity-70">د</span> :
-      <span id="promo-s">00</span><span class="opacity-70">ث</span>
-    </div>
-  </div>
-</div>
+<!-- [MOD 1] Promotional countdown banner REMOVED -->
 
 <!-- ============ HEADER ============ -->
 <header id="site-header" class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-bloom-100">
@@ -150,9 +159,14 @@
       <p class="mt-6 text-plum-500 text-lg leading-relaxed max-w-md mx-auto md:mx-0 md:mr-0">
         أكثر من ٣٠ منتج أصلي كوري ويابياني وطبيعي للعناية بالشعر والبشرة، بمقاسات متعددة تناسب ميزانيتك وروتينك اليومي.
       </p>
-      <div class="mt-9 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+      <div class="mt-9 flex flex-col sm:flex-row sm:flex-wrap gap-4 justify-center md:justify-start">
         <a href="#shop" class="brand-gradient-btn text-white font-bold px-9 py-3.5 rounded-full shadow-soft transition-colors text-center">تسوقي الآن</a>
         <a href="#best-sellers" class="px-9 py-3.5 rounded-full border border-lavender-200 text-plum-700 font-bold hover:bg-lavender-100/50 transition-colors text-center">الأكثر مبيعاً</a>
+        <!-- [MOD 2] WHOLESALE WHATSAPP BUTTON (hero). The link is filled from WHOLESALE_WHATSAPP_NUMBER in the script at the bottom of the page. -->
+        <a href="#" data-wholesale-link target="_blank" rel="noopener" class="wholesale-btn font-bold px-9 py-3.5 rounded-full inline-flex items-center justify-center gap-2 text-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+          لطلب الجملة
+        </a>
       </div>
       <div class="mt-10 flex items-center justify-center md:justify-start gap-8 text-plum-500 text-sm">
         <div><span class="block text-2xl font-black text-plum-900">+67</span>منتج أصلي</div>
@@ -195,6 +209,20 @@
     <button data-filter="vitamin-c" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">Vitamin C</button>
     <button data-filter="parfum" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">Parfum</button>
     <button data-filter="coffee" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">Coffee</button>
+    <!-- [MOD 4] NEW "Other" (أخرى) tag: shows every product that has no specific tag -->
+    <button data-filter="other" class="filter-chip text-sm font-bold px-4 py-2 rounded-full" title="أخرى">Other</button>
+  </div>
+
+  <!-- [MOD 5] HAIR CARE SUB-FILTERS (brands). Hidden until the "Hair Care" chip is selected. -->
+  <div id="hair-subfilters" class="flex-wrap justify-center items-center gap-2 mb-10 -mt-4 mx-auto max-w-2xl bg-bloom-50 border border-bloom-100 rounded-3xl px-4 py-3">
+    <span class="text-xs font-bold text-plum-500 ml-1">الماركة:</span>
+    <button data-sub="all" class="filter-chip active text-xs font-bold px-3.5 py-1.5 rounded-full">All</button>
+    <button data-sub="vatika" class="filter-chip text-xs font-bold px-3.5 py-1.5 rounded-full">Vatika</button>
+    <button data-sub="dabur-amla" class="filter-chip text-xs font-bold px-3.5 py-1.5 rounded-full">Dabur Amla</button>
+    <button data-sub="parachute" class="filter-chip text-xs font-bold px-3.5 py-1.5 rounded-full">Parachute</button>
+    <button data-sub="fino" class="filter-chip text-xs font-bold px-3.5 py-1.5 rounded-full">Fino</button>
+    <button data-sub="kesh-king" class="filter-chip text-xs font-bold px-3.5 py-1.5 rounded-full">Kesh King</button>
+    <button data-sub="other" class="filter-chip text-xs font-bold px-3.5 py-1.5 rounded-full" title="أخرى">Other</button>
   </div>
 
   <div id="shop-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7"></div>
@@ -218,6 +246,11 @@
     <h2 class="text-3xl sm:text-4xl font-black text-plum-900">تواصلي معنا</h2>
     <p class="text-plum-500 mt-3 max-w-md mx-auto">لأي استفسار عن المنتجات أو الطلبات، فريقنا جاهز لخدمتك عبر واتساب أو وسائل التواصل</p>
     <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <!-- [MOD 2] WHOLESALE WHATSAPP BUTTON (contact section) - same link as the hero button -->
+      <a href="#" data-wholesale-link target="_blank" rel="noopener" class="wholesale-btn font-bold px-7 py-3 rounded-full inline-flex items-center justify-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+        لطلب الجملة
+      </a>
       <a href="https://wa.me/201027966872" target="_blank" class="brand-gradient-btn text-white font-bold px-7 py-3 rounded-full shadow-soft">راسلينا على واتساب</a>
       <a href="https://www.instagram.com/alzhraa.co?stkn=b256bWlvd2d3dzF1" target="_blank" class="px-7 py-3 rounded-full border border-lavender-200 text-plum-700 font-bold hover:bg-white transition-colors">إنستجرام</a>
       <a href="https://www.facebook.com/share/19khxEGxcd/" target="_blank" class="px-7 py-3 rounded-full border border-lavender-200 text-plum-700 font-bold hover:bg-white transition-colors">فيسبوك</a>
@@ -336,52 +369,59 @@ const HAIR_PRODUCTS = [
     variants:[{label:'50g',price:185},{label:'100g',price:370},{label:'العبوة الكاملة (500g)',price:1100}] },
   { id:'h2', name_ar:'زيت كارسيل ماكا', name_en:'Karseell Maca Essence Oil', image:'karseell-oil.jpg', tags:['hair-care','karsell'],
     variants:[{label:'5ml',price:180},{label:'100ml',price:320},{label:'الزجاجة الكاملة',price:1060}] },
-  { id:'h3', name_ar:'ماسك فينو الياباني', name_en:'Shiseido Fino Premium Touch Hair Mask', image:'fino-mask.jpg', tags:['hair-care'],
+  { id:'h3', name_ar:'ماسك فينو الياباني', name_en:'Shiseido Fino Premium Touch Hair Mask', image:'fino-mask.jpg', tags:['hair-care','fino'],
     variants:[{label:'50g',price:350},{label:'100g',price:590},{label:'العبوة الكاملة (230g)',price:1100}] },
-  { id:'h4', name_ar:'سيروم فينو للشعر', name_en:'Shiseido Fino Hair Serum', image:'fino-serum.jpg', tags:['hair-care'],
+  { id:'h4', name_ar:'سيروم فينو للشعر', name_en:'Shiseido Fino Hair Serum', image:'fino-serum.jpg', tags:['hair-care','fino'],
     variants:[{label:'5ml',price:175},{label:'10ml',price:320},{label:'الزجاجة الكاملة',price:1100}] },
   { id:'h5', name_ar:'زيت الـ١٠٨ عشبة', name_en:'108 Herbs Hair Oil', image:'108-herbs.jpg', tags:['hair-care'],
     variants:[{label:'50ml',price:240},{label:'100ml',price:360},{label:'الزجاجة الكاملة',price:1380}] },
   { id:'h6', name_ar:'صابونة الأعشاب لتكثيف الشعر', name_en:'Seven Green Nature Shampoo Bar', image:'herbal-soap-bar.jpg', tags:['hair-care'],
     fixedPrice:700 },
-  { id:'h7', name_ar:'زيت دابر أملا', name_en:'Dabur Amla Oil', image:'dabur_amla.jpg', tags:['hair-care'],
+  { id:'h7', name_ar:'زيت دابر أملا', name_en:'Dabur Amla Oil', image:'dabur_amla.jpg', tags:['hair-care','dabur-amla'],
     variants:[{label:'240ml',price:295},{label:'300ml',price:380},{label:'500ml',price:495}] },
-  { id:'h8', name_ar:'زيت جوز الهند باراشوت', name_en:'Parachute Coconut Oil', image:'parachute.jpg', tags:['hair-care'],
+  { id:'h8', name_ar:'زيت جوز الهند باراشوت', name_en:'Parachute Coconut Oil', image:'parachute.jpg', tags:['hair-care','parachute'],
     variants:[{label:'200ml',price:310},{label:'500ml',price:460},{label:'1 لتر',price:620}] },
-  { id:'h9', name_ar:'زيت دابر أملا للأطفال', name_en:'Dabur Amla Kids', image:'dabur_amla_kids.jpg', tags:['hair-care'],
+  { id:'h9', name_ar:'زيت دابر أملا للأطفال', name_en:'Dabur Amla Kids', image:'dabur_amla_kids.jpg', tags:['hair-care','dabur-amla'],
     fixedPrice:330 },
-  { id:'h10', name_ar:'زيت دابر أملا جولد', name_en:'Dabur Amla Gold', image:'dabur_amla_gold.jpg', tags:['hair-care'],
+  { id:'h10', name_ar:'زيت دابر أملا جولد', name_en:'Dabur Amla Gold', image:'dabur_amla_gold.jpg', tags:['hair-care','dabur-amla'],
     fixedPrice:380 },
-  { id:'h11', name_ar:'زيت فاتيكا بالثوم', name_en:'Vatika Garlic Oil', image:'vatika_garlic.jpg', tags:['hair-care'],
+  { id:'h11', name_ar:'زيت فاتيكا بالثوم', name_en:'Vatika Garlic Oil', image:'vatika_garlic.jpg', tags:['hair-care','vatika'],
     fixedPrice:390 },
-  { id:'h12', name_ar:'زيت فاتيكا بالبصل', name_en:'Vatika Onion Oil', image:'vatika_onion.jpg', tags:['hair-care'],
+  { id:'h12', name_ar:'زيت فاتيكا بالبصل', name_en:'Vatika Onion Oil', image:'vatika_onion.jpg', tags:['hair-care','vatika'],
     fixedPrice:390 },
-  { id:'h13', name_ar:'زيت فاتيكا باللوز', name_en:'Vatika Almond Oil', image:'vatika_almond.jpg', tags:['hair-care'],
+  { id:'h13', name_ar:'زيت فاتيكا باللوز', name_en:'Vatika Almond Oil', image:'vatika_almond.jpg', tags:['hair-care','vatika'],
     fixedPrice:390 },
-  { id:'h14', name_ar:'زيت فاتيكا بجوز الهند', name_en:'Vatika Coconut Oil', image:'vatika_coconut.jpg', tags:['hair-care'],
+  { id:'h14', name_ar:'زيت فاتيكا بجوز الهند', name_en:'Vatika Coconut Oil', image:'vatika_coconut.jpg', tags:['hair-care','vatika'],
     fixedPrice:390 },
-  { id:'h15', name_ar:'شامبو كيش كينج (340ml)', name_en:'Kesh King Shampoo 340ml', image:'kesh_king_340ml.jpg', tags:['hair-care'],
+  { id:'h15', name_ar:'شامبو كيش كينج (340ml)', name_en:'Kesh King Shampoo 340ml', image:'kesh_king_340ml.jpg', tags:['hair-care','kesh-king'],
     fixedPrice:380 },
-  { id:'h16', name_ar:'شامبو كيش كينج جولد (200ml)', name_en:'Kesh King Gold Shampoo 200ml', image:'kesh_king_gold_200ml.jpg', tags:['hair-care'],
+  { id:'h16', name_ar:'شامبو كيش كينج جولد (200ml)', name_en:'Kesh King Gold Shampoo 200ml', image:'kesh_king_gold_200ml.jpg', tags:['hair-care','kesh-king'],
     fixedPrice:330 },
-    { id:'h17', name_ar:'زيت دابر أملا بالياسمين (300ml)', name_en:'Dabur Amla Jasmine Hair Oil 300ml', image:'dabur-amla-jasmine-300ml.jpg', tags:['hair-care'],
+    { id:'h17', name_ar:'زيت دابر أملا بالياسمين (300ml)', name_en:'Dabur Amla Jasmine Hair Oil 300ml', image:'dabur-amla-jasmine-300ml.jpg', tags:['hair-care','dabur-amla'],
     fixedPrice:380 },
-  { id:'h18', name_ar:'زيت دابر أملا جولد (100ml)', name_en:'Dabur Amla Gold Hair Oil 100ml', image:'dabur-amla-gold-100ml.jpg', tags:['hair-care'],
+  { id:'h18', name_ar:'زيت دابر أملا جولد (100ml)', name_en:'Dabur Amla Gold Hair Oil 100ml', image:'dabur-amla-gold-100ml.jpg', tags:['hair-care','dabur-amla'],
     fixedPrice:185 },
-  { id:'h19', name_ar:'شامبو أملا للأطفال (200ml)', name_en:'Amla Kids Shampoo 200ml', image:'amla-kids-shampoo-200ml.jpg', tags:['hair-care'],
+  { id:'h19', name_ar:'شامبو أملا للأطفال (200ml)', name_en:'Amla Kids Shampoo 200ml', image:'amla-kids-shampoo-200ml.jpg', tags:['hair-care','dabur-amla'],
     fixedPrice:330 },
-  { id:'h20', name_ar:'سبراي أملا للأطفال لفك تشابك الشعر (200ml)', name_en:'Amla Kids Hair Detangler Spray 200ml', image:'amla-kids-spray-200ml.jpg', tags:['hair-care'],
+  { id:'h20', name_ar:'سبراي أملا للأطفال لفك تشابك الشعر (200ml)', name_en:'Amla Kids Hair Detangler Spray 200ml', image:'amla-kids-spray-200ml.jpg', tags:['hair-care','dabur-amla'],
     fixedPrice:330 },
-  { id:'h21', name_ar:'زيت باراشوت أدفانسد بالبيوتين (300ml)', name_en:'Parachute Advansed Biotin Hair Oil 300ml', image:'parachute-biotin-300ml.jpg', tags:['hair-care'],
+  { id:'h21', name_ar:'زيت باراشوت أدفانسد بالبيوتين (300ml)', name_en:'Parachute Advansed Biotin Hair Oil 300ml', image:'parachute-biotin-300ml.jpg', tags:['hair-care','parachute'],
     fixedPrice:380 },
-  { id:'h22', name_ar:'زيت باراشوت أدفانسد بالبصل (300ml)', name_en:'Parachute Advansed Onion Hair Oil 300ml', image:'parachute-onion-300ml.jpg', tags:['hair-care'],
+  { id:'h22', name_ar:'زيت باراشوت أدفانسد بالبصل (300ml)', name_en:'Parachute Advansed Onion Hair Oil 300ml', image:'parachute-onion-300ml.jpg', tags:['hair-care','parachute'],
     fixedPrice:380 },
-  { id:'h23', name_ar:'زيت باراشوت أدفانسد بالصبار (150ml)', name_en:'Parachute Advansed Aloe Vera Hair Oil 150ml', image:'parachute-aloe-vera-150ml.jpg', tags:['hair-care'],
+  { id:'h23', name_ar:'زيت باراشوت أدفانسد بالصبار (150ml)', name_en:'Parachute Advansed Aloe Vera Hair Oil 150ml', image:'parachute-aloe-vera-150ml.jpg', tags:['hair-care','parachute'],
     fixedPrice:260 },
   { id:'h24', name_ar:'تونيك فازلين للشعر (300ml)', name_en:'Vaseline Hair Tonic 300ml', image:'vaseline-hair-tonic-300ml.jpg', tags:['hair-care'],
     fixedPrice:380 },
-  { id:'h25', name_ar:'شامبو كيش كينج بينك (340ml)', name_en:'Kesh King Pink Shampoo 340ml', image:'kesh-king-pink-shampoo-340ml.jpg', tags:['hair-care'],
+  { id:'h25', name_ar:'شامبو كيش كينج بينك (340ml)', name_en:'Kesh King Pink Shampoo 340ml', image:'kesh-king-pink-shampoo-340ml.jpg', tags:['hair-care','kesh-king'],
     fixedPrice:380 },
+
+  /* [MOD 3] NEW PRODUCTS - Hair Care. Brand sub-tag ('vatika') maps the product to its brand's lineup. */
+  { id:'h26', name_ar:'زيت فاتيكا بالروزماري', name_en:'Vatika Rosemary', image:'vatika_rosemary.jpg', tags:['hair-care','vatika'],
+    fixedPrice:390 },
+  /* No brand sub-tag -> automatically appears under Hair Care > Other */
+  { id:'h27', name_ar:'زيت سيسا (150ml)', name_en:'Sesa Oil 150ml', image:'sesa_oil_150ml.jpg', tags:['hair-care'],
+    variants:[{label:'150ml',price:280}] },
 ];
 
 const SKIN_PRODUCTS = [
@@ -525,45 +565,28 @@ const TAG_LABELS = {
   'eye-care':'Eye Care', 'hair-care':'Hair Care', 'vitamin-c':'Vitamin C', parfum:'Parfum', coffee:'Coffee'
 };
 
+/* [MOD 4] Top-level filter tags (the main chips). A product with NONE of these is "unclassified" and shows under the "Other" chip. */
+const TOP_LEVEL_TAGS = ['centella','anua','numbuzin','medicube','karsell','eye-care','hair-care','vitamin-c','parfum','coffee'];
+
+/* [MOD 5] Hair Care brand sub-tags. A Hair Care product with none of these shows under Hair Care > Other. */
+const HAIR_BRAND_TAGS = ['vatika','dabur-amla','parachute','fino','kesh-king'];
+
 const BEST_SELLER_IDS = ['h1', 's3', 's11', 's22'];
 
 const WHATSAPP_NUMBER = '201027966872';
+
+/* [MOD 2] ===== WHOLESALE WHATSAPP NUMBER =====
+   Full international format, digits only (Egypt: 20 + number without the leading 0).
+   01032842286  ->  201032842286
+   Final link: https://wa.me/201032842286  (change ONLY this line to update both wholesale buttons) */
+const WHOLESALE_WHATSAPP_NUMBER = '201032842286';
+const WHOLESALE_WHATSAPP_TEXT = 'مرحباً، أرغب في الاستفسار عن أسعار الجملة';
+document.querySelectorAll('[data-wholesale-link]').forEach(a => {
+  a.href = `https://wa.me/${WHOLESALE_WHATSAPP_NUMBER}?text=${encodeURIComponent(WHOLESALE_WHATSAPP_TEXT)}`;
+});
 const SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzoVA9s6Jca8D3gqBvFIwUezcsi98kkusXTDVsRD7wgvSBhON1nnL0USM4wqc3GPvcS/exec';
 
-/* ===================== 48-HOUR PROMO ===================== */
-const PROMO_PRODUCTS = {
-  h11: { promoPrice: 390 }, 
-  h12: { promoPrice: 390 }, 
-  h13: { promoPrice: 390 }, 
-  h14: { promoPrice: 390 }, 
-  h7:  { promoPrice: 460, variantLabel: '500ml' }, 
-};
-
-const PROMO_STORAGE_KEY = 'alzahraa_promo_end_ts';
-const PROMO_DURATION_MS = 48 * 60 * 60 * 1000; 
-
-function getPromoEndTime() {
-  let stored = localStorage.getItem(PROMO_STORAGE_KEY);
-  if (!stored) {
-    stored = String(Date.now() + PROMO_DURATION_MS);
-    localStorage.setItem(PROMO_STORAGE_KEY, stored);
-  }
-  return parseInt(stored, 10);
-}
-
-let promoEndTime = getPromoEndTime();
-function isPromoActive() { return Date.now() < promoEndTime; }
-
-function getPromoInfo(product) {
-  if (!isPromoActive()) return null;
-  const rule = PROMO_PRODUCTS[product.id];
-  if (!rule) return null;
-  if (rule.variantLabel && currentLabel(product) !== rule.variantLabel) return null;
-  const original = product.fixedPrice
-    ? product.fixedPrice
-    : product.variants[variantSelection[product.id]].price;
-  return { original, promo: rule.promoPrice };
-}
+/* [MOD 1] 48-hour promo config / timer logic REMOVED */
 
 /* ===================== STATE ===================== */
 let cart = [];
@@ -573,6 +596,19 @@ const variantSelection = {};
 ALL_PRODUCTS.forEach(p => { if (p.variants) variantSelection[p.id] = 0; });
 
 let activeFilter = 'all';
+let activeSubFilter = 'all';   // [MOD 5] brand sub-filter inside Hair Care
+
+/* [MOD 4 + 5] Single place that decides whether a product matches the current filters */
+function productMatches(p) {
+  if (activeFilter === 'all') return true;
+  if (activeFilter === 'other') return !p.tags.some(t => TOP_LEVEL_TAGS.includes(t));   // [MOD 4] unclassified products
+  if (!p.tags.includes(activeFilter)) return false;
+  if (activeFilter === 'hair-care' && activeSubFilter !== 'all') {                       // [MOD 5] nested brand filter
+    if (activeSubFilter === 'other') return !p.tags.some(t => HAIR_BRAND_TAGS.includes(t));
+    return p.tags.includes(activeSubFilter);
+  }
+  return true;
+}
 
 /* ===================== ICON ===================== */
 function bottleIcon(extraClass) {
@@ -602,8 +638,7 @@ function productMedia(product, iconClass) {
 }
 
 function currentPrice(product) {
-  const promo = getPromoInfo(product);
-  if (promo) return promo.promo;
+  // [MOD 1] promo price logic removed - always the regular price
   if (product.fixedPrice) return product.fixedPrice;
   return product.variants[variantSelection[product.id]].price;
 }
@@ -613,13 +648,7 @@ function currentLabel(product) {
 }
 
 function priceBlockHTML(product) {
-  const promo = getPromoInfo(product);
-  if (promo) {
-    return `<span class="price-label flex items-baseline gap-2" data-id="${product.id}">
-      <span style="text-decoration:line-through; opacity:0.6;" class="text-sm text-plum-500">${promo.original} ج.م</span>
-      <span class="font-black text-plum-900 text-lg">${promo.promo} ج.م</span>
-    </span>`;
-  }
+  // [MOD 1] promo (strike-through) price block removed
   return `<span class="price-label font-black text-plum-900 text-lg" data-id="${product.id}">${currentPrice(product)} ج.م</span>`;
 }
 
@@ -628,10 +657,10 @@ function renderShopGrid() {
   const grid = document.getElementById('shop-grid');
 
   grid.innerHTML = ALL_PRODUCTS.map(p => {
-    const visible = activeFilter === 'all' || p.tags.includes(activeFilter);
+    const visible = productMatches(p);   // [MOD 4/5]
     const primaryTag = TAG_LABELS[p.tags[0]] || '';
     return `
-    <div class="product-card card-hover bg-white rounded-3xl border border-bloom-100 shadow-sm hover:shadow-soft p-6 flex flex-col ${visible ? '' : 'hidden-card'}" data-tags="${p.tags.join(',')}">
+    <div class="product-card card-hover bg-white rounded-3xl border border-bloom-100 shadow-sm hover:shadow-soft p-6 flex flex-col ${visible ? '' : 'hidden-card'}" data-tags="${p.tags.join(',')}" data-id="${p.id}">
       ${productMedia(p, p.cat === 'hair' ? 'w-16 h-16 text-lavender-400' : 'w-16 h-16 text-bloom-400')}
       ${primaryTag ? `<span class="tag-pill bg-lavender-100 text-lavender-500 self-start mb-2" dir="ltr">${primaryTag}</span>` : ''}
       <h3 class="font-bold text-plum-900 text-lg leading-snug">${p.name_ar}</h3>
@@ -670,17 +699,32 @@ function bindProductControls(grid) {
 }
 
 /* ===================== FILTER CHIPS ===================== */
+/* [MOD 4/5] Re-applies main filter + Hair Care sub-filter and shows/hides the sub-filter panel */
+function applyFilters() {
+  document.getElementById('hair-subfilters').classList.toggle('show', activeFilter === 'hair-care');
+  document.querySelectorAll('#shop-grid .product-card').forEach(card => {
+    const p = ALL_PRODUCTS.find(x => x.id === card.dataset.id);
+    card.classList.toggle('hidden-card', !productMatches(p));
+  });
+}
+
 document.getElementById('shop-filters').addEventListener('click', (e) => {
   const btn = e.target.closest('.filter-chip');
   if (!btn) return;
   activeFilter = btn.dataset.filter;
+  activeSubFilter = 'all';   // [MOD 5] reset brand sub-filter whenever the main filter changes
   document.querySelectorAll('#shop-filters .filter-chip').forEach(b => b.classList.toggle('active', b === btn));
+  document.querySelectorAll('#hair-subfilters .filter-chip').forEach(b => b.classList.toggle('active', b.dataset.sub === 'all'));
+  applyFilters();
+});
 
-  document.querySelectorAll('#shop-grid .product-card').forEach(card => {
-    const tags = card.dataset.tags.split(',');
-    const show = activeFilter === 'all' || tags.includes(activeFilter);
-    card.classList.toggle('hidden-card', !show);
-  });
+/* [MOD 5] Hair Care brand sub-filter clicks */
+document.getElementById('hair-subfilters').addEventListener('click', (e) => {
+  const btn = e.target.closest('.filter-chip');
+  if (!btn) return;
+  activeSubFilter = btn.dataset.sub;
+  document.querySelectorAll('#hair-subfilters .filter-chip').forEach(b => b.classList.toggle('active', b === btn));
+  applyFilters();
 });
 
 /* ===================== RENDER: BEST SELLERS ===================== */
@@ -873,55 +917,7 @@ document.getElementById('confirm-order').addEventListener('click', () => {
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
 });
 
-/* ===================== PROMO COUNTDOWN BANNER ===================== */
-function syncHeaderOffset() {
-  const banner = document.getElementById('promo-banner');
-  const header = document.getElementById('site-header');
-  if (!header) return;
-  header.style.top = (banner && banner.offsetParent !== null) ? banner.offsetHeight + 'px' : '0px';
-}
-
-function expirePromo() {
-  const banner = document.getElementById('promo-banner');
-  if (banner) banner.remove();
-  syncHeaderOffset();
-  renderShopGrid();
-  renderBestSellers();
-  renderCart();
-}
-
-function tickPromoTimer() {
-  const banner = document.getElementById('promo-banner');
-  if (!banner) return;
-
-  const remaining = promoEndTime - Date.now();
-  if (remaining <= 0) {
-    clearInterval(promoTimerInterval);
-    expirePromo();
-    return;
-  }
-
-  const totalSeconds = Math.floor(remaining / 1000);
-  const hours = Math.floor(totalSeconds / 3600);
-  const minutes = Math.floor((totalSeconds % 3600) / 60);
-  const seconds = totalSeconds % 60;
-
-  document.getElementById('promo-h').textContent = String(hours).padStart(2, '0');
-  document.getElementById('promo-m').textContent = String(minutes).padStart(2, '0');
-  document.getElementById('promo-s').textContent = String(seconds).padStart(2, '0');
-}
-
-let promoTimerInterval = null;
-if (isPromoActive()) {
-  tickPromoTimer();
-  promoTimerInterval = setInterval(tickPromoTimer, 1000);
-  syncHeaderOffset();
-  window.addEventListener('resize', syncHeaderOffset);
-} else {
-  const staleBanner = document.getElementById('promo-banner');
-  if (staleBanner) staleBanner.remove();
-  syncHeaderOffset();
-}
+/* [MOD 1] Promo countdown banner script REMOVED */
 
 /* ===================== INIT ===================== */
 renderShopGrid();
