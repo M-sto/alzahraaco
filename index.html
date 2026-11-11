@@ -312,7 +312,25 @@
       <span>الإجمالي</span>
       <span id="cart-total">٠ ج.م</span>
     </div>
-    <div class="space-y-2.5">
+    <!-- [STAFF EDIT BOX] مخفي افتراضياً ويظهر للموظف بعد إدخال الكود السري -->
+    <div id="staff-edit-box" class="hidden space-y-2.5 bg-lavender-100/60 p-3.5 rounded-2xl border border-lavender-300">
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-bold text-plum-900">🛠️ وضع تعديل طلب سابق (للموظف)</span>
+        <button id="exit-staff-mode" type="button" class="text-[11px] text-bloom-400 hover:underline font-bold">إلغاء والعودة</button>
+      </div>
+      <input id="edit-order-id" type="text" placeholder="اكتب رقم الطلب (Order ID) المراد تعديله..." class="w-full px-4 py-2.5 rounded-xl border border-lavender-300 focus:border-plum-700 focus:outline-none text-sm bg-white font-bold text-plum-900">
+      
+      <div class="pt-1 border-t border-lavender-200 space-y-2">
+        <label class="block text-[11px] font-bold text-plum-800">إضافة منتجات غير موجودة بالموقع (اختياري):</label>
+        <input id="manual-items-input" type="text" placeholder="اكتب اسم/تفاصيل المنتجات اليدوية (ستنزل بولد بالشيت)..." class="w-full px-3.5 py-2 rounded-xl border border-lavender-300 focus:border-plum-700 focus:outline-none text-xs bg-white text-plum-900 font-bold">
+        <input id="manual-total-input" type="number" min="0" step="any" placeholder="إجمالي سعر المنتجات اليدوية فقط (ج.م)" class="w-full px-3.5 py-2 rounded-xl border border-lavender-300 focus:border-plum-700 focus:outline-none text-xs bg-white text-plum-900 font-bold">
+      </div>
+      
+      <p class="text-[11px] text-plum-700 leading-relaxed">سيتم تحديث الأصناف والإجمالي لهذا الطلب في الشيت مباشرة دون فتح واتساب.</p>
+    </div>
+
+    <!-- [CUSTOMER FIELDS] تختفي تلقائياً عند تفعيل وضع تعديل الطلب للموظف -->
+    <div id="customer-fields-box" class="space-y-2.5">
       <input id="cust-name" type="text" placeholder="الاسم بالكامل" class="w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm">
       <input id="cust-phone" type="tel" placeholder="رقم الهاتف" class="w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm">
       
@@ -352,9 +370,12 @@
     </div>
     <button id="confirm-order" class="w-full brand-gradient-btn text-white font-bold py-3.5 rounded-full shadow-soft flex items-center justify-center gap-2">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
-      تأكيد الطلب عبر واتساب
+      <span id="confirm-order-text">تأكيد الطلب عبر واتساب</span>
     </button>
-    <p class="text-[11px] text-plum-500 text-center leading-relaxed">سيتم تحويلك إلى واتساب لإرسال تفاصيل طلبك مباشرة لفريقنا</p>
+    <p id="confirm-order-hint" class="text-[11px] text-plum-500 text-center leading-relaxed">سيتم تحويلك إلى واتساب لإرسال تفاصيل طلبك مباشرة لفريقنا</p>
+    <div class="pt-1 text-center">
+      <button id="staff-mode-btn" type="button" class="text-[11px] text-plum-500/60 hover:text-plum-900 underline transition-colors">تعديل طلب سابق (للموظفين)</button>
+    </div>
   </div>
 </aside>
 
@@ -788,7 +809,13 @@ function removeItem(key) {
   renderCart();
 }
 
-function cartTotal() { return cart.reduce((sum, c) => sum + c.price * c.qty, 0); }
+function getManualExtraTotal() {
+  const el = document.getElementById('manual-total-input');
+  if (!el || typeof isStaffEditMode === 'undefined' || !isStaffEditMode) return 0;
+  const val = parseFloat(el.value);
+  return (!isNaN(val) && val > 0) ? val : 0;
+}
+function cartTotal() { return cart.reduce((sum, c) => sum + c.price * c.qty, 0) + getManualExtraTotal(); }
 function cartCount() { return cart.reduce((sum, c) => sum + c.qty, 0); }
 
 function renderCart() {
@@ -860,10 +887,109 @@ function showToast(msg) {
   toastTimer = setTimeout(() => toast.classList.add('translate-y-24', 'opacity-0'), 2200);
 }
 
-/* ===================== WHATSAPP CHECKOUT ===================== */
-document.getElementById('confirm-order').addEventListener('click', () => {
-  if (cart.length === 0) { showToast('السلة فارغة، أضيفي منتجات أولاً'); return; }
+/* ===================== STAFF EDIT MODE & WHATSAPP CHECKOUT ===================== */
+const STAFF_PIN = 'zhr@sha2027';
+let isStaffEditMode = false;
 
+const staffModeBtn = document.getElementById('staff-mode-btn');
+const exitStaffModeBtn = document.getElementById('exit-staff-mode');
+const staffEditBox = document.getElementById('staff-edit-box');
+const customerFieldsBox = document.getElementById('customer-fields-box');
+const confirmOrderText = document.getElementById('confirm-order-text');
+const confirmOrderHint = document.getElementById('confirm-order-hint');
+const editOrderIdInput = document.getElementById('edit-order-id');
+const manualItemsInput = document.getElementById('manual-items-input');
+const manualTotalInput = document.getElementById('manual-total-input');
+
+manualTotalInput.addEventListener('input', () => {
+  document.getElementById('cart-total').textContent = `${cartTotal()} ج.م`;
+});
+
+function setStaffEditMode(enabled) {
+  isStaffEditMode = enabled;
+  if (enabled) {
+    staffEditBox.classList.remove('hidden');
+    customerFieldsBox.classList.add('hidden');
+    staffModeBtn.classList.add('hidden');
+    confirmOrderText.textContent = 'تحديث الطلب في الشيت فقط';
+    confirmOrderHint.textContent = 'وضع الموظف: سيتم تعديل الأصناف والإجمالي في الشيت مباشرة';
+    document.getElementById('cart-total').textContent = `${cartTotal()} ج.م`;
+    editOrderIdInput.focus();
+  } else {
+    staffEditBox.classList.add('hidden');
+    customerFieldsBox.classList.remove('hidden');
+    staffModeBtn.classList.remove('hidden');
+    confirmOrderText.textContent = 'تأكيد الطلب عبر واتساب';
+    confirmOrderHint.textContent = 'سيتم تحويلك إلى واتساب لإرسال تفاصيل طلبك مباشرة لفريقنا';
+    editOrderIdInput.value = '';
+    manualItemsInput.value = '';
+    manualTotalInput.value = '';
+    document.getElementById('cart-total').textContent = `${cartTotal()} ج.م`;
+  }
+}
+
+staffModeBtn.addEventListener('click', () => {
+  const pin = prompt('أدخل الكود السري للموظف لتفعيل وضع تعديل الطلب:');
+  if (pin === null) return;
+  if (pin.trim() === STAFF_PIN) {
+    setStaffEditMode(true);
+    showToast('تم تفعيل وضع تعديل الطلب للموظف');
+  } else {
+    showToast('الكود السري غير صحيح!');
+  }
+});
+
+exitStaffModeBtn.addEventListener('click', () => {
+  setStaffEditMode(false);
+  showToast('تم العودة لوضع الطلب العادي');
+});
+
+document.getElementById('confirm-order').addEventListener('click', () => {
+  const manualItemsText = isStaffEditMode ? manualItemsInput.value.trim() : '';
+  const manualExtraPrice = getManualExtraTotal();
+
+  if (cart.length === 0 && !manualItemsText) {
+    showToast('السلة فارغة، أضيفي منتجات أولاً أو اكتبي منتجاً يدوياً');
+    return;
+  }
+
+  const itemsSummary = cart.map(c => {
+    return c.size ? `(${c.name_ar}: ${c.size} × ${c.qty})` : `(${c.name_ar} × ${c.qty})`;
+  }).join(', ');
+
+  // 1) حالة تعديل طلب سابق (للموظف) -> تحديث الشيت فقط بدون واتساب
+  if (isStaffEditMode) {
+    const orderId = editOrderIdInput.value.trim();
+    if (!orderId) {
+      showToast('من فضلك اكتب رقم الطلب (Order ID) المراد تعديله');
+      editOrderIdInput.focus();
+      return;
+    }
+
+    fetch(SHEET_WEBHOOK_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        action: 'update',
+        orderId: orderId,
+        items: itemsSummary,
+        manualItems: manualItemsText,
+        manualTotal: manualExtraPrice,
+        total: cartTotal()
+      })
+    }).catch(err => console.error('Sheet webhook update error:', err));
+
+    cart = [];
+    saveCart();
+    setStaffEditMode(false);
+    renderCart();
+    closeCart();
+    showToast(`تم إرسال تحديث الطلب رقم (${orderId}) إلى الشيت بنجاح`);
+    return;
+  }
+
+  // 2) حالة الطلب العادي للعميل
   const name = document.getElementById('cust-name').value.trim();
   const phone = document.getElementById('cust-phone').value.trim();
   const governorate = document.getElementById('cust-governorate').value;
@@ -873,8 +999,6 @@ document.getElementById('confirm-order').addEventListener('click', () => {
     showToast('من فضلك أكملي جميع بيانات التواصل والمحافظة'); 
     return; 
   }
-
-  const fullAddress = `${governorate} - ${address}`;
 
   const lines = [];
   lines.push('🌸 *طلب جديد من متجر ALZAHRAA*');
@@ -893,13 +1017,9 @@ document.getElementById('confirm-order').addEventListener('click', () => {
   lines.push(`المحافظة: ${governorate}`);
   lines.push(`العنوان التفصيلي: ${address}`);
 
-  const itemsSummary = cart.map(c => {
-    return c.size ? `(${c.name_ar}: ${c.size} × ${c.qty})` : `(${c.name_ar} × ${c.qty})`;
-  }).join(', ');
-
   const message = lines.join('\n');
 
-   // Log the order to the connected Google Sheet
+  // Log the order to the connected Google Sheet
   fetch(SHEET_WEBHOOK_URL, {
     method: 'POST',
     mode: 'no-cors',
