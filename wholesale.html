@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ALZAHRAA | طلب الجملة</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="ALZAHRAA الزهراء - قسم طلبات الجملة لتجار وموزعي منتجات العناية الكورية واليابانية والهندية بالبشرة والشعر.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://alzahraaco.com/wholesale.html">
+<meta name="author" content="ALZAHRAA">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          logo: ['"Cormorant Garamond"', 'serif'],
+          arabic: ['Tajawal', 'sans-serif'],
+        },
+        colors: {
+          bloom: {
+            50:'#FEF6FA',
+            100:'#FCE9F3',
+            200:'#F7CFE4',
+            300:'#F2B0D2',
+            400:'#E88CBD'
+          },
+          lavender: {
+            100:'#F1EBFC',
+            200:'#DFD0F7',
+            300:'#C6ABF0',
+            400:'#A87DE0',
+            500:'#8B5FC9'
+          },
+          plum: {
+            900:'#2E1F3D',
+            700:'#4A3560',
+            500:'#6E5486'
+          }
+        },
+        boxShadow: {
+          soft: '0 20px 45px -18px rgba(139, 95, 201, 0.28)'
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  * { font-family: 'Tajawal', sans-serif; }
+  .font-logo { font-family: 'Cormorant Garamond', serif; }
+  html { scroll-behavior: smooth; }
+  body { background: #FFFDFE; color: #2E1F3D; }
+
+  .brand-gradient-bg { background: radial-gradient(120% 120% at 100% 0%, #F1EBFC 0%, #FEF6FA 45%, #FFFFFF 100%); }
+  .brand-gradient-btn { background: linear-gradient(100deg, #E88CBD 0%, #C6ABF0 55%, #A87DE0 100%); }
+  .brand-gradient-btn:hover { background: linear-gradient(100deg, #DE79AF 0%, #B994ED 55%, #9A6BD8 100%); }
+
+  .offers-btn {
+    background: linear-gradient(100deg, #F59E0B 0%, #EC4899 100%);
+    color: #ffffff;
+  }
+  .offers-btn:hover { filter: brightness(0.95); }
+
+  .wholesale-btn {
+    background: #2E1F3D;
+    color: #ffffff;
+    box-shadow: 0 0 0 2px #C6ABF0, 0 10px 24px -10px rgba(139,95,201,.45);
+    transition: background .25s ease, transform .15s ease;
+  }
+  .wholesale-btn:hover { background: #4A3560; transform: translateY(-1px); }
+
+  .whatsapp-activate-btn {
+    background: #25D366;
+    color: #ffffff;
+    transition: background .2s ease, transform .15s ease;
+  }
+  .whatsapp-activate-btn:hover { background: #1EBE5D; transform: translateY(-1px); }
+
+  .blob { position:absolute; border-radius:50%; filter:blur(60px); opacity:.55; pointer-events:none; }
+  .tag-pill { font-size:.72rem; padding:.2rem .65rem; border-radius:999px; display:inline-block; font-weight:700; }
+  .card-hover { transition: transform .35s ease, box-shadow .35s ease; }
+  .card-hover:hover { transform: translateY(-6px); }
+
+  .filter-chip {
+    border: 1px solid #DFD0F7;
+    background: #FFFFFF;
+    color: #4A3560;
+    transition: background .25s ease, color .25s ease, border-color .25s ease;
+  }
+  .filter-chip:hover { border-color: #A87DE0; }
+  .filter-chip.active {
+    background: #2E1F3D;
+    color: #ffffff;
+    border-color: transparent;
+  }
+
+  .product-card.hidden-card { display: none; }
+
+  select.variant-select, select.governorate-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236E5486' stroke-width='1.5' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: left .9rem center;
+    -webkit-appearance: none; appearance: none;
+  }
+
+  #cart-panel { transition: transform .4s cubic-bezier(.16,1,.3,1); }
+  #cart-overlay { transition: opacity .3s ease; }
+  .scrollbar-thin::-webkit-scrollbar { width:5px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { background:#DFD0F7; border-radius:10px; }
+  .toast { transition: transform .35s ease, opacity .35s ease; }
+</style>
+</head>
+
+<body class="antialiased min-h-screen flex flex-col">
+
+<!-- ============ UNIFIED HEADER ============ -->
+<header id="site-header" class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-bloom-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-8">
+    <div class="flex items-center justify-between h-[72px] gap-3">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2 shrink-0">
+        <img src="logo.jpg" alt="ALZAHRAA" class="h-10 w-10 rounded-full object-cover" onerror="this.style.display='none'">
+        <span class="font-logo italic text-[26px] sm:text-[32px] tracking-wide text-plum-900">ALZAHRAA</span>
+        <span class="hidden sm:inline text-lavender-500 text-xl leading-none">٭</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden xl:flex items-center gap-6 text-[14px] font-medium text-plum-700">
+        <a href="index.html" class="hover:text-lavender-500 transition-colors">الرئيسية</a>
+        <a href="#wholesale-shop" class="hover:text-lavender-500 transition-colors">منتجات الجملة</a>
+      </nav>
+
+      <!-- Main 3 Store Buttons (Desktop) -->
+      <div class="hidden md:flex items-center gap-2.5">
+        <a href="retail.html" class="brand-gradient-btn text-white text-sm font-bold px-5 py-2.5 rounded-full shadow-soft transition-transform hover:-translate-y-0.5">
+          طلب قطاعي
+        </a>
+        <a href="wholesale.html" class="wholesale-btn text-sm font-bold px-5 py-2.5 rounded-full ring-2 ring-lavender-400 ring-offset-2">
+          طلب جملة
+        </a>
+        <a href="offers.html" class="offers-btn text-sm font-bold px-5 py-2.5 rounded-full shadow-sm transition-transform hover:-translate-y-0.5">
+          العروض
+        </a>
+      </div>
+
+      <!-- Cart + Mobile Menu -->
+      <div class="flex items-center gap-2">
+        <button id="cart-btn" aria-label="عرض سلة الجملة" class="relative w-11 h-11 rounded-full bg-lavender-100 hover:bg-lavender-200 transition-colors flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-plum-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span id="cart-count" class="absolute -top-1 -left-1 min-w-[19px] h-[19px] px-1 rounded-full bg-plum-900 text-white text-[11px] font-bold flex items-center justify-center">0</span>
+        </button>
+        <button id="menu-btn" class="xl:hidden w-10 h-10 flex items-center justify-center text-plum-700" aria-label="القائمة">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Main 3 Store Buttons (Always visible top bar on Mobile) -->
+    <div class="flex md:hidden items-center justify-center gap-2 pb-3">
+      <a href="retail.html" class="flex-1 text-center brand-gradient-btn text-white text-xs font-bold py-2.5 px-2 rounded-full shadow-sm">
+        طلب قطاعي
+      </a>
+      <a href="wholesale.html" class="flex-1 text-center wholesale-btn text-xs font-bold py-2.5 px-2 rounded-full ring-2 ring-lavender-400">
+        طلب جملة
+      </a>
+      <a href="offers.html" class="flex-1 text-center offers-btn text-xs font-bold py-2.5 px-2 rounded-full shadow-sm">
+        العروض
+      </a>
+    </div>
+
+    <!-- Mobile Secondary Nav -->
+    <nav id="mobile-nav" class="hidden xl:hidden pb-4 flex flex-col gap-1 text-plum-700 font-medium border-t border-bloom-50 pt-2">
+      <a href="index.html" class="py-2 px-2 rounded-lg hover:bg-bloom-50">الرئيسية (من نحن)</a>
+      <a href="#wholesale-shop" class="py-2 px-2 rounded-lg hover:bg-bloom-50">منتجات الجملة</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ PASSWORD GATE (LOCKED STATE) ============ -->
+<main class="flex-1">
+  <section id="wholesale-gate" class="relative overflow-hidden brand-gradient-bg py-16 sm:py-24 px-5">
+    <div class="blob w-[320px] h-[320px] bg-bloom-200 -top-20 left-[-60px]"></div>
+    <div class="blob w-[380px] h-[380px] bg-lavender-200 bottom-0 -right-24"></div>
+
+    <div class="relative max-w-lg mx-auto bg-white rounded-[2rem] border border-lavender-200 shadow-soft p-7 sm:p-10 text-center">
+      <div class="w-16 h-16 mx-auto rounded-2xl bg-plum-900 text-white flex items-center justify-center mb-5 shadow-md">
+        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+      </div>
+
+      <span class="tag-pill bg-lavender-100 text-lavender-500 mb-3">قسم مخصص لتجار الجملة</span>
+      <h1 class="text-2xl sm:text-3xl font-black text-plum-900">تفعيل وحجز طلبات الجملة</h1>
+      <p class="text-sm text-plum-500 mt-3 leading-relaxed">
+        للاطلاع على أسعار الجملة وتأكيد الحجز، يرجى إدخال كلمة المرور الخاصة بقسم الجملة.
+      </p>
+
+      <!-- Password Form -->
+      <form id="gate-form" class="mt-6 space-y-3">
+        <input id="gate-password" type="password" autocomplete="off" placeholder="أدخل كلمة مرور الجملة..."
+               class="w-full px-4 py-3 rounded-xl border border-lavender-200 focus:border-plum-900 focus:outline-none text-center font-bold text-plum-900">
+        <p id="gate-error" class="hidden text-xs font-bold text-rose-500">كلمة المرور غير صحيحة، يرجى التأكد والمحاولة مرة أخرى.</p>
+        <button type="submit" class="w-full wholesale-btn font-bold py-3.5 rounded-full text-base">
+          دخول وتفعيل القسم
+        </button>
+      </form>
+
+      <div class="my-6 flex items-center gap-3 text-xs text-plum-500">
+        <div class="flex-1 h-px bg-bloom-100"></div>
+        <span>ليس لديك كلمة مرور؟</span>
+        <div class="flex-1 h-px bg-bloom-100"></div>
+      </div>
+
+      <!-- WhatsApp Activation Button (01132867267) -->
+      <a href="#" data-wholesale-activate target="_blank" rel="noopener"
+         class="whatsapp-activate-btn w-full font-bold py-3.5 px-5 rounded-full inline-flex items-center justify-center gap-2.5 shadow-md text-sm sm:text-base">
+        <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+        <span>لتفعيل طلب الجملة تواصل معنا على الواتس</span>
+      </a>
+      <p class="text-[11px] text-plum-500 mt-3" dir="ltr">WhatsApp: 01132867267</p>
+    </div>
+  </section>
+
+  <!-- ============ UNLOCKED WHOLESALE CONTENT ============ -->
+  <div id="wholesale-content" class="hidden">
+    <!-- Hero Banner -->
+    <section class="relative overflow-hidden brand-gradient-bg border-b border-bloom-100">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 py-12 sm:py-16 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="text-center md:text-right">
+          <span class="tag-pill bg-plum-900 text-white mb-3">قسم الجملة مفعل</span>
+          <h1 class="text-3xl sm:text-4xl font-black text-plum-900">كتالوج طلبات الجملة — ALZAHRAA</h1>
+          <p class="text-plum-500 mt-2 text-sm sm:text-base max-w-xl">
+            أضيفي المنتجات المطلوبة لسلة الجملة وأكدي الطلب ليتم تسجيله فوراً في شيت الجملة وإرساله على واتساب الجملة.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <a href="#" data-wholesale-activate target="_blank" rel="noopener"
+             class="whatsapp-activate-btn font-bold px-5 py-3 rounded-full inline-flex items-center gap-2 text-sm shadow-sm">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+            <span>لتفعيل طلب الجملة تواصل معنا على الواتس</span>
+          </a>
+          <button id="lock-wholesale-btn" type="button" class="px-5 py-3 rounded-full border border-lavender-200 text-plum-700 hover:bg-white text-sm font-bold transition-colors">
+            قفل القسم
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wholesale Products Grid -->
+    <section id="wholesale-shop" class="max-w-7xl mx-auto px-5 sm:px-8 py-14">
+      <!-- Search + Filters -->
+      <div class="max-w-md mx-auto mb-7">
+        <input id="wholesale-search" type="search" placeholder="ابحثي باسم المنتج بالعربي أو الإنجليزي..."
+               class="w-full px-5 py-3 rounded-full border border-lavender-200 focus:border-plum-900 focus:outline-none text-sm bg-white shadow-sm">
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-2.5 mb-10" id="wholesale-filters">
+        <button data-filter="all" class="filter-chip active text-sm font-bold px-4 py-2 rounded-full">الكل</button>
+        <button data-filter="hair-care" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">العناية بالشعر</button>
+        <button data-filter="skin-care" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">العناية بالبشرة</button>
+        <button data-filter="parfum" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">العطور</button>
+        <button data-filter="coffee" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">القهوة</button>
+      </div>
+
+      <div id="wholesale-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7"></div>
+    </section>
+  </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-plum-900 text-white/80 py-10 mt-auto">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2">
+      <img src="logo.jpg" alt="ALZAHRAA" class="h-9 w-9 rounded-full object-cover" onerror="this.style.display='none'">
+      <span class="font-logo italic text-2xl text-white">ALZAHRAA</span>
+    </div>
+    <p class="text-sm text-white/50">© 2026 ALZAHRAA — جميع الحقوق محفوظة</p>
+  </div>
+
+  <div class="mt-6 pt-5 border-t border-white/10 flex items-center justify-center gap-1.5" style="opacity:0.7">
+    <span style="font-size:0.85rem; color:#888888;">Made by Eng / Mohamed Abdulla</span>
+    <a href="https://wa.me/201113243296" target="_blank" aria-label="Contact developer on WhatsApp"
+       class="inline-flex items-center justify-center transition-colors hover:opacity-100" style="color:#888888;"
+       onmouseover="this.style.color='#25D366'" onmouseout="this.style.color='#888888'">
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+    </a>
+  </div>
+</footer>
+
+<!-- ============ WHOLESALE CART OVERLAY + PANEL ============ -->
+<div id="cart-overlay" class="fixed inset-0 bg-plum-900/40 backdrop-blur-sm z-50 opacity-0 pointer-events-none"></div>
+
+<aside id="cart-panel" class="fixed top-0 left-0 h-full w-full sm:w-[420px] bg-white z-50 shadow-2xl -translate-x-full flex flex-col">
+  <div class="flex items-center justify-between px-6 py-5 border-b border-bloom-100">
+    <h3 class="text-xl font-black text-plum-900">سلة طلب الجملة</h3>
+    <button id="cart-close" class="w-9 h-9 rounded-full hover:bg-bloom-50 flex items-center justify-center text-plum-700">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <div id="cart-items" class="flex-1 overflow-y-auto scrollbar-thin px-6 py-4 space-y-4"></div>
+
+  <div id="cart-footer" class="border-t border-bloom-100 px-6 py-5 space-y-4">
+    <div class="flex items-center justify-between font-bold text-plum-900 text-lg">
+      <span>إجمالي طلب الجملة</span>
+      <span id="cart-total">٠ ج.م</span>
+    </div>
+
+    <div class="space-y-2.5">
+      <input id="w-name" type="text" placeholder="الاسم بالكامل / اسم المحل أو الصفحة" class="w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm">
+      <input id="w-phone" type="tel" placeholder="رقم الهاتف (واتساب)" class="w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm">
+
+      <select id="w-governorate" class="governorate-select w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm text-plum-700 bg-white">
+        <option value="" disabled selected>اختر المحافظة...</option>
+        <option value="القاهرة">القاهرة</option>
+        <option value="الجيزة">الجيزة</option>
+        <option value="الأسكندرية">الأسكندرية</option>
+        <option value="الدقهلية">الدقهلية</option>
+        <option value="البحر الأحمر">البحر الأحمر</option>
+        <option value="البحيرة">البحيرة</option>
+        <option value="الفيوم">الفيوم</option>
+        <option value="الغربية">الغربية</option>
+        <option value="الإسماعيلية">الإسماعيلية</option>
+        <option value="المنوفية">المنوفية</option>
+        <option value="المنيا">المنيا</option>
+        <option value="القليوبية">القليوبية</option>
+        <option value="الوادي الجديد">الوادي الجديد</option>
+        <option value="السويس">السويس</option>
+        <option value="الشرقية">الشرقية</option>
+        <option value="أسوان">أسوان</option>
+        <option value="أسيوط">أسيوط</option>
+        <option value="بني سويف">بني سويف</option>
+        <option value="بورسعيد">بورسعيد</option>
+        <option value="دمياط">دمياط</option>
+        <option value="قنا">قنا</option>
+        <option value="جنوب سيناء">جنوب سيناء</option>
+        <option value="كفر الشيخ">كفر الشيخ</option>
+        <option value="مطروح">مطروح</option>
+        <option value="الأقصر">الأقصر</option>
+        <option value="سوهاج">سوهاج</option>
+        <option value="شمال سيناء">شمال سيناء</option>
+      </select>
+
+      <input id="w-address" type="text" placeholder="العنوان التفصيلي" class="w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm">
+      <input id="w-notes" type="text" placeholder="ملاحظات إضافية (اختياري)" class="w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm">
+    </div>
+
+    <button id="confirm-wholesale-order" class="w-full wholesale-btn font-bold py-3.5 rounded-full flex items-center justify-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+      <span>تأكيد طلب الجملة عبر واتساب</span>
+    </button>
+    <p class="text-[11px] text-plum-500 text-center">سيتم تسجيل الطلب في شيت الجملة وتحويلك لواتساب الجملة لتأكيد الحجز</p>
+  </div>
+</aside>
+
+<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 translate-y-24 opacity-0 z-[60] bg-plum-900 text-white text-sm font-medium px-5 py-3 rounded-full shadow-lg toast">
+  تمت الإضافة إلى سلة الجملة
+</div>
+
+<script>
+/* ===================== WHOLESALE SETTINGS =====================
+   1) كلمة مرور قسم الجملة (غيّرها بالكلمة اللي هتديها للعامل أو للتاجر)
+   2) رقم واتساب الجملة: 01132867267 -> 201132867267
+   3) رابط Webhook الخاص بشيت الجملة (هنعمله في الخطوة 5 وتحطه هنا)
+*/
+let WHOLESALE_PASSWORD = 'zhr@wholesale2027';
+let WHOLESALE_WHATSAPP_NUMBER = '201132867267';
+const WHOLESALE_ACTIVATE_TEXT = 'مرحباً، أرغب في تفعيل حساب/طلب الجملة والحصول على كلمة المرور';
+const WHOLESALE_SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbz6ZJ4F-HI6HcY8zxxvwKxaz68v_nlM3C06wfE3l1R4hjgRuiM8trgexAmJznviWBd-Jg/exec';
+
+document.querySelectorAll('[data-wholesale-activate]').forEach(a => {
+  a.href = `https://wa.me/${WHOLESALE_WHATSAPP_NUMBER}?text=${encodeURIComponent(WHOLESALE_ACTIVATE_TEXT)}`;
+});
+
+/* ===================== WHOLESALE PRODUCTS =====================
+   عدّل الأسعار والأصناف هنا حسب قائمة الجملة بتاعتك.
+   يمكنك تحديد minQty (الحد الأدنى للقطع) لكل منتج، أو تركه 1.
+*/
+const WHOLESALE_PRODUCTS = [
+  { id:'wh1', name_ar:'ماسك كارسيل بالكولاجين (جملة)', name_en:'Karseell Collagen Hair Mask', image:'karseell-mask.jpg', cat:'hair-care', minQty:6,
+    variants:[{label:'العبوة الكاملة (500g)', price:850}] },
+  { id:'wh2', name_ar:'ماسك فينو الياباني (جملة)', name_en:'Shiseido Fino Hair Mask', image:'fino-mask.jpg', cat:'hair-care', minQty:6,
+    variants:[{label:'العبوة الكاملة (230g)', price:850}] },
+  { id:'wh3', name_ar:'زيت دابر أملا (جملة)', name_en:'Dabur Amla Oil', image:'dabur_amla.jpg', cat:'hair-care', minQty:6,
+    variants:[{label:'300ml', price:300}, {label:'500ml', price:410}] },
+  { id:'wh4', name_ar:'غسول سنتيلا الرغوي (جملة)', name_en:'SKIN1004 Centella Ampoule Foam', image:'centella-foam.jpg', cat:'skin-care', minQty:6,
+    variants:[{label:'الزجاجة الكاملة', price:790}] },
+  { id:'wh5', name_ar:'سيروم السنتيلا الذهبي (جملة)', name_en:'SKIN1004 Centella Ampoule', image:'centella-ampoule.jpg', cat:'skin-care', minQty:6,
+    variants:[{label:'الزجاجة الكاملة', price:980}] },
+  { id:'wh6', name_ar:'عطر بربري هير (جملة)', name_en:'Burberry Her Perfume', image:'burberry_her.jpg', cat:'parfum', minQty:3,
+    fixedPrice:1200 },
+  { id:'wh7', name_ar:'بن العميد تركي (جملة)', name_en:'Al Ameed Turkish Coffee', image:'al_ameed_turkish.jpg', cat:'coffee', minQty:10,
+    fixedPrice:420 },
+];
+
+const CAT_LABELS = {
+  'hair-care': 'العناية بالشعر',
+  'skin-care': 'العناية بالبشرة',
+  'parfum': 'العطور',
+  'coffee': 'القهوة'
+};
+
+/* ===================== GATE LOGIC ===================== */
+const gateSection = document.getElementById('wholesale-gate');
+const contentSection = document.getElementById('wholesale-content');
+const gateForm = document.getElementById('gate-form');
+const gatePasswordInput = document.getElementById('gate-password');
+const gateError = document.getElementById('gate-error');
+
+function isUnlocked() {
+  return sessionStorage.getItem('alzahraa_wholesale_unlocked') === '1';
+}
+
+function updateGateUI() {
+  if (isUnlocked()) {
+    gateSection.classList.add('hidden');
+    contentSection.classList.remove('hidden');
+  } else {
+    gateSection.classList.remove('hidden');
+    contentSection.classList.add('hidden');
+  }
+}
+
+gateForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  if (gatePasswordInput.value.trim() === WHOLESALE_PASSWORD) {
+    sessionStorage.setItem('alzahraa_wholesale_unlocked', '1');
+    gateError.classList.add('hidden');
+    gatePasswordInput.value = '';
+    updateGateUI();
+    showToast('تم تفعيل قسم الجملة بنجاح');
+  } else {
+    gateError.classList.remove('hidden');
+  }
+});
+
+document.getElementById('lock-wholesale-btn').addEventListener('click', () => {
+  sessionStorage.removeItem('alzahraa_wholesale_unlocked');
+  updateGateUI();
+  showToast('تم قفل قسم الجملة');
+});
+
+/* ===================== STATE ===================== */
+let cart = [];
+try { cart = JSON.parse(localStorage.getItem('alzahraa_wholesale_cart')) || []; } catch(e) { cart = []; }
+
+const variantSelection = {};
+WHOLESALE_PRODUCTS.forEach(p => { if (p.variants) variantSelection[p.id] = 0; });
+
+let activeFilter = 'all';
+let searchQuery = '';
+
+function bottleIcon(extraClass) {
+  return `<svg class="${extraClass}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round">
+    <path d="M9 2h6M9 2v4.5a4 4 0 0 1-1 2.6L7 10.5A5 5 0 0 0 5.5 14v4A3.5 3.5 0 0 0 9 21.5h6a3.5 3.5 0 0 0 3.5-3.5v-4a5 5 0 0 0-1.5-3.5l-1-1.4a4 4 0 0 1-1-2.6V2"/>
+    <path d="M6 15h12" stroke-dasharray="2 2"/>
+  </svg>`;
+}
+
+function currentPrice(p) {
+  return p.fixedPrice ? p.fixedPrice : p.variants[variantSelection[p.id]].price;
+}
+function currentLabel(p) {
+  return p.fixedPrice ? null : p.variants[variantSelection[p.id]].label;
+}
+
+function matchesProduct(p) {
+  if (activeFilter !== 'all' && p.cat !== activeFilter) return false;
+  if (searchQuery) {
+    const q = searchQuery.toLowerCase();
+    return p.name_ar.toLowerCase().includes(q) || p.name_en.toLowerCase().includes(q);
+  }
+  return true;
+}
+
+/* ===================== RENDER PRODUCTS ===================== */
+function renderWholesaleGrid() {
+  const grid = document.getElementById('wholesale-grid');
+  grid.innerHTML = WHOLESALE_PRODUCTS.map(p => {
+    const visible = matchesProduct(p);
+    const minQty = p.minQty || 1;
+    return `
+      <div class="product-card card-hover bg-white rounded-3xl border border-lavender-200/80 shadow-sm hover:shadow-soft p-6 flex flex-col ${visible ? '' : 'hidden-card'}" data-id="${p.id}">
+        <div class="relative h-40 rounded-2xl overflow-hidden bg-[#f9f9f9] mb-5">
+          <div class="absolute inset-0 flex items-center justify-center">${bottleIcon('w-16 h-16 text-lavender-400')}</div>
+          <img src="${p.image}" alt="${p.name_en}" loading="lazy"
+               class="absolute inset-2.5 w-[calc(100%-20px)] h-[calc(100%-20px)] object-contain"
+               onerror="this.remove()">
+          ${minQty > 1 ? `<span class="absolute top-2.5 left-2.5 tag-pill bg-plum-900 text-white">أقل كمية: ${minQty}</span>` : ''}
+        </div>
+
+        <span class="tag-pill bg-lavender-100 text-lavender-500 self-start mb-2">${CAT_LABELS[p.cat] || 'جملة'}</span>
+        <h3 class="font-bold text-plum-900 text-lg leading-snug">${p.name_ar}</h3>
+        <p class="text-xs text-plum-500 mb-3" dir="ltr" style="text-align:right">${p.name_en}</p>
+
+        ${p.variants ? `
+          <label class="text-xs text-plum-500 font-medium mb-1.5 block">اختاري الحجم</label>
+          <select data-id="${p.id}" class="variant-select w-full text-sm font-medium border border-bloom-100 rounded-xl px-3 py-2 pl-8 text-plum-700 focus:outline-none focus:border-lavender-300 mb-4">
+            ${p.variants.map((v,i) => `<option value="${i}">${v.label} — ${v.price} ج.م</option>`).join('')}
+          </select>
+        ` : `<div class="mb-4"></div>`}
+
+        <div class="flex items-center justify-between mt-auto pt-4 border-t border-bloom-50">
+          <div>
+            <span class="price-label font-black text-plum-900 text-lg block" data-id="${p.id}">${currentPrice(p)} ج.م</span>
+            <span class="text-[10px] text-plum-500">سعر القطعة جملة</span>
+          </div>
+          <button data-id="${p.id}" class="add-btn wholesale-btn text-sm font-bold px-5 py-2.5 rounded-full">أضيفي (${minQty})</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  grid.querySelectorAll('.variant-select').forEach(sel => {
+    sel.value = variantSelection[sel.dataset.id] || 0;
+    sel.addEventListener('change', () => {
+      variantSelection[sel.dataset.id] = parseInt(sel.value);
+      const p = WHOLESALE_PRODUCTS.find(x => x.id === sel.dataset.id);
+      const priceEl = grid.querySelector(`.price-label[data-id="${sel.dataset.id}"]`);
+      if (priceEl) priceEl.textContent = `${currentPrice(p)} ج.م`;
+    });
+  });
+
+  grid.querySelectorAll('.add-btn').forEach(btn => {
+    btn.addEventListener('click', () => addToCart(btn.dataset.id));
+  });
+}
+
+function applyFilters() {
+  document.querySelectorAll('#wholesale-grid .product-card').forEach(card => {
+    const p = WHOLESALE_PRODUCTS.find(x => x.id === card.dataset.id);
+    card.classList.toggle('hidden-card', !matchesProduct(p));
+  });
+}
+
+document.getElementById('wholesale-filters').addEventListener('click', (e) => {
+  const btn = e.target.closest('.filter-chip');
+  if (!btn) return;
+  activeFilter = btn.dataset.filter;
+  document.querySelectorAll('#wholesale-filters .filter-chip').forEach(b => b.classList.toggle('active', b === btn));
+  applyFilters();
+});
+
+document.getElementById('wholesale-search').addEventListener('input', (e) => {
+  searchQuery = e.target.value.trim();
+  applyFilters();
+});
+
+/* ===================== CART LOGIC ===================== */
+function saveCart() { localStorage.setItem('alzahraa_wholesale_cart', JSON.stringify(cart)); }
+function findProduct(id) { return WHOLESALE_PRODUCTS.find(x => x.id === id); }
+
+function addToCart(id) {
+  const p = findProduct(id);
+  const label = currentLabel(p);
+  const price = currentPrice(p);
+  const minQty = p.minQty || 1;
+  const key = label ? `${p.id}-${label}` : p.id;
+
+  const existing = cart.find(c => c.key === key);
+  if (existing) existing.qty += 1;
+  else cart.push({ key, id: p.id, name_ar: p.name_ar, name_en: p.name_en, size: label, price, qty: minQty, minQty });
+
+  saveCart();
+  renderCart();
+  showToast('تمت الإضافة إلى سلة الجملة');
+}
+
+function changeQty(key, delta) {
+  const item = cart.find(c => c.key === key);
+  if (!item) return;
+  const minQty = item.minQty || 1;
+  item.qty += delta;
+  if (item.qty < minQty) {
+    cart = cart.filter(c => c.key !== key);
+  }
+  saveCart();
+  renderCart();
+}
+
+function removeItem(key) {
+  cart = cart.filter(c => c.key !== key);
+  saveCart();
+  renderCart();
+}
+
+function cartTotal() { return cart.reduce((sum, c) => sum + c.price * c.qty, 0); }
+function cartCount() { return cart.reduce((sum, c) => sum + c.qty, 0); }
+
+function renderCart() {
+  const container = document.getElementById('cart-items');
+  document.getElementById('cart-count').textContent = cartCount();
+  document.getElementById('cart-total').textContent = `${cartTotal()} ج.م`;
+
+  if (cart.length === 0) {
+    container.innerHTML = `
+      <div class="h-full flex flex-col items-center justify-center text-center py-16 text-plum-500">
+        ${bottleIcon('w-14 h-14 text-lavender-200 mb-4')}
+        <p class="font-medium">سلة الجملة فارغة حالياً</p>
+        <p class="text-xs mt-1">أضيفي الأصناف المطلوبة لتظهر هنا</p>
+      </div>`;
+    return;
+  }
+
+  container.innerHTML = cart.map(c => `
+    <div class="flex gap-3 items-start border-b border-bloom-50 pb-4">
+      <div class="w-16 h-16 shrink-0 rounded-xl bg-[#f9f9f9] relative overflow-hidden">
+        <div class="absolute inset-0 flex items-center justify-center">${bottleIcon('w-7 h-7 text-lavender-400')}</div>
+        <img src="${findProduct(c.id) ? findProduct(c.id).image : ''}" alt="${c.name_en}" class="absolute inset-1 w-[calc(100%-8px)] h-[calc(100%-8px)] object-contain" onerror="this.remove()">
+      </div>
+      <div class="flex-1 min-w-0">
+        <p class="font-bold text-plum-900 text-sm">${c.name_ar}</p>
+        ${c.size ? `<span class="tag-pill bg-lavender-100 text-lavender-500 mt-1">${c.size}</span>` : ''}
+        <div class="flex items-center justify-between mt-2">
+          <div class="flex items-center gap-2 border border-bloom-100 rounded-full px-1">
+            <button class="qty-btn w-6 h-6 text-plum-700" data-key="${c.key}" data-delta="1">+</button>
+            <span class="text-sm font-bold min-w-[20px] text-center">${c.qty}</span>
+            <button class="qty-btn w-6 h-6 text-plum-700" data-key="${c.key}" data-delta="-1">−</button>
+          </div>
+          <span class="font-black text-plum-900 text-sm">${c.price * c.qty} ج.م</span>
+        </div>
+      </div>
+      <button class="remove-btn text-plum-500 hover:text-bloom-400 shrink-0" data-key="${c.key}" aria-label="إزالة">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  `).join('');
+
+  container.querySelectorAll('.qty-btn').forEach(btn => btn.addEventListener('click', () => changeQty(btn.dataset.key, parseInt(btn.dataset.delta))));
+  container.querySelectorAll('.remove-btn').forEach(btn => btn.addEventListener('click', () => removeItem(btn.dataset.key)));
+}
+
+/* ===================== CART PANEL & MOBILE MENU ===================== */
+const cartPanel = document.getElementById('cart-panel');
+const cartOverlay = document.getElementById('cart-overlay');
+function openCart() {
+  if (!isUnlocked()) {
+    showToast('يرجى إدخال كلمة مرور الجملة أولاً');
+    gatePasswordInput.focus();
+    return;
+  }
+  cartPanel.classList.remove('-translate-x-full');
+  cartOverlay.classList.remove('opacity-0', 'pointer-events-none');
+}
+function closeCart() {
+  cartPanel.classList.add('-translate-x-full');
+  cartOverlay.classList.add('opacity-0', 'pointer-events-none');
+}
+document.getElementById('cart-btn').addEventListener('click', openCart);
+document.getElementById('cart-close').addEventListener('click', closeCart);
+cartOverlay.addEventListener('click', closeCart);
+
+const menuBtn = document.getElementById('menu-btn');
+const mobileNav = document.getElementById('mobile-nav');
+menuBtn.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.add('hidden')));
+
+/* ===================== TOAST ===================== */
+let toastTimer;
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.remove('translate-y-24', 'opacity-0');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.add('translate-y-24', 'opacity-0'), 2200);
+}
+
+/* ===================== CHECKOUT (WHOLESALE SHEET + WHATSAPP) ===================== */
+document.getElementById('confirm-wholesale-order').addEventListener('click', () => {
+  if (!isUnlocked()) {
+    showToast('يرجى تفعيل قسم الجملة أولاً');
+    return;
+  }
+  if (cart.length === 0) {
+    showToast('سلة الجملة فارغة، أضيفي منتجات أولاً');
+    return;
+  }
+
+  const name = document.getElementById('w-name').value.trim();
+  const phone = document.getElementById('w-phone').value.trim();
+  const governorate = document.getElementById('w-governorate').value;
+  const address = document.getElementById('w-address').value.trim();
+  const notes = document.getElementById('w-notes').value.trim();
+
+  if (!name || !phone || !governorate || !address) {
+    showToast('من فضلك أكملي جميع البيانات المطلوبة');
+    return;
+  }
+
+  const itemsSummary = cart.map(c => {
+    return c.size ? `(${c.name_ar}: ${c.size} × ${c.qty})` : `(${c.name_ar} × ${c.qty})`;
+  }).join(', ');
+
+  const lines = [];
+  lines.push('📦 *طلب جملة جديد — متجر ALZAHRAA*');
+  lines.push('—————————————');
+  cart.forEach(c => {
+    const sizeText = c.size ? ` (${c.size})` : '';
+    lines.push(`• ${c.name_ar}${sizeText}`);
+    lines.push(`  الكمية: ${c.qty} × ${c.price} ج.م = ${c.price * c.qty} ج.م`);
+  });
+  lines.push('—————————————');
+  lines.push(`*إجمالي الفاتورة: ${cartTotal()} ج.م*`);
+  lines.push('');
+  lines.push('*بيانات عميل الجملة*');
+  lines.push(`الاسم / المحل: ${name}`);
+  lines.push(`الهاتف: ${phone}`);
+  lines.push(`المحافظة: ${governorate}`);
+  lines.push(`العنوان: ${address}`);
+  if (notes) lines.push(`ملاحظات: ${notes}`);
+
+  const message = lines.join('\n');
+
+  // إرسال الطلب لشيت الجملة
+  if (WHOLESALE_SHEET_WEBHOOK_URL && !WHOLESALE_SHEET_WEBHOOK_URL.includes('YOUR_WHOLESALE')) {
+    fetch(WHOLESALE_SHEET_WEBHOOK_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        orderType: 'جملة',
+        phone: phone,
+        name: name,
+        governorate: governorate,
+        address: address,
+        notes: notes,
+        items: itemsSummary,
+        total: cartTotal()
+      })
+    }).catch(err => console.error('Wholesale sheet webhook error:', err));
+  }
+
+  window.open(`https://wa.me/${WHOLESALE_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+});
+
+/* ===================== INIT ===================== */
+updateGateUI();
+renderWholesaleGrid();
+renderCart();
+</script>
+<script src="site-config.js"></script>
+<script>
+  if (typeof onAlzahraaConfigReady === 'function') {
+    onAlzahraaConfigReady(function(cfg) {
+      if (cfg.wholesale_password) {
+        WHOLESALE_PASSWORD = cfg.wholesale_password;
+      }
+      if (cfg.wholesale_whatsapp) {
+        WHOLESALE_WHATSAPP_NUMBER = cfg.wholesale_whatsapp;
+      }
+    });
+  }
+</script>
+</body>
+</html>

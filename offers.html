@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ALZAHRAA | العروض</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="ALZAHRAA الزهراء - أقوى عروض وباكدجات العناية بالبشرة والشعر بخصومات حصرية لفترة محدودة.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://alzahraaco.com/offers.html">
+<meta name="author" content="ALZAHRAA">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          logo: ['"Cormorant Garamond"', 'serif'],
+          arabic: ['Tajawal', 'sans-serif'],
+        },
+        colors: {
+          bloom: {
+            50:'#FEF6FA',
+            100:'#FCE9F3',
+            200:'#F7CFE4',
+            300:'#F2B0D2',
+            400:'#E88CBD'
+          },
+          lavender: {
+            100:'#F1EBFC',
+            200:'#DFD0F7',
+            300:'#C6ABF0',
+            400:'#A87DE0',
+            500:'#8B5FC9'
+          },
+          plum: {
+            900:'#2E1F3D',
+            700:'#4A3560',
+            500:'#6E5486'
+          }
+        },
+        boxShadow: {
+          soft: '0 20px 45px -18px rgba(139, 95, 201, 0.28)'
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  * { font-family: 'Tajawal', sans-serif; }
+  .font-logo { font-family: 'Cormorant Garamond', serif; }
+  html { scroll-behavior: smooth; }
+  body { background: #FFFDFE; color: #2E1F3D; }
+
+  .brand-gradient-bg { background: radial-gradient(120% 120% at 100% 0%, #F1EBFC 0%, #FEF6FA 45%, #FFFFFF 100%); }
+  .brand-gradient-btn { background: linear-gradient(100deg, #E88CBD 0%, #C6ABF0 55%, #A87DE0 100%); }
+  .brand-gradient-btn:hover { background: linear-gradient(100deg, #DE79AF 0%, #B994ED 55%, #9A6BD8 100%); }
+
+  .offers-btn {
+    background: linear-gradient(100deg, #F59E0B 0%, #EC4899 100%);
+    color: #ffffff;
+  }
+  .offers-btn:hover { filter: brightness(0.95); }
+
+  .wholesale-btn {
+    background: #2E1F3D;
+    color: #ffffff;
+    box-shadow: 0 0 0 2px #C6ABF0, 0 10px 24px -10px rgba(139,95,201,.45);
+    transition: background .25s ease, transform .15s ease;
+  }
+  .wholesale-btn:hover { background: #4A3560; transform: translateY(-1px); }
+
+  .blob { position:absolute; border-radius:50%; filter:blur(60px); opacity:.55; pointer-events:none; }
+  .tag-pill { font-size:.72rem; padding:.2rem .65rem; border-radius:999px; display:inline-block; font-weight:700; }
+  .card-hover { transition: transform .35s ease, box-shadow .35s ease; }
+  .card-hover:hover { transform: translateY(-6px); }
+
+  select.governorate-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236E5486' stroke-width='1.5' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: left .9rem center;
+    -webkit-appearance: none; appearance: none;
+  }
+
+  #cart-panel { transition: transform .4s cubic-bezier(.16,1,.3,1); }
+  #cart-overlay { transition: opacity .3s ease; }
+  .scrollbar-thin::-webkit-scrollbar { width:5px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { background:#DFD0F7; border-radius:10px; }
+  .toast { transition: transform .35s ease, opacity .35s ease; }
+</style>
+</head>
+
+<body class="antialiased min-h-screen flex flex-col">
+
+<!-- ============ UNIFIED HEADER ============ -->
+<header id="site-header" class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-bloom-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-8">
+    <div class="flex items-center justify-between h-[72px] gap-3">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2 shrink-0">
+        <img src="logo.jpg" alt="ALZAHRAA" class="h-10 w-10 rounded-full object-cover" onerror="this.style.display='none'">
+        <span class="font-logo italic text-[26px] sm:text-[32px] tracking-wide text-plum-900">ALZAHRAA</span>
+        <span class="hidden sm:inline text-lavender-500 text-xl leading-none">٭</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden xl:flex items-center gap-6 text-[14px] font-medium text-plum-700">
+        <a href="index.html" class="hover:text-lavender-500 transition-colors">الرئيسية</a>
+        <a href="#offers-shop" class="hover:text-lavender-500 transition-colors">كل العروض</a>
+      </nav>
+
+      <!-- Main 3 Store Buttons (Desktop) -->
+      <div class="hidden md:flex items-center gap-2.5">
+        <a href="retail.html" class="brand-gradient-btn text-white text-sm font-bold px-5 py-2.5 rounded-full shadow-soft transition-transform hover:-translate-y-0.5">
+          طلب قطاعي
+        </a>
+        <a href="wholesale.html" class="wholesale-btn text-sm font-bold px-5 py-2.5 rounded-full">
+          طلب جملة
+        </a>
+        <a href="offers.html" class="offers-btn text-sm font-bold px-5 py-2.5 rounded-full shadow-sm ring-2 ring-pink-300 ring-offset-2">
+          العروض
+        </a>
+      </div>
+
+      <!-- Cart + Mobile Menu -->
+      <div class="flex items-center gap-2">
+        <button id="cart-btn" aria-label="عرض سلة العروض" class="relative w-11 h-11 rounded-full bg-bloom-50 hover:bg-bloom-100 transition-colors flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-plum-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span id="cart-count" class="absolute -top-1 -left-1 min-w-[19px] h-[19px] px-1 rounded-full bg-pink-500 text-white text-[11px] font-bold flex items-center justify-center">0</span>
+        </button>
+        <button id="menu-btn" class="xl:hidden w-10 h-10 flex items-center justify-center text-plum-700" aria-label="القائمة">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Main 3 Store Buttons (Always visible top bar on Mobile) -->
+    <div class="flex md:hidden items-center justify-center gap-2 pb-3">
+      <a href="retail.html" class="flex-1 text-center brand-gradient-btn text-white text-xs font-bold py-2.5 px-2 rounded-full shadow-sm">
+        طلب قطاعي
+      </a>
+      <a href="wholesale.html" class="flex-1 text-center wholesale-btn text-xs font-bold py-2.5 px-2 rounded-full">
+        طلب جملة
+      </a>
+      <a href="offers.html" class="flex-1 text-center offers-btn text-xs font-bold py-2.5 px-2 rounded-full shadow-sm ring-2 ring-pink-300">
+        العروض
+      </a>
+    </div>
+
+    <!-- Mobile Secondary Nav -->
+    <nav id="mobile-nav" class="hidden xl:hidden pb-4 flex flex-col gap-1 text-plum-700 font-medium border-t border-bloom-50 pt-2">
+      <a href="index.html" class="py-2 px-2 rounded-lg hover:bg-bloom-50">الرئيسية (من نحن)</a>
+      <a href="#offers-shop" class="py-2 px-2 rounded-lg hover:bg-bloom-50">كل العروض</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<main class="flex-1">
+  <section class="relative overflow-hidden brand-gradient-bg border-b border-bloom-100">
+    <div class="blob w-[320px] h-[320px] bg-bloom-200 -top-20 left-[-60px]"></div>
+    <div class="blob w-[380px] h-[380px] bg-lavender-200 bottom-0 -right-24"></div>
+
+    <div class="relative max-w-5xl mx-auto px-5 sm:px-8 py-14 sm:py-20 text-center">
+      <span class="tag-pill bg-white text-pink-500 border border-pink-200 shadow-sm mb-4">خصومات وباكدجات حصرية</span>
+      <h1 class="text-3xl sm:text-5xl font-black text-plum-900 leading-tight">
+        أقوى <span class="text-transparent bg-clip-text offers-btn">العروض</span> من ALZAHRAA
+      </h1>
+      <p class="mt-4 text-plum-500 text-base sm:text-lg max-w-2xl mx-auto">
+        استفيدي من عروضنا الخاصة وباكدجات العناية المتكاملة بأفضل سعر — العروض متاحة لفترة محدودة أو حتى نفاد الكمية.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ OFFERS GRID ============ -->
+  <section id="offers-shop" class="max-w-7xl mx-auto px-5 sm:px-8 py-16">
+    <div id="offers-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7"></div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-plum-900 text-white/80 py-10 mt-auto">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2">
+      <img src="logo.jpg" alt="ALZAHRAA" class="h-9 w-9 rounded-full object-cover" onerror="this.style.display='none'">
+      <span class="font-logo italic text-2xl text-white">ALZAHRAA</span>
+    </div>
+    <p class="text-sm text-white/50">© 2026 ALZAHRAA — جميع الحقوق محفوظة</p>
+  </div>
+
+  <div class="mt-6 pt-5 border-t border-white/10 flex items-center justify-center gap-1.5" style="opacity:0.7">
+    <span style="font-size:0.85rem; color:#888888;">Made by Eng / Mohamed Abdulla</span>
+    <a href="https://wa.me/201113243296" target="_blank" aria-label="Contact developer on WhatsApp"
+       class="inline-flex items-center justify-center transition-colors hover:opacity-100" style="color:#888888;"
+       onmouseover="this.style.color='#25D366'" onmouseout="this.style.color='#888888'">
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+    </a>
+  </div>
+</footer>
+
+<!-- ============ OFFERS CART OVERLAY + PANEL ============ -->
+<div id="cart-overlay" class="fixed inset-0 bg-plum-900/40 backdrop-blur-sm z-50 opacity-0 pointer-events-none"></div>
+
+<aside id="cart-panel" class="fixed top-0 left-0 h-full w-full sm:w-[430px] bg-white z-50 shadow-2xl -translate-x-full flex flex-col">
+  <div class="flex items-center justify-between px-6 py-5 border-b border-bloom-100">
+    <h3 class="text-xl font-black text-plum-900">سلة العروض</h3>
+    <button id="cart-close" class="w-9 h-9 rounded-full hover:bg-bloom-50 flex items-center justify-center text-plum-700">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <div id="cart-items" class="flex-1 overflow-y-auto scrollbar-thin px-6 py-4 space-y-4"></div>
+
+  <div id="cart-footer" class="border-t border-bloom-100 px-6 py-5 space-y-3.5">
+    <div class="flex items-center justify-between font-bold text-plum-900 text-lg">
+      <span>إجمالي العروض</span>
+      <span id="cart-total">٠ ج.م</span>
+    </div>
+
+    <!-- Customer Info -->
+    <div class="space-y-2.5">
+      <input id="o-name" type="text" placeholder="الاسم بالكامل" class="w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm">
+      <input id="o-phone" type="tel" placeholder="رقم الهاتف" class="w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm">
+
+      <select id="o-governorate" class="governorate-select w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm text-plum-700 bg-white">
+        <option value="" disabled selected>اختر المحافظة...</option>
+        <option value="القاهرة">القاهرة</option>
+        <option value="الجيزة">الجيزة</option>
+        <option value="الأسكندرية">الأسكندرية</option>
+        <option value="الدقهلية">الدقهلية</option>
+        <option value="البحر الأحمر">البحر الأحمر</option>
+        <option value="البحيرة">البحيرة</option>
+        <option value="الفيوم">الفيوم</option>
+        <option value="الغربية">الغربية</option>
+        <option value="الإسماعيلية">الإسماعيلية</option>
+        <option value="المنوفية">المنوفية</option>
+        <option value="المنيا">المنيا</option>
+        <option value="القليوبية">القليوبية</option>
+        <option value="الوادي الجديد">الوادي الجديد</option>
+        <option value="السويس">السويس</option>
+        <option value="الشرقية">الشرقية</option>
+        <option value="أسوان">أسوان</option>
+        <option value="أسيوط">أسيوط</option>
+        <option value="بني سويف">بني سويف</option>
+        <option value="بورسعيد">بورسعيد</option>
+        <option value="دمياط">دمياط</option>
+        <option value="قنا">قنا</option>
+        <option value="جنوب سيناء">جنوب سيناء</option>
+        <option value="كفر الشيخ">كفر الشيخ</option>
+        <option value="مطروح">مطروح</option>
+        <option value="الأقصر">الأقصر</option>
+        <option value="سوهاج">سوهاج</option>
+        <option value="شمال سيناء">شمال سيناء</option>
+      </select>
+
+      <input id="o-address" type="text" placeholder="العنوان التفصيلي (المنطقة / الشارع / رقم العمارة)" class="w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm">
+
+      <!-- Employee Reservation Code Box -->
+      <div class="bg-lavender-100/60 border border-lavender-200 rounded-2xl p-3 space-y-1.5">
+        <label for="o-emp-code" class="block text-xs font-bold text-plum-900">
+          كود تفعيل الموظف / كود الحجز (اختياري)
+        </label>
+        <input id="o-emp-code" type="text" autocomplete="off" placeholder="اكتب كود الموظف (مثال: ZHR1)"
+               class="w-full px-3.5 py-2 rounded-xl border border-lavender-300 focus:border-plum-900 focus:outline-none text-sm bg-white font-bold text-plum-900 uppercase" dir="ltr" style="text-align:right">
+        <div id="emp-status" class="text-[11px] font-bold hidden"></div>
+      </div>
+    </div>
+
+    <button id="confirm-offer-order" class="w-full offers-btn font-bold py-3.5 rounded-full shadow-soft flex items-center justify-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+      <span>تأكيد حجز العرض عبر واتساب</span>
+    </button>
+    <p class="text-[11px] text-plum-500 text-center">سيتم تسجيل العرض في شيت العروض وتحويلك لواتساب لتأكيد الطلب</p>
+  </div>
+</aside>
+
+<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 translate-y-24 opacity-0 z-[60] bg-plum-900 text-white text-sm font-medium px-5 py-3 rounded-full shadow-lg toast">
+  تمت الإضافة إلى سلة العروض
+</div>
+
+<script>
+/* ===================== OFFERS SETTINGS =====================
+   1) رقم واتساب استلام العروض
+   2) رابط Webhook الخاص بشيت العروض (هنعمله في الخطوة 6 وتحطه هنا)
+*/
+let OFFERS_WHATSAPP_NUMBER = '201027966872';
+const OFFERS_SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbx8qm8KKqWXu7h9nlIAbBQztyl56X12OrxpKrP5AG1hCVuudhdk7CkgPIdwccZdaoWhFg/exec';
+
+/* ===================== EMPLOYEE CODES MAP =====================
+   اربط كل كود تفعيل باسم الموظف الثابت هنا (اكتب الكود بحروف كبيرة CAPITAL).
+   بمجرد كتابة الكود في السلة (حتى لو بحروف صغيرة)، هيتسجل الاسم الثابت في الشيت.
+*/
+let EMPLOYEE_CODES = {
+  'ZHR1': 'أحمد محمد',
+  'ZHR2': 'سارة علي',
+  'ZHR3': 'محمود حسن',
+  'ZHR4': 'منة الله طارق',
+  // أضف أكواد وأسماء باقي الموظفين بنفس الشكل
+};
+
+/* ===================== OFFERS DATA =====================
+   عدّل العروض والباكدجات هنا بسهولة
+*/
+const OFFERS_PRODUCTS = [
+  // ============ عروض الشعر ============
+  {
+    id: 'off1',
+    badge: 'عروض الشعر + توكة ستان هدية',
+    name_ar: 'عرض التغذية والتساقط',
+    name_en: 'Hair Nourishment & Anti-Hair Loss Offer',
+    details: 'شامبو كيش كينج (340ml) + زيت دابر أملا (240ml) + زيت باراشوت أدفانسد بالبصل (200ml) + توكة ستان هدية',
+    image: 'offer1.jpg',
+    oldPrice: 970,
+    price: 840
+  },
+  {
+    id: 'off2',
+    badge: 'عروض الشعر + زياتة هدية',
+    name_ar: 'عرض هيشان وتقصف وترطيب',
+    name_en: 'Anti-Frizz & Moisture Offer',
+    details: 'شامبو كيش كينج بينك (340ml) + زيت باراشوت أدفانسد 300ml (متاح بالبيوتين أو بالكيراتين) + زيت فاتيكا باللوز + زياتة هدية',
+    image: 'offer2.jpg',
+    oldPrice: 1150,
+    price: 950
+  },
+  {
+    id: 'off3',
+    badge: 'عروض الشعر',
+    name_ar: 'عرض إنبات وتغذية',
+    name_en: 'Hair Growth & Nourishment Offer',
+    details: 'زيت الـ ١٠٨ عشبة (50ml) + شامبو كيش كينج (200ml) + زيت دابر أملا جولد (100ml)',
+    image: 'offer3.jpg',
+    oldPrice: 720,
+    price: 550
+  },
+
+  // ============ عروض البشرة (شحن مجاني) ============
+  {
+    id: 'off4',
+    badge: 'عروض البشرة — شحن مجاني',
+    name_ar: 'عرض المسام الواسعة',
+    name_en: 'Pore Care Korean Routine',
+    details: 'غسول كوزريكس بالساليسيليك أسيد (5ml) + سيروم أنوا الأحمر (5ml) + كريم سنتيلا لتنقية المسام (5gm) — شامل شحن مجاني',
+    image: 'offer4.jpg',
+    oldPrice: 605,
+    price: 605
+  },
+  {
+    id: 'off5',
+    badge: 'عروض البشرة — شحن مجاني',
+    name_ar: 'عرض النضارة (Glass Skin)',
+    name_en: 'Glass Skin Glow Routine',
+    details: 'غسول سنتيلا الرغوي (5ml) + تونر الأرز الكوري (5ml) + سيروم سنتيلا للتفتيح (10ml) + ماسك ميديكوب بالكولاجين (5gm) — شامل شحن مجاني',
+    image: 'offer5.jpg',
+    oldPrice: 720,
+    price: 720
+  },
+  {
+    id: 'off6',
+    badge: 'عروض البشرة — شحن مجاني',
+    name_ar: 'عرض الحبوب',
+    name_en: 'Acne & Soothing Routine',
+    details: 'غسول بانكسيل للحبوب 4% (10ml) + سيروم أنوا الأخضر (5ml) + سيروم سنتيلا الأخضر (5ml) + مرطب بيوريتو (5ml) — شامل شحن مجاني',
+    image: 'offer6.jpg',
+    oldPrice: 790,
+    price: 790
+  },
+  {
+    id: 'off7',
+    badge: 'عروض البشرة — شحن مجاني',
+    name_ar: 'عرض التفتيح',
+    name_en: 'Brightening & Dark Spots Routine',
+    details: 'صابون كوجي سان + سيروم نمبوزين رقم 5 للبشرة (5ml) + كريم سنتيلا للتفتيح (5gm) — شامل شحن مجاني',
+    image: 'offer7.jpg',
+    oldPrice: 750,
+    price: 750
+  }
+];
+
+/* ===================== STATE ===================== */
+let cart = [];
+try { cart = JSON.parse(localStorage.getItem('alzahraa_offers_cart')) || []; } catch(e) { cart = []; }
+
+function giftIcon(extraClass) {
+  return `<svg class="${extraClass}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+    <polyline points="20 12 20 22 4 22 4 12"></polyline>
+    <rect x="2" y="7" width="20" height="5"></rect>
+    <line x1="12" y1="22" x2="12" y2="7"></line>
+    <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+    <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+  </svg>`;
+}
+
+/* ===================== RENDER OFFERS GRID ===================== */
+function renderOffersGrid() {
+  const grid = document.getElementById('offers-grid');
+  grid.innerHTML = OFFERS_PRODUCTS.map(o => {
+    const saving = o.oldPrice > o.price ? o.oldPrice - o.price : 0;
+    return `
+      <div class="card-hover bg-white rounded-3xl border border-pink-100 shadow-sm hover:shadow-soft p-6 flex flex-col relative overflow-hidden">
+        ${saving > 0 ? `<span class="absolute top-4 left-4 z-10 tag-pill offers-btn shadow-sm">وفّري ${saving} ج.م</span>` : ''}
+        <div class="relative h-44 rounded-2xl overflow-hidden bg-[#f9f9f9] mb-5">
+          <div class="absolute inset-0 flex items-center justify-center">${giftIcon('w-14 h-14 text-bloom-400')}</div>
+          <img src="${o.image}" alt="${o.name_en}" loading="lazy"
+               class="absolute inset-2.5 w-[calc(100%-20px)] h-[calc(100%-20px)] object-contain"
+               onerror="this.remove()">
+        </div>
+
+        <span class="tag-pill bg-bloom-50 text-pink-500 self-start mb-2">${o.badge || 'عرض خاص'}</span>
+        <h3 class="font-bold text-plum-900 text-lg leading-snug">${o.name_ar}</h3>
+        <p class="text-xs text-plum-500 mt-1.5 mb-4 leading-relaxed">${o.details}</p>
+
+        <div class="flex items-center justify-between mt-auto pt-4 border-t border-bloom-50">
+          <div>
+            ${o.oldPrice > o.price ? `<span class="block text-xs text-plum-500/70 line-through">${o.oldPrice} ج.م</span>` : ''}
+            <span class="font-black text-plum-900 text-xl">${o.price} ج.م</span>
+          </div>
+          <button data-id="${o.id}" class="add-offer-btn offers-btn text-sm font-bold px-5 py-2.5 rounded-full shadow-sm">احجزي العرض</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  grid.querySelectorAll('.add-offer-btn').forEach(btn => {
+    btn.addEventListener('click', () => addToCart(btn.dataset.id));
+  });
+}
+
+/* ===================== CART LOGIC ===================== */
+function saveCart() { localStorage.setItem('alzahraa_offers_cart', JSON.stringify(cart)); }
+function findOffer(id) { return OFFERS_PRODUCTS.find(x => x.id === id); }
+
+function addToCart(id) {
+  const o = findOffer(id);
+  if (!o) return;
+  const existing = cart.find(c => c.id === o.id);
+  if (existing) existing.qty += 1;
+  else cart.push({ id: o.id, name_ar: o.name_ar, details: o.details, price: o.price, qty: 1 });
+
+  saveCart();
+  renderCart();
+  showToast('تمت إضافة العرض إلى السلة');
+}
+
+function changeQty(id, delta) {
+  const item = cart.find(c => c.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) cart = cart.filter(c => c.id !== id);
+  saveCart();
+  renderCart();
+}
+
+function removeItem(id) {
+  cart = cart.filter(c => c.id !== id);
+  saveCart();
+  renderCart();
+}
+
+function cartTotal() { return cart.reduce((sum, c) => sum + c.price * c.qty, 0); }
+function cartCount() { return cart.reduce((sum, c) => sum + c.qty, 0); }
+
+function renderCart() {
+  const container = document.getElementById('cart-items');
+  document.getElementById('cart-count').textContent = cartCount();
+  document.getElementById('cart-total').textContent = `${cartTotal()} ج.م`;
+
+  if (cart.length === 0) {
+    container.innerHTML = `
+      <div class="h-full flex flex-col items-center justify-center text-center py-16 text-plum-500">
+        ${giftIcon('w-14 h-14 text-bloom-200 mb-4')}
+        <p class="font-medium">سلة العروض فارغة حالياً</p>
+        <p class="text-xs mt-1">اختاري العرض المناسب وأضيفيه هنا</p>
+      </div>`;
+    return;
+  }
+
+  container.innerHTML = cart.map(c => `
+    <div class="flex gap-3 items-start border-b border-bloom-50 pb-4">
+      <div class="w-16 h-16 shrink-0 rounded-xl bg-[#f9f9f9] relative overflow-hidden">
+        <div class="absolute inset-0 flex items-center justify-center">${giftIcon('w-7 h-7 text-bloom-400')}</div>
+        <img src="${findOffer(c.id) ? findOffer(c.id).image : ''}" alt="${c.name_ar}" class="absolute inset-1 w-[calc(100%-8px)] h-[calc(100%-8px)] object-contain" onerror="this.remove()">
+      </div>
+      <div class="flex-1 min-w-0">
+        <p class="font-bold text-plum-900 text-sm">${c.name_ar}</p>
+        <p class="text-[11px] text-plum-500 line-clamp-2 mt-0.5">${c.details}</p>
+        <div class="flex items-center justify-between mt-2">
+          <div class="flex items-center gap-2 border border-bloom-100 rounded-full px-1">
+            <button class="qty-btn w-6 h-6 text-plum-700" data-id="${c.id}" data-delta="1">+</button>
+            <span class="text-sm font-bold w-4 text-center">${c.qty}</span>
+            <button class="qty-btn w-6 h-6 text-plum-700" data-id="${c.id}" data-delta="-1">−</button>
+          </div>
+          <span class="font-black text-plum-900 text-sm">${c.price * c.qty} ج.م</span>
+        </div>
+      </div>
+      <button class="remove-btn text-plum-500 hover:text-bloom-400 shrink-0" data-id="${c.id}" aria-label="إزالة">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  `).join('');
+
+  container.querySelectorAll('.qty-btn').forEach(btn => btn.addEventListener('click', () => changeQty(btn.dataset.id, parseInt(btn.dataset.delta))));
+  container.querySelectorAll('.remove-btn').forEach(btn => btn.addEventListener('click', () => removeItem(btn.dataset.id)));
+}
+
+/* ===================== EMPLOYEE CODE VALIDATION ===================== */
+const empCodeInput = document.getElementById('o-emp-code');
+const empStatus = document.getElementById('emp-status');
+
+function resolveEmployee(rawCode) {
+  const code = (rawCode || '').trim().toUpperCase();
+  if (!code) return { valid: true, code: '', name: 'طلب مباشر' };
+  if (EMPLOYEE_CODES[code]) return { valid: true, code: code, name: EMPLOYEE_CODES[code] };
+  return { valid: false, code: code, name: '' };
+}
+
+function updateEmployeeStatusUI() {
+  const res = resolveEmployee(empCodeInput.value);
+  if (!res.code) {
+    empStatus.classList.add('hidden');
+    empStatus.textContent = '';
+    return;
+  }
+  empStatus.classList.remove('hidden');
+  if (res.valid) {
+    empStatus.className = 'text-[11px] font-bold text-emerald-600';
+    empStatus.textContent = `تم التحقق — الموظف المسؤول: ${res.name}`;
+  } else {
+    empStatus.className = 'text-[11px] font-bold text-rose-500';
+    empStatus.textContent = 'كود الموظف غير مسجل، يرجى التأكد من الكود';
+  }
+}
+
+empCodeInput.addEventListener('input', updateEmployeeStatusUI);
+
+// دعم ملء الكود تلقائياً من الرابط مثل: offers.html?code=ZHR1
+(function prefillCodeFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  const urlCode = params.get('code') || params.get('emp');
+  if (urlCode) {
+    empCodeInput.value = urlCode.trim().toUpperCase();
+    updateEmployeeStatusUI();
+  }
+})();
+
+/* ===================== CART PANEL & MOBILE MENU ===================== */
+const cartPanel = document.getElementById('cart-panel');
+const cartOverlay = document.getElementById('cart-overlay');
+function openCart() { cartPanel.classList.remove('-translate-x-full'); cartOverlay.classList.remove('opacity-0', 'pointer-events-none'); }
+function closeCart() { cartPanel.classList.add('-translate-x-full'); cartOverlay.classList.add('opacity-0', 'pointer-events-none'); }
+document.getElementById('cart-btn').addEventListener('click', openCart);
+document.getElementById('cart-close').addEventListener('click', closeCart);
+cartOverlay.addEventListener('click', closeCart);
+
+const menuBtn = document.getElementById('menu-btn');
+const mobileNav = document.getElementById('mobile-nav');
+menuBtn.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.add('hidden')));
+
+/* ===================== TOAST ===================== */
+let toastTimer;
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.remove('translate-y-24', 'opacity-0');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.add('translate-y-24', 'opacity-0'), 2200);
+}
+
+/* ===================== CHECKOUT (OFFERS SHEET + WHATSAPP) ===================== */
+document.getElementById('confirm-offer-order').addEventListener('click', () => {
+  if (cart.length === 0) {
+    showToast('سلة العروض فارغة، أضيفي عرضاً أولاً');
+    return;
+  }
+
+  const name = document.getElementById('o-name').value.trim();
+  const phone = document.getElementById('o-phone').value.trim();
+  const governorate = document.getElementById('o-governorate').value;
+  const address = document.getElementById('o-address').value.trim();
+  const emp = resolveEmployee(empCodeInput.value);
+
+  if (!name || !phone || !governorate || !address) {
+    showToast('من فضلك أكملي جميع بيانات التواصل والمحافظة');
+    return;
+  }
+
+  if (!emp.valid) {
+    showToast('كود الموظف غير صحيح! صحّحه أو اتركه فارغاً');
+    empCodeInput.focus();
+    return;
+  }
+
+  const itemsSummary = cart.map(c => `(${c.name_ar} × ${c.qty})`).join(', ');
+
+  const lines = [];
+  lines.push('🎁 *حجز عرض جديد — متجر ALZAHRAA*');
+  lines.push('—————————————');
+  cart.forEach(c => {
+    lines.push(`• ${c.name_ar}`);
+    lines.push(`  الكمية: ${c.qty} × ${c.price} ج.م = ${c.price * c.qty} ج.م`);
+  });
+  lines.push('—————————————');
+  lines.push(`*الإجمالي: ${cartTotal()} ج.م*`);
+  lines.push('');
+  lines.push('*بيانات العميل*');
+  lines.push(`الاسم: ${name}`);
+  lines.push(`الهاتف: ${phone}`);
+  lines.push(`المحافظة: ${governorate}`);
+  lines.push(`العنوان: ${address}`);
+  if (emp.code) {
+    lines.push(`كود الحجز: ${emp.code} (${emp.name})`);
+  }
+
+  const message = lines.join('\n');
+
+  // إرسال الطلب لشيت العروض بالاسم الثابت للموظف
+  if (OFFERS_SHEET_WEBHOOK_URL && !OFFERS_SHEET_WEBHOOK_URL.includes('YOUR_OFFERS')) {
+    fetch(OFFERS_SHEET_WEBHOOK_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        orderType: 'عرض',
+        phone: phone,
+        name: name,
+        governorate: governorate,
+        address: address,
+        items: itemsSummary,
+        total: cartTotal(),
+        employeeCode: emp.code || 'DIRECT',
+        employeeName: emp.name
+      })
+    }).catch(err => console.error('Offers sheet webhook error:', err));
+  }
+
+  window.open(`https://wa.me/${OFFERS_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+});
+
+/* ===================== INIT ===================== */
+renderOffersGrid();
+renderCart();
+</script>
+<script src="site-config.js"></script>
+<script>
+  if (typeof onAlzahraaConfigReady === 'function') {
+    onAlzahraaConfigReady(function(cfg) {
+      if (cfg.retail_whatsapp) {
+        OFFERS_WHATSAPP_NUMBER = cfg.retail_whatsapp;
+      }
+      if (cfg.employees && Object.keys(cfg.employees).length > 0) {
+        EMPLOYEE_CODES = cfg.employees;
+        if (typeof updateEmployeeStatusUI === 'function') {
+          updateEmployeeStatusUI();
+        }
+      }
+    });
+  }
+</script>
+</body>
+</html>

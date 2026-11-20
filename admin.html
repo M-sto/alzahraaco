@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ALZAHRAA | لوحة تحكم الأدمن</title>
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          logo: ['"Cormorant Garamond"', 'serif'],
+          arabic: ['Tajawal', 'sans-serif'],
+        },
+        colors: {
+          bloom: {
+            50:'#FEF6FA',
+            100:'#FCE9F3',
+            200:'#F7CFE4',
+            300:'#F2B0D2',
+            400:'#E88CBD'
+          },
+          lavender: {
+            100:'#F1EBFC',
+            200:'#DFD0F7',
+            300:'#C6ABF0',
+            400:'#A87DE0',
+            500:'#8B5FC9'
+          },
+          plum: {
+            900:'#2E1F3D',
+            700:'#4A3560',
+            500:'#6E5486'
+          }
+        },
+        boxShadow: {
+          soft: '0 20px 45px -18px rgba(139, 95, 201, 0.28)'
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  * { font-family: 'Tajawal', sans-serif; }
+  .font-logo { font-family: 'Cormorant Garamond', serif; }
+  body { background: #FAF7FC; color: #2E1F3D; }
+  .brand-gradient-btn { background: linear-gradient(100deg, #E88CBD 0%, #C6ABF0 55%, #A87DE0 100%); }
+  .brand-gradient-btn:hover { background: linear-gradient(100deg, #DE79AF 0%, #B994ED 55%, #9A6BD8 100%); }
+  .toast { transition: transform .35s ease, opacity .35s ease; }
+</style>
+</head>
+
+<body class="antialiased min-h-screen flex flex-col">
+
+<!-- ============ HEADER ============ -->
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-bloom-100">
+  <div class="max-w-6xl mx-auto px-4 sm:px-8 h-[68px] flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2">
+      <img src="logo.jpg" alt="ALZAHRAA" class="h-9 w-9 rounded-full object-cover" onerror="this.style.display='none'">
+      <span class="font-logo italic text-2xl sm:text-3xl text-plum-900">ALZAHRAA</span>
+      <span class="text-xs font-bold bg-plum-900 text-white px-2.5 py-0.5 rounded-full">Admin</span>
+    </a>
+
+    <div class="flex items-center gap-2.5">
+      <a href="index.html" class="text-xs sm:text-sm font-bold text-plum-700 hover:text-lavender-500 px-3 py-1.5 rounded-full border border-lavender-200">
+        عرض الموقع
+      </a>
+      <button id="logout-btn" class="hidden text-xs sm:text-sm font-bold text-rose-600 hover:bg-rose-50 px-3.5 py-1.5 rounded-full border border-rose-200 transition-colors">
+        تسجيل خروج
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ LOGIN SCREEN ============ -->
+<main class="flex-1 px-4 sm:px-8 py-10">
+  <section id="login-section" class="max-w-md mx-auto mt-10 bg-white rounded-3xl border border-lavender-200 shadow-soft p-8 text-center">
+    <div class="w-16 h-16 mx-auto rounded-2xl bg-plum-900 text-white flex items-center justify-center mb-5">
+      <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        <path d="M9 12l2 2 4-4"/>
+      </svg>
+    </div>
+    <h1 class="text-2xl font-black text-plum-900">لوحة تحكم الأدمن</h1>
+    <p class="text-sm text-plum-500 mt-2">أدخل كلمة مرور الأدمن للتحكم في كلمات المرور والموظفين وإعدادات الموقع</p>
+
+    <form id="login-form" class="mt-6 space-y-3">
+      <input id="admin-pass-input" type="password" autocomplete="current-password" placeholder="كلمة مرور الأدمن..."
+             class="w-full px-4 py-3 rounded-xl border border-lavender-200 focus:border-plum-900 focus:outline-none text-center font-bold text-plum-900">
+      <p id="login-error" class="hidden text-xs font-bold text-rose-500"></p>
+      <button id="login-submit" type="submit" class="w-full bg-plum-900 hover:bg-plum-700 text-white font-bold py-3.5 rounded-full transition-colors">
+        دخول للوحة التحكم
+      </button>
+    </form>
+  </section>
+
+  <!-- ============ ADMIN DASHBOARD ============ -->
+  <section id="dashboard-section" class="hidden max-w-6xl mx-auto space-y-8">
+
+    <!-- Quick Sheet Shortcuts -->
+    <div id="quick-links-bar" class="bg-white rounded-3xl border border-bloom-100 p-5 shadow-sm flex flex-wrap items-center justify-between gap-3">
+      <div>
+        <h2 class="font-black text-plum-900 text-base">اختصارات الشيتات السريعة</h2>
+        <p class="text-xs text-plum-500">افتح شيتات الأوردرات مباشرة من هنا (يمكنك تحديث روابطها بالأسفل)</p>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <a id="link-retail-sheet" href="#" target="_blank" class="hidden px-4 py-2 rounded-full bg-bloom-50 text-plum-900 text-xs font-bold border border-bloom-200 hover:bg-bloom-100">شيت القطاعي</a>
+        <a id="link-wholesale-sheet" href="#" target="_blank" class="hidden px-4 py-2 rounded-full bg-plum-900 text-white text-xs font-bold hover:bg-plum-700">شيت الجملة</a>
+        <a id="link-offers-sheet" href="#" target="_blank" class="hidden px-4 py-2 rounded-full bg-pink-500 text-white text-xs font-bold hover:bg-pink-600">شيت العروض وحساب الموظفين</a>
+        <span id="no-links-hint" class="text-xs text-plum-500">أضف روابط الشيتات في قسم الإعدادات بالأسفل لتظهر هنا</span>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-8">
+
+      <!-- 1) PASSWORDS & SITE SETTINGS -->
+      <div class="bg-white rounded-3xl border border-lavender-200/80 shadow-sm p-6 sm:p-7 space-y-6">
+        <div class="border-b border-bloom-100 pb-3">
+          <h2 class="text-xl font-black text-plum-900">كلمات المرور وإعدادات الموقع</h2>
+          <p class="text-xs text-plum-500 mt-1">أي تعديل تحفظه هنا يتطبق فوراً على كل صفحات الموقع</p>
+        </div>
+
+        <form id="settings-form" class="space-y-4">
+          <!-- Passwords Group -->
+          <div class="bg-lavender-100/40 rounded-2xl p-4 space-y-3 border border-lavender-200/60">
+            <h3 class="text-sm font-black text-plum-900">كلمات المرور والأكواد السرية</h3>
+
+            <div>
+              <label class="block text-xs font-bold text-plum-700 mb-1">كلمة مرور قسم الجملة (wholesale.html)</label>
+              <input id="set-wholesale-pass" type="text" class="w-full px-3.5 py-2.5 rounded-xl border border-lavender-200 bg-white text-sm font-bold text-plum-900" dir="ltr">
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-plum-700 mb-1">كود تعديل الطلبات للموظفين في القطاعي (retail.html)</label>
+              <input id="set-staff-pin" type="text" class="w-full px-3.5 py-2.5 rounded-xl border border-lavender-200 bg-white text-sm font-bold text-plum-900" dir="ltr">
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-plum-700 mb-1">تغيير كلمة مرور الأدمن (اتركها فارغة إذا لا تريد تغييرها)</label>
+              <input id="set-new-admin-pass" type="password" placeholder="كلمة مرور أدمن جديدة (اختياري)..." class="w-full px-3.5 py-2.5 rounded-xl border border-lavender-200 bg-white text-sm text-plum-900" dir="ltr">
+            </div>
+          </div>
+
+          <!-- Contact & Links Group -->
+          <div class="space-y-3">
+            <h3 class="text-sm font-black text-plum-900">أرقام الواتساب والروابط</h3>
+
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-bold text-plum-700 mb-1">واتساب القطاعي والعروض (20...)</label>
+                <input id="set-retail-wa" type="text" class="w-full px-3.5 py-2.5 rounded-xl border border-bloom-200 text-sm font-bold" dir="ltr">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-plum-700 mb-1">واتساب الجملة (20...)</label>
+                <input id="set-wholesale-wa" type="text" class="w-full px-3.5 py-2.5 rounded-xl border border-bloom-200 text-sm font-bold" dir="ltr">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-plum-700 mb-1">رابط جوجل درايف (ريفيوهات الزبائن)</label>
+              <input id="set-reviews-url" type="url" placeholder="https://drive.google.com/..." class="w-full px-3.5 py-2.5 rounded-xl border border-bloom-200 text-sm" dir="ltr">
+            </div>
+          </div>
+
+          <!-- Top Announcement Banner -->
+          <div class="bg-bloom-50/70 rounded-2xl p-4 space-y-3 border border-bloom-200/70">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-black text-plum-900">الشريط الإعلاني أعلى الموقع</h3>
+              <label class="inline-flex items-center gap-2 cursor-pointer text-xs font-bold text-plum-700">
+                <input id="set-banner-enabled" type="checkbox" class="w-4 h-4 accent-plum-900 rounded">
+                <span>تفعيل الشريط</span>
+              </label>
+            </div>
+            <input id="set-banner-text" type="text" placeholder="مثال: خصم خاص اليوم أو شحن مجاني للطلبات فوق 1500 ج.م..." class="w-full px-3.5 py-2.5 rounded-xl border border-bloom-200 bg-white text-sm">
+          </div>
+
+          <!-- Sheet Shortcuts URLs -->
+          <div class="space-y-2.5 pt-2 border-t border-bloom-100">
+            <h3 class="text-sm font-black text-plum-900">روابط الشيتات (اختصارات لك فقط)</h3>
+            <input id="set-retail-sheet" type="url" placeholder="رابط شيت القطاعي (Google Sheet URL)" class="w-full px-3.5 py-2 rounded-xl border border-bloom-200 text-xs" dir="ltr">
+            <input id="set-wholesale-sheet" type="url" placeholder="رابط شيت الجملة (Google Sheet URL)" class="w-full px-3.5 py-2 rounded-xl border border-bloom-200 text-xs" dir="ltr">
+            <input id="set-offers-sheet" type="url" placeholder="رابط شيت العروض (Google Sheet URL)" class="w-full px-3.5 py-2 rounded-xl border border-bloom-200 text-xs" dir="ltr">
+          </div>
+
+          <button id="save-settings-btn" type="submit" class="w-full brand-gradient-btn text-white font-bold py-3.5 rounded-full shadow-soft">
+            حفظ جميع الإعدادات
+          </button>
+        </form>
+      </div>
+
+      <!-- 2) EMPLOYEES & RESERVATION CODES -->
+      <div class="bg-white rounded-3xl border border-lavender-200/80 shadow-sm p-6 sm:p-7 flex flex-col">
+        <div class="border-b border-bloom-100 pb-3 mb-5">
+          <h2 class="text-xl font-black text-plum-900">إدارة الموظفين وأكواد حجز العروض</h2>
+          <p class="text-xs text-plum-500 mt-1">أضف، عدّل، أو عطّل كود أي موظف — الكود يرتبط بالاسم الثابت في شيت العروض</p>
+        </div>
+
+        <!-- Add Employee Form -->
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-2.5 mb-5 bg-lavender-100/40 p-3.5 rounded-2xl border border-lavender-200/60">
+          <input id="new-emp-code" type="text" placeholder="الكود (مثال: ZHR5)" class="sm:col-span-4 px-3.5 py-2 rounded-xl border border-lavender-200 bg-white text-sm font-bold uppercase" dir="ltr">
+          <input id="new-emp-name" type="text" placeholder="اسم الموظف الثابت..." class="sm:col-span-5 px-3.5 py-2 rounded-xl border border-lavender-200 bg-white text-sm font-bold">
+          <button id="add-emp-btn" type="button" class="sm:col-span-3 bg-plum-900 hover:bg-plum-700 text-white text-sm font-bold py-2 rounded-xl transition-colors">
+            + إضافة
+          </button>
+        </div>
+
+        <!-- Employees List -->
+        <div id="employees-list" class="flex-1 space-y-2.5 max-h-[460px] overflow-y-auto pr-1 mb-5"></div>
+
+        <button id="save-employees-btn" type="button" class="w-full bg-plum-900 hover:bg-plum-700 text-white font-bold py-3.5 rounded-full shadow-soft transition-colors mt-auto">
+          حفظ قائمة الموظفين
+        </button>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 translate-y-24 opacity-0 z-[60] bg-plum-900 text-white text-sm font-medium px-5 py-3 rounded-full shadow-lg toast">
+  تم الحفظ
+</div>
+
+<script>
+/* ===================== SETTINGS API URL =====================
+   ضع هنا رابط الـ Web app URL الذي نسخته من شيت الإعدادات في الخطوة 1
+*/
+const SETTINGS_API_URL = 'https://script.google.com/macros/s/AKfycbzfTu68NYIkCWdm-P8sIQUcTGZXL_oeUyqZJ6KtocxZ6MruOwGcbaXZf-S07vS-AsKm/exec';
+const SITE_BASE_URL = 'https://alzahraaco.com';
+
+let currentAdminPass = '';
+let employeesState = [];
+
+/* ===================== TOAST ===================== */
+let toastTimer;
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.remove('translate-y-24', 'opacity-0');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.add('translate-y-24', 'opacity-0'), 2600);
+}
+
+/* ===================== LOGIN ===================== */
+const loginSection = document.getElementById('login-section');
+const dashboardSection = document.getElementById('dashboard-section');
+const logoutBtn = document.getElementById('logout-btn');
+const loginError = document.getElementById('login-error');
+
+async function loadAdminData(password) {
+  if (!SETTINGS_API_URL || SETTINGS_API_URL.includes('YOUR_SETTINGS_API_URL')) {
+    throw new Error('لم يتم وضع رابط شيت الإعدادات (SETTINGS_API_URL) في الكود بعد.');
+  }
+  const url = `${SETTINGS_API_URL}?mode=admin&pass=${encodeURIComponent(password)}`;
+  const res = await fetch(url);
+  const data = await res.json();
+  if (data.status !== 'success') {
+    throw new Error(data.message || 'كلمة المرور غير صحيحة');
+  }
+  return data;
+}
+
+document.getElementById('login-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const pass = document.getElementById('admin-pass-input').value.trim();
+  const btn = document.getElementById('login-submit');
+  if (!pass) return;
+
+  btn.disabled = true;
+  btn.textContent = 'جاري التحقق...';
+  loginError.classList.add('hidden');
+
+  try {
+    const data = await loadAdminData(pass);
+    currentAdminPass = pass;
+    sessionStorage.setItem('alzahraa_admin_pass', pass);
+    populateDashboard(data);
+    loginSection.classList.add('hidden');
+    dashboardSection.classList.remove('hidden');
+    logoutBtn.classList.remove('hidden');
+    showToast('مرحباً بك في لوحة التحكم');
+  } catch (err) {
+    loginError.textContent = err.message;
+    loginError.classList.remove('hidden');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'دخول للوحة التحكم';
+  }
+});
+
+logoutBtn.addEventListener('click', () => {
+  currentAdminPass = '';
+  sessionStorage.removeItem('alzahraa_admin_pass');
+  document.getElementById('admin-pass-input').value = '';
+  dashboardSection.classList.add('hidden');
+  logoutBtn.classList.add('hidden');
+  loginSection.classList.remove('hidden');
+});
+
+/* ===================== POPULATE DASHBOARD ===================== */
+function populateDashboard(data) {
+  const s = data.settings || {};
+  document.getElementById('set-wholesale-pass').value = s.wholesale_password || '';
+  document.getElementById('set-staff-pin').value = s.staff_pin || '';
+  document.getElementById('set-new-admin-pass').value = '';
+  document.getElementById('set-retail-wa').value = s.retail_whatsapp || '';
+  document.getElementById('set-wholesale-wa').value = s.wholesale_whatsapp || '';
+  document.getElementById('set-reviews-url').value = s.reviews_drive_url || '';
+  document.getElementById('set-banner-enabled').checked = String(s.banner_enabled).toUpperCase() === 'TRUE';
+  document.getElementById('set-banner-text').value = s.banner_text || '';
+  document.getElementById('set-retail-sheet').value = s.retail_sheet_url || '';
+  document.getElementById('set-wholesale-sheet').value = s.wholesale_sheet_url || '';
+  document.getElementById('set-offers-sheet').value = s.offers_sheet_url || '';
+
+  updateQuickLinks(s);
+
+  employeesState = Array.isArray(data.employees) ? data.employees : [];
+  renderEmployees();
+}
+
+function updateQuickLinks(s) {
+  const links = [
+    { id: 'link-retail-sheet', url: s.retail_sheet_url },
+    { id: 'link-wholesale-sheet', url: s.wholesale_sheet_url },
+    { id: 'link-offers-sheet', url: s.offers_sheet_url }
+  ];
+  let anyVisible = false;
+  links.forEach(item => {
+    const el = document.getElementById(item.id);
+    if (item.url && item.url.startsWith('http')) {
+      el.href = item.url;
+      el.classList.remove('hidden');
+      anyVisible = true;
+    } else {
+      el.classList.add('hidden');
+    }
+  });
+  document.getElementById('no-links-hint').classList.toggle('hidden', anyVisible);
+}
+
+/* ===================== SAVE SETTINGS ===================== */
+document.getElementById('settings-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('save-settings-btn');
+  btn.disabled = true;
+  btn.textContent = 'جاري الحفظ...';
+
+  const newAdminPass = document.getElementById('set-new-admin-pass').value.trim();
+  const updatedSettings = {
+    wholesale_password: document.getElementById('set-wholesale-pass').value.trim(),
+    staff_pin: document.getElementById('set-staff-pin').value.trim(),
+    retail_whatsapp: document.getElementById('set-retail-wa').value.trim(),
+    wholesale_whatsapp: document.getElementById('set-wholesale-wa').value.trim(),
+    reviews_drive_url: document.getElementById('set-reviews-url').value.trim(),
+    banner_enabled: document.getElementById('set-banner-enabled').checked ? 'TRUE' : 'FALSE',
+    banner_text: document.getElementById('set-banner-text').value.trim(),
+    retail_sheet_url: document.getElementById('set-retail-sheet').value.trim(),
+    wholesale_sheet_url: document.getElementById('set-wholesale-sheet').value.trim(),
+    offers_sheet_url: document.getElementById('set-offers-sheet').value.trim()
+  };
+
+  try {
+    const res = await fetch(SETTINGS_API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({
+        adminPassword: currentAdminPass,
+        action: 'saveSettings',
+        settings: updatedSettings,
+        newAdminPassword: newAdminPass
+      })
+    });
+    const result = await res.json();
+    if (result.status !== 'success') throw new Error(result.message || 'فشل الحفظ');
+
+    if (newAdminPass.length >= 4) {
+      currentAdminPass = newAdminPass;
+      sessionStorage.setItem('alzahraa_admin_pass', newAdminPass);
+      document.getElementById('set-new-admin-pass').value = '';
+    }
+    updateQuickLinks(updatedSettings);
+    showToast('تم حفظ الإعدادات بنجاح');
+  } catch (err) {
+    showToast('خطأ: ' + err.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'حفظ جميع الإعدادات';
+  }
+});
+
+/* ===================== EMPLOYEES MANAGEMENT ===================== */
+function renderEmployees() {
+  const list = document.getElementById('employees-list');
+  if (employeesState.length === 0) {
+    list.innerHTML = `<p class="text-center text-sm text-plum-500 py-8">لا يوجد موظفين مسجلين حالياً</p>`;
+    return;
+  }
+
+  list.innerHTML = employeesState.map((emp, idx) => `
+    <div class="flex flex-wrap items-center justify-between gap-2 p-3 rounded-2xl border ${emp.active ? 'border-lavender-200 bg-white' : 'border-gray-200 bg-gray-50 opacity-75'}">
+      <div class="flex items-center gap-2.5 min-w-0">
+        <span class="px-2.5 py-1 rounded-lg bg-plum-900 text-white text-xs font-bold tracking-wide" dir="ltr">${emp.code}</span>
+        <span class="font-bold text-sm text-plum-900 truncate">${emp.name}</span>
+      </div>
+
+      <div class="flex items-center gap-1.5">
+        <button type="button" data-copy="${emp.code}" title="نسخ رابط العروض الخاص بالموظف"
+                class="copy-link-btn text-[11px] font-bold px-2.5 py-1 rounded-lg bg-lavender-100 text-lavender-500 hover:bg-lavender-200">
+          نسخ اللينك
+        </button>
+        <button type="button" data-toggle="${idx}"
+                class="toggle-emp-btn text-[11px] font-bold px-2.5 py-1 rounded-lg ${emp.active ? 'bg-emerald-100 text-emerald-700' : 'bg-gray-200 text-gray-600'}">
+          ${emp.active ? 'مفعل' : 'معطل'}
+        </button>
+        <button type="button" data-del="${idx}" aria-label="حذف"
+                class="del-emp-btn w-7 h-7 rounded-lg text-rose-500 hover:bg-rose-50 flex items-center justify-center font-bold">
+          ×
+        </button>
+      </div>
+    </div>
+  `).join('');
+
+  list.querySelectorAll('.toggle-emp-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const i = parseInt(btn.dataset.toggle, 10);
+      employeesState[i].active = !employeesState[i].active;
+      renderEmployees();
+    });
+  });
+
+  list.querySelectorAll('.del-emp-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const i = parseInt(btn.dataset.del, 10);
+      employeesState.splice(i, 1);
+      renderEmployees();
+    });
+  });
+
+  list.querySelectorAll('.copy-link-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const link = `${SITE_BASE_URL}/offers.html?code=${encodeURIComponent(btn.dataset.copy)}`;
+      navigator.clipboard.writeText(link).then(() => showToast('تم نسخ رابط العروض الخاص بالموظف'));
+    });
+  });
+}
+
+document.getElementById('add-emp-btn').addEventListener('click', () => {
+  const codeInput = document.getElementById('new-emp-code');
+  const nameInput = document.getElementById('new-emp-name');
+  const code = codeInput.value.trim().toUpperCase();
+  const name = nameInput.value.trim();
+
+  if (!code || !name) {
+    showToast('اكتب الكود واسم الموظف أولاً');
+    return;
+  }
+  if (employeesState.some(e => e.code === code)) {
+    showToast('هذا الكود موجود بالفعل!');
+    return;
+  }
+
+  employeesState.push({ code, name, active: true });
+  codeInput.value = '';
+  nameInput.value = '';
+  renderEmployees();
+  showToast('تمت الإضافة — اضغط "حفظ قائمة الموظفين" للتأكيد');
+});
+
+document.getElementById('save-employees-btn').addEventListener('click', async () => {
+  const btn = document.getElementById('save-employees-btn');
+  btn.disabled = true;
+  btn.textContent = 'جاري الحفظ...';
+
+  try {
+    const res = await fetch(SETTINGS_API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({
+        adminPassword: currentAdminPass,
+        action: 'saveEmployees',
+        employees: employeesState
+      })
+    });
+    const result = await res.json();
+    if (result.status !== 'success') throw new Error(result.message || 'فشل الحفظ');
+    showToast('تم حفظ قائمة الموظفين في الشيت بنجاح');
+  } catch (err) {
+    showToast('خطأ: ' + err.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'حفظ قائمة الموظفين';
+  }
+});
+
+/* ===================== AUTO-LOGIN IF SESSION EXISTS ===================== */
+(async function checkSavedSession() {
+  const saved = sessionStorage.getItem('alzahraa_admin_pass');
+  if (!saved || SETTINGS_API_URL.includes('YOUR_SETTINGS_API_URL')) return;
+  try {
+    const data = await loadAdminData(saved);
+    currentAdminPass = saved;
+    populateDashboard(data);
+    loginSection.classList.add('hidden');
+    dashboardSection.classList.remove('hidden');
+    logoutBtn.classList.remove('hidden');
+  } catch (e) {
+    sessionStorage.removeItem('alzahraa_admin_pass');
+  }
+})();
+</script>
+</body>
+</html>

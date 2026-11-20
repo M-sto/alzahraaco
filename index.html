@@ -1,32 +1,27 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ALZAHRAA</title>
+<title>ALZAHRAA | الزهراء للعناية بالبشرة والشعر</title>
 
 <!-- SEO Meta Tags -->
-<meta name="description" content="ALZAHRAA الزهراء - اكتشفي أفضل منتجات العناية الكورية بالبشرة والشعر والزيوت الطبيعية ومستحضرات التجميل. تسوقي الآن.">
-
+<meta name="description" content="ALZAHRAA الزهراء - اكتشفي أفضل منتجات العناية الكورية واليابانية والهندية والطبيعية بالبشرة والشعر. طلب قطاعي، طلب جملة، وأقوى العروض.">
 <meta name="robots" content="index, follow">
-
 <link rel="canonical" href="https://alzahraaco.com/">
-
 <meta name="author" content="ALZAHRAA">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="ALZAHRAA | الزهراء للعناية بالبشرة والشعر">
-<meta property="og:description" content="اكتشفي منتجات العناية الكورية والطبيعية بالبشرة والشعر من ALZAHRAA.">
+<meta property="og:description" content="منتجات عناية أصلية ١٠٠٪ بالبشرة والشعر - قطاعي وجملة وعروض حصرية.">
 <meta property="og:url" content="https://alzahraaco.com/">
 <meta property="og:image" content="https://alzahraaco.com/logo.jpg">
 <meta property="og:locale" content="ar_EG">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
 
 <script src="https://cdn.tailwindcss.com"></script>
@@ -78,236 +73,280 @@
   .brand-gradient-btn { background: linear-gradient(100deg, #E88CBD 0%, #C6ABF0 55%, #A87DE0 100%); }
   .brand-gradient-btn:hover { background: linear-gradient(100deg, #DE79AF 0%, #B994ED 55%, #9A6BD8 100%); }
 
+  .offers-btn {
+    background: linear-gradient(100deg, #F59E0B 0%, #EC4899 100%);
+    color: #ffffff;
+  }
+  .offers-btn:hover { filter: brightness(0.95); }
+
+  .wholesale-btn {
+    background: #2E1F3D;
+    color: #ffffff;
+    box-shadow: 0 0 0 2px #C6ABF0, 0 10px 24px -10px rgba(139,95,201,.45);
+    transition: background .25s ease, transform .15s ease;
+  }
+  .wholesale-btn:hover { background: #4A3560; transform: translateY(-1px); }
+
   .blob { position:absolute; border-radius:50%; filter:blur(60px); opacity:.55; pointer-events:none; }
   .tag-pill { font-size:.72rem; padding:.2rem .65rem; border-radius:999px; display:inline-block; font-weight:700; }
   .card-hover { transition: transform .35s ease, box-shadow .35s ease; }
   .card-hover:hover { transform: translateY(-6px); }
 
-  /* Filter chips: inactive = soft rounded border, active = solid filled */
-  .filter-chip {
-    border: 1px solid #DFD0F7;
-    background: #FFFFFF;
-    color: #4A3560;
-    transition: background .25s ease, color .25s ease, border-color .25s ease, transform .15s ease;
-  }
-  .filter-chip:hover { border-color: #A87DE0; }
-  .filter-chip.active {
-    background: linear-gradient(100deg, #E88CBD 0%, #C6ABF0 55%, #A87DE0 100%);
-    color: #ffffff;
-    border-color: transparent;
-  }
-
-  .product-card { transition: opacity .3s ease, transform .3s ease; }
-  .product-card.hidden-card { display: none; }
-
-  select.variant-select, select.governorate-select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236E5486' stroke-width='1.5' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: left .9rem center;
-    -webkit-appearance: none; appearance: none;
-  }
-
-  #cart-panel { transition: transform .4s cubic-bezier(.16,1,.3,1); }
-  #cart-overlay { transition: opacity .3s ease; }
-  .scrollbar-thin::-webkit-scrollbar { width:5px; }
-  .scrollbar-thin::-webkit-scrollbar-thumb { background:#DFD0F7; border-radius:10px; }
-
   @keyframes floatY { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-14px); } }
   .float-slow { animation: floatY 6s ease-in-out infinite; }
-  .toast { transition: transform .35s ease, opacity .35s ease; }
-  .product-media img { transition: opacity .3s ease; }
-
-  /* [MOD 2] Wholesale WhatsApp button: dark plum fill + soft lavender glow, same palette as the site */
-  .wholesale-btn {
-    background: #2E1F3D;               /* plum-900 */
-    color: #ffffff;
-    box-shadow: 0 0 0 2px #C6ABF0, 0 14px 30px -12px rgba(139,95,201,.55);   /* lavender-300 ring */
-    transition: background .25s ease, transform .15s ease;
-    animation: wholesaleGlow 2.6s ease-in-out infinite;
-  }
-  .wholesale-btn:hover { background: #4A3560; transform: translateY(-2px); }   /* plum-700 */
-  @keyframes wholesaleGlow {
-    0%,100% { box-shadow: 0 0 0 2px #C6ABF0, 0 0 0 0 rgba(168,125,224,.45), 0 14px 30px -12px rgba(139,95,201,.55); }
-    50%     { box-shadow: 0 0 0 2px #C6ABF0, 0 0 0 10px rgba(168,125,224,0), 0 14px 30px -12px rgba(139,95,201,.55); }
-  }
-  @media (prefers-reduced-motion: reduce) { .wholesale-btn { animation: none; } }
-
-  /* [MOD 5] Sub-filter panel shown under the main chips when "Hair Care" is selected */
-  #hair-subfilters { display: none; }
-  #hair-subfilters.show { display: flex; }
 </style>
 </head>
 
 <body class="antialiased">
 
-<!-- [MOD 1] Promotional countdown banner REMOVED -->
-
 <!-- ============ HEADER ============ -->
-<header id="site-header" class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-bloom-100">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8">
-    <div class="flex items-center justify-between h-[72px]">
-      <a href="#home" class="flex items-center gap-2 shrink-0">
+<header id="site-header" class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-bloom-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-8">
+    <div class="flex items-center justify-between h-[72px] gap-3">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2 shrink-0">
         <img src="logo.jpg" alt="ALZAHRAA" class="h-10 w-10 rounded-full object-cover" onerror="this.style.display='none'">
-        <span class="font-logo italic text-[28px] sm:text-[32px] tracking-wide text-plum-900">ALZAHRAA</span>
+        <span class="font-logo italic text-[26px] sm:text-[32px] tracking-wide text-plum-900">ALZAHRAA</span>
         <span class="hidden sm:inline text-lavender-500 text-xl leading-none">٭</span>
       </a>
 
-      <nav class="hidden md:flex items-center gap-8 text-[15px] font-medium text-plum-700">
-        <a href="#home" class="hover:text-lavender-500 transition-colors">الرئيسية</a>
-        <a href="#shop" class="hover:text-lavender-500 transition-colors">العناية بالشعر</a>
-        <a href="#shop" class="hover:text-lavender-500 transition-colors">العناية بالبشرة</a>
-        <a href="#best-sellers" class="hover:text-lavender-500 transition-colors">الأكثر مبيعاً</a>
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-6 text-[14px] font-medium text-plum-700">
+        <a href="#about" class="hover:text-lavender-500 transition-colors">من نحن</a>
+        <a href="#why-us" class="hover:text-lavender-500 transition-colors">ليه الزهراء؟</a>
+        <a href="#reviews" class="hover:text-lavender-500 transition-colors">آراء العملاء</a>
         <a href="#contact" class="hover:text-lavender-500 transition-colors">تواصل معنا</a>
       </nav>
 
-      <div class="flex items-center gap-3">
-        <button id="cart-btn" aria-label="عرض السلة" class="relative w-11 h-11 rounded-full bg-bloom-50 hover:bg-bloom-100 transition-colors flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-plum-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
-            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-          </svg>
-          <span id="cart-count" class="absolute -top-1 -left-1 min-w-[19px] h-[19px] px-1 rounded-full bg-bloom-400 text-white text-[11px] font-bold flex items-center justify-center">0</span>
-        </button>
-        <button id="menu-btn" class="md:hidden w-11 h-11 flex items-center justify-center text-plum-700" aria-label="القائمة">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
+      <!-- Main 3 Store Buttons (Desktop) -->
+      <div class="hidden md:flex items-center gap-2.5">
+        <a href="retail.html" class="brand-gradient-btn text-white text-sm font-bold px-5 py-2.5 rounded-full shadow-soft transition-transform hover:-translate-y-0.5">
+          طلب قطاعي
+        </a>
+        <a href="wholesale.html" class="wholesale-btn text-sm font-bold px-5 py-2.5 rounded-full">
+          طلب جملة
+        </a>
+        <a href="offers.html" class="offers-btn text-sm font-bold px-5 py-2.5 rounded-full shadow-sm transition-transform hover:-translate-y-0.5">
+          العروض
+        </a>
       </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="menu-btn" class="lg:hidden w-10 h-10 flex items-center justify-center text-plum-700" aria-label="القائمة">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
     </div>
 
-    <nav id="mobile-nav" class="hidden md:hidden pb-4 flex flex-col gap-1 text-plum-700 font-medium">
-      <a href="#home" class="py-2.5 px-2 rounded-lg hover:bg-bloom-50">الرئيسية</a>
-      <a href="#shop" class="py-2.5 px-2 rounded-lg hover:bg-bloom-50">العناية بالشعر</a>
-      <a href="#shop" class="py-2.5 px-2 rounded-lg hover:bg-bloom-50">العناية بالبشرة</a>
-      <a href="#best-sellers" class="py-2.5 px-2 rounded-lg hover:bg-bloom-50">الأكثر مبيعاً</a>
-      <a href="#contact" class="py-2.5 px-2 rounded-lg hover:bg-bloom-50">تواصل معنا</a>
+    <!-- Main 3 Store Buttons (Always visible top bar on Mobile) -->
+    <div class="flex md:hidden items-center justify-center gap-2 pb-3">
+      <a href="retail.html" class="flex-1 text-center brand-gradient-btn text-white text-xs font-bold py-2.5 px-2 rounded-full shadow-sm">
+        طلب قطاعي
+      </a>
+      <a href="wholesale.html" class="flex-1 text-center wholesale-btn text-xs font-bold py-2.5 px-2 rounded-full">
+        طلب جملة
+      </a>
+      <a href="offers.html" class="flex-1 text-center offers-btn text-xs font-bold py-2.5 px-2 rounded-full shadow-sm">
+        العروض
+      </a>
+    </div>
+
+    <!-- Mobile Secondary Nav -->
+    <nav id="mobile-nav" class="hidden lg:hidden pb-4 flex flex-col gap-1 text-plum-700 font-medium border-t border-bloom-50 pt-2">
+      <a href="#about" class="py-2 px-2 rounded-lg hover:bg-bloom-50">من نحن</a>
+      <a href="#why-us" class="py-2 px-2 rounded-lg hover:bg-bloom-50">ليه الزهراء؟</a>
+      <a href="#reviews" class="py-2 px-2 rounded-lg hover:bg-bloom-50">آراء العملاء</a>
+      <a href="#contact" class="py-2 px-2 rounded-lg hover:bg-bloom-50">تواصل معنا</a>
     </nav>
   </div>
 </header>
 
-<!-- ============ HERO ============ -->
-<section id="home" class="relative overflow-hidden brand-gradient-bg">
+<!-- ============ HERO / ABOUT US ============ -->
+<section id="about" class="relative overflow-hidden brand-gradient-bg">
   <div class="blob w-[340px] h-[340px] bg-bloom-200 -top-20 left-[-60px]"></div>
   <div class="blob w-[420px] h-[420px] bg-lavender-200 top-10 -right-32"></div>
 
-  <div class="relative max-w-7xl mx-auto px-5 sm:px-8 py-20 sm:py-28 grid md:grid-cols-2 gap-14 items-center">
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8 py-16 sm:py-24 grid md:grid-cols-2 gap-12 items-center">
     <div class="text-center md:text-right">
       <span class="tag-pill bg-white text-lavender-500 border border-lavender-200 shadow-sm mb-5">عناية أصلية ١٠٠٪</span>
       <h1 class="text-4xl sm:text-5xl lg:text-[52px] leading-[1.25] font-black text-plum-900">
         دلالك يبدأ من <span class="text-transparent bg-clip-text brand-gradient-btn">هنا</span>....
       </h1>
-      <p class="mt-6 text-plum-500 text-lg leading-relaxed max-w-md mx-auto md:mx-0 md:mr-0">
-        أكثر من ٣٠ منتج أصلي كوري ويابياني وطبيعي للعناية بالشعر والبشرة، بمقاسات متعددة تناسب ميزانيتك وروتينك اليومي.
+      <p class="mt-6 text-plum-500 text-base sm:text-lg leading-relaxed max-w-xl mx-auto md:mx-0">
+        في <strong class="text-plum-900">ALZAHRAA</strong> بنوفرلك أشهر وأقوى منتجات العناية الكورية، اليابانية، الهندية، والطبيعية للشعر والبشرة والعطور والقهوة المختارة — سواء حابة تجربي تقسيمات وأحجام صغيرة على قد ميزانيتك، أو تطلبي العبوات الكاملة، أو تبدأي مشروعك معانا بأسعار الجملة.
       </p>
-      <div class="mt-9 flex flex-col sm:flex-row sm:flex-wrap gap-4 justify-center md:justify-start">
-        <a href="#shop" class="brand-gradient-btn text-white font-bold px-9 py-3.5 rounded-full shadow-soft transition-colors text-center">تسوقي الآن</a>
-        <a href="#best-sellers" class="px-9 py-3.5 rounded-full border border-lavender-200 text-plum-700 font-bold hover:bg-lavender-100/50 transition-colors text-center">الأكثر مبيعاً</a>
-        <!-- [MOD 2] WHOLESALE WHATSAPP BUTTON (hero). The link is filled from WHOLESALE_WHATSAPP_NUMBER in the script at the bottom of the page. -->
-        <a href="#" data-wholesale-link target="_blank" rel="noopener" class="wholesale-btn font-bold px-9 py-3.5 rounded-full inline-flex items-center justify-center gap-2 text-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
-          لطلب الجملة
+
+      <!-- Quick Entry Cards -->
+      <div class="mt-9 grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <a href="retail.html" class="brand-gradient-btn text-white font-bold px-5 py-3.5 rounded-2xl shadow-soft text-center transition-transform hover:-translate-y-0.5">
+          <span class="block text-base">طلب قطاعي</span>
+          <span class="block text-[11px] font-normal opacity-90 mt-0.5">تصفحي كل المنتجات</span>
+        </a>
+        <a href="wholesale.html" class="wholesale-btn font-bold px-5 py-3.5 rounded-2xl text-center">
+          <span class="block text-base">طلب جملة</span>
+          <span class="block text-[11px] font-normal text-lavender-200 mt-0.5">لتجار الجملة والكميات</span>
+        </a>
+        <a href="offers.html" class="offers-btn font-bold px-5 py-3.5 rounded-2xl shadow-sm text-center transition-transform hover:-translate-y-0.5">
+          <span class="block text-base">العروض</span>
+          <span class="block text-[11px] font-normal opacity-90 mt-0.5">أقوى الباكدجات والخصومات</span>
         </a>
       </div>
-      <div class="mt-10 flex items-center justify-center md:justify-start gap-8 text-plum-500 text-sm">
+
+      <div class="mt-10 flex items-center justify-center md:justify-start gap-6 sm:gap-8 text-plum-500 text-sm">
         <div><span class="block text-2xl font-black text-plum-900">+67</span>منتج أصلي</div>
         <div class="w-px h-9 bg-lavender-200"></div>
-        <div><span class="block text-2xl font-black text-plum-900">كوري</span>و ياباني وطبيعي و هندي </div>
+        <div><span class="block text-2xl font-black text-plum-900">تقسيمات</span>وعبوات كاملة</div>
         <div class="w-px h-9 bg-lavender-200"></div>
-        <div><span class="block text-2xl font-black text-plum-900">واتساب</span>تأكيد الطلب</div>
+        <div><span class="block text-2xl font-black text-plum-900">شحن</span>لجميع المحافظات</div>
       </div>
     </div>
 
-    <div class="relative hidden md:flex justify-center items-center">
-      <div class="w-72 h-72 rounded-full brand-gradient-btn opacity-90 float-slow"></div>
-      <div class="absolute w-40 h-56 bg-white rounded-[2.5rem] shadow-soft border border-bloom-100 -translate-x-16 translate-y-10 float-slow" style="animation-delay:.6s"></div>
-      <div class="absolute w-28 h-40 bg-white rounded-[2rem] shadow-soft border border-lavender-100 translate-x-20 -translate-y-12 float-slow" style="animation-delay:1.2s"></div>
-      <div class="absolute w-28 h-32 rounded-[22px] bg-white shadow-soft flex items-center justify-center overflow-hidden float-slow" style="animation-delay:.3s">
-        <svg class="w-14 h-14 text-lavender-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 2h6M9 2v4.5a4 4 0 0 1-1 2.6L7 10.5A5 5 0 0 0 5.5 14v4A3.5 3.5 0 0 0 9 21.5h6a3.5 3.5 0 0 0 3.5-3.5v-4a5 5 0 0 0-1.5-3.5l-1-1.4a4 4 0 0 1-1-2.6V2" stroke-width="1.4" stroke-linejoin="round"/></svg>
-        <img src="logo.jpg" alt="ALZAHRAA" class="absolute inset-0 w-full h-full object-cover rounded-[22px]" onerror="this.remove()">
+    <!-- Brand Visual / Showcase -->
+    <div class="relative flex justify-center items-center">
+      <div class="relative w-full max-w-md aspect-square flex items-center justify-center">
+        <div class="w-72 h-72 rounded-full brand-gradient-btn opacity-85 float-slow"></div>
+        <div class="absolute w-44 h-56 bg-white rounded-[2.5rem] shadow-soft border border-bloom-100 -translate-x-16 translate-y-10 float-slow p-4 flex flex-col justify-end" style="animation-delay:.6s">
+          <span class="tag-pill bg-bloom-50 text-bloom-400 self-start mb-1">كوري & ياباني</span>
+          <p class="text-xs font-bold text-plum-900">منتجات أصلية مضمونة ١٠٠٪</p>
+        </div>
+        <div class="absolute w-40 h-44 bg-white rounded-[2rem] shadow-soft border border-lavender-100 translate-x-20 -translate-y-14 float-slow p-4 flex flex-col justify-end" style="animation-delay:1.2s">
+          <span class="tag-pill bg-lavender-100 text-lavender-500 self-start mb-1">ثقة عملائنا</span>
+          <p class="text-xs font-bold text-plum-900">آلاف الطلبات الناجحة</p>
+        </div>
+        <div class="absolute w-32 h-32 rounded-3xl bg-white shadow-soft flex items-center justify-center overflow-hidden border-2 border-white float-slow" style="animation-delay:.3s">
+          <img src="logo.jpg" alt="ALZAHRAA" class="w-full h-full object-cover" onerror="this.style.display='none'">
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ SHOP (unified brand / category filter) ============ -->
-<section id="shop" class="max-w-7xl mx-auto px-5 sm:px-8 py-20">
-  <div class="text-center mb-8">
-    <span class="tag-pill bg-bloom-50 text-bloom-400 mb-3">تسوقي حسب الماركة</span>
-    <h2 class="text-3xl sm:text-4xl font-black text-plum-900">كل منتجاتنا في مكان واحد</h2>
-    <p class="text-plum-500 mt-3 max-w-lg mx-auto">اختاري الماركة أو نوع المنتج اللي بتدوري عليه</p>
+<!-- ============ WHY ALZAHRAA ============ -->
+<section id="why-us" class="max-w-7xl mx-auto px-5 sm:px-8 py-20">
+  <div class="text-center mb-12">
+    <span class="tag-pill bg-bloom-50 text-bloom-400 mb-3">قصتنا ومميزاتنا</span>
+    <h2 class="text-3xl sm:text-4xl font-black text-plum-900">ليه تختاري متجر الزهراء؟</h2>
+    <p class="text-plum-500 mt-3 max-w-xl mx-auto">هدفنا نوفرلك تجربة تسوق سهلة، موثوقة، ومنتجات أصلية تقدري تجربيها قبل ما تشتري الحجم الكبير</p>
   </div>
 
-  <div class="flex flex-wrap justify-center gap-2.5 mb-10" id="shop-filters">
-    <button data-filter="all" class="filter-chip active text-sm font-bold px-4 py-2 rounded-full">All</button>
-    <button data-filter="centella" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">Centella</button>
-    <button data-filter="anua" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">Anua</button>
-    <button data-filter="numbuzin" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">Numbuzin</button>
-    <button data-filter="medicube" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">Medicube</button>
-    <button data-filter="karsell" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">Karsell</button>
-    <button data-filter="eye-care" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">Eye Care</button>
-    <button data-filter="hair-care" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">Hair Care</button>
-    <button data-filter="vitamin-c" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">Vitamin C</button>
-    <button data-filter="parfum" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">Parfum</button>
-    <button data-filter="coffee" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">Coffee</button>
-    <!-- [MOD 4] NEW "Other" (أخرى) tag: shows every product that has no specific tag -->
-    <button data-filter="other" class="filter-chip text-sm font-bold px-4 py-2 rounded-full" title="أخرى">Other</button>
-  </div>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="card-hover bg-white rounded-3xl border border-bloom-100 shadow-sm hover:shadow-soft p-6 text-center">
+      <div class="w-14 h-14 mx-auto rounded-2xl bg-bloom-50 text-bloom-400 flex items-center justify-center mb-4">
+        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3 class="font-bold text-plum-900 text-lg mb-2">أصلية ١٠٠٪</h3>
+      <p class="text-sm text-plum-500 leading-relaxed">كل منتجاتنا مستوردة ومضمونة المصدر من أشهر البراندات الكورية واليابانية والهندية.</p>
+    </div>
 
-  <!-- [MOD 5] HAIR CARE SUB-FILTERS (brands). Hidden until the "Hair Care" chip is selected. -->
-  <div id="hair-subfilters" class="flex-wrap justify-center items-center gap-2 mb-10 -mt-4 mx-auto max-w-2xl bg-bloom-50 border border-bloom-100 rounded-3xl px-4 py-3">
-    <span class="text-xs font-bold text-plum-500 ml-1">الماركة:</span>
-    <button data-sub="all" class="filter-chip active text-xs font-bold px-3.5 py-1.5 rounded-full">All</button>
-    <button data-sub="vatika" class="filter-chip text-xs font-bold px-3.5 py-1.5 rounded-full">Vatika</button>
-    <button data-sub="dabur-amla" class="filter-chip text-xs font-bold px-3.5 py-1.5 rounded-full">Dabur Amla</button>
-    <button data-sub="parachute" class="filter-chip text-xs font-bold px-3.5 py-1.5 rounded-full">Parachute</button>
-    <button data-sub="fino" class="filter-chip text-xs font-bold px-3.5 py-1.5 rounded-full">Fino</button>
-    <button data-sub="kesh-king" class="filter-chip text-xs font-bold px-3.5 py-1.5 rounded-full">Kesh King</button>
-    <button data-sub="other" class="filter-chip text-xs font-bold px-3.5 py-1.5 rounded-full" title="أخرى">Other</button>
-  </div>
+    <div class="card-hover bg-white rounded-3xl border border-bloom-100 shadow-sm hover:shadow-soft p-6 text-center">
+      <div class="w-14 h-14 mx-auto rounded-2xl bg-lavender-100 text-lavender-500 flex items-center justify-center mb-4">
+        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+      </div>
+      <h3 class="font-bold text-plum-900 text-lg mb-2">أحجام وتقسيمات</h3>
+      <p class="text-sm text-plum-500 leading-relaxed">متوفر تقسيمات معقمة بأحجام مختلفة لتجربة المنتج على بشرتك أو شعرك قبل شراء العبوة الكاملة.</p>
+    </div>
 
-  <div id="shop-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7"></div>
+    <div class="card-hover bg-white rounded-3xl border border-bloom-100 shadow-sm hover:shadow-soft p-6 text-center">
+      <div class="w-14 h-14 mx-auto rounded-2xl bg-bloom-50 text-bloom-400 flex items-center justify-center mb-4">
+        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      </div>
+      <h3 class="font-bold text-plum-900 text-lg mb-2">شحن سريع وآمن</h3>
+      <p class="text-sm text-plum-500 leading-relaxed">تغليف محكم وتوصيل لباب البيت في جميع محافظات مصر مع متابعة مستمرة للطلب.</p>
+    </div>
+
+    <div class="card-hover bg-white rounded-3xl border border-bloom-100 shadow-sm hover:shadow-soft p-6 text-center">
+      <div class="w-14 h-14 mx-auto rounded-2xl bg-lavender-100 text-lavender-500 flex items-center justify-center mb-4">
+        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3 class="font-bold text-plum-900 text-lg mb-2">قطاعي وجملة وعروض</h3>
+      <p class="text-sm text-plum-500 leading-relaxed">أقسام مخصصة للقطاعي، وأسعار جملة مميزة للتجار، وعروض أسبوعية حصرية.</p>
+    </div>
+  </div>
 </section>
 
-<!-- ============ BEST SELLERS ============ -->
-<section id="best-sellers" class="bg-lavender-100/40 py-20">
+<!-- ============ CUSTOMER REVIEWS & FEEDBACK GALLERY ============ -->
+<section id="reviews" class="bg-lavender-100/40 py-20">
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
     <div class="text-center mb-12">
-      <span class="tag-pill bg-white text-lavender-500 mb-3">الأكثر طلباً</span>
-      <h2 class="text-3xl sm:text-4xl font-black text-plum-900">الأكثر مبيعاً هذا الأسبوع</h2>
+      <span class="tag-pill bg-white text-lavender-500 mb-3">تجارب حقيقية</span>
+      <h2 class="text-3xl sm:text-4xl font-black text-plum-900">آراء وردود عملاء الزهراء</h2>
+      <p class="text-plum-500 mt-3 max-w-lg mx-auto">ثقة عملائنا هي سر نجاحنا — اضغطي على أي صورة لتكبيرها أو تصفحي ألبوم الريفيوهات الكامل</p>
+
+      <!-- Google Drive Customer Reviews Button -->
+      <div class="mt-6">
+        <a href="#" data-reviews-drive target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2.5 px-7 py-3 rounded-full bg-white text-plum-900 font-bold text-sm border border-lavender-200 shadow-soft hover:bg-lavender-100/50 hover:-translate-y-0.5 transition-all">
+          <svg class="w-5 h-5 text-amber-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span>ريفيوهات الزبائن</span>
+        </a>
+      </div>
     </div>
-    <div id="best-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+
+    <!-- Written Highlight Testimonials -->
+    <div class="grid md:grid-cols-3 gap-6 mb-12">
+      <div class="bg-white rounded-3xl border border-bloom-100 p-6 shadow-sm">
+        <div class="flex items-center gap-1 text-amber-400 mb-3 text-sm">★★★★★</div>
+        <p class="text-sm text-plum-700 leading-relaxed">"المنتجات أصلية فعلاً والتغليف ممتاز جداً، فكرة التقسيمات فرقت معايا أوي عشان أجرب السيروم قبل ما أجيب الكبير."</p>
+        <p class="text-xs font-bold text-plum-900 mt-4">— عميلة من القاهرة</p>
+      </div>
+      <div class="bg-white rounded-3xl border border-bloom-100 p-6 shadow-sm">
+        <div class="flex items-center gap-1 text-amber-400 mb-3 text-sm">★★★★★</div>
+        <p class="text-sm text-plum-700 leading-relaxed">"أسرع شحن وتعامل راقي جداً على الواتساب، ماسك كارسيل وسيروم سنتيلا غيروا روتيني تماماً."</p>
+        <p class="text-xs font-bold text-plum-900 mt-4">— عميلة من الإسكندرية</p>
+      </div>
+      <div class="bg-white rounded-3xl border border-bloom-100 p-6 shadow-sm">
+        <div class="flex items-center gap-1 text-amber-400 mb-3 text-sm">★★★★★</div>
+        <p class="text-sm text-plum-700 leading-relaxed">"بتعامل معاهم جملة من فترة، التزام في المواعيد وأسعار محترمة جداً وجودة مضمونة ١٠٠٪."</p>
+        <p class="text-xs font-bold text-plum-900 mt-4">— شريكة جملة من الدقهلية</p>
+      </div>
+    </div>
+
+    <!-- Screenshots / Photos Grid (Populated via JS array below) -->
+    <div id="reviews-gallery" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"></div>
   </div>
 </section>
 
-<!-- ============ CONTACT ============ -->
+<!-- ============ CONTACT & SOCIAL MEDIA ============ -->
 <section id="contact" class="brand-gradient-bg relative overflow-hidden">
   <div class="blob w-[300px] h-[300px] bg-bloom-200 bottom-0 right-0"></div>
   <div class="relative max-w-4xl mx-auto px-5 sm:px-8 py-20 text-center">
-    <h2 class="text-3xl sm:text-4xl font-black text-plum-900">تواصلي معنا</h2>
-    <p class="text-plum-500 mt-3 max-w-md mx-auto">لأي استفسار عن المنتجات أو الطلبات، فريقنا جاهز لخدمتك عبر واتساب أو وسائل التواصل</p>
-    <div class="mt-8 flex flex-wrap justify-center gap-4">
-      <!-- [MOD 2] WHOLESALE WHATSAPP BUTTON (contact section) - same link as the hero button -->
-      <a href="#" data-wholesale-link target="_blank" rel="noopener" class="wholesale-btn font-bold px-7 py-3 rounded-full inline-flex items-center justify-center gap-2">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
-        لطلب الجملة
+    <h2 class="text-3xl sm:text-4xl font-black text-plum-900">تواصلي معنا وتابعينا</h2>
+    <p class="text-plum-500 mt-3 max-w-md mx-auto">تابعينا على السوشيال ميديا عشان تعرفي أحدث المنتجات والعروض، أو راسلينا مباشرة على واتساب</p>
+
+    <div class="mt-8 flex flex-wrap justify-center gap-3.5">
+      <a href="https://wa.me/201027966872" target="_blank" rel="noopener" class="brand-gradient-btn text-white font-bold px-7 py-3 rounded-full shadow-soft inline-flex items-center gap-2">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+        واتساب القطاعي
       </a>
-      <a href="https://wa.me/201027966872" target="_blank" class="brand-gradient-btn text-white font-bold px-7 py-3 rounded-full shadow-soft">راسلينا على واتساب</a>
-      <a href="https://www.instagram.com/alzhraa.co?stkn=b256bWlvd2d3dzF1" target="_blank" class="px-7 py-3 rounded-full border border-lavender-200 text-plum-700 font-bold hover:bg-white transition-colors">إنستجرام</a>
-      <a href="https://www.facebook.com/share/19khxEGxcd/" target="_blank" class="px-7 py-3 rounded-full border border-lavender-200 text-plum-700 font-bold hover:bg-white transition-colors">فيسبوك</a>
-      <a href="https://www.tiktok.com/@alzhraa__co?_r=1&_t=ZS-99dyAbHLUcJ" target="_blank" class="px-7 py-3 rounded-full border border-lavender-200 text-plum-700 font-bold hover:bg-white transition-colors">تيك توك</a>
+      <a href="https://wa.me/201132867267?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%B7%D9%84%D8%A8%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AC%D9%85%D9%84%D8%A9" target="_blank" rel="noopener" class="wholesale-btn font-bold px-7 py-3 rounded-full inline-flex items-center gap-2">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+        واتساب الجملة
+      </a>
     </div>
 
-    <div class="mt-6 flex items-center justify-center gap-3">
-      <a href="https://wa.me/201027966872" target="_blank" aria-label="واتساب" class="w-11 h-11 rounded-full bg-white shadow-soft border border-lavender-100 flex items-center justify-center text-plum-700 hover:text-lavender-500 hover:-translate-y-0.5 transition-all">
-        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+    <!-- Social Icons + Customer Reviews Google Drive Icon -->
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+      <a href="https://www.instagram.com/alzhraa.co?stkn=b256bWlvd2d3dzF1" target="_blank" rel="noopener" aria-label="إنستجرام"
+         class="group flex items-center gap-2 px-5 py-2.5 rounded-full bg-white shadow-soft border border-lavender-100 text-plum-700 hover:text-lavender-500 hover:-translate-y-0.5 transition-all font-bold text-sm">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg>
+        <span>إنستجرام</span>
       </a>
-      <a href="https://www.instagram.com/alzhraa.co?stkn=b256bWlvd2d3dzF1" target="_blank" aria-label="إنستجرام" class="w-11 h-11 rounded-full bg-white shadow-soft border border-lavender-100 flex items-center justify-center text-plum-700 hover:text-lavender-500 hover:-translate-y-0.5 transition-all">
-        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg>
-      </a>
-      <a href="https://www.facebook.com/share/19khxEGxcd/" target="_blank" aria-label="فيسبوك" class="w-11 h-11 rounded-full bg-white shadow-soft border border-lavender-100 flex items-center justify-center text-plum-700 hover:text-lavender-500 hover:-translate-y-0.5 transition-all">
+
+      <a href="https://www.facebook.com/share/19khxEGxcd/" target="_blank" rel="noopener" aria-label="فيسبوك"
+         class="group flex items-center gap-2 px-5 py-2.5 rounded-full bg-white shadow-soft border border-lavender-100 text-plum-700 hover:text-lavender-500 hover:-translate-y-0.5 transition-all font-bold text-sm">
         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-9h3l.5-3.5H13V7.2c0-1 .3-1.7 1.7-1.7H17V2.2C16.6 2.1 15.4 2 14 2c-3 0-5 1.8-5 5.2V9.5H6V13h3v9h4z"/></svg>
+        <span>فيسبوك</span>
       </a>
-      <a href="https://www.tiktok.com/@alzhraa__co?_r=1&_t=ZS-99dyAbHLUcJ" target="_blank" aria-label="تيك توك" class="w-11 h-11 rounded-full bg-white shadow-soft border border-lavender-100 flex items-center justify-center text-plum-700 hover:text-lavender-500 hover:-translate-y-0.5 transition-all">
+
+      <a href="https://www.tiktok.com/@alzhraa__co?_r=1&_t=ZS-99dyAbHLUcJ" target="_blank" rel="noopener" aria-label="تيك توك"
+         class="group flex items-center gap-2 px-5 py-2.5 rounded-full bg-white shadow-soft border border-lavender-100 text-plum-700 hover:text-lavender-500 hover:-translate-y-0.5 transition-all font-bold text-sm">
         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2c.3 2.2 1.9 3.9 4 4.2v2.9c-1.5 0-2.9-.5-4-1.3v6.7c0 3.4-2.7 6-6 6s-6-2.6-6-6c0-3.2 2.5-5.8 5.7-6v3c-1.5.2-2.7 1.5-2.7 3 0 1.7 1.3 3 3 3s3-1.3 3-3V2h3z"/></svg>
+        <span>تيك توك</span>
+      </a>
+
+      <a href="#" data-reviews-drive target="_blank" rel="noopener" aria-label="ريفيوهات الزبائن"
+         class="group flex items-center gap-2 px-5 py-2.5 rounded-full bg-white shadow-soft border border-lavender-100 text-plum-700 hover:text-lavender-500 hover:-translate-y-0.5 transition-all font-bold text-sm">
+        <svg class="w-5 h-5 text-amber-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span>ريفيوهات الزبائن</span>
       </a>
     </div>
   </div>
@@ -320,7 +359,7 @@
       <img src="logo.jpg" alt="ALZAHRAA" class="h-9 w-9 rounded-full object-cover" onerror="this.style.display='none'">
       <span class="font-logo italic text-2xl text-white">ALZAHRAA</span>
     </div>
-    <p class="text-sm text-white/50">© 2026 ALZAHRAA — جميع الحقوق محفوظة</p>
+    <p class="text-sm text-white/60">© 2026 ALZAHRAA — جميع الحقوق محفوظة</p>
   </div>
 
   <div class="mt-6 pt-5 border-t border-white/10 flex items-center justify-center gap-1.5" style="opacity:0.7">
@@ -333,582 +372,81 @@
   </div>
 </footer>
 
-<!-- ============ CART OVERLAY + PANEL ============ -->
-<div id="cart-overlay" class="fixed inset-0 bg-plum-900/40 backdrop-blur-sm z-50 opacity-0 pointer-events-none"></div>
-
-<aside id="cart-panel" class="fixed top-0 left-0 h-full w-full sm:w-[420px] bg-white z-50 shadow-2xl -translate-x-full flex flex-col">
-  <div class="flex items-center justify-between px-6 py-5 border-b border-bloom-100">
-    <h3 class="text-xl font-black text-plum-900">سلة المشتريات</h3>
-    <button id="cart-close" class="w-9 h-9 rounded-full hover:bg-bloom-50 flex items-center justify-center text-plum-700">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-  </div>
-
-  <div id="cart-items" class="flex-1 overflow-y-auto scrollbar-thin px-6 py-4 space-y-4"></div>
-
-  <div id="cart-footer" class="border-t border-bloom-100 px-6 py-5 space-y-4">
-    <div class="flex items-center justify-between font-bold text-plum-900 text-lg">
-      <span>الإجمالي</span>
-      <span id="cart-total">٠ ج.م</span>
-    </div>
-    <!-- [STAFF EDIT BOX] مخفي افتراضياً ويظهر للموظف بعد إدخال الكود السري -->
-    <div id="staff-edit-box" class="hidden space-y-2.5 bg-lavender-100/60 p-3.5 rounded-2xl border border-lavender-300">
-      <div class="flex items-center justify-between">
-        <span class="text-xs font-bold text-plum-900">🛠️ وضع تعديل طلب سابق (للموظف)</span>
-        <button id="exit-staff-mode" type="button" class="text-[11px] text-bloom-400 hover:underline font-bold">إلغاء والعودة</button>
-      </div>
-      <input id="edit-order-id" type="text" placeholder="اكتب رقم الطلب (Order ID) المراد تعديله..." class="w-full px-4 py-2.5 rounded-xl border border-lavender-300 focus:border-plum-700 focus:outline-none text-sm bg-white font-bold text-plum-900">
-      
-      <div class="pt-1 border-t border-lavender-200 space-y-2">
-        <label class="block text-[11px] font-bold text-plum-800">إضافة منتجات غير موجودة بالموقع (اختياري):</label>
-        <input id="manual-items-input" type="text" placeholder="اكتب اسم/تفاصيل المنتجات اليدوية (ستنزل بولد بالشيت)..." class="w-full px-3.5 py-2 rounded-xl border border-lavender-300 focus:border-plum-700 focus:outline-none text-xs bg-white text-plum-900 font-bold">
-        <input id="manual-total-input" type="number" min="0" step="any" placeholder="إجمالي سعر المنتجات اليدوية فقط (ج.م)" class="w-full px-3.5 py-2 rounded-xl border border-lavender-300 focus:border-plum-700 focus:outline-none text-xs bg-white text-plum-900 font-bold">
-      </div>
-      
-      <p class="text-[11px] text-plum-700 leading-relaxed">سيتم تحديث الأصناف والإجمالي لهذا الطلب في الشيت مباشرة دون فتح واتساب.</p>
-    </div>
-
-    <!-- [CUSTOMER FIELDS] تختفي تلقائياً عند تفعيل وضع تعديل الطلب للموظف -->
-    <div id="customer-fields-box" class="space-y-2.5">
-      <input id="cust-name" type="text" placeholder="الاسم بالكامل" class="w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm">
-      <input id="cust-phone" type="tel" placeholder="رقم الهاتف" class="w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm">
-      
-      <!-- قائمة اختيار المحافظة -->
-      <select id="cust-governorate" class="governorate-select w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm text-plum-700 bg-white">
-        <option value="" disabled selected>اختر المحافظة...</option>
-        <option value="القاهرة">القاهرة</option>
-        <option value="الجيزة">الجيزة</option>
-        <option value="الأسكندرية">الأسكندرية</option>
-        <option value="الدقهلية">الدقهلية</option>
-        <option value="البحر الأحمر">البحر الأحمر</option>
-        <option value="البحيرة">البحيرة</option>
-        <option value="الفيوم">الفيوم</option>
-        <option value="الغربية">الغربية</option>
-        <option value="الإسماعيلية">الإسماعيلية</option>
-        <option value="المنوفية">المنوفية</option>
-        <option value="المنيا">المنيا</option>
-        <option value="القليوبية">القليوبية</option>
-        <option value="الوادي الجديد">الوادي الجديد</option>
-        <option value="السويس">السويس</option>
-        <option value="الشرقية">الشرقية</option>
-        <option value="أسوان">أسوان</option>
-        <option value="أسيوط">أسيوط</option>
-        <option value="بني سويف">بني سويف</option>
-        <option value="بورسعيد">بورسعيد</option>
-        <option value="دمياط">دمياط</option>
-        <option value="خزام / قنا">قنا</option>
-        <option value="جنوب سيناء">جنوب سيناء</option>
-        <option value="كفر الشيخ">كفر الشيخ</option>
-        <option value="مطروح">مطروح</option>
-        <option value="الأقصر">الأقصر</option>
-        <option value="سوهاج">سوهاج</option>
-        <option value="شمال سيناء">شمال سيناء</option>
-      </select>
-
-      <input id="cust-address" type="text" placeholder="العنوان التفصيلي (المنطقة / الشارع / رقم العمارة)" class="w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm">
-    </div>
-    <button id="confirm-order" class="w-full brand-gradient-btn text-white font-bold py-3.5 rounded-full shadow-soft flex items-center justify-center gap-2">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
-      <span id="confirm-order-text">تأكيد الطلب عبر واتساب</span>
-    </button>
-    <p id="confirm-order-hint" class="text-[11px] text-plum-500 text-center leading-relaxed">سيتم تحويلك إلى واتساب لإرسال تفاصيل طلبك مباشرة لفريقنا</p>
-    <div class="pt-1 text-center">
-      <button id="staff-mode-btn" type="button" class="text-[11px] text-plum-500/60 hover:text-plum-900 underline transition-colors">تعديل طلب سابق (للموظفين)</button>
-    </div>
-  </div>
-</aside>
-
-<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 translate-y-24 opacity-0 z-[60] bg-plum-900 text-white text-sm font-medium px-5 py-3 rounded-full shadow-lg toast">
-  تمت الإضافة إلى السلة
+<!-- ============ LIGHTBOX MODAL FOR REVIEW IMAGES ============ -->
+<div id="lightbox" class="fixed inset-0 z-50 bg-plum-900/80 backdrop-blur-sm hidden items-center justify-center p-4">
+  <button id="lightbox-close" aria-label="إغلاق" class="absolute top-5 left-5 w-11 h-11 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center">
+    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <img id="lightbox-img" src="" alt="رأي عميل" class="max-h-[88vh] max-w-[92vw] rounded-2xl shadow-2xl object-contain bg-white">
 </div>
 
 <script>
-/* ===================== DATA ===================== */
-const HAIR_PRODUCTS = [
-  { id:'h1', name_ar:'ماسك كارسيل بالكولاجين', name_en:'Karseell Collagen Hair Mask', image:'karseell-mask.jpg', tags:['hair-care','karsell'],
-    variants:[{label:'50g',price:185},{label:'100g',price:370},{label:'العبوة الكاملة (500g)',price:1100}] },
-  { id:'h2', name_ar:'زيت كارسيل ماكا', name_en:'Karseell Maca Essence Oil', image:'karseell-oil.jpg', tags:['hair-care','karsell'],
-    variants:[{label:'5ml',price:180},{label:'100ml',price:320},{label:'الزجاجة الكاملة',price:1060}] },
-  { id:'h3', name_ar:'ماسك فينو الياباني', name_en:'Shiseido Fino Premium Touch Hair Mask', image:'fino-mask.jpg', tags:['hair-care','fino'],
-    variants:[{label:'50g',price:350},{label:'100g',price:590},{label:'العبوة الكاملة (230g)',price:1100}] },
-  { id:'h4', name_ar:'سيروم فينو للشعر', name_en:'Shiseido Fino Hair Serum', image:'fino-serum.jpg', tags:['hair-care','fino'],
-    variants:[{label:'5ml',price:175},{label:'10ml',price:320},{label:'الزجاجة الكاملة',price:1100}] },
-  { id:'h5', name_ar:'زيت الـ١٠٨ عشبة', name_en:'108 Herbs Hair Oil', image:'108-herbs.jpg', tags:['hair-care'],
-    variants:[{label:'50ml',price:240},{label:'100ml',price:360},{label:'الزجاجة الكاملة',price:1380}] },
-  { id:'h6', name_ar:'صابونة الأعشاب لتكثيف الشعر', name_en:'Seven Green Nature Shampoo Bar', image:'herbal-soap-bar.jpg', tags:['hair-care'],
-    fixedPrice:700 },
-  { id:'h7', name_ar:'زيت دابر أملا', name_en:'Dabur Amla Oil', image:'dabur_amla.jpg', tags:['hair-care','dabur-amla'],
-    variants:[{label:'240ml',price:295},{label:'300ml',price:380},{label:'500ml',price:495}] },
-  { id:'h8', name_ar:'زيت جوز الهند باراشوت', name_en:'Parachute Coconut Oil', image:'parachute.jpg', tags:['hair-care','parachute'],
-    variants:[{label:'200ml',price:310},{label:'500ml',price:460},{label:'1 لتر',price:620}] },
-  { id:'h9', name_ar:'زيت دابر أملا للأطفال', name_en:'Dabur Amla Kids', image:'dabur_amla_kids.jpg', tags:['hair-care','dabur-amla'],
-    fixedPrice:330 },
-  { id:'h10', name_ar:'زيت دابر أملا جولد', name_en:'Dabur Amla Gold', image:'dabur_amla_gold.jpg', tags:['hair-care','dabur-amla'],
-    fixedPrice:380 },
-  { id:'h11', name_ar:'زيت فاتيكا بالثوم', name_en:'Vatika Garlic Oil', image:'vatika_garlic.jpg', tags:['hair-care','vatika'],
-    fixedPrice:390 },
-  { id:'h12', name_ar:'زيت فاتيكا بالبصل', name_en:'Vatika Onion Oil', image:'vatika_onion.jpg', tags:['hair-care','vatika'],
-    fixedPrice:390 },
-  { id:'h13', name_ar:'زيت فاتيكا باللوز', name_en:'Vatika Almond Oil', image:'vatika_almond.jpg', tags:['hair-care','vatika'],
-    fixedPrice:390 },
-  { id:'h14', name_ar:'زيت فاتيكا بجوز الهند', name_en:'Vatika Coconut Oil', image:'vatika_coconut.jpg', tags:['hair-care','vatika'],
-    fixedPrice:390 },
-  { id:'h15', name_ar:'شامبو كيش كينج (340ml)', name_en:'Kesh King Shampoo 340ml', image:'kesh_king_340ml.jpg', tags:['hair-care','kesh-king'],
- variants:[{label:'200ml',price:295},{label:'340ml',price:380}] },
-  { id:'h16', name_ar:'شامبو كيش كينج جولد (200ml)', name_en:'Kesh King Gold Shampoo 200ml', image:'kesh_king_gold_200ml.jpg', tags:['hair-care','kesh-king'],
-    fixedPrice:330 },
-    { id:'h17', name_ar:'زيت دابر أملا بالياسمين (300ml)', name_en:'Dabur Amla Jasmine Hair Oil 300ml', image:'dabur-amla-jasmine-300ml.jpg', tags:['hair-care','dabur-amla'],
-    fixedPrice:380 },
-  { id:'h18', name_ar:'زيت دابر أملا جولد (100ml)', name_en:'Dabur Amla Gold Hair Oil 100ml', image:'dabur-amla-gold-100ml.jpg', tags:['hair-care','dabur-amla'],
-    fixedPrice:185 },
-  { id:'h19', name_ar:'شامبو أملا للأطفال (200ml)', name_en:'Amla Kids Shampoo 200ml', image:'amla-kids-shampoo-200ml.jpg', tags:['hair-care','dabur-amla'],
-    fixedPrice:330 },
-  { id:'h20', name_ar:'سبراي أملا للأطفال لفك تشابك الشعر (200ml)', name_en:'Amla Kids Hair Detangler Spray 200ml', image:'amla-kids-spray-200ml.jpg', tags:['hair-care','dabur-amla'],
-    fixedPrice:330 },
-  { id:'h21', name_ar:'زيت باراشوت أدفانسد بالبيوتين (300ml)', name_en:'Parachute Advansed Biotin Hair Oil 300ml', image:'parachute-biotin-300ml.jpg', tags:['hair-care','parachute'],
-    fixedPrice:380 },
-  { id:'h22', name_ar:'زيت باراشوت أدفانسد بالبصل (300ml)', name_en:'Parachute Advansed Onion Hair Oil 300ml', image:'parachute-onion-300ml.jpg', tags:['hair-care','parachute'],
-    variants:[{label:'200ml',price:295},{label:'300ml',price:380}] },
-  { id:'h23', name_ar:'زيت باراشوت أدفانسد بالصبار (150ml)', name_en:'Parachute Advansed Aloe Vera Hair Oil 150ml', image:'parachute-aloe-vera-150ml.jpg', tags:['hair-care','parachute'],
-    fixedPrice:260 },
-  { id:'h24', name_ar:'تونيك فازلين للشعر (300ml)', name_en:'Vaseline Hair Tonic 300ml', image:'vaseline-hair-tonic-300ml.jpg', tags:['hair-care'],
-    fixedPrice:380 },
-  { id:'h25', name_ar:'شامبو كيش كينج بينك (340ml)', name_en:'Kesh King Pink Shampoo 340ml', image:'kesh-king-pink-shampoo-340ml.jpg', tags:['hair-care','kesh-king'],
- variants:[{label:'200ml',price:295},{label:'340ml',price:380}] },
-
-  /* [MOD 3] NEW PRODUCTS - Hair Care. Brand sub-tag ('vatika') maps the product to its brand's lineup. */
-  { id:'h26', name_ar:'زيت فاتيكا بالروزماري', name_en:'Vatika Rosemary', image:'vatika_rosemary.jpg', tags:['hair-care','vatika'],
-    fixedPrice:390 },
-  /* No brand sub-tag -> automatically appears under Hair Care > Other */
-  { id:'h27', name_ar:'زيت سيسا ', name_en:'Sesa Oil 150ml', image:'sesa_oil_150ml.jpg', tags:['hair-care'],
-    variants:[{label:'100ml',price:280},{label:'200ml',price:420}] },
-];
-
-const SKIN_PRODUCTS = [
-  { id:'s1', name_ar:'غسول سنتيلا الرغوي', name_en:'SKIN1004 Madagascar Centella Ampoule Foam', image:'centella-foam.jpg', tags:['centella'],
-    variants:[{label:'5ml',price:135},{label:'10ml',price:185},{label:'15ml',price:270},{label:'الزجاجة الكاملة',price:990}] },
-  { id:'s2', name_ar:'غسول سنتيلا الزيتي', name_en:'SKIN1004 Madagascar Centella Light Cleansing Oil', image:'centella-oil-cleanser.jpg', tags:['centella'],
-    variants:[{label:'5ml',price:130},{label:'10ml',price:190},{label:'15ml',price:280},{label:'الزجاجة الكاملة',price:1280}] },
-  { id:'s3', name_ar:'غسول أنوا الرغوي', name_en:'Anua Heartleaf Gentle Facial Cleanser', image:'anua-foam.jpg', tags:['anua'],
-    variants:[{label:'5ml',price:110},{label:'10ml',price:180},{label:'15ml',price:230},{label:'الزجاجة الكاملة',price:990}] },
-  { id:'s4', name_ar:'غسول أنوا الزيتي', name_en:'Anua Heartleaf Pore Control Cleansing Oil', image:'anua-oil.jpg', tags:['anua'],
-    variants:[{label:'5ml',price:130},{label:'10ml',price:190},{label:'15ml',price:250},{label:'الزجاجة الكاملة',price:1280}] },
-  { id:'s5', name_ar:'غسول بانكسيل للحبوب', name_en:'PanOxyl Acne Creamy Wash 4% Benzoyl Peroxide', image:'panoxyl.jpg', tags:[],
-    variants:[{label:'5ml',price:140},{label:'10ml',price:170},{label:'15ml',price:230},{label:'30ml',price:360},{label:'الزجاجة الكاملة',price:1050}] },
-  { id:'s6', name_ar:'تونر تيرتير الحليب', name_en:'TIRTIR Milk Skin Toner', image:'tirtir-toner.jpg', tags:[],
-    variants:[{label:'5ml',price:160},{label:'10ml',price:285},{label:'الزجاجة الكاملة',price:1500}] },
-  { id:'s7', name_ar:'تونر الأرز الكوري', name_en:"I'm From Rice Toner", image:'rice-toner.jpg', tags:[],
-    variants:[{label:'5ml',price:145},{label:'10ml',price:200},{label:'15ml',price:290},{label:'الزجاجة الكاملة',price:1250}] },
-  { id:'s8', name_ar:'تونر نمبوزين رقم ٩', name_en:'Numbuzin No.9 NMN Bio Lifting Toner', image:'numbuzin-9-toner.jpg', tags:['numbuzin'],
-    variants:[{label:'5ml',price:160},{label:'10ml',price:320},{label:'15ml',price:450},{label:'الزجاجة الكاملة',price:1300}] },
-  { id:'s9', name_ar:'أنبول سيراميك تيرتير', name_en:'TIRTIR Ceramic Milk Ampoule', image:'tirtir-ampoule.jpg', tags:[],
-    variants:[{label:'5ml',price:340},{label:'الحجم الكامل (30ml)',price:1500}] },
-  { id:'s10', name_ar:'سيروم أكسيس واي للتصبغات', name_en:'Axis-Y Dark Spot Correcting Glow Serum', image:'axisy-serum.jpg', tags:[],
-    fixedPrice:980 },
-  { id:'s11', name_ar:'سيروم نمبوزين رقم ٥ للبشرة', name_en:'Numbuzin No.5+ Vitamin Concentrated Serum', image:'numbuzin-5.jpg', tags:['numbuzin','vitamin-c'],
-    variants:[{label:'5ml',price:310},{label:'10ml',price:585},{label:'الزجاجة الكاملة',price:1300}] },
-  { id:'s12', name_ar:'سيروم كوسركس ٦ ببتيد', name_en:'COSRX 6 Peptide Skin Booster Serum', image:'cosrx-peptide.jpg', tags:[],
-    variants:[{label:'5ml',price:140},{label:'10ml',price:280},{label:'الزجاجة الكاملة',price:1300}] },
-  { id:'s13', name_ar:'سيروم إيكوال بيري فيتامين سي', name_en:'EQQUALBERRY Vitamin C Illuminating Serum', image:'eqqualberry-vitc.jpg', tags:['vitamin-c'],
-    variants:[{label:'5ml',price:290},{label:'10ml',price:590},{label:'الحجم الكامل (30ml)',price:1300}] },
-  { id:'s14', name_ar:'سيروم الناد + الببتيد الجلاس سكين', name_en:'EQQUALBERRY Lush Blush NAD+ Peptide Serum', image:'eqqualberry-nad.jpg', tags:[],
-    variants:[{label:'5ml',price:290},{label:'10ml',price:590},{label:'الحجم الكامل (30ml)',price:1300}] },
-  { id:'s15', name_ar:'سيروم السنتيلا الذهبي', name_en:'SKIN1004 Madagascar Centella Ampoule', image:'centella-ampoule.jpg', tags:['centella'],
-    variants:[{label:'5ml',price:170},{label:'10ml',price:270},{label:'15ml',price:350},{label:'30ml',price:570},{label:'الزجاجة الكاملة',price:1250}] },
-  { id:'s16', name_ar:'سيروم السنتيلا البينك للمسام', name_en:'SKIN1004 Madagascar Centella Poremizing Pink Serum', image:'centella-pink-serum.jpg', tags:['centella'],
-    variants:[{label:'5ml',price:170},{label:'10ml',price:270},{label:'15ml',price:350},{label:'30ml',price:570},{label:'الزجاجة الكاملة',price:1250}] },
-  { id:'s17', name_ar:'سيروم سنتيلا للتفتيح', name_en:'SKIN1004 Centella Tone Brightening Capsule Ampoule', image:'centella-brightening.jpg', tags:['centella'],
-    variants:[{label:'5ml',price:170},{label:'10ml',price:270},{label:'15ml',price:350},{label:'30ml',price:570},{label:'الزجاجة الكاملة',price:1250}] },
-  { id:'s18', name_ar:'سيروم سول ١٩٨٨', name_en:'Seoul 1988 Serum', image:'seoul-1988.jpg', tags:[],
-    variants:[{label:'5ml',price:285},{label:'10ml',price:470},{label:'الزجاجة الكاملة',price:1150}] },
-  { id:'s19', name_ar:'سيروم نمبوزين ٩ الشد والتفتيح', name_en:'Numbuzin No.9 NMN Bio Lifting-Fill Serum', image:'numbuzin-9-serum.jpg', tags:['numbuzin'],
-    variants:[{label:'5ml',price:310},{label:'10ml',price:585},{label:'الزجاجة الكاملة',price:1300}] },
-  { id:'s20', name_ar:'كريم عين ريتينول صوم باي مي', name_en:'Some By Mi Retinol Intense Eye Cream', image:'somebymi-eye.jpg', tags:['eye-care'],
-    variants:[{label:'5g',price:260},{label:'10g',price:385},{label:'الأنبوبة الكاملة',price:1050}] },
-  { id:'s21', name_ar:'كريم ماري آند مي للهالات', name_en:'Mary & May Tranexamic Acid + Glutathione Eye Cream', image:'marymay-eye.jpg', tags:['eye-care'],
-    variants:[{label:'5g',price:230},{label:'10g',price:330},{label:'حجم صغير (12g)',price:350},{label:'الأنبوبة الكاملة',price:900}] },
-  { id:'s22', name_ar:'كريم الحلزون كوسركس', name_en:'COSRX Advanced Snail 92 All In One Cream', image:'cosrx-snail-cream.jpg', tags:[],
-    variants:[{label:'5g',price:150},{label:'10g',price:285},{label:'العبوة الكاملة',price:1100}] },
-  { id:'s23', name_ar:'ماسك ميديكوب الأزرق', name_en:'Medicube Zero Pore Blackhead Clay Mask', image:'medicube-blue-mask.jpg', tags:['medicube'],
-    variants:[{label:'5g',price:175},{label:'10g',price:310},{label:'العبوة الكاملة',price:1200}] },
-  { id:'s24', name_ar:'كريم كولاجين جيل ميديكوب', name_en:'Medicube Collagen Jelly Cream', image:'medicube-collagen.jpg', tags:['medicube'],
-    variants:[{label:'5g',price:160},{label:'10g',price:250},{label:'الحجم الكامل (50g)',price:1050}] },
-  { id:'s25', name_ar:'كريم ٣٤٥ الكوري للترميم', name_en:'Dr. Althea 345 Relief Cream', image:'dr-althea-345.jpg', tags:[],
-    variants:[{label:'5g',price:225},{label:'10g',price:360},{label:'الأنبوبة الكاملة',price:1200}] },
-  { id:'s26', name_ar:'مرطب بيوريتو', name_en:'Purito Dermide Cica Barrier Sleeping Pack', image:'purito-cream.jpg', tags:[],
-    variants:[{label:'5g',price:175},{label:'10g',price:300},{label:'الأنبوبة الكاملة',price:1200}] },
-  { id:'s27', name_ar:'Numbuzin + 9 ', name_en:'Secret Black Ciden / Eye Filler Gel', image:'eye-filler.jpg', tags:['eye-care'],
-    fixedPrice:1200 },
-  { id:'s28', name_ar:'سيروم سنتيلا سيكا', name_en:'Centella Serum Cica', image:'centella_serum_cica.jpg', tags:['centella'],
-    variants:[{label:'5ml',price:170},{label:'10ml',price:270},{label:'الحجم الكامل',price:1250}] },
-  { id:'s29', name_ar:'واقي شمس سنتيلا', name_en:'Centella Sun Block', image:'centella_sunblock.jpg', tags:['centella'],
-    variants:[{label:'5gm',price:195},{label:'10gm',price:320},{label:'الحجم الكامل',price:1050}] },
-  { id:'s30', name_ar:'سيروم سنتيلا الأخضر', name_en:'Centella Serum Green', image:'centella_serum_green.jpg', tags:['centella'],
-    variants:[{label:'5ml',price:170},{label:'10ml',price:270},{label:'الحجم الكامل',price:1250}] },
-  { id:'s31', name_ar:'كريم سنتيلا الملطف', name_en:'Centella Smoothing Cream', image:'centella_smoothing_cream.jpg', tags:['centella'],
-    variants:[{label:'5gm',price:190},{label:'10gm',price:340},{label:'الحجم الكامل',price:1050}] },
-  { id:'s32', name_ar:'كريم سنتيلا للتفتيح', name_en:'Centella Whitening Cream', image:'centella_whitening_cream.jpg', tags:['centella'],
-    variants:[{label:'5gm',price:190},{label:'10gm',price:340},{label:'الحجم الكامل',price:1050}] },
-  { id:'s33', name_ar:'كريم سنتيلا لتنقية المسام', name_en:'Centella Poremizing Cream', image:'centella_poremizing_cream.jpg', tags:['centella'],
-    variants:[{label:'5gm',price:190},{label:'10gm',price:340},{label:'الحجم الكامل',price:1050}] },
-  { id:'s34', name_ar:'غسول كوزريكس', name_en:'Salicylic Acid', image:'salicylic_acid.jpg', tags:[],
-    variants:[{label:'5ml',price:140},{label:'10ml',price:180},{label:'15ml',price:230},{label:'30ml',price:350},{label:'الحجم الكامل',price:1050}] },
-  { id:'s35', name_ar:'ماسك ميديكوب بالكولاجين', name_en:'Medicube Collagen Mask', image:'medicube_collagen_mask.jpg', tags:['medicube'],
-    variants:[{label:'5gm',price:170},{label:'10gm',price:310},{label:'الحجم الكامل',price:1200}] },
-  { id:'s36', name_ar:'سيروم ذا أورديناري', name_en:'The Ordinary', image:'the_ordinary.jpg', tags:[],
-    variants:[{label:'15ml',price:175},{label:'30ml',price:280},{label:'الحجم الكامل',price:1350}] },
-  { id:'s37', name_ar:'كريم / مست ٣٤٥ ريليف', name_en:'345 Relief Cream / Mist', image:'cream_345.jpg', tags:[],
-    variants:[{label:'5gm',price:190},{label:'19gm',price:300},{label:'الحجم الكامل',price:1250}] },
-  { id:'s38', name_ar:'سيروم فيتامين سي دكتور ألثيا', name_en:'Dr.Althea Vitamin C', image:'dr_althea_vit_c.jpg', tags:['vitamin-c'],
-    variants:[{label:'5ml',price:295},{label:'10ml',price:585},{label:'الحجم الكامل',price:1300}] },
-  { id:'s39', name_ar:'سيروم إليزافيكا ٩٧٪', name_en:'Elizavecca 97% Serum', image:'elizavecca_97.jpg', tags:[],
-    variants:[{label:'5ml',price:185},{label:'10ml',price:310},{label:'الحجم الكامل',price:850}] },
-  { id:'s40', name_ar:'مقشر ميديكوب', name_en:'Medicube Exfoliator / Peeling', image:'medicube_peeling.jpg', tags:['medicube'],
-    variants:[{label:'5ml',price:165},{label:'10ml',price:280},{label:'الحجم الكامل',price:1360}] },
-  { id:'s41', name_ar:'أنوا الأخضر', name_en:'Green Anua', image:'green_anua.jpg', tags:['anua'],
-    variants:[{label:'5ml',price:275},{label:'10ml',price:520},{label:'الحجم الكامل',price:1250}] },
-  { id:'s42', name_ar:'أنوا الأحمر', name_en:'Red Anua', image:'red_anua.jpg', tags:['anua'],
-    variants:[{label:'5ml',price:275},{label:'10ml',price:520},{label:'الحجم الكامل',price:1250}] },
-  { id:'s43', name_ar:'عطر بربري هير', name_en:'Burberry Her Perfume', image:'burberry_her.jpg', tags:['parfum'],
-    variants:[{label:'5ml',price:145},{label:'10ml',price:300},{label:'الحجم الكامل',price:1500}] },
-  { id:'s44', name_ar:'عطر ميس جري', name_en:'Miss Gris Perfume', image:'miss_gris.jpg', tags:['parfum'],
-    variants:[{label:'5ml',price:270},{label:'10ml',price:480},{label:'الحجم الكامل',price:3200}] },
-  { id:'s45', name_ar:'عطر جوديس بربري', name_en:'Goddess Burberry Perfume', image:'goddess_burberry.jpg', tags:['parfum'],
-    variants:[{label:'5ml',price:145},{label:'10ml',price:300},{label:'الحجم الكامل',price:1500}] },
-  { id:'s46', name_ar:'عطر أساف أروجيت بينك', name_en:'Assaf Arrogate Pink Perfume', image:'assaf_arrogate_pink.jpg', tags:['parfum'],
-    variants:[{label:'5ml',price:145},{label:'10ml',price:270},{label:'الحجم الكامل',price:2800}] },
-  { id:'s47', name_ar:'سِت سنتيلا الوردي', name_en:'Centella Pink Set', image:'centella_pink_set.jpg', tags:['centella'],
-    fixedPrice:1400 },
-  { id:'s48', name_ar:'سِت سنتيلا البني', name_en:'Centella Brown Set', image:'centella_brown_set.jpg', tags:['centella'],
-    fixedPrice:1400 },
-  { id:'s49', name_ar:'سِت سنتيلا للتنظيف المزدوج', name_en:'Centella Double Cleansing Set', image:'centella_double_cleansing.jpg', tags:['centella'],
-    fixedPrice:1600 },
-  { id:'s50', name_ar:'فيتامين سي أرينسيا', name_en:'Arencia Vitamin C', image:'arencia_vit_c.jpg', tags:['vitamin-c'],
-    fixedPrice:1100 },
-  { id:'s51', name_ar:'صابون كوجي سان', name_en:'Kojie San Soap', image:'kojie_san.jpg', tags:[],
-    fixedPrice:250 },
-  { id:'s52', name_ar:'ريتينال شوت', name_en:'Retinal Shot', image:'retinal_shot.jpg', tags:[],
-    fixedPrice:980 },
-  { id:'s53', name_ar:'سيروم العين الفيجن بالكولاجين', name_en:'Vegan Collagen Eye Serum', image:'vegan_collagen_eye_serum.jpg', tags:['eye-care'],
-    fixedPrice:950 },
-  { id:'s54', name_ar:'لوشن كوسركس المرطب', name_en:'COSRX Moisturizing Lotion', image:'cosrx_moisturizing_lotion.jpg', tags:[],
-    variants:[{label:'5g',price:165},{label:'10g',price:320},{label:'15g',price:430},{label:'30g',price:580},{label:'الحجم الكامل',price:1150}] },
-];
-
-const COFFEE_PRODUCTS = [
-  { id:'c1', name_ar:'بن العميد تركي', name_en:'Al Ameed Turkish Coffee', image:'al_ameed_turkish.jpg', tags:['coffee'],
-    variants:[
-      {label:'بن وسط محوج',price:485},
-      {label:'بن ساده',price:485},
-      {label:'بن ساده فاتح',price:485},
-      {label:'ساده وسط',price:485},
-      {label:'بن محوج',price:485},
-      {label:'بن محوج فاتح',price:485},
-    ] },
-  { id:'c2', name_ar:'بن العميد فرنسي', name_en:'Al Ameed French Coffee', image:'al_ameed_french.jpg', tags:['coffee'],
-    variants:[
-      {label:'فرنسي حليب',price:530},
-      {label:'فرنسي جوز هند',price:530},
-      {label:'فرنسي بندق',price:530},
-      {label:'فرنسي شكلاته',price:530},
-    ] },
-];
-
-const ALL_PRODUCTS = [
-  ...HAIR_PRODUCTS.map(p => ({...p, cat:'hair'})),
-  ...SKIN_PRODUCTS.map(p => ({...p, cat:'skin'})),
-  ...COFFEE_PRODUCTS.map(p => ({...p, cat:'coffee'})),
-];
-
-const TAG_LABELS = {
-  centella:'Centella', anua:'Anua', numbuzin:'Numbuzin', medicube:'Medicube', karsell:'Karsell',
-  'eye-care':'Eye Care', 'hair-care':'Hair Care', 'vitamin-c':'Vitamin C', parfum:'Parfum', coffee:'Coffee'
-};
-
-/* [MOD 4] Top-level filter tags (the main chips). A product with NONE of these is "unclassified" and shows under the "Other" chip. */
-const TOP_LEVEL_TAGS = ['centella','anua','numbuzin','medicube','karsell','eye-care','hair-care','vitamin-c','parfum','coffee'];
-
-/* [MOD 5] Hair Care brand sub-tags. A Hair Care product with none of these shows under Hair Care > Other. */
-const HAIR_BRAND_TAGS = ['vatika','dabur-amla','parachute','fino','kesh-king'];
-
-const BEST_SELLER_IDS = ['h1', 's3', 's11', 's22'];
-
-const WHATSAPP_NUMBER = '201027966872';
-
-/* [MOD 2] ===== WHOLESALE WHATSAPP NUMBER =====
-   Full international format, digits only (Egypt: 20 + number without the leading 0).
-   01032842286  ->  201032842286
-   Final link: https://wa.me/201032842286  (change ONLY this line to update both wholesale buttons) */
-const WHOLESALE_WHATSAPP_NUMBER = '201032842286';
-const WHOLESALE_WHATSAPP_TEXT = 'مرحباً، أرغب في الاستفسار عن أسعار الجملة';
-document.querySelectorAll('[data-wholesale-link]').forEach(a => {
-  a.href = `https://wa.me/${WHOLESALE_WHATSAPP_NUMBER}?text=${encodeURIComponent(WHOLESALE_WHATSAPP_TEXT)}`;
+/* ===================== GOOGLE DRIVE REVIEWS LINK =====================
+   ضع رابط ملف أو مجلد جوجل درايف الخاص بريفيوهات الزبائن هنا
+*/
+const REVIEWS_DRIVE_URL = 'https://drive.google.com/drive/folders/YOUR_FOLDER_ID_HERE';
+document.querySelectorAll('[data-reviews-drive]').forEach(el => {
+  el.href = REVIEWS_DRIVE_URL;
 });
-const SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzoVA9s6Jca8D3gqBvFIwUezcsi98kkusXTDVsRD7wgvSBhON1nnL0USM4wqc3GPvcS/exec';
 
-/* [MOD 1] 48-hour promo config / timer logic REMOVED */
+/* ===================== REVIEW IMAGES =====================
+   أضف أسماء صور آراء العملاء أو صور الطلبات هنا (بنفس مسارها بجانب الملف أو داخل مجلد reviews/)
+   مثال: 'reviews/rev1.jpg' أو 'rev1.jpg'
+*/
+const REVIEW_IMAGES = [
+  { src: 'reviews/rev1.jpg', caption: 'رأي عميلة بعد تجربة المنتجات' },
+  { src: 'reviews/rev2.jpg', caption: 'تقييم طلب جديد' },
+  { src: 'reviews/rev3.jpg', caption: 'رأي عميلة في التقسيمات' },
+  { src: 'reviews/rev4.jpg', caption: 'تقييم عميلة من المحافظات' },
+];
 
-/* ===================== STATE ===================== */
-let cart = [];
-try { cart = JSON.parse(localStorage.getItem('alzahraa_cart')) || []; } catch(e) { cart = []; }
-
-const variantSelection = {}; 
-ALL_PRODUCTS.forEach(p => { if (p.variants) variantSelection[p.id] = 0; });
-
-let activeFilter = 'all';
-let activeSubFilter = 'all';   // [MOD 5] brand sub-filter inside Hair Care
-
-/* [MOD 4 + 5] Single place that decides whether a product matches the current filters */
-function productMatches(p) {
-  if (activeFilter === 'all') return true;
-  if (activeFilter === 'other') return !p.tags.some(t => TOP_LEVEL_TAGS.includes(t));   // [MOD 4] unclassified products
-  if (!p.tags.includes(activeFilter)) return false;
-  if (activeFilter === 'hair-care' && activeSubFilter !== 'all') {                       // [MOD 5] nested brand filter
-    if (activeSubFilter === 'other') return !p.tags.some(t => HAIR_BRAND_TAGS.includes(t));
-    return p.tags.includes(activeSubFilter);
-  }
-  return true;
-}
-
-/* ===================== ICON ===================== */
-function bottleIcon(extraClass) {
-  return `<svg class="${extraClass}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round">
-    <path d="M9 2h6M9 2v4.5a4 4 0 0 1-1 2.6L7 10.5A5 5 0 0 0 5.5 14v4A3.5 3.5 0 0 0 9 21.5h6a3.5 3.5 0 0 0 3.5-3.5v-4a5 5 0 0 0-1.5-3.5l-1-1.4a4 4 0 0 1-1-2.6V2"/>
-    <path d="M6 15h12" stroke-dasharray="2 2"/>
-  </svg>`;
-}
-
-function cupIcon(extraClass) {
-  return `<svg class="${extraClass}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M4 8h13v6.5A4.5 4.5 0 0 1 12.5 19h-4A4.5 4.5 0 0 1 4 14.5V8z"/>
-    <path d="M17 9.5h1.5a2.5 2.5 0 0 1 0 5H17"/>
-    <path d="M7.5 3.5c0 1-1 1-1 2M11 3.5c0 1-1 1-1 2" stroke-dasharray="2 2"/>
-  </svg>`;
-}
-
-function productMedia(product, iconClass) {
-  const icon = product.cat === 'coffee' ? cupIcon(iconClass) : bottleIcon(iconClass);
-  return `
-    <div class="product-media relative h-40 rounded-2xl overflow-hidden bg-[#f9f9f9] mb-5">
-      <div class="absolute inset-0 flex items-center justify-center">${icon}</div>
-      <img src="${product.image}" alt="${product.name_en}" loading="lazy"
-           class="absolute inset-2.5 w-[calc(100%-20px)] h-[calc(100%-20px)] object-contain"
-           onerror="this.remove()">
-    </div>`;
-}
-
-function currentPrice(product) {
-  // [MOD 1] promo price logic removed - always the regular price
-  if (product.fixedPrice) return product.fixedPrice;
-  return product.variants[variantSelection[product.id]].price;
-}
-function currentLabel(product) {
-  if (product.fixedPrice) return null;
-  return product.variants[variantSelection[product.id]].label;
-}
-
-function priceBlockHTML(product) {
-  // [MOD 1] promo (strike-through) price block removed
-  return `<span class="price-label font-black text-plum-900 text-lg" data-id="${product.id}">${currentPrice(product)} ج.م</span>`;
-}
-
-/* ===================== RENDER: SHOP GRID ===================== */
-function renderShopGrid() {
-  const grid = document.getElementById('shop-grid');
-
-  grid.innerHTML = ALL_PRODUCTS.map(p => {
-    const visible = productMatches(p);   // [MOD 4/5]
-    const primaryTag = TAG_LABELS[p.tags[0]] || '';
-    return `
-    <div class="product-card card-hover bg-white rounded-3xl border border-bloom-100 shadow-sm hover:shadow-soft p-6 flex flex-col ${visible ? '' : 'hidden-card'}" data-tags="${p.tags.join(',')}" data-id="${p.id}">
-      ${productMedia(p, p.cat === 'hair' ? 'w-16 h-16 text-lavender-400' : 'w-16 h-16 text-bloom-400')}
-      ${primaryTag ? `<span class="tag-pill bg-lavender-100 text-lavender-500 self-start mb-2" dir="ltr">${primaryTag}</span>` : ''}
-      <h3 class="font-bold text-plum-900 text-lg leading-snug">${p.name_ar}</h3>
-      <p class="text-xs text-plum-500 mb-3" dir="ltr" style="text-align:right">${p.name_en}</p>
-
-      ${p.variants ? `
-        <label class="text-xs text-plum-500 font-medium mb-1.5 block">اختاري الحجم</label>
-        <select data-id="${p.id}" class="variant-select w-full text-sm font-medium border border-bloom-100 rounded-xl px-3 py-2 pl-8 text-plum-700 focus:outline-none focus:border-lavender-300 mb-4">
-          ${p.variants.map((v,i) => `<option value="${i}">${v.label} — ${v.price} ج.م</option>`).join('')}
-        </select>
-      ` : `<div class="mb-4"></div>`}
-
-      <div class="flex items-center justify-between mt-auto pt-4 border-t border-bloom-50">
-        ${priceBlockHTML(p)}
-        <button data-id="${p.id}" data-cat="${p.cat}" class="add-btn brand-gradient-btn text-white text-sm font-bold px-5 py-2.5 rounded-full">أضيفي للسلة</button>
+function renderReviewsGallery() {
+  const gallery = document.getElementById('reviews-gallery');
+  gallery.innerHTML = REVIEW_IMAGES.map((item, idx) => `
+    <div class="review-card card-hover bg-white rounded-2xl border border-bloom-100 shadow-sm overflow-hidden cursor-pointer group" data-src="${item.src}">
+      <div class="relative aspect-[4/5] bg-bloom-50 flex flex-col items-center justify-center overflow-hidden">
+        <div class="fallback-placeholder flex flex-col items-center justify-center text-center p-4 text-plum-500">
+          <svg class="w-10 h-10 text-lavender-300 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/>
+          </svg>
+          <span class="text-xs font-bold text-plum-700">مساحة صورة رأي عميل #${idx + 1}</span>
+          <span class="text-[10px] text-plum-500 mt-1" dir="ltr">${item.src}</span>
+        </div>
+        <img src="${item.src}" alt="${item.caption}" loading="lazy"
+             class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+             onload="this.previousElementSibling.style.display='none'"
+             onerror="this.remove()">
       </div>
+      ${item.caption ? `<p class="text-xs font-medium text-plum-700 p-3 text-center truncate">${item.caption}</p>` : ''}
     </div>
-  `; }).join('');
+  `).join('');
 
-  bindProductControls(grid);
-}
-
-function bindProductControls(grid) {
-  grid.querySelectorAll('.variant-select').forEach(sel => {
-    sel.value = variantSelection[sel.dataset.id] || 0;
-    sel.addEventListener('change', () => {
-      variantSelection[sel.dataset.id] = parseInt(sel.value);
-      const product = ALL_PRODUCTS.find(x => x.id === sel.dataset.id);
-      const priceEl = grid.querySelector(`.price-label[data-id="${sel.dataset.id}"]`);
-      if (priceEl) priceEl.outerHTML = priceBlockHTML(product);
+  gallery.querySelectorAll('.review-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const img = card.querySelector('img');
+      if (!img) return;
+      openLightbox(card.dataset.src);
     });
   });
-  grid.querySelectorAll('.add-btn').forEach(btn => {
-    btn.addEventListener('click', () => addToCart(btn.dataset.cat, btn.dataset.id));
-  });
 }
 
-/* ===================== FILTER CHIPS ===================== */
-/* [MOD 4/5] Re-applies main filter + Hair Care sub-filter and shows/hides the sub-filter panel */
-function applyFilters() {
-  document.getElementById('hair-subfilters').classList.toggle('show', activeFilter === 'hair-care');
-  document.querySelectorAll('#shop-grid .product-card').forEach(card => {
-    const p = ALL_PRODUCTS.find(x => x.id === card.dataset.id);
-    card.classList.toggle('hidden-card', !productMatches(p));
-  });
+/* ===================== LIGHTBOX ===================== */
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+function openLightbox(src) {
+  lightboxImg.src = src;
+  lightbox.classList.remove('hidden');
+  lightbox.classList.add('flex');
 }
-
-document.getElementById('shop-filters').addEventListener('click', (e) => {
-  const btn = e.target.closest('.filter-chip');
-  if (!btn) return;
-  activeFilter = btn.dataset.filter;
-  activeSubFilter = 'all';   // [MOD 5] reset brand sub-filter whenever the main filter changes
-  document.querySelectorAll('#shop-filters .filter-chip').forEach(b => b.classList.toggle('active', b === btn));
-  document.querySelectorAll('#hair-subfilters .filter-chip').forEach(b => b.classList.toggle('active', b.dataset.sub === 'all'));
-  applyFilters();
-});
-
-/* [MOD 5] Hair Care brand sub-filter clicks */
-document.getElementById('hair-subfilters').addEventListener('click', (e) => {
-  const btn = e.target.closest('.filter-chip');
-  if (!btn) return;
-  activeSubFilter = btn.dataset.sub;
-  document.querySelectorAll('#hair-subfilters .filter-chip').forEach(b => b.classList.toggle('active', b === btn));
-  applyFilters();
-});
-
-/* ===================== RENDER: BEST SELLERS ===================== */
-function renderBestSellers() {
-  const grid = document.getElementById('best-grid');
-  const items = BEST_SELLER_IDS.map(id => ALL_PRODUCTS.find(p => p.id === id));
-
-  grid.innerHTML = items.map(p => `
-    <div class="card-hover bg-white rounded-2xl border border-bloom-100 shadow-sm p-5 flex flex-col relative">
-      <span class="absolute top-3 left-3 z-10 tag-pill bg-plum-900 text-white">الأكثر مبيعاً</span>
-      <div class="relative h-28 rounded-xl overflow-hidden bg-[#f9f9f9] mb-4">
-        <div class="absolute inset-0 flex items-center justify-center">${bottleIcon('w-12 h-12 text-lavender-400')}</div>
-        <img src="${p.image}" alt="${p.name_en}" loading="lazy" class="absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] object-contain" onerror="this.remove()">
-      </div>
-      <h4 class="font-bold text-plum-900 text-sm leading-snug">${p.name_ar}</h4>
-      <p class="text-[11px] text-plum-500 mb-3" dir="ltr" style="text-align:right">${p.name_en}</p>
-      <div class="flex items-center justify-between mt-auto pt-3 border-t border-bloom-50">
-        ${priceBlockHTML(p)}
-        <button data-cat="${p.cat}" data-id="${p.id}" class="add-best-btn text-lavender-500 text-xs font-bold hover:text-lavender-400">+ أضيفي</button>
-      </div>
-    </div>
-  `).join('');
-
-  grid.querySelectorAll('.add-best-btn').forEach(btn => {
-    btn.addEventListener('click', () => addToCart(btn.dataset.cat, btn.dataset.id));
-  });
+function closeLightbox() {
+  lightbox.classList.add('hidden');
+  lightbox.classList.remove('flex');
+  lightboxImg.src = '';
 }
-
-/* ===================== CART LOGIC ===================== */
-function saveCart() { localStorage.setItem('alzahraa_cart', JSON.stringify(cart)); }
-
-function findProduct(id) { return ALL_PRODUCTS.find(x => x.id === id); }
-
-function addToCart(cat, id) {
-  const p = findProduct(id);
-  const label = currentLabel(p);
-  const price = currentPrice(p);
-  const key = label ? `${p.id}-${label}` : p.id;
-
-  const existing = cart.find(c => c.key === key);
-  if (existing) existing.qty += 1;
-  else cart.push({ key, id: p.id, cat, name_ar: p.name_ar, name_en: p.name_en, size: label, price, qty: 1 });
-
-  saveCart();
-  renderCart();
-  showToast('تمت الإضافة إلى السلة');
-}
-
-function changeQty(key, delta) {
-  const item = cart.find(c => c.key === key);
-  if (!item) return;
-  item.qty += delta;
-  if (item.qty <= 0) cart = cart.filter(c => c.key !== key);
-  saveCart();
-  renderCart();
-}
-
-function removeItem(key) {
-  cart = cart.filter(c => c.key !== key);
-  saveCart();
-  renderCart();
-}
-
-function getManualExtraTotal() {
-  const el = document.getElementById('manual-total-input');
-  if (!el || typeof isStaffEditMode === 'undefined' || !isStaffEditMode) return 0;
-  const val = parseFloat(el.value);
-  return (!isNaN(val) && val > 0) ? val : 0;
-}
-function cartTotal() { return cart.reduce((sum, c) => sum + c.price * c.qty, 0) + getManualExtraTotal(); }
-function cartCount() { return cart.reduce((sum, c) => sum + c.qty, 0); }
-
-function renderCart() {
-  const container = document.getElementById('cart-items');
-  document.getElementById('cart-count').textContent = cartCount();
-  document.getElementById('cart-total').textContent = `${cartTotal()} ج.م`;
-
-  if (cart.length === 0) {
-    container.innerHTML = `
-      <div class="h-full flex flex-col items-center justify-center text-center py-16 text-plum-500">
-        ${bottleIcon('w-14 h-14 text-lavender-200 mb-4')}
-        <p class="font-medium">سلتك فارغة حالياً</p>
-        <p class="text-xs mt-1">أضيفي منتجاتك المفضلة لتظهر هنا</p>
-      </div>`;
-    return;
-  }
-
-  container.innerHTML = cart.map(c => `
-    <div class="flex gap-3 items-start border-b border-bloom-50 pb-4">
-      <div class="w-16 h-16 shrink-0 rounded-xl bg-[#f9f9f9] relative overflow-hidden">
-        <div class="absolute inset-0 flex items-center justify-center">${bottleIcon('w-7 h-7 text-lavender-400')}</div>
-        <img src="${findProduct(c.id) ? findProduct(c.id).image : ''}" alt="${c.name_en}" class="absolute inset-1 w-[calc(100%-8px)] h-[calc(100%-8px)] object-contain" onerror="this.remove()">
-      </div>
-      <div class="flex-1 min-w-0">
-        <p class="font-bold text-plum-900 text-sm">${c.name_ar}</p>
-        <p class="text-[11px] text-plum-500" dir="ltr" style="text-align:right">${c.name_en}</p>
-        ${c.size ? `<span class="tag-pill bg-lavender-100 text-lavender-500 mt-1">${c.size}</span>` : ''}
-        <div class="flex items-center justify-between mt-2">
-          <div class="flex items-center gap-2 border border-bloom-100 rounded-full px-1">
-            <button class="qty-btn w-6 h-6 text-plum-700" data-key="${c.key}" data-delta="1">+</button>
-            <span class="text-sm font-bold w-4 text-center">${c.qty}</span>
-            <button class="qty-btn w-6 h-6 text-plum-700" data-key="${c.key}" data-delta="-1">−</button>
-          </div>
-          <span class="font-black text-plum-900 text-sm">${c.price * c.qty} ج.م</span>
-        </div>
-      </div>
-      <button class="remove-btn text-plum-500 hover:text-bloom-400 shrink-0" data-key="${c.key}" aria-label="إزالة">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6L6 18M6 6l12 12"/></svg>
-      </button>
-    </div>
-  `).join('');
-
-  container.querySelectorAll('.qty-btn').forEach(btn => btn.addEventListener('click', () => changeQty(btn.dataset.key, parseInt(btn.dataset.delta))));
-  container.querySelectorAll('.remove-btn').forEach(btn => btn.addEventListener('click', () => removeItem(btn.dataset.key)));
-}
-
-/* ===================== CART PANEL TOGGLE ===================== */
-const cartPanel = document.getElementById('cart-panel');
-const cartOverlay = document.getElementById('cart-overlay');
-function openCart() { cartPanel.classList.remove('-translate-x-full'); cartOverlay.classList.remove('opacity-0', 'pointer-events-none'); }
-function closeCart() { cartPanel.classList.add('-translate-x-full'); cartOverlay.classList.add('opacity-0', 'pointer-events-none'); }
-document.getElementById('cart-btn').addEventListener('click', openCart);
-document.getElementById('cart-close').addEventListener('click', closeCart);
-cartOverlay.addEventListener('click', closeCart);
+document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
 
 /* ===================== MOBILE MENU ===================== */
 const menuBtn = document.getElementById('menu-btn');
@@ -916,172 +454,25 @@ const mobileNav = document.getElementById('mobile-nav');
 menuBtn.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
 mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.add('hidden')));
 
-/* ===================== TOAST ===================== */
-let toastTimer;
-function showToast(msg) {
-  const toast = document.getElementById('toast');
-  toast.textContent = msg;
-  toast.classList.remove('translate-y-24', 'opacity-0');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.add('translate-y-24', 'opacity-0'), 2200);
-}
-
-/* ===================== STAFF EDIT MODE & WHATSAPP CHECKOUT ===================== */
-const STAFF_PIN = 'zhr@sha2027';
-let isStaffEditMode = false;
-
-const staffModeBtn = document.getElementById('staff-mode-btn');
-const exitStaffModeBtn = document.getElementById('exit-staff-mode');
-const staffEditBox = document.getElementById('staff-edit-box');
-const customerFieldsBox = document.getElementById('customer-fields-box');
-const confirmOrderText = document.getElementById('confirm-order-text');
-const confirmOrderHint = document.getElementById('confirm-order-hint');
-const editOrderIdInput = document.getElementById('edit-order-id');
-const manualItemsInput = document.getElementById('manual-items-input');
-const manualTotalInput = document.getElementById('manual-total-input');
-
-manualTotalInput.addEventListener('input', () => {
-  document.getElementById('cart-total').textContent = `${cartTotal()} ج.م`;
-});
-
-function setStaffEditMode(enabled) {
-  isStaffEditMode = enabled;
-  if (enabled) {
-    staffEditBox.classList.remove('hidden');
-    customerFieldsBox.classList.add('hidden');
-    staffModeBtn.classList.add('hidden');
-    confirmOrderText.textContent = 'تحديث الطلب في الشيت فقط';
-    confirmOrderHint.textContent = 'وضع الموظف: سيتم تعديل الأصناف والإجمالي في الشيت مباشرة';
-    document.getElementById('cart-total').textContent = `${cartTotal()} ج.م`;
-    editOrderIdInput.focus();
-  } else {
-    staffEditBox.classList.add('hidden');
-    customerFieldsBox.classList.remove('hidden');
-    staffModeBtn.classList.remove('hidden');
-    confirmOrderText.textContent = 'تأكيد الطلب عبر واتساب';
-    confirmOrderHint.textContent = 'سيتم تحويلك إلى واتساب لإرسال تفاصيل طلبك مباشرة لفريقنا';
-    editOrderIdInput.value = '';
-    manualItemsInput.value = '';
-    manualTotalInput.value = '';
-    document.getElementById('cart-total').textContent = `${cartTotal()} ج.م`;
-  }
-}
-
-staffModeBtn.addEventListener('click', () => {
-  const pin = prompt('أدخل الكود السري للموظف لتفعيل وضع تعديل الطلب:');
-  if (pin === null) return;
-  if (pin.trim() === STAFF_PIN) {
-    setStaffEditMode(true);
-    showToast('تم تفعيل وضع تعديل الطلب للموظف');
-  } else {
-    showToast('الكود السري غير صحيح!');
-  }
-});
-
-exitStaffModeBtn.addEventListener('click', () => {
-  setStaffEditMode(false);
-  showToast('تم العودة لوضع الطلب العادي');
-});
-
-document.getElementById('confirm-order').addEventListener('click', () => {
-  const manualItemsText = isStaffEditMode ? manualItemsInput.value.trim() : '';
-  const manualExtraPrice = getManualExtraTotal();
-
-  if (cart.length === 0 && !manualItemsText) {
-    showToast('السلة فارغة، أضيفي منتجات أولاً أو اكتبي منتجاً يدوياً');
-    return;
-  }
-
-  const itemsSummary = cart.map(c => {
-    return c.size ? `(${c.name_ar}: ${c.size} × ${c.qty})` : `(${c.name_ar} × ${c.qty})`;
-  }).join(', ');
-
-  // 1) حالة تعديل طلب سابق (للموظف) -> تحديث الشيت فقط بدون واتساب
-  if (isStaffEditMode) {
-    const orderId = editOrderIdInput.value.trim();
-    if (!orderId) {
-      showToast('من فضلك اكتب رقم الطلب (Order ID) المراد تعديله');
-      editOrderIdInput.focus();
-      return;
-    }
-
-    fetch(SHEET_WEBHOOK_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        action: 'update',
-        orderId: orderId,
-        items: itemsSummary,
-        manualItems: manualItemsText,
-        manualTotal: manualExtraPrice,
-        total: cartTotal()
-      })
-    }).catch(err => console.error('Sheet webhook update error:', err));
-
-    cart = [];
-    saveCart();
-    setStaffEditMode(false);
-    renderCart();
-    closeCart();
-    showToast(`تم إرسال تحديث الطلب رقم (${orderId}) إلى الشيت بنجاح`);
-    return;
-  }
-
-  // 2) حالة الطلب العادي للعميل
-  const name = document.getElementById('cust-name').value.trim();
-  const phone = document.getElementById('cust-phone').value.trim();
-  const governorate = document.getElementById('cust-governorate').value;
-  const address = document.getElementById('cust-address').value.trim();
-
-  if (!name || !phone || !governorate || !address) { 
-    showToast('من فضلك أكملي جميع بيانات التواصل والمحافظة'); 
-    return; 
-  }
-
-  const lines = [];
-  lines.push('🌸 *طلب جديد من متجر ALZAHRAA*');
-  lines.push('—————————————');
-  cart.forEach(c => {
-    const sizeText = c.size ? ` (${c.size})` : '';
-    lines.push(`• ${c.name_ar}${sizeText}`);
-    lines.push(`  الكمية: ${c.qty} × ${c.price} ج.م = ${c.price * c.qty} ج.م`);
-  });
-  lines.push('—————————————');
-  lines.push(`*الإجمالي: ${cartTotal()} ج.م*`);
-  lines.push('');
-  lines.push('*بيانات العميل*');
-  lines.push(`الاسم: ${name}`);
-  lines.push(`الهاتف: ${phone}`);
-  lines.push(`المحافظة: ${governorate}`);
-  lines.push(`العنوان التفصيلي: ${address}`);
-
-  const message = lines.join('\n');
-
-  // Log the order to the connected Google Sheet
-  fetch(SHEET_WEBHOOK_URL, {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      phone: phone,
-      name: name,
-      address: address,          // العنوان التفصيلي فقط، من غير المحافظة
-      governorate: governorate,  // المحافظة كحقل منفصل
-      items: itemsSummary,
-      total: cartTotal()
-    })
-  }).catch(err => console.error('Sheet webhook error:', err));
-
-  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
-});
-
-/* [MOD 1] Promo countdown banner script REMOVED */
-
 /* ===================== INIT ===================== */
-renderShopGrid();
-renderBestSellers();
-renderCart();
+renderReviewsGallery();
+</script>
+<script src="site-config.js"></script>
+<script>
+  if (typeof onAlzahraaConfigReady === 'function') {
+    onAlzahraaConfigReady(function(cfg) {
+      if (cfg.retail_whatsapp) {
+        document.querySelectorAll('a[href*="wa.me/201027966872"]').forEach(a => {
+          a.href = `https://wa.me/${cfg.retail_whatsapp}`;
+        });
+      }
+      if (cfg.wholesale_whatsapp) {
+        document.querySelectorAll('a[href*="wa.me/201132867267"]').forEach(a => {
+          a.href = `https://wa.me/${cfg.wholesale_whatsapp}?text=${encodeURIComponent('مرحباً، أرغب في الاستفسار عن طلبات الجملة')}`;
+        });
+      }
+    });
+  }
 </script>
 </body>
 </html>
