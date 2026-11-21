@@ -531,7 +531,7 @@ function renderWholesaleGrid() {
   const grid = document.getElementById('wholesale-grid');
   grid.innerHTML = WHOLESALE_PRODUCTS.map(p => {
     const visible = matchesProduct(p);
-    const minQty = p.minQty || 1;
+   const minQty = 1;
     return `
       <div class="product-card card-hover bg-white rounded-3xl border border-lavender-200/80 shadow-sm hover:shadow-soft p-6 flex flex-col ${visible ? '' : 'hidden-card'}" data-id="${p.id}">
         <div class="relative h-40 rounded-2xl overflow-hidden bg-[#f9f9f9] mb-5">
@@ -558,7 +558,7 @@ function renderWholesaleGrid() {
             <span class="price-label font-black text-plum-900 text-lg block" data-id="${p.id}">${currentPrice(p)} ج.م</span>
             <span class="text-[10px] text-plum-500">سعر القطعة جملة</span>
           </div>
-          <button data-id="${p.id}" class="add-btn wholesale-btn text-sm font-bold px-5 py-2.5 rounded-full">أضيفي (${minQty})</button>
+          <button <button data-id="${p.id}" class="add-btn wholesale-btn text-sm font-bold px-5 py-2.5 rounded-full">أضيفي للسلة</button>data-id="${p.id}" class="add-btn wholesale-btn text-sm font-bold px-5 py-2.5 rounded-full">أضيفي (${minQty})</button>
         </div>
       </div>
     `;
@@ -607,7 +607,7 @@ function addToCart(id) {
   const p = findProduct(id);
   const label = currentLabel(p);
   const price = currentPrice(p);
-  const minQty = p.minQty || 1;
+  const mconst minQty = 1;
   const key = label ? `${p.id}-${label}` : p.id;
 
   const existing = cart.find(c => c.key === key);
@@ -622,7 +622,7 @@ function addToCart(id) {
 function changeQty(key, delta) {
   const item = cart.find(c => c.key === key);
   if (!item) return;
-  const minQty = item.minQty || 1;
+const minQty = 1;
   item.qty += delta;
   if (item.qty < minQty) {
     cart = cart.filter(c => c.key !== key);
