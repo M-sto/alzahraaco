@@ -558,7 +558,7 @@ function renderWholesaleGrid() {
             <span class="price-label font-black text-plum-900 text-lg block" data-id="${p.id}">${currentPrice(p)} ج.م</span>
             <span class="text-[10px] text-plum-500">سعر القطعة جملة</span>
           </div>
-          <button <button data-id="${p.id}" class="add-btn wholesale-btn text-sm font-bold px-5 py-2.5 rounded-full">أضيفي للسلة</button>data-id="${p.id}" class="add-btn wholesale-btn text-sm font-bold px-5 py-2.5 rounded-full">أضيفي (${minQty})</button>
+          <button data-id="${p.id}" class="add-btn wholesale-btn text-sm font-bold px-5 py-2.5 rounded-full">أضيفي للسلة</button>
         </div>
       </div>
     `;
@@ -607,7 +607,7 @@ function addToCart(id) {
   const p = findProduct(id);
   const label = currentLabel(p);
   const price = currentPrice(p);
-  const mconst minQty = 1;
+  const minQty = 1;
   const key = label ? `${p.id}-${label}` : p.id;
 
   const existing = cart.find(c => c.key === key);
