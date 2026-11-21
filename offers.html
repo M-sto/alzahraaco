@@ -133,7 +133,7 @@
 
       <!-- Cart + Mobile Menu -->
       <div class="flex items-center gap-2">
-        <button id="cart-btn" aria-label="عرض سلة العروض" class="relative w-11 h-11 rounded-full bg-bloom-50 hover:bg-bloom-100 transition-colors flex items-center justify-center">
+        <button id="cart-btn" aria-label="عرض السلة" class="relative w-11 h-11 rounded-full bg-bloom-50 hover:bg-bloom-100 transition-colors flex items-center justify-center">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-plum-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
@@ -179,7 +179,7 @@
         أقوى <span class="text-transparent bg-clip-text offers-btn">العروض</span> من ALZAHRAA
       </h1>
       <p class="mt-4 text-plum-500 text-base sm:text-lg max-w-2xl mx-auto">
-        استفيدي من عروضنا الخاصة وباكدجات العناية المتكاملة بأفضل سعر — العروض متاحة لفترة محدودة أو حتى نفاد الكمية.
+        استفيدي من عروضنا الخاصة وباكدجات العناية المتكاملة بأفضل سعر — ويمكنك إضافة أي منتج قطاعي مع عرضك في نفس السلة.
       </p>
     </div>
   </section>
@@ -187,6 +187,12 @@
   <!-- ============ OFFERS GRID ============ -->
   <section id="offers-shop" class="max-w-7xl mx-auto px-5 sm:px-8 py-16">
     <div id="offers-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7"></div>
+
+    <div class="mt-14 text-center">
+      <a href="retail.html#shop" class="inline-flex items-center gap-2 brand-gradient-btn text-white font-bold px-8 py-3.5 rounded-full shadow-soft transition-transform hover:-translate-y-0.5">
+        <span>+ أضيفي منتجات قطاعي أخرى مع عرضك</span>
+      </a>
+    </div>
   </section>
 </main>
 
@@ -210,12 +216,12 @@
   </div>
 </footer>
 
-<!-- ============ OFFERS CART OVERLAY + PANEL ============ -->
+<!-- ============ UNIFIED CART OVERLAY + PANEL ============ -->
 <div id="cart-overlay" class="fixed inset-0 bg-plum-900/40 backdrop-blur-sm z-50 opacity-0 pointer-events-none"></div>
 
 <aside id="cart-panel" class="fixed top-0 left-0 h-full w-full sm:w-[430px] bg-white z-50 shadow-2xl -translate-x-full flex flex-col">
   <div class="flex items-center justify-between px-6 py-5 border-b border-bloom-100">
-    <h3 class="text-xl font-black text-plum-900">سلة العروض</h3>
+    <h3 class="text-xl font-black text-plum-900">سلة المشتريات</h3>
     <button id="cart-close" class="w-9 h-9 rounded-full hover:bg-bloom-50 flex items-center justify-center text-plum-700">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6L6 18M6 6l12 12"/></svg>
     </button>
@@ -223,14 +229,42 @@
 
   <div id="cart-items" class="flex-1 overflow-y-auto scrollbar-thin px-6 py-4 space-y-4"></div>
 
-  <div id="cart-footer" class="border-t border-bloom-100 px-6 py-5 space-y-3.5">
+  <div class="px-6 py-2.5 bg-bloom-50/70 border-t border-bloom-100 text-center">
+    <a href="retail.html#shop" class="text-xs font-bold text-lavender-500 hover:text-plum-900 transition-colors">
+      + أضيفي منتجات قطاعي أخرى مع طلبك
+    </a>
+  </div>
+
+  <div id="cart-footer" class="border-t border-bloom-100 px-6 py-4 space-y-3 overflow-y-auto max-h-[60vh] scrollbar-thin">
     <div class="flex items-center justify-between font-bold text-plum-900 text-lg">
-      <span>إجمالي العروض</span>
+      <span>الإجمالي</span>
       <span id="cart-total">٠ ج.م</span>
     </div>
 
-    <!-- Customer Info -->
-    <div class="space-y-2.5">
+    <!-- [STAFF EDIT BOX] -->
+    <div id="staff-edit-box" class="hidden space-y-2.5 bg-lavender-100/60 p-3.5 rounded-2xl border border-lavender-300">
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-bold text-plum-900">وضع تعديل طلب سابق (للموظف)</span>
+        <button id="exit-staff-mode" type="button" class="text-[11px] text-bloom-400 hover:underline font-bold">إلغاء والعودة</button>
+      </div>
+      <input id="edit-order-id" type="text" placeholder="اكتب رقم الطلب (Order ID) المراد تعديله..." class="w-full px-4 py-2.5 rounded-xl border border-lavender-300 focus:border-plum-700 focus:outline-none text-sm bg-white font-bold text-plum-900">
+
+      <select id="edit-target-sheet" class="governorate-select w-full px-3.5 py-2 rounded-xl border border-lavender-300 focus:border-plum-700 focus:outline-none text-xs bg-white font-bold text-plum-900">
+        <option value="auto" selected>توجيه تلقائي (شيت العروض لو فيه عرض، وإلا القطاعي)</option>
+        <option value="offers">تحديث في شيت العروض</option>
+        <option value="retail">تحديث في شيت القطاعي</option>
+      </select>
+
+      <div class="pt-1 border-t border-lavender-200 space-y-2">
+        <label class="block text-[11px] font-bold text-plum-800">إضافة منتجات غير موجودة بالموقع (اختياري):</label>
+        <input id="manual-items-input" type="text" placeholder="اكتب اسم/تفاصيل المنتجات اليدوية (ستنزل بولد بالشيت)..." class="w-full px-3.5 py-2 rounded-xl border border-lavender-300 focus:border-plum-700 focus:outline-none text-xs bg-white text-plum-900 font-bold">
+        <input id="manual-total-input" type="number" min="0" step="any" placeholder="إجمالي سعر المنتجات اليدوية فقط (ج.م)" class="w-full px-3.5 py-2 rounded-xl border border-lavender-300 focus:border-plum-700 focus:outline-none text-xs bg-white text-plum-900 font-bold">
+      </div>
+      <p class="text-[11px] text-plum-700 leading-relaxed">سيتم تحديث الأصناف والإجمالي لهذا الطلب في الشيت مباشرة دون فتح واتساب.</p>
+    </div>
+
+    <!-- [CUSTOMER FIELDS] -->
+    <div id="customer-fields-box" class="space-y-2.5">
       <input id="o-name" type="text" placeholder="الاسم بالكامل" class="w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm">
       <input id="o-phone" type="tel" placeholder="رقم الهاتف" class="w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm">
 
@@ -267,10 +301,10 @@
 
       <input id="o-address" type="text" placeholder="العنوان التفصيلي (المنطقة / الشارع / رقم العمارة)" class="w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm">
 
-      <!-- Employee Reservation Code Box -->
+      <!-- Employee Code Box -->
       <div class="bg-lavender-100/60 border border-lavender-200 rounded-2xl p-3 space-y-1.5">
         <label for="o-emp-code" class="block text-xs font-bold text-plum-900">
-          كود تفعيل الموظف / كود الحجز (اختياري)
+          كود الموظف (اختياري — يسجّل الاسم فقط في الشيت)
         </label>
         <input id="o-emp-code" type="text" autocomplete="off" placeholder="اكتب كود الموظف (مثال: ZHR1)"
                class="w-full px-3.5 py-2 rounded-xl border border-lavender-300 focus:border-plum-900 focus:outline-none text-sm bg-white font-bold text-plum-900 uppercase" dir="ltr" style="text-align:right">
@@ -280,39 +314,34 @@
 
     <button id="confirm-offer-order" class="w-full offers-btn font-bold py-3.5 rounded-full shadow-soft flex items-center justify-center gap-2">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
-      <span>تأكيد حجز العرض عبر واتساب</span>
+      <span id="confirm-order-text">تأكيد الطلب عبر واتساب</span>
     </button>
-    <p class="text-[11px] text-plum-500 text-center">سيتم تسجيل العرض في شيت العروض وتحويلك لواتساب لتأكيد الطلب</p>
+    <p id="confirm-order-hint" class="text-[11px] text-plum-500 text-center leading-relaxed">سيتم تسجيل الطلب وتوجيهك لواتساب لتأكيد الحجز</p>
+    <div class="pt-1 text-center">
+      <button id="staff-mode-btn" type="button" class="text-[11px] text-plum-500/60 hover:text-plum-900 underline transition-colors">تعديل طلب سابق (للموظفين)</button>
+    </div>
   </div>
 </aside>
 
 <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 translate-y-24 opacity-0 z-[60] bg-plum-900 text-white text-sm font-medium px-5 py-3 rounded-full shadow-lg toast">
-  تمت الإضافة إلى سلة العروض
+  تمت الإضافة إلى السلة
 </div>
 
 <script>
-/* ===================== OFFERS SETTINGS =====================
-   1) رقم واتساب استلام العروض
-   2) رابط Webhook الخاص بشيت العروض (هنعمله في الخطوة 6 وتحطه هنا)
-*/
+/* ===================== SETTINGS & WEBHOOKS ===================== */
 let OFFERS_WHATSAPP_NUMBER = '201027966872';
+let STAFF_PIN = 'zhr@sha2027';
 const OFFERS_SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbx8qm8KKqWXu7h9nlIAbBQztyl56X12OrxpKrP5AG1hCVuudhdk7CkgPIdwccZdaoWhFg/exec';
+const RETAIL_SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzoVA9s6Jca8D3gqBvFIwUezcsi98kkusXTDVsRD7wgvSBhON1nnL0USM4wqc3GPvcS/exec';
 
-/* ===================== EMPLOYEE CODES MAP =====================
-   اربط كل كود تفعيل باسم الموظف الثابت هنا (اكتب الكود بحروف كبيرة CAPITAL).
-   بمجرد كتابة الكود في السلة (حتى لو بحروف صغيرة)، هيتسجل الاسم الثابت في الشيت.
-*/
 let EMPLOYEE_CODES = {
   'ZHR1': 'أحمد محمد',
   'ZHR2': 'سارة علي',
   'ZHR3': 'محمود حسن',
   'ZHR4': 'منة الله طارق',
-  // أضف أكواد وأسماء باقي الموظفين بنفس الشكل
 };
 
-/* ===================== OFFERS DATA =====================
-   عدّل العروض والباكدجات هنا بسهولة
-*/
+/* ===================== OFFERS DATA ===================== */
 const OFFERS_PRODUCTS = [
   // ============ عروض الشعر ============
   {
@@ -399,9 +428,9 @@ const OFFERS_PRODUCTS = [
   }
 ];
 
-/* ===================== STATE ===================== */
+/* ===================== UNIFIED CART STATE ===================== */
 let cart = [];
-try { cart = JSON.parse(localStorage.getItem('alzahraa_offers_cart')) || []; } catch(e) { cart = []; }
+try { cart = JSON.parse(localStorage.getItem('alzahraa_cart')) || []; } catch(e) { cart = []; }
 
 function giftIcon(extraClass) {
   return `<svg class="${extraClass}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
@@ -449,37 +478,58 @@ function renderOffersGrid() {
 }
 
 /* ===================== CART LOGIC ===================== */
-function saveCart() { localStorage.setItem('alzahraa_offers_cart', JSON.stringify(cart)); }
+function saveCart() { localStorage.setItem('alzahraa_cart', JSON.stringify(cart)); }
 function findOffer(id) { return OFFERS_PRODUCTS.find(x => x.id === id); }
+function itemKey(c) { return c.key || c.id; }
+function isOfferItem(c) { return Boolean(c.isOffer || c.cat === 'offer' || String(c.id || '').startsWith('off')); }
 
 function addToCart(id) {
   const o = findOffer(id);
   if (!o) return;
-  const existing = cart.find(c => c.id === o.id);
+  const key = o.id;
+  const existing = cart.find(c => itemKey(c) === key);
   if (existing) existing.qty += 1;
-  else cart.push({ id: o.id, name_ar: o.name_ar, details: o.details, price: o.price, qty: 1 });
+  else cart.push({
+    key,
+    id: o.id,
+    cat: 'offer',
+    isOffer: true,
+    name_ar: o.name_ar,
+    name_en: o.name_en,
+    details: o.details,
+    size: null,
+    image: o.image,
+    price: o.price,
+    qty: 1
+  });
 
   saveCart();
   renderCart();
   showToast('تمت إضافة العرض إلى السلة');
 }
 
-function changeQty(id, delta) {
-  const item = cart.find(c => c.id === id);
+function changeQty(key, delta) {
+  const item = cart.find(c => itemKey(c) === key);
   if (!item) return;
   item.qty += delta;
-  if (item.qty <= 0) cart = cart.filter(c => c.id !== id);
+  if (item.qty <= 0) cart = cart.filter(c => itemKey(c) !== key);
   saveCart();
   renderCart();
 }
 
-function removeItem(id) {
-  cart = cart.filter(c => c.id !== id);
+function removeItem(key) {
+  cart = cart.filter(c => itemKey(c) !== key);
   saveCart();
   renderCart();
 }
 
-function cartTotal() { return cart.reduce((sum, c) => sum + c.price * c.qty, 0); }
+function getManualExtraTotal() {
+  const el = document.getElementById('manual-total-input');
+  if (!el || typeof isStaffEditMode === 'undefined' || !isStaffEditMode) return 0;
+  const val = parseFloat(el.value);
+  return (!isNaN(val) && val > 0) ? val : 0;
+}
+function cartTotal() { return cart.reduce((sum, c) => sum + c.price * c.qty, 0) + getManualExtraTotal(); }
 function cartCount() { return cart.reduce((sum, c) => sum + c.qty, 0); }
 
 function renderCart() {
@@ -491,38 +541,44 @@ function renderCart() {
     container.innerHTML = `
       <div class="h-full flex flex-col items-center justify-center text-center py-16 text-plum-500">
         ${giftIcon('w-14 h-14 text-bloom-200 mb-4')}
-        <p class="font-medium">سلة العروض فارغة حالياً</p>
-        <p class="text-xs mt-1">اختاري العرض المناسب وأضيفيه هنا</p>
+        <p class="font-medium">سلتك فارغة حالياً</p>
+        <p class="text-xs mt-1">اختاري العرض المناسب أو أضيفي منتجات قطاعي لتظهر هنا</p>
       </div>`;
     return;
   }
 
-  container.innerHTML = cart.map(c => `
+  container.innerHTML = cart.map(c => {
+    const k = itemKey(c);
+    const imgSrc = c.image || (findOffer(c.id) ? findOffer(c.id).image : '');
+    const offerFlag = isOfferItem(c);
+    return `
     <div class="flex gap-3 items-start border-b border-bloom-50 pb-4">
       <div class="w-16 h-16 shrink-0 rounded-xl bg-[#f9f9f9] relative overflow-hidden">
         <div class="absolute inset-0 flex items-center justify-center">${giftIcon('w-7 h-7 text-bloom-400')}</div>
-        <img src="${findOffer(c.id) ? findOffer(c.id).image : ''}" alt="${c.name_ar}" class="absolute inset-1 w-[calc(100%-8px)] h-[calc(100%-8px)] object-contain" onerror="this.remove()">
+        <img src="${imgSrc}" alt="${c.name_ar}" class="absolute inset-1 w-[calc(100%-8px)] h-[calc(100%-8px)] object-contain" onerror="this.remove()">
       </div>
       <div class="flex-1 min-w-0">
         <p class="font-bold text-plum-900 text-sm">${c.name_ar}</p>
-        <p class="text-[11px] text-plum-500 line-clamp-2 mt-0.5">${c.details}</p>
+        ${offerFlag ? `<span class="tag-pill bg-pink-50 text-pink-500 mt-1">عرض</span>` : ''}
+        ${c.size ? `<span class="tag-pill bg-lavender-100 text-lavender-500 mt-1">${c.size}</span>` : ''}
+        ${c.details ? `<p class="text-[11px] text-plum-500 line-clamp-2 mt-0.5">${c.details}</p>` : ''}
         <div class="flex items-center justify-between mt-2">
           <div class="flex items-center gap-2 border border-bloom-100 rounded-full px-1">
-            <button class="qty-btn w-6 h-6 text-plum-700" data-id="${c.id}" data-delta="1">+</button>
+            <button class="qty-btn w-6 h-6 text-plum-700" data-key="${k}" data-delta="1">+</button>
             <span class="text-sm font-bold w-4 text-center">${c.qty}</span>
-            <button class="qty-btn w-6 h-6 text-plum-700" data-id="${c.id}" data-delta="-1">−</button>
+            <button class="qty-btn w-6 h-6 text-plum-700" data-key="${k}" data-delta="-1">−</button>
           </div>
           <span class="font-black text-plum-900 text-sm">${c.price * c.qty} ج.م</span>
         </div>
       </div>
-      <button class="remove-btn text-plum-500 hover:text-bloom-400 shrink-0" data-id="${c.id}" aria-label="إزالة">
+      <button class="remove-btn text-plum-500 hover:text-bloom-400 shrink-0" data-key="${k}" aria-label="إزالة">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6L6 18M6 6l12 12"/></svg>
       </button>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
 
-  container.querySelectorAll('.qty-btn').forEach(btn => btn.addEventListener('click', () => changeQty(btn.dataset.id, parseInt(btn.dataset.delta))));
-  container.querySelectorAll('.remove-btn').forEach(btn => btn.addEventListener('click', () => removeItem(btn.dataset.id)));
+  container.querySelectorAll('.qty-btn').forEach(btn => btn.addEventListener('click', () => changeQty(btn.dataset.key, parseInt(btn.dataset.delta))));
+  container.querySelectorAll('.remove-btn').forEach(btn => btn.addEventListener('click', () => removeItem(btn.dataset.key)));
 }
 
 /* ===================== EMPLOYEE CODE VALIDATION ===================== */
@@ -537,7 +593,11 @@ function resolveEmployee(rawCode) {
 }
 
 function updateEmployeeStatusUI() {
-  const res = resolveEmployee(empCodeInput.value);
+  const code = empCodeInput.value.trim().toUpperCase();
+  if (code) sessionStorage.setItem('alzahraa_emp_code', code);
+  else sessionStorage.removeItem('alzahraa_emp_code');
+
+  const res = resolveEmployee(code);
   if (!res.code) {
     empStatus.classList.add('hidden');
     empStatus.textContent = '';
@@ -555,12 +615,13 @@ function updateEmployeeStatusUI() {
 
 empCodeInput.addEventListener('input', updateEmployeeStatusUI);
 
-// دعم ملء الكود تلقائياً من الرابط مثل: offers.html?code=ZHR1
-(function prefillCodeFromURL() {
+(function prefillCode() {
   const params = new URLSearchParams(window.location.search);
   const urlCode = params.get('code') || params.get('emp');
-  if (urlCode) {
-    empCodeInput.value = urlCode.trim().toUpperCase();
+  const savedCode = sessionStorage.getItem('alzahraa_emp_code');
+  const initialCode = urlCode || savedCode;
+  if (initialCode) {
+    empCodeInput.value = initialCode.trim().toUpperCase();
     updateEmployeeStatusUI();
   }
 })();
@@ -589,13 +650,117 @@ function showToast(msg) {
   toastTimer = setTimeout(() => toast.classList.add('translate-y-24', 'opacity-0'), 2200);
 }
 
-/* ===================== CHECKOUT (OFFERS SHEET + WHATSAPP) ===================== */
+/* ===================== STAFF EDIT MODE ===================== */
+let isStaffEditMode = false;
+const staffModeBtn = document.getElementById('staff-mode-btn');
+const exitStaffModeBtn = document.getElementById('exit-staff-mode');
+const staffEditBox = document.getElementById('staff-edit-box');
+const customerFieldsBox = document.getElementById('customer-fields-box');
+const confirmOrderText = document.getElementById('confirm-order-text');
+const confirmOrderHint = document.getElementById('confirm-order-hint');
+const editOrderIdInput = document.getElementById('edit-order-id');
+const editTargetSheetSelect = document.getElementById('edit-target-sheet');
+const manualItemsInput = document.getElementById('manual-items-input');
+const manualTotalInput = document.getElementById('manual-total-input');
+
+manualTotalInput.addEventListener('input', () => {
+  document.getElementById('cart-total').textContent = `${cartTotal()} ج.م`;
+});
+
+function setStaffEditMode(enabled) {
+  isStaffEditMode = enabled;
+  if (enabled) {
+    staffEditBox.classList.remove('hidden');
+    customerFieldsBox.classList.add('hidden');
+    staffModeBtn.classList.add('hidden');
+    confirmOrderText.textContent = 'تحديث الطلب في الشيت فقط';
+    confirmOrderHint.textContent = 'وضع الموظف: سيتم تعديل الأصناف والإجمالي في الشيت مباشرة';
+    document.getElementById('cart-total').textContent = `${cartTotal()} ج.م`;
+    editOrderIdInput.focus();
+  } else {
+    staffEditBox.classList.add('hidden');
+    customerFieldsBox.classList.remove('hidden');
+    staffModeBtn.classList.remove('hidden');
+    confirmOrderText.textContent = 'تأكيد الطلب عبر واتساب';
+    confirmOrderHint.textContent = 'سيتم تسجيل الطلب وتوجيهك لواتساب لتأكيد الحجز';
+    editOrderIdInput.value = '';
+    manualItemsInput.value = '';
+    manualTotalInput.value = '';
+    document.getElementById('cart-total').textContent = `${cartTotal()} ج.م`;
+  }
+}
+
+staffModeBtn.addEventListener('click', () => {
+  const pin = prompt('أدخل الكود السري للموظف لتفعيل وضع تعديل الطلب:');
+  if (pin === null) return;
+  if (pin.trim() === STAFF_PIN) {
+    setStaffEditMode(true);
+    showToast('تم تفعيل وضع تعديل الطلب للموظف');
+  } else {
+    showToast('الكود السري غير صحيح!');
+  }
+});
+
+exitStaffModeBtn.addEventListener('click', () => {
+  setStaffEditMode(false);
+  showToast('تم العودة لوضع الطلب العادي');
+});
+
+/* ===================== CHECKOUT (SMART ROUTING + WHATSAPP) ===================== */
 document.getElementById('confirm-offer-order').addEventListener('click', () => {
-  if (cart.length === 0) {
-    showToast('سلة العروض فارغة، أضيفي عرضاً أولاً');
+  const manualItemsText = isStaffEditMode ? manualItemsInput.value.trim() : '';
+  const manualExtraPrice = getManualExtraTotal();
+
+  if (cart.length === 0 && !manualItemsText) {
+    showToast('السلة فارغة، أضيفي منتجات أو عروض أولاً');
     return;
   }
 
+  const hasOffer = cart.some(c => isOfferItem(c));
+  const itemsSummary = cart.map(c => {
+    return c.size ? `(${c.name_ar}: ${c.size} × ${c.qty})` : `(${c.name_ar} × ${c.qty})`;
+  }).join(', ');
+
+  // 1) حالة تعديل طلب سابق (للموظف)
+  if (isStaffEditMode) {
+    const orderId = editOrderIdInput.value.trim();
+    if (!orderId) {
+      showToast('من فضلك اكتب رقم الطلب (Order ID) المراد تعديله');
+      editOrderIdInput.focus();
+      return;
+    }
+
+    const sheetChoice = editTargetSheetSelect.value;
+    const targetUrl = sheetChoice === 'offers'
+      ? OFFERS_SHEET_WEBHOOK_URL
+      : sheetChoice === 'retail'
+        ? RETAIL_SHEET_WEBHOOK_URL
+        : (hasOffer ? OFFERS_SHEET_WEBHOOK_URL : RETAIL_SHEET_WEBHOOK_URL);
+
+    fetch(targetUrl, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        action: 'update',
+        orderId: orderId,
+        items: itemsSummary,
+        manualItems: manualItemsText,
+        manualTotal: manualExtraPrice,
+        total: cartTotal()
+      })
+    }).catch(err => console.error('Sheet webhook update error:', err));
+
+    cart = [];
+    saveCart();
+    setStaffEditMode(false);
+    renderCart();
+    closeCart();
+    showToast(`تم إرسال تحديث الطلب رقم (${orderId}) إلى الشيت بنجاح`);
+    return;
+  }
+
+  // 2) حالة الطلب العادي للعميل
   const name = document.getElementById('o-name').value.trim();
   const phone = document.getElementById('o-phone').value.trim();
   const governorate = document.getElementById('o-governorate').value;
@@ -613,13 +778,12 @@ document.getElementById('confirm-offer-order').addEventListener('click', () => {
     return;
   }
 
-  const itemsSummary = cart.map(c => `(${c.name_ar} × ${c.qty})`).join(', ');
-
   const lines = [];
-  lines.push('🎁 *حجز عرض جديد — متجر ALZAHRAA*');
+  lines.push(hasOffer ? '🎁 *حجز عرض جديد — متجر ALZAHRAA*' : '🌸 *طلب جديد (قطاعي) من متجر ALZAHRAA*');
   lines.push('—————————————');
   cart.forEach(c => {
-    lines.push(`• ${c.name_ar}`);
+    const sizeText = c.size ? ` (${c.size})` : '';
+    lines.push(`• ${c.name_ar}${sizeText}`);
     lines.push(`  الكمية: ${c.qty} × ${c.price} ج.م = ${c.price * c.qty} ج.م`);
   });
   lines.push('—————————————');
@@ -631,30 +795,28 @@ document.getElementById('confirm-offer-order').addEventListener('click', () => {
   lines.push(`المحافظة: ${governorate}`);
   lines.push(`العنوان: ${address}`);
   if (emp.code) {
-    lines.push(`كود الحجز: ${emp.code} (${emp.name})`);
+    lines.push(`الموظف المسؤول: ${emp.name}`);
   }
 
   const message = lines.join('\n');
 
-  // إرسال الطلب لشيت العروض بالاسم الثابت للموظف
-  if (OFFERS_SHEET_WEBHOOK_URL && !OFFERS_SHEET_WEBHOOK_URL.includes('YOUR_OFFERS')) {
-    fetch(OFFERS_SHEET_WEBHOOK_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        orderType: 'عرض',
-        phone: phone,
-        name: name,
-        governorate: governorate,
-        address: address,
-        items: itemsSummary,
-        total: cartTotal(),
-        employeeCode: emp.code || 'DIRECT',
-        employeeName: emp.name
-      })
-    }).catch(err => console.error('Offers sheet webhook error:', err));
-  }
+  // التوجيه الذكي: لو فيه أي عرض ينزل في شيت العروض، وإلا شيت القطاعي — مع إرسال اسم الموظف فقط
+  const targetWebhook = hasOffer ? OFFERS_SHEET_WEBHOOK_URL : RETAIL_SHEET_WEBHOOK_URL;
+  fetch(targetWebhook, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      orderType: hasOffer ? 'عرض' : 'قطاعي',
+      phone: phone,
+      name: name,
+      governorate: governorate,
+      address: address,
+      items: itemsSummary,
+      total: cartTotal(),
+      employeeName: emp.name
+    })
+  }).catch(err => console.error('Sheet webhook error:', err));
 
   window.open(`https://wa.me/${OFFERS_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
 });
@@ -667,6 +829,9 @@ renderCart();
 <script>
   if (typeof onAlzahraaConfigReady === 'function') {
     onAlzahraaConfigReady(function(cfg) {
+      if (cfg.staff_pin) {
+        STAFF_PIN = cfg.staff_pin;
+      }
       if (cfg.retail_whatsapp) {
         OFFERS_WHATSAPP_NUMBER = cfg.retail_whatsapp;
       }

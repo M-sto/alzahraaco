@@ -344,12 +344,12 @@
   </div>
 </footer>
 
-<!-- ============ CART OVERLAY + PANEL ============ -->
+<!-- ============ UNIFIED CART OVERLAY + PANEL ============ -->
 <div id="cart-overlay" class="fixed inset-0 bg-plum-900/40 backdrop-blur-sm z-50 opacity-0 pointer-events-none"></div>
 
-<aside id="cart-panel" class="fixed top-0 left-0 h-full w-full sm:w-[420px] bg-white z-50 shadow-2xl -translate-x-full flex flex-col">
+<aside id="cart-panel" class="fixed top-0 left-0 h-full w-full sm:w-[430px] bg-white z-50 shadow-2xl -translate-x-full flex flex-col">
   <div class="flex items-center justify-between px-6 py-5 border-b border-bloom-100">
-    <h3 class="text-xl font-black text-plum-900">سلة المشتريات (قطاعي)</h3>
+    <h3 class="text-xl font-black text-plum-900">سلة المشتريات</h3>
     <button id="cart-close" class="w-9 h-9 rounded-full hover:bg-bloom-50 flex items-center justify-center text-plum-700">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6L6 18M6 6l12 12"/></svg>
     </button>
@@ -357,7 +357,13 @@
 
   <div id="cart-items" class="flex-1 overflow-y-auto scrollbar-thin px-6 py-4 space-y-4"></div>
 
-  <div id="cart-footer" class="border-t border-bloom-100 px-6 py-5 space-y-4">
+  <div class="px-6 py-2.5 bg-bloom-50/70 border-t border-bloom-100 text-center">
+    <a href="offers.html" class="text-xs font-bold text-pink-500 hover:text-plum-900 transition-colors">
+      + أضيفي عروض حصرية مع طلبك
+    </a>
+  </div>
+
+  <div id="cart-footer" class="border-t border-bloom-100 px-6 py-4 space-y-3 overflow-y-auto max-h-[60vh] scrollbar-thin">
     <div class="flex items-center justify-between font-bold text-plum-900 text-lg">
       <span>الإجمالي</span>
       <span id="cart-total">٠ ج.م</span>
@@ -370,6 +376,12 @@
         <button id="exit-staff-mode" type="button" class="text-[11px] text-bloom-400 hover:underline font-bold">إلغاء والعودة</button>
       </div>
       <input id="edit-order-id" type="text" placeholder="اكتب رقم الطلب (Order ID) المراد تعديله..." class="w-full px-4 py-2.5 rounded-xl border border-lavender-300 focus:border-plum-700 focus:outline-none text-sm bg-white font-bold text-plum-900">
+
+      <select id="edit-target-sheet" class="governorate-select w-full px-3.5 py-2 rounded-xl border border-lavender-300 focus:border-plum-700 focus:outline-none text-xs bg-white font-bold text-plum-900">
+        <option value="auto" selected>توجيه تلقائي (شيت العروض لو فيه عرض، وإلا القطاعي)</option>
+        <option value="offers">تحديث في شيت العروض</option>
+        <option value="retail">تحديث في شيت القطاعي</option>
+      </select>
       
       <div class="pt-1 border-t border-lavender-200 space-y-2">
         <label class="block text-[11px] font-bold text-plum-800">إضافة منتجات غير موجودة بالموقع (اختياري):</label>
@@ -417,6 +429,16 @@
       </select>
 
       <input id="cust-address" type="text" placeholder="العنوان التفصيلي (المنطقة / الشارع / رقم العمارة)" class="w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm">
+
+      <!-- Employee Code Box -->
+      <div class="bg-lavender-100/60 border border-lavender-200 rounded-2xl p-3 space-y-1.5">
+        <label for="r-emp-code" class="block text-xs font-bold text-plum-900">
+          كود الموظف (اختياري — يسجّل الاسم فقط في الشيت)
+        </label>
+        <input id="r-emp-code" type="text" autocomplete="off" placeholder="اكتب كود الموظف (مثال: ZHR1)"
+               class="w-full px-3.5 py-2 rounded-xl border border-lavender-300 focus:border-plum-900 focus:outline-none text-sm bg-white font-bold text-plum-900 uppercase" dir="ltr" style="text-align:right">
+        <div id="emp-status" class="text-[11px] font-bold hidden"></div>
+      </div>
     </div>
 
     <button id="confirm-order" class="w-full brand-gradient-btn text-white font-bold py-3.5 rounded-full shadow-soft flex items-center justify-center gap-2">
@@ -487,11 +509,11 @@ const HAIR_PRODUCTS = [
     fixedPrice:390 },
   { id:'h27', name_ar:'زيت سيسا ', name_en:'Sesa Oil 150ml', image:'sesa_oil_150ml.jpg', tags:['hair-care'],
     variants:[{label:'100ml',price:280},{label:'200ml',price:420}] },
-    { id:'h28', name_ar:'شامبو كيش كينج بالبصل (340ml)', name_en:'Kesh King onion Shampoo 340ml', image:'Kesh_King_onion_Shampoo 340ml.jpg', tags:['hair-care','kesh-king'],
+  { id:'h28', name_ar:'شامبو كيش كينج بالبصل (340ml)', name_en:'Kesh King onion Shampoo 340ml', image:'Kesh_King_onion_Shampoo 340ml.jpg', tags:['hair-care','kesh-king'],
     fixedPrice:380 },
-    { id:'h29', name_ar:'زيت باراشوت أدفانسد بالكرياتين  (300ml)', name_en:'Parachute Advansed creatine Hair Oil 300ml', image:'parachute-creatine-300ml.jpg', tags:['hair-care','parachute'],
+  { id:'h29', name_ar:'زيت باراشوت أدفانسد بالكرياتين  (300ml)', name_en:'Parachute Advansed creatine Hair Oil 300ml', image:'parachute-creatine-300ml.jpg', tags:['hair-care','parachute'],
    variants:[{label:'300ml',price:380},{label:'200ml',price:295}] },
-   { id:'h30', name_ar:'زياتة شعر', name_en:'zyata', image:'zyata.jpg', tags:['hair-care'],
+  { id:'h30', name_ar:'زياتة شعر', name_en:'zyata', image:'zyata.jpg', tags:['hair-care'],
    fixedPrice:85 },
 ];
 
@@ -604,7 +626,7 @@ const SKIN_PRODUCTS = [
     fixedPrice:950 },
   { id:'s54', name_ar:'لوشن كوسركس المرطب', name_en:'COSRX Moisturizing Lotion', image:'cosrx_moisturizing_lotion.jpg', tags:[],
     variants:[{label:'5g',price:165},{label:'10g',price:320},{label:'15g',price:430},{label:'30g',price:580},{label:'الحجم الكامل',price:1150}] },
-    { id:'s55', name_ar:'سِت سنتيلا البيضاء', name_en:'Centella white Set', image:'centella_white_set.jpg', tags:['centella'],
+  { id:'s55', name_ar:'سِت سنتيلا البيضاء', name_en:'Centella white Set', image:'centella_white_set.jpg', tags:['centella'],
     fixedPrice:1300 },
 ];
 
@@ -644,6 +666,14 @@ const BEST_SELLER_IDS = ['h1', 's3', 's11', 's22'];
 
 let WHATSAPP_NUMBER = '201027966872';
 const SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzoVA9s6Jca8D3gqBvFIwUezcsi98kkusXTDVsRD7wgvSBhON1nnL0USM4wqc3GPvcS/exec';
+const OFFERS_SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbx8qm8KKqWXu7h9nlIAbBQztyl56X12OrxpKrP5AG1hCVuudhdk7CkgPIdwccZdaoWhFg/exec';
+
+let EMPLOYEE_CODES = {
+  'ZHR1': 'أحمد محمد',
+  'ZHR2': 'سارة علي',
+  'ZHR3': 'محمود حسن',
+  'ZHR4': 'منة الله طارق',
+};
 
 /* ===================== STATE ===================== */
 let cart = [];
@@ -805,9 +835,11 @@ function renderBestSellers() {
   });
 }
 
-/* ===================== CART LOGIC ===================== */
+/* ===================== UNIFIED CART LOGIC ===================== */
 function saveCart() { localStorage.setItem('alzahraa_cart', JSON.stringify(cart)); }
 function findProduct(id) { return ALL_PRODUCTS.find(x => x.id === id); }
+function itemKey(c) { return c.key || c.id; }
+function isOfferItem(c) { return Boolean(c.isOffer || c.cat === 'offer' || String(c.id || '').startsWith('off')); }
 
 function addToCart(cat, id) {
   const p = findProduct(id);
@@ -815,9 +847,20 @@ function addToCart(cat, id) {
   const price = currentPrice(p);
   const key = label ? `${p.id}-${label}` : p.id;
 
-  const existing = cart.find(c => c.key === key);
+  const existing = cart.find(c => itemKey(c) === key);
   if (existing) existing.qty += 1;
-  else cart.push({ key, id: p.id, cat, name_ar: p.name_ar, name_en: p.name_en, size: label, price, qty: 1 });
+  else cart.push({
+    key,
+    id: p.id,
+    cat,
+    isOffer: false,
+    name_ar: p.name_ar,
+    name_en: p.name_en,
+    image: p.image,
+    size: label,
+    price,
+    qty: 1
+  });
 
   saveCart();
   renderCart();
@@ -825,16 +868,16 @@ function addToCart(cat, id) {
 }
 
 function changeQty(key, delta) {
-  const item = cart.find(c => c.key === key);
+  const item = cart.find(c => itemKey(c) === key);
   if (!item) return;
   item.qty += delta;
-  if (item.qty <= 0) cart = cart.filter(c => c.key !== key);
+  if (item.qty <= 0) cart = cart.filter(c => itemKey(c) !== key);
   saveCart();
   renderCart();
 }
 
 function removeItem(key) {
-  cart = cart.filter(c => c.key !== key);
+  cart = cart.filter(c => itemKey(c) !== key);
   saveCart();
   renderCart();
 }
@@ -858,39 +901,90 @@ function renderCart() {
       <div class="h-full flex flex-col items-center justify-center text-center py-16 text-plum-500">
         ${bottleIcon('w-14 h-14 text-lavender-200 mb-4')}
         <p class="font-medium">سلتك فارغة حالياً</p>
-        <p class="text-xs mt-1">أضيفي منتجاتك المفضلة لتظهر هنا</p>
+        <p class="text-xs mt-1">أضيفي منتجاتك المفضلة أو العروض لتظهر هنا</p>
       </div>`;
     return;
   }
 
-  container.innerHTML = cart.map(c => `
+  container.innerHTML = cart.map(c => {
+    const k = itemKey(c);
+    const imgSrc = c.image || (findProduct(c.id) ? findProduct(c.id).image : '');
+    const offerFlag = isOfferItem(c);
+    return `
     <div class="flex gap-3 items-start border-b border-bloom-50 pb-4">
       <div class="w-16 h-16 shrink-0 rounded-xl bg-[#f9f9f9] relative overflow-hidden">
         <div class="absolute inset-0 flex items-center justify-center">${bottleIcon('w-7 h-7 text-lavender-400')}</div>
-        <img src="${findProduct(c.id) ? findProduct(c.id).image : ''}" alt="${c.name_en}" class="absolute inset-1 w-[calc(100%-8px)] h-[calc(100%-8px)] object-contain" onerror="this.remove()">
+        <img src="${imgSrc}" alt="${c.name_en || c.name_ar}" class="absolute inset-1 w-[calc(100%-8px)] h-[calc(100%-8px)] object-contain" onerror="this.remove()">
       </div>
       <div class="flex-1 min-w-0">
         <p class="font-bold text-plum-900 text-sm">${c.name_ar}</p>
-        <p class="text-[11px] text-plum-500" dir="ltr" style="text-align:right">${c.name_en}</p>
+        ${offerFlag ? `<span class="tag-pill bg-pink-50 text-pink-500 mt-1">عرض</span>` : ''}
         ${c.size ? `<span class="tag-pill bg-lavender-100 text-lavender-500 mt-1">${c.size}</span>` : ''}
+        ${c.name_en && !offerFlag ? `<p class="text-[11px] text-plum-500" dir="ltr" style="text-align:right">${c.name_en}</p>` : ''}
+        ${c.details ? `<p class="text-[11px] text-plum-500 line-clamp-2 mt-0.5">${c.details}</p>` : ''}
         <div class="flex items-center justify-between mt-2">
           <div class="flex items-center gap-2 border border-bloom-100 rounded-full px-1">
-            <button class="qty-btn w-6 h-6 text-plum-700" data-key="${c.key}" data-delta="1">+</button>
+            <button class="qty-btn w-6 h-6 text-plum-700" data-key="${k}" data-delta="1">+</button>
             <span class="text-sm font-bold w-4 text-center">${c.qty}</span>
-            <button class="qty-btn w-6 h-6 text-plum-700" data-key="${c.key}" data-delta="-1">−</button>
+            <button class="qty-btn w-6 h-6 text-plum-700" data-key="${k}" data-delta="-1">−</button>
           </div>
           <span class="font-black text-plum-900 text-sm">${c.price * c.qty} ج.م</span>
         </div>
       </div>
-      <button class="remove-btn text-plum-500 hover:text-bloom-400 shrink-0" data-key="${c.key}" aria-label="إزالة">
+      <button class="remove-btn text-plum-500 hover:text-bloom-400 shrink-0" data-key="${k}" aria-label="إزالة">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6L6 18M6 6l12 12"/></svg>
       </button>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
 
   container.querySelectorAll('.qty-btn').forEach(btn => btn.addEventListener('click', () => changeQty(btn.dataset.key, parseInt(btn.dataset.delta))));
   container.querySelectorAll('.remove-btn').forEach(btn => btn.addEventListener('click', () => removeItem(btn.dataset.key)));
 }
+
+/* ===================== EMPLOYEE CODE VALIDATION ===================== */
+const empCodeInput = document.getElementById('r-emp-code');
+const empStatus = document.getElementById('emp-status');
+
+function resolveEmployee(rawCode) {
+  const code = (rawCode || '').trim().toUpperCase();
+  if (!code) return { valid: true, code: '', name: 'طلب مباشر' };
+  if (EMPLOYEE_CODES[code]) return { valid: true, code: code, name: EMPLOYEE_CODES[code] };
+  return { valid: false, code: code, name: '' };
+}
+
+function updateEmployeeStatusUI() {
+  const code = empCodeInput.value.trim().toUpperCase();
+  if (code) sessionStorage.setItem('alzahraa_emp_code', code);
+  else sessionStorage.removeItem('alzahraa_emp_code');
+
+  const res = resolveEmployee(code);
+  if (!res.code) {
+    empStatus.classList.add('hidden');
+    empStatus.textContent = '';
+    return;
+  }
+  empStatus.classList.remove('hidden');
+  if (res.valid) {
+    empStatus.className = 'text-[11px] font-bold text-emerald-600';
+    empStatus.textContent = `تم التحقق — الموظف المسؤول: ${res.name}`;
+  } else {
+    empStatus.className = 'text-[11px] font-bold text-rose-500';
+    empStatus.textContent = 'كود الموظف غير مسجل، يرجى التأكد من الكود';
+  }
+}
+
+empCodeInput.addEventListener('input', updateEmployeeStatusUI);
+
+(function prefillCode() {
+  const params = new URLSearchParams(window.location.search);
+  const urlCode = params.get('code') || params.get('emp');
+  const savedCode = sessionStorage.getItem('alzahraa_emp_code');
+  const initialCode = urlCode || savedCode;
+  if (initialCode) {
+    empCodeInput.value = initialCode.trim().toUpperCase();
+    updateEmployeeStatusUI();
+  }
+})();
 
 /* ===================== CART PANEL TOGGLE ===================== */
 const cartPanel = document.getElementById('cart-panel');
@@ -928,6 +1022,7 @@ const customerFieldsBox = document.getElementById('customer-fields-box');
 const confirmOrderText = document.getElementById('confirm-order-text');
 const confirmOrderHint = document.getElementById('confirm-order-hint');
 const editOrderIdInput = document.getElementById('edit-order-id');
+const editTargetSheetSelect = document.getElementById('edit-target-sheet');
 const manualItemsInput = document.getElementById('manual-items-input');
 const manualTotalInput = document.getElementById('manual-total-input');
 
@@ -983,6 +1078,7 @@ document.getElementById('confirm-order').addEventListener('click', () => {
     return;
   }
 
+  const hasOffer = cart.some(c => isOfferItem(c));
   const itemsSummary = cart.map(c => {
     return c.size ? `(${c.name_ar}: ${c.size} × ${c.qty})` : `(${c.name_ar} × ${c.qty})`;
   }).join(', ');
@@ -996,7 +1092,14 @@ document.getElementById('confirm-order').addEventListener('click', () => {
       return;
     }
 
-    fetch(SHEET_WEBHOOK_URL, {
+    const sheetChoice = editTargetSheetSelect.value;
+    const targetUrl = sheetChoice === 'offers'
+      ? OFFERS_SHEET_WEBHOOK_URL
+      : sheetChoice === 'retail'
+        ? SHEET_WEBHOOK_URL
+        : (hasOffer ? OFFERS_SHEET_WEBHOOK_URL : SHEET_WEBHOOK_URL);
+
+    fetch(targetUrl, {
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
@@ -1024,14 +1127,21 @@ document.getElementById('confirm-order').addEventListener('click', () => {
   const phone = document.getElementById('cust-phone').value.trim();
   const governorate = document.getElementById('cust-governorate').value;
   const address = document.getElementById('cust-address').value.trim();
+  const emp = resolveEmployee(empCodeInput.value);
 
   if (!name || !phone || !governorate || !address) { 
     showToast('من فضلك أكملي جميع بيانات التواصل والمحافظة'); 
     return; 
   }
 
+  if (!emp.valid) {
+    showToast('كود الموظف غير صحيح! صحّحه أو اتركه فارغاً');
+    empCodeInput.focus();
+    return;
+  }
+
   const lines = [];
-  lines.push('🌸 *طلب جديد (قطاعي) من متجر ALZAHRAA*');
+  lines.push(hasOffer ? '🎁 *حجز عرض جديد — متجر ALZAHRAA*' : '🌸 *طلب جديد (قطاعي) من متجر ALZAHRAA*');
   lines.push('—————————————');
   cart.forEach(c => {
     const sizeText = c.size ? ` (${c.size})` : '';
@@ -1046,20 +1156,27 @@ document.getElementById('confirm-order').addEventListener('click', () => {
   lines.push(`الهاتف: ${phone}`);
   lines.push(`المحافظة: ${governorate}`);
   lines.push(`العنوان التفصيلي: ${address}`);
+  if (emp.code) {
+    lines.push(`الموظف المسؤول: ${emp.name}`);
+  }
 
   const message = lines.join('\n');
 
-  fetch(SHEET_WEBHOOK_URL, {
+  // التوجيه الذكي: لو فيه أي عرض ينزل في شيت العروض، وإلا شيت القطاعي — مع إرسال اسم الموظف فقط
+  const targetWebhook = hasOffer ? OFFERS_SHEET_WEBHOOK_URL : SHEET_WEBHOOK_URL;
+  fetch(targetWebhook, {
     method: 'POST',
     mode: 'no-cors',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
+      orderType: hasOffer ? 'عرض' : 'قطاعي',
       phone: phone,
       name: name,
       address: address,
       governorate: governorate,
       items: itemsSummary,
-      total: cartTotal()
+      total: cartTotal(),
+      employeeName: emp.name
     })
   }).catch(err => console.error('Sheet webhook error:', err));
 
@@ -1083,6 +1200,12 @@ renderCart();
         document.querySelectorAll('a[href*="wa.me/201027966872"]').forEach(a => {
           a.href = `https://wa.me/${cfg.retail_whatsapp}`;
         });
+      }
+      if (cfg.employees && Object.keys(cfg.employees).length > 0) {
+        EMPLOYEE_CODES = cfg.employees;
+        if (typeof updateEmployeeStatusUI === 'function') {
+          updateEmployeeStatusUI();
+        }
       }
     });
   }
