@@ -4,13 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ALZAHRAA | العروض</title>
+<title>ALZAHRAA | العروض والباكدجات الحصرية</title>
+
+<!-- Favicon & App Icons -->
+<link rel="icon" type="image/jpeg" href="https://alzahraaco.com/logo.jpg">
+<link rel="shortcut icon" type="image/jpeg" href="https://alzahraaco.com/logo.jpg">
+<link rel="apple-touch-icon" href="https://alzahraaco.com/logo.jpg">
+<meta name="theme-color" content="#E88CBD">
 
 <!-- SEO Meta Tags -->
-<meta name="description" content="ALZAHRAA الزهراء - أقوى عروض وباكدجات العناية بالبشرة والشعر بخصومات حصرية لفترة محدودة.">
-<meta name="robots" content="index, follow">
+<meta name="description" content="ALZAHRAA الزهراء - أقوى عروض وباكدجات العناية بالبشرة الكورية والشعر والزيوت الطبيعية بخصومات وهدايا حصرية وشحن مجاني على عروض البشرة.">
+<meta name="keywords" content="ALZAHRAA, الزهراء, عروض البشرة الكورية, عروض العناية بالشعر, باكدجات سكين كير, عرض المسام, عرض النضارة, عرض الحبوب, عرض التفتيح, عروض دابر املا, عروض كيش كينج">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://alzahraaco.com/offers.html">
 <meta name="author" content="ALZAHRAA">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ALZAHRAA | الزهراء">
+<meta property="og:title" content="ALZAHRAA | أقوى العروض والباكدجات">
+<meta property="og:description" content="استفيدي من عروضنا الخاصة وباكدجات العناية المتكاملة للبشرة والشعر بأفضل سعر وهدايا مجانية.">
+<meta property="og:url" content="https://alzahraaco.com/offers.html">
+<meta property="og:image" content="https://alzahraaco.com/logo.jpg">
+<meta property="og:locale" content="ar_EG">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ALZAHRAA | أقوى العروض والباكدجات">
+<meta name="twitter:description" content="أقوى عروض وباكدجات العناية بالبشرة والشعر بخصومات حصرية.">
+<meta name="twitter:image" content="https://alzahraaco.com/logo.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -105,20 +127,17 @@
 <header id="site-header" class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-bloom-100">
   <div class="max-w-7xl mx-auto px-4 sm:px-8">
     <div class="flex items-center justify-between h-[72px] gap-3">
-      <!-- Logo -->
       <a href="index.html" class="flex items-center gap-2 shrink-0">
         <img src="logo.jpg" alt="ALZAHRAA" class="h-10 w-10 rounded-full object-cover" onerror="this.style.display='none'">
         <span class="font-logo italic text-[26px] sm:text-[32px] tracking-wide text-plum-900">ALZAHRAA</span>
         <span class="hidden sm:inline text-lavender-500 text-xl leading-none">٭</span>
       </a>
 
-      <!-- Desktop Nav Links -->
       <nav class="hidden xl:flex items-center gap-6 text-[14px] font-medium text-plum-700">
         <a href="index.html" class="hover:text-lavender-500 transition-colors">الرئيسية</a>
         <a href="#offers-shop" class="hover:text-lavender-500 transition-colors">كل العروض</a>
       </nav>
 
-      <!-- Main 3 Store Buttons (Desktop) -->
       <div class="hidden md:flex items-center gap-2.5">
         <a href="retail.html" class="brand-gradient-btn text-white text-sm font-bold px-5 py-2.5 rounded-full shadow-soft transition-transform hover:-translate-y-0.5">
           طلب قطاعي
@@ -131,7 +150,6 @@
         </a>
       </div>
 
-      <!-- Cart + Mobile Menu -->
       <div class="flex items-center gap-2">
         <button id="cart-btn" aria-label="عرض السلة" class="relative w-11 h-11 rounded-full bg-bloom-50 hover:bg-bloom-100 transition-colors flex items-center justify-center">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-plum-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -146,7 +164,6 @@
       </div>
     </div>
 
-    <!-- Main 3 Store Buttons (Always visible top bar on Mobile) -->
     <div class="flex md:hidden items-center justify-center gap-2 pb-3">
       <a href="retail.html" class="flex-1 text-center brand-gradient-btn text-white text-xs font-bold py-2.5 px-2 rounded-full shadow-sm">
         طلب قطاعي
@@ -159,7 +176,6 @@
       </a>
     </div>
 
-    <!-- Mobile Secondary Nav -->
     <nav id="mobile-nav" class="hidden xl:hidden pb-4 flex flex-col gap-1 text-plum-700 font-medium border-t border-bloom-50 pt-2">
       <a href="index.html" class="py-2 px-2 rounded-lg hover:bg-bloom-50">الرئيسية (من نحن)</a>
       <a href="#offers-shop" class="py-2 px-2 rounded-lg hover:bg-bloom-50">كل العروض</a>
@@ -247,7 +263,15 @@
         <span class="text-xs font-bold text-plum-900">وضع تعديل طلب سابق (للموظف)</span>
         <button id="exit-staff-mode" type="button" class="text-[11px] text-bloom-400 hover:underline font-bold">إلغاء والعودة</button>
       </div>
-      <input id="edit-order-id" type="text" placeholder="اكتب رقم الطلب (Order ID) المراد تعديله..." class="w-full px-4 py-2.5 rounded-xl border border-lavender-300 focus:border-plum-700 focus:outline-none text-sm bg-white font-bold text-plum-900">
+
+      <!-- Order ID + Fetch Button -->
+      <div class="flex gap-2">
+        <input id="edit-order-id" type="text" placeholder="رقم الطلب (مثال: ZOFF-4829 أو ZHR-1124-1234)" class="flex-1 px-3.5 py-2.5 rounded-xl border border-lavender-300 focus:border-plum-700 focus:outline-none text-xs bg-white font-bold text-plum-900">
+        <button id="fetch-order-btn" type="button" class="shrink-0 px-3.5 py-2 rounded-xl bg-plum-900 hover:bg-plum-700 text-white text-xs font-bold transition-colors">
+          جلب الطلب
+        </button>
+      </div>
+      <div id="fetch-order-status" class="text-[11px] font-bold hidden"></div>
 
       <select id="edit-target-sheet" class="governorate-select w-full px-3.5 py-2 rounded-xl border border-lavender-300 focus:border-plum-700 focus:outline-none text-xs bg-white font-bold text-plum-900">
         <option value="auto" selected>توجيه تلقائي (شيت العروض لو فيه عرض، وإلا القطاعي)</option>
@@ -335,10 +359,9 @@ const OFFERS_SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbx8qm8
 const RETAIL_SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzoVA9s6Jca8D3gqBvFIwUezcsi98kkusXTDVsRD7wgvSBhON1nnL0USM4wqc3GPvcS/exec';
 
 let EMPLOYEE_CODES = {
-  'ZHR1': 'أحمد محمد',
-  'ZHR2': 'سارة علي',
-  'ZHR3': 'محمود حسن',
-  'ZHR4': 'منة الله طارق',
+  'ZHR1': 'شهد',
+  'ZHR2': 'تسنيم',
+  'ZHR3': 'ندي',
 };
 
 /* ===================== OFFERS DATA ===================== */
@@ -426,6 +449,95 @@ const OFFERS_PRODUCTS = [
     oldPrice: 750,
     price: 750
   }
+];
+
+/* ===================== RETAIL CATALOG (لجلب منتجات القطاعي مع العروض بالـ Order ID) ===================== */
+const RETAIL_CATALOG = [
+  { id:'h1', cat:'hair', name_ar:'ماسك كارسيل بالكولاجين', image:'karseell-mask.jpg', variants:[{label:'50g',price:185},{label:'100g',price:370},{label:'العبوة الكاملة (500g)',price:1100}] },
+  { id:'h2', cat:'hair', name_ar:'زيت كارسيل ماكا', image:'karseell-oil.jpg', variants:[{label:'5ml',price:180},{label:'100ml',price:320},{label:'الزجاجة الكاملة',price:1060}] },
+  { id:'h3', cat:'hair', name_ar:'ماسك فينو الياباني', image:'fino-mask.jpg', variants:[{label:'50g',price:350},{label:'100g',price:590},{label:'العبوة الكاملة (230g)',price:1100}] },
+  { id:'h4', cat:'hair', name_ar:'سيروم فينو للشعر', image:'fino-serum.jpg', variants:[{label:'5ml',price:175},{label:'10ml',price:320},{label:'الزجاجة الكاملة',price:1100}] },
+  { id:'h5', cat:'hair', name_ar:'زيت الـ١٠٨ عشبة', image:'108-herbs.jpg', variants:[{label:'50ml',price:240},{label:'100ml',price:360},{label:'الزجاجة الكاملة',price:1380}] },
+  { id:'h6', cat:'hair', name_ar:'صابونة الأعشاب لتكثيف الشعر', image:'herbal-soap-bar.jpg', fixedPrice:700 },
+  { id:'h7', cat:'hair', name_ar:'زيت دابر أملا', image:'dabur_amla.jpg', variants:[{label:'240ml',price:295},{label:'300ml',price:380},{label:'500ml',price:495}] },
+  { id:'h8', cat:'hair', name_ar:'زيت جوز الهند باراشوت', image:'parachute.jpg', variants:[{label:'200ml',price:310},{label:'500ml',price:460},{label:'1 لتر',price:620}] },
+  { id:'h9', cat:'hair', name_ar:'زيت دابر أملا للأطفال', image:'dabur_amla_kids.jpg', fixedPrice:330 },
+  { id:'h10', cat:'hair', name_ar:'زيت دابر أملا جولد', image:'dabur_amla_gold.jpg', variants:[{label:'300ml',price:380},{label:'100ml',price:185}] },
+  { id:'h11', cat:'hair', name_ar:'زيت فاتيكا بالثوم', image:'vatika_garlic.jpg', fixedPrice:390 },
+  { id:'h12', cat:'hair', name_ar:'زيت فاتيكا بالبصل', image:'vatika_onion.jpg', fixedPrice:390 },
+  { id:'h13', cat:'hair', name_ar:'زيت فاتيكا باللوز', image:'vatika_almond.jpg', fixedPrice:390 },
+  { id:'h14', cat:'hair', name_ar:'زيت فاتيكا بجوز الهند', image:'vatika_coconut.jpg', fixedPrice:390 },
+  { id:'h15', cat:'hair', name_ar:'شامبو كيش كينج بالصبار', image:'kesh_king_340ml.jpg', variants:[{label:'200ml',price:295},{label:'340ml',price:380}] },
+  { id:'h16', cat:'hair', name_ar:'شامبو كيش كينج جولد (200ml)', image:'kesh_king_gold_200ml.jpg', fixedPrice:330 },
+  { id:'h17', cat:'hair', name_ar:'زيت دابر أملا بالياسمين (300ml)', image:'dabur-amla-jasmine-300ml.jpg', fixedPrice:380 },
+  { id:'h19', cat:'hair', name_ar:'شامبو أملا للأطفال (200ml)', image:'amla-kids-shampoo-200ml.jpg', fixedPrice:330 },
+  { id:'h20', cat:'hair', name_ar:'سبراي أملا للأطفال لفك تشابك الشعر (200ml)', image:'amla-kids-spray-200ml.jpg', fixedPrice:330 },
+  { id:'h21', cat:'hair', name_ar:'زيت باراشوت أدفانسد بالبيوتين (300ml)', image:'parachute-biotin-300ml.jpg', variants:[{label:'300ml',price:380},{label:'200ml',price:295}] },
+  { id:'h22', cat:'hair', name_ar:'زيت باراشوت أدفانسد بالبصل (300ml)', image:'parachute-onion-300ml.jpg', variants:[{label:'200ml',price:295},{label:'300ml',price:380}] },
+  { id:'h23', cat:'hair', name_ar:'زيت باراشوت أدفانسد بالصبار (150ml)', image:'parachute-aloe-vera-150ml.jpg', fixedPrice:260 },
+  { id:'h25', cat:'hair', name_ar:'شامبو كيش كينج بينك', image:'kesh-king-pink-shampoo-340ml.jpg', variants:[{label:'200ml',price:295},{label:'340ml',price:380}] },
+  { id:'h26', cat:'hair', name_ar:'زيت فاتيكا بالروزماري', image:'vatika_rosemary.jpg', fixedPrice:390 },
+  { id:'h27', cat:'hair', name_ar:'زيت سيسا', image:'sesa_oil_150ml.jpg', variants:[{label:'100ml',price:280},{label:'200ml',price:420}] },
+  { id:'h28', cat:'hair', name_ar:'شامبو كيش كينج بالبصل (340ml)', image:'Kesh_King_onion_Shampoo 340ml.jpg', fixedPrice:380 },
+  { id:'h29', cat:'hair', name_ar:'زيت باراشوت أدفانسد بالكرياتين  (300ml)', image:'parachute-creatine-300ml.jpg', variants:[{label:'300ml',price:380},{label:'200ml',price:295}] },
+  { id:'h30', cat:'hair', name_ar:'زياتة شعر', image:'zyata.jpg', fixedPrice:85 },
+  { id:'s1', cat:'skin', name_ar:'غسول سنتيلا الرغوي', image:'centella-foam.jpg', variants:[{label:'5ml',price:135},{label:'10ml',price:185},{label:'15ml',price:270},{label:'الزجاجة الكاملة',price:990}] },
+  { id:'s2', cat:'skin', name_ar:'غسول سنتيلا الزيتي', image:'centella-oil-cleanser.jpg', variants:[{label:'5ml',price:130},{label:'10ml',price:190},{label:'15ml',price:280},{label:'الزجاجة الكاملة',price:1280}] },
+  { id:'s3', cat:'skin', name_ar:'غسول أنوا الرغوي', image:'anua-foam.jpg', variants:[{label:'5ml',price:110},{label:'10ml',price:180},{label:'15ml',price:230},{label:'الزجاجة الكاملة',price:990}] },
+  { id:'s4', cat:'skin', name_ar:'غسول أنوا الزيتي', image:'anua-oil.jpg', variants:[{label:'5ml',price:130},{label:'10ml',price:190},{label:'15ml',price:250},{label:'الزجاجة الكاملة',price:1280}] },
+  { id:'s5', cat:'skin', name_ar:'غسول بانكسيل للحبوب', image:'panoxyl.jpg', variants:[{label:'5ml',price:140},{label:'10ml',price:170},{label:'15ml',price:230},{label:'30ml',price:360},{label:'الزجاجة الكاملة',price:1050}] },
+  { id:'s6', cat:'skin', name_ar:'تونر تيرتير الحليب', image:'tirtir-toner.jpg', variants:[{label:'5ml',price:160},{label:'10ml',price:285},{label:'الزجاجة الكاملة',price:1500}] },
+  { id:'s7', cat:'skin', name_ar:'تونر الأرز الكوري', image:'rice-toner.jpg', variants:[{label:'5ml',price:145},{label:'10ml',price:200},{label:'15ml',price:290},{label:'الزجاجة الكاملة',price:1250}] },
+  { id:'s8', cat:'skin', name_ar:'تونر نمبوزين رقم ٩', image:'numbuzin-9-toner.jpg', variants:[{label:'5ml',price:160},{label:'10ml',price:320},{label:'15ml',price:450},{label:'الزجاجة الكاملة',price:1300}] },
+  { id:'s9', cat:'skin', name_ar:'أنبول سيراميك تيرتير', image:'tirtir-ampoule.jpg', variants:[{label:'5ml',price:340},{label:'الحجم الكامل (30ml)',price:1500}] },
+  { id:'s10', cat:'skin', name_ar:'سيروم أكسيس واي للتصبغات', image:'axisy-serum.jpg', fixedPrice:980 },
+  { id:'s11', cat:'skin', name_ar:'سيروم نمبوزين رقم ٥ للبشرة', image:'numbuzin-5.jpg', variants:[{label:'5ml',price:310},{label:'10ml',price:585},{label:'الزجاجة الكاملة',price:1300}] },
+  { id:'s12', cat:'skin', name_ar:'سيروم كوسركس ٦ ببتيد', image:'cosrx-peptide.jpg', variants:[{label:'5ml',price:140},{label:'10ml',price:280},{label:'الزجاجة الكاملة',price:1300}] },
+  { id:'s13', cat:'skin', name_ar:'سيروم إيكوال بيري فيتامين سي', image:'eqqualberry-vitc.jpg', variants:[{label:'5ml',price:290},{label:'10ml',price:590},{label:'الحجم الكامل (30ml)',price:1300}] },
+  { id:'s14', cat:'skin', name_ar:'سيروم الناد + الببتيد الجلاس سكين', image:'eqqualberry-nad.jpg', variants:[{label:'5ml',price:290},{label:'10ml',price:590},{label:'الحجم الكامل (30ml)',price:1300}] },
+  { id:'s15', cat:'skin', name_ar:'سيروم السنتيلا الذهبي', image:'centella-ampoule.jpg', variants:[{label:'5ml',price:170},{label:'10ml',price:270},{label:'15ml',price:350},{label:'30ml',price:570},{label:'الزجاجة الكاملة',price:1250}] },
+  { id:'s16', cat:'skin', name_ar:'سيروم السنتيلا البينك للمسام', image:'centella-pink-serum.jpg', variants:[{label:'5ml',price:170},{label:'10ml',price:270},{label:'15ml',price:350},{label:'30ml',price:570},{label:'الزجاجة الكاملة',price:1250}] },
+  { id:'s17', cat:'skin', name_ar:'سيروم سنتيلا للتفتيح', image:'centella-brightening.jpg', variants:[{label:'5ml',price:170},{label:'10ml',price:270},{label:'15ml',price:350},{label:'30ml',price:570},{label:'الزجاجة الكاملة',price:1250}] },
+  { id:'s18', cat:'skin', name_ar:'سيروم سول ١٩٨٨', image:'seoul-1988.jpg', variants:[{label:'5ml',price:285},{label:'10ml',price:470},{label:'الزجاجة الكاملة',price:1150}] },
+  { id:'s19', cat:'skin', name_ar:'سيروم نمبوزين ٩ الشد والتفتيح', image:'numbuzin-9-serum.jpg', variants:[{label:'5ml',price:310},{label:'10ml',price:585},{label:'الزجاجة الكاملة',price:1300}] },
+  { id:'s20', cat:'skin', name_ar:'كريم عين ريتينول صوم باي مي', image:'somebymi-eye.jpg', variants:[{label:'5g',price:260},{label:'10g',price:385},{label:'الأنبوبة الكاملة',price:1050}] },
+  { id:'s21', cat:'skin', name_ar:'كريم ماري آند مي للهالات', image:'marymay-eye.jpg', variants:[{label:'5g',price:230},{label:'10g',price:330},{label:'حجم صغير (12g)',price:350},{label:'الأنبوبة الكاملة',price:900}] },
+  { id:'s22', cat:'skin', name_ar:'كريم الحلزون كوسركس', image:'cosrx-snail-cream.jpg', variants:[{label:'5g',price:150},{label:'10g',price:285},{label:'العبوة الكاملة',price:1100}] },
+  { id:'s23', cat:'skin', name_ar:'ماسك ميديكوب الأزرق', image:'medicube-blue-mask.jpg', variants:[{label:'5g',price:175},{label:'10g',price:310},{label:'العبوة الكاملة',price:1200}] },
+  { id:'s24', cat:'skin', name_ar:'كريم كولاجين جيل ميديكوب', image:'medicube-collagen.jpg', variants:[{label:'5g',price:160},{label:'10g',price:250},{label:'الحجم الكامل (50g)',price:1050}] },
+  { id:'s25', cat:'skin', name_ar:'كريم ٣٤٥ الكوري للترميم', image:'dr-althea-345.jpg', variants:[{label:'5g',price:225},{label:'10g',price:360},{label:'الأنبوبة الكاملة',price:1200}] },
+  { id:'s26', cat:'skin', name_ar:'مرطب بيوريتو', image:'purito-cream.jpg', variants:[{label:'5g',price:175},{label:'10g',price:300},{label:'الأنبوبة الكاملة',price:1200}] },
+  { id:'s27', cat:'skin', name_ar:'Numbuzin + 9', image:'eye-filler.jpg', fixedPrice:1200 },
+  { id:'s28', cat:'skin', name_ar:'سيروم سنتيلا سيكا', image:'centella_serum_cica.jpg', variants:[{label:'5ml',price:170},{label:'10ml',price:270},{label:'الحجم الكامل',price:1250}] },
+  { id:'s29', cat:'skin', name_ar:'واقي شمس سنتيلا', image:'centella_sunblock.jpg', variants:[{label:'5gm',price:195},{label:'10gm',price:320},{label:'الحجم الكامل',price:1050}] },
+  { id:'s30', cat:'skin', name_ar:'سيروم سنتيلا الأخضر', image:'centella_serum_green.jpg', variants:[{label:'5ml',price:170},{label:'10ml',price:270},{label:'الحجم الكامل',price:1250}] },
+  { id:'s31', cat:'skin', name_ar:'كريم سنتيلا الملطف', image:'centella_smoothing_cream.jpg', variants:[{label:'5gm',price:190},{label:'10gm',price:340},{label:'الحجم الكامل',price:1050}] },
+  { id:'s32', cat:'skin', name_ar:'كريم سنتيلا للتفتيح', image:'centella_whitening_cream.jpg', variants:[{label:'5gm',price:190},{label:'10gm',price:340},{label:'الحجم الكامل',price:1050}] },
+  { id:'s33', cat:'skin', name_ar:'كريم سنتيلا لتنقية المسام', image:'centella_poremizing_cream.jpg', variants:[{label:'5gm',price:190},{label:'10gm',price:340},{label:'الحجم الكامل',price:1050}] },
+  { id:'s34', cat:'skin', name_ar:'غسول كوزريكس', image:'salicylic_acid.jpg', variants:[{label:'5ml',price:140},{label:'10ml',price:180},{label:'15ml',price:230},{label:'30ml',price:350},{label:'الحجم الكامل',price:1050}] },
+  { id:'s35', cat:'skin', name_ar:'ماسك ميديكوب بالكولاجين', image:'medicube_collagen_mask.jpg', variants:[{label:'5gm',price:170},{label:'10gm',price:310},{label:'الحجم الكامل',price:1200}] },
+  { id:'s36', cat:'skin', name_ar:'سيروم ذا أورديناري', image:'the_ordinary.jpg', variants:[{label:'15ml',price:175},{label:'30ml',price:280},{label:'الحجم الكامل',price:1350}] },
+  { id:'s37', cat:'skin', name_ar:'كريم / مست ٣٤٥ ريليف', image:'cream_345.jpg', variants:[{label:'5gm',price:190},{label:'19gm',price:300},{label:'الحجم الكامل',price:1250}] },
+  { id:'s38', cat:'skin', name_ar:'سيروم فيتامين سي دكتور ألثيا', image:'dr_althea_vit_c.jpg', variants:[{label:'5ml',price:295},{label:'10ml',price:585},{label:'الحجم الكامل',price:1300}] },
+  { id:'s39', cat:'skin', name_ar:'سيروم إليزافيكا ٩٧٪', image:'elizavecca_97.jpg', variants:[{label:'5ml',price:185},{label:'10ml',price:310},{label:'الحجم الكامل',price:850}] },
+  { id:'s40', cat:'skin', name_ar:'مقشر ميديكوب', image:'medicube_peeling.jpg', variants:[{label:'5ml',price:165},{label:'10ml',price:280},{label:'الحجم الكامل',price:1360}] },
+  { id:'s41', cat:'skin', name_ar:'أنوا الأخضر', image:'green_anua.jpg', variants:[{label:'5ml',price:275},{label:'10ml',price:520},{label:'الحجم الكامل',price:1250}] },
+  { id:'s42', cat:'skin', name_ar:'أنوا الأحمر', image:'red_anua.jpg', variants:[{label:'5ml',price:275},{label:'10ml',price:520},{label:'الحجم الكامل',price:1250}] },
+  { id:'s43', cat:'skin', name_ar:'عطر بربري هير', image:'burberry_her.jpg', variants:[{label:'5ml',price:145},{label:'10ml',price:300},{label:'الحجم الكامل',price:1500}] },
+  { id:'s44', cat:'skin', name_ar:'عطر ميس جري', image:'miss_gris.jpg', variants:[{label:'5ml',price:270},{label:'10ml',price:480},{label:'الحجم الكامل',price:3200}] },
+  { id:'s45', cat:'skin', name_ar:'عطر جوديس بربري', image:'goddess_burberry.jpg', variants:[{label:'5ml',price:145},{label:'10ml',price:300},{label:'الحجم الكامل',price:1500}] },
+  { id:'s46', cat:'skin', name_ar:'عطر أساف أروجيت بينك', image:'assaf_arrogate_pink.jpg', variants:[{label:'5ml',price:145},{label:'10ml',price:270},{label:'الحجم الكامل',price:2800}] },
+  { id:'s47', cat:'skin', name_ar:'سِت سنتيلا الوردي', image:'centella_pink_set.jpg', fixedPrice:1400 },
+  { id:'s48', cat:'skin', name_ar:'سِت سنتيلا البني', image:'centella_brown_set.jpg', fixedPrice:1400 },
+  { id:'s49', cat:'skin', name_ar:'سِت سنتيلا للتنظيف المزدوج', image:'centella_double_cleansing.jpg', fixedPrice:1600 },
+  { id:'s50', cat:'skin', name_ar:'فيتامين سي أرينسيا', image:'arencia_vit_c.jpg', fixedPrice:1100 },
+  { id:'s51', cat:'skin', name_ar:'صابون كوجي سان', image:'kojie_san.jpg', fixedPrice:250 },
+  { id:'s52', cat:'skin', name_ar:'ريتينال شوت', image:'retinal_shot.jpg', fixedPrice:980 },
+  { id:'s53', cat:'skin', name_ar:'سيروم العين الفيجن بالكولاجين', image:'vegan_collagen_eye_serum.jpg', fixedPrice:950 },
+  { id:'s54', cat:'skin', name_ar:'لوشن كوسركس المرطب', image:'cosrx_moisturizing_lotion.jpg', variants:[{label:'5g',price:165},{label:'10g',price:320},{label:'15g',price:430},{label:'30g',price:580},{label:'الحجم الكامل',price:1150}] },
+  { id:'s55', cat:'skin', name_ar:'سِت سنتيلا البيضاء', image:'centella_white_set.jpg', fixedPrice:1300 },
+  { id:'c1', cat:'coffee', name_ar:'بن العميد تركي', image:'al_ameed_turkish.jpg', variants:[{label:'بن وسط محوج',price:485},{label:'بن ساده',price:485},{label:'بن ساده فاتح',price:485},{label:'ساده وسط',price:485},{label:'بن محوج',price:485},{label:'بن محوج فاتح',price:485}] },
+  { id:'c2', cat:'coffee', name_ar:'بن العميد فرنسي', image:'al_ameed_french.jpg', variants:[{label:'فرنسي حليب',price:530},{label:'فرنسي جوز هند',price:530},{label:'فرنسي بندق',price:530},{label:'فرنسي شكلاته',price:530}] }
 ];
 
 /* ===================== UNIFIED CART STATE ===================== */
@@ -587,7 +699,7 @@ const empStatus = document.getElementById('emp-status');
 
 function resolveEmployee(rawCode) {
   const code = (rawCode || '').trim().toUpperCase();
-  if (!code) return { valid: true, code: '', name: 'طلب مباشر' };
+  if (!code) return { valid: true, code: '', name: 'الموقع' };
   if (EMPLOYEE_CODES[code]) return { valid: true, code: code, name: EMPLOYEE_CODES[code] };
   return { valid: false, code: code, name: '' };
 }
@@ -647,10 +759,10 @@ function showToast(msg) {
   toast.textContent = msg;
   toast.classList.remove('translate-y-24', 'opacity-0');
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.add('translate-y-24', 'opacity-0'), 2200);
+  toastTimer = setTimeout(() => toast.classList.add('translate-y-24', 'opacity-0'), 2500);
 }
 
-/* ===================== STAFF EDIT MODE ===================== */
+/* ===================== STAFF EDIT MODE + FETCH ORDER BY ID ===================== */
 let isStaffEditMode = false;
 const staffModeBtn = document.getElementById('staff-mode-btn');
 const exitStaffModeBtn = document.getElementById('exit-staff-mode');
@@ -662,6 +774,8 @@ const editOrderIdInput = document.getElementById('edit-order-id');
 const editTargetSheetSelect = document.getElementById('edit-target-sheet');
 const manualItemsInput = document.getElementById('manual-items-input');
 const manualTotalInput = document.getElementById('manual-total-input');
+const fetchOrderBtn = document.getElementById('fetch-order-btn');
+const fetchOrderStatus = document.getElementById('fetch-order-status');
 
 manualTotalInput.addEventListener('input', () => {
   document.getElementById('cart-total').textContent = `${cartTotal()} ج.م`;
@@ -686,6 +800,7 @@ function setStaffEditMode(enabled) {
     editOrderIdInput.value = '';
     manualItemsInput.value = '';
     manualTotalInput.value = '';
+    fetchOrderStatus.classList.add('hidden');
     document.getElementById('cart-total').textContent = `${cartTotal()} ج.م`;
   }
 }
@@ -704,6 +819,156 @@ staffModeBtn.addEventListener('click', () => {
 exitStaffModeBtn.addEventListener('click', () => {
   setStaffEditMode(false);
   showToast('تم العودة لوضع الطلب العادي');
+});
+
+function parseSheetItemsToCart(itemsText, sheetTotal) {
+  const tokens = String(itemsText || '').split(/\)\s*,\s*\(/).map(s => s.replace(/^\(/, '').replace(/\)$/, '').trim()).filter(Boolean);
+  const loadedCart = [];
+  const unmatchedManual = [];
+
+  tokens.forEach(token => {
+    const qtyMatch = token.match(/^(.*)\s*[×xX]\s*(\d+)$/);
+    if (!qtyMatch) {
+      unmatchedManual.push(token);
+      return;
+    }
+
+    const leftPart = qtyMatch[1].trim();
+    const qty = parseInt(qtyMatch[2], 10) || 1;
+    let itemName = leftPart;
+    let itemSize = null;
+
+    const colonIdx = leftPart.indexOf(':');
+    if (colonIdx !== -1) {
+      itemName = leftPart.slice(0, colonIdx).trim();
+      itemSize = leftPart.slice(colonIdx + 1).trim();
+    }
+
+    // 1) البحث في العروض
+    const offerMatch = OFFERS_PRODUCTS.find(o => o.name_ar.trim() === itemName);
+    if (offerMatch) {
+      loadedCart.push({
+        key: offerMatch.id,
+        id: offerMatch.id,
+        cat: 'offer',
+        isOffer: true,
+        name_ar: offerMatch.name_ar,
+        name_en: offerMatch.name_en,
+        details: offerMatch.details,
+        image: offerMatch.image,
+        size: null,
+        price: offerMatch.price,
+        qty
+      });
+      return;
+    }
+
+    // 2) البحث في منتجات القطاعي
+    const prodMatch = RETAIL_CATALOG.find(p => p.name_ar.trim() === itemName);
+    if (prodMatch) {
+      let price = prodMatch.fixedPrice || 0;
+      let matchedSize = itemSize;
+      if (prodMatch.variants) {
+        const vMatch = prodMatch.variants.find(v => v.label.trim() === (itemSize || ''));
+        if (vMatch) {
+          price = vMatch.price;
+          matchedSize = vMatch.label;
+        } else {
+          price = prodMatch.variants[0].price;
+          matchedSize = prodMatch.variants[0].label;
+        }
+      }
+      const key = matchedSize ? `${prodMatch.id}-${matchedSize}` : prodMatch.id;
+      loadedCart.push({
+        key,
+        id: prodMatch.id,
+        cat: prodMatch.cat,
+        isOffer: false,
+        name_ar: prodMatch.name_ar,
+        image: prodMatch.image,
+        size: matchedSize,
+        price,
+        qty
+      });
+      return;
+    }
+
+    // 3) منتج يدوي غير موجود بالموقع
+    unmatchedManual.push(token);
+  });
+
+  cart = loadedCart;
+  saveCart();
+
+  manualItemsInput.value = unmatchedManual.join(', ');
+  const cartSum = loadedCart.reduce((s, c) => s + c.price * c.qty, 0);
+  const diff = (parseFloat(sheetTotal) || 0) - cartSum;
+  manualTotalInput.value = (unmatchedManual.length > 0 && diff > 0) ? diff : '';
+
+  renderCart();
+}
+
+async function querySheetForOrder(url, orderId) {
+  const res = await fetch(`${url}?action=get&orderId=${encodeURIComponent(orderId)}`);
+  if (!res.ok) throw new Error('Network error');
+  return await res.json();
+}
+
+fetchOrderBtn.addEventListener('click', async () => {
+  const orderId = editOrderIdInput.value.trim();
+  if (!orderId) {
+    showToast('اكتب رقم الطلب (Order ID) أولاً');
+    editOrderIdInput.focus();
+    return;
+  }
+
+  fetchOrderBtn.disabled = true;
+  fetchOrderBtn.textContent = 'جاري الجلب...';
+  fetchOrderStatus.className = 'text-[11px] font-bold text-plum-700';
+  fetchOrderStatus.textContent = 'جاري البحث عن الطلب في الشيت...';
+  fetchOrderStatus.classList.remove('hidden');
+
+  try {
+    const upperId = orderId.toUpperCase();
+    const choice = editTargetSheetSelect.value;
+    let data = null;
+    let foundIn = '';
+
+    if (choice === 'offers' || (choice === 'auto' && upperId.startsWith('ZOFF'))) {
+      data = await querySheetForOrder(OFFERS_SHEET_WEBHOOK_URL, orderId);
+      foundIn = 'offers';
+    } else if (choice === 'retail' || (choice === 'auto' && upperId.startsWith('ZHR'))) {
+      data = await querySheetForOrder(RETAIL_SHEET_WEBHOOK_URL, orderId);
+      foundIn = 'retail';
+    } else {
+      data = await querySheetForOrder(OFFERS_SHEET_WEBHOOK_URL, orderId);
+      if (data && data.result === 'found') {
+        foundIn = 'offers';
+      } else {
+        data = await querySheetForOrder(RETAIL_SHEET_WEBHOOK_URL, orderId);
+        foundIn = 'retail';
+      }
+    }
+
+    if (data && data.result === 'found') {
+      editOrderIdInput.value = data.orderId || orderId;
+      editTargetSheetSelect.value = foundIn;
+      parseSheetItemsToCart(data.items, data.total);
+      fetchOrderStatus.className = 'text-[11px] font-bold text-emerald-600';
+      fetchOrderStatus.textContent = `تم جلب طلب العميل: ${data.name || 'غير مسجل'} (${foundIn === 'offers' ? 'شيت العروض' : 'شيت القطاعي'})`;
+      showToast('تم تحميل منتجات الطلب في السلة بنجاح');
+    } else {
+      fetchOrderStatus.className = 'text-[11px] font-bold text-rose-500';
+      fetchOrderStatus.textContent = 'لم يتم العثور على هذا الرقم في الشيت، تأكد من الرقم أو الشيت المختار';
+    }
+  } catch (err) {
+    console.error('Fetch order error:', err);
+    fetchOrderStatus.className = 'text-[11px] font-bold text-rose-500';
+    fetchOrderStatus.textContent = 'حدث خطأ أثناء الاتصال بالشيت، تأكد من تحديث Apps Script';
+  } finally {
+    fetchOrderBtn.disabled = false;
+    fetchOrderBtn.textContent = 'جلب الطلب';
+  }
 });
 
 /* ===================== CHECKOUT (SMART ROUTING + WHATSAPP) ===================== */
@@ -800,7 +1065,6 @@ document.getElementById('confirm-offer-order').addEventListener('click', () => {
 
   const message = lines.join('\n');
 
-  // التوجيه الذكي: لو فيه أي عرض ينزل في شيت العروض، وإلا شيت القطاعي — مع إرسال اسم الموظف فقط
   const targetWebhook = hasOffer ? OFFERS_SHEET_WEBHOOK_URL : RETAIL_SHEET_WEBHOOK_URL;
   fetch(targetWebhook, {
     method: 'POST',

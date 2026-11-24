@@ -4,21 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ALZAHRAA | طلب القطاعي</title>
+<title>ALZAHRAA | طلب القطاعي — منتجات العناية الكورية والطبيعية</title>
+
+<!-- Favicon & App Icons -->
+<link rel="icon" type="image/jpeg" href="https://alzahraaco.com/logo.jpg">
+<link rel="shortcut icon" type="image/jpeg" href="https://alzahraaco.com/logo.jpg">
+<link rel="apple-touch-icon" href="https://alzahraaco.com/logo.jpg">
+<meta name="theme-color" content="#E88CBD">
 
 <!-- SEO Meta Tags -->
-<meta name="description" content="ALZAHRAA الزهراء - اكتشفي أفضل منتجات العناية الكورية بالبشرة والشعر والزيوت الطبيعية ومستحضرات التجميل. تسوقي الآن.">
-<meta name="robots" content="index, follow">
+<meta name="description" content="ALZAHRAA الزهراء - اكتشفي أكثر من 67 منتج أصلي كوري وياباني وهندي وطبيعي للعناية بالبشرة والشعر وتقسيمات بأحجام متعددة. تسوقي الآن.">
+<meta name="keywords" content="ALZAHRAA, الزهراء, منتجات كورية اصلية, تقسيمات سكين كير, سنتيلا, أنوا, كارسيل, فينو, دابر املا, فاتيكا, باراشوت, كيش كينج, بن العميد">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://alzahraaco.com/retail.html">
 <meta name="author" content="ALZAHRAA">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="ALZAHRAA | الزهراء">
 <meta property="og:title" content="ALZAHRAA | طلب القطاعي">
 <meta property="og:description" content="اكتشفي منتجات العناية الكورية والطبيعية بالبشرة والشعر من ALZAHRAA.">
 <meta property="og:url" content="https://alzahraaco.com/retail.html">
 <meta property="og:image" content="https://alzahraaco.com/logo.jpg">
 <meta property="og:locale" content="ar_EG">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ALZAHRAA | طلب القطاعي">
+<meta name="twitter:description" content="اكتشفي منتجات العناية الكورية والطبيعية بالبشرة والشعر من ALZAHRAA.">
+<meta name="twitter:image" content="https://alzahraaco.com/logo.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,7 +98,6 @@
   .card-hover { transition: transform .35s ease, box-shadow .35s ease; }
   .card-hover:hover { transform: translateY(-6px); }
 
-  /* Filter chips: inactive = soft rounded border, active = solid filled */
   .filter-chip {
     border: 1px solid #DFD0F7;
     background: #FFFFFF;
@@ -137,14 +150,12 @@
 <header id="site-header" class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-bloom-100">
   <div class="max-w-7xl mx-auto px-4 sm:px-8">
     <div class="flex items-center justify-between h-[72px] gap-3">
-      <!-- Logo -> Back to Main Brand Page -->
       <a href="index.html" class="flex items-center gap-2 shrink-0">
         <img src="logo.jpg" alt="ALZAHRAA" class="h-10 w-10 rounded-full object-cover" onerror="this.style.display='none'">
         <span class="font-logo italic text-[26px] sm:text-[32px] tracking-wide text-plum-900">ALZAHRAA</span>
         <span class="hidden sm:inline text-lavender-500 text-xl leading-none">٭</span>
       </a>
 
-      <!-- Desktop Nav Links -->
       <nav class="hidden xl:flex items-center gap-6 text-[14px] font-medium text-plum-700">
         <a href="index.html" class="hover:text-lavender-500 transition-colors">الرئيسية</a>
         <a href="#shop" class="hover:text-lavender-500 transition-colors">المنتجات</a>
@@ -152,7 +163,6 @@
         <a href="#contact" class="hover:text-lavender-500 transition-colors">تواصل معنا</a>
       </nav>
 
-      <!-- Main 3 Store Buttons (Desktop) -->
       <div class="hidden md:flex items-center gap-2.5">
         <a href="retail.html" class="brand-gradient-btn text-white text-sm font-bold px-5 py-2.5 rounded-full shadow-soft ring-2 ring-lavender-300 ring-offset-2">
           طلب قطاعي
@@ -165,7 +175,6 @@
         </a>
       </div>
 
-      <!-- Cart + Mobile Menu -->
       <div class="flex items-center gap-2">
         <button id="cart-btn" aria-label="عرض السلة" class="relative w-11 h-11 rounded-full bg-bloom-50 hover:bg-bloom-100 transition-colors flex items-center justify-center">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-plum-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -180,7 +189,6 @@
       </div>
     </div>
 
-    <!-- Main 3 Store Buttons (Always visible top bar on Mobile) -->
     <div class="flex md:hidden items-center justify-center gap-2 pb-3">
       <a href="retail.html" class="flex-1 text-center brand-gradient-btn text-white text-xs font-bold py-2.5 px-2 rounded-full shadow-sm ring-2 ring-lavender-300">
         طلب قطاعي
@@ -193,7 +201,6 @@
       </a>
     </div>
 
-    <!-- Mobile Secondary Nav -->
     <nav id="mobile-nav" class="hidden xl:hidden pb-4 flex flex-col gap-1 text-plum-700 font-medium border-t border-bloom-50 pt-2">
       <a href="index.html" class="py-2 px-2 rounded-lg hover:bg-bloom-50">الرئيسية (من نحن)</a>
       <a href="#shop" class="py-2 px-2 rounded-lg hover:bg-bloom-50">كل المنتجات</a>
@@ -242,7 +249,7 @@
   </div>
 </section>
 
-<!-- ============ SHOP (unified brand / category filter) ============ -->
+<!-- ============ SHOP ============ -->
 <section id="shop" class="max-w-7xl mx-auto px-5 sm:px-8 py-20">
   <div class="text-center mb-8">
     <span class="tag-pill bg-bloom-50 text-bloom-400 mb-3">تسوقي حسب الماركة</span>
@@ -265,7 +272,6 @@
     <button data-filter="other" class="filter-chip text-sm font-bold px-4 py-2 rounded-full" title="أخرى">Other</button>
   </div>
 
-  <!-- HAIR CARE SUB-FILTERS -->
   <div id="hair-subfilters" class="flex-wrap justify-center items-center gap-2 mb-10 -mt-4 mx-auto max-w-2xl bg-bloom-50 border border-bloom-100 rounded-3xl px-4 py-3">
     <span class="text-xs font-bold text-plum-500 ml-1">الماركة:</span>
     <button data-sub="all" class="filter-chip active text-xs font-bold px-3.5 py-1.5 rounded-full">All</button>
@@ -369,13 +375,21 @@
       <span id="cart-total">٠ ج.م</span>
     </div>
 
-    <!-- [STAFF EDIT BOX] مخفي افتراضياً ويظهر للموظف بعد إدخال الكود السري -->
+    <!-- [STAFF EDIT BOX] -->
     <div id="staff-edit-box" class="hidden space-y-2.5 bg-lavender-100/60 p-3.5 rounded-2xl border border-lavender-300">
       <div class="flex items-center justify-between">
         <span class="text-xs font-bold text-plum-900">وضع تعديل طلب سابق (للموظف)</span>
         <button id="exit-staff-mode" type="button" class="text-[11px] text-bloom-400 hover:underline font-bold">إلغاء والعودة</button>
       </div>
-      <input id="edit-order-id" type="text" placeholder="اكتب رقم الطلب (Order ID) المراد تعديله..." class="w-full px-4 py-2.5 rounded-xl border border-lavender-300 focus:border-plum-700 focus:outline-none text-sm bg-white font-bold text-plum-900">
+
+      <!-- Order ID + Fetch Button -->
+      <div class="flex gap-2">
+        <input id="edit-order-id" type="text" placeholder="رقم الطلب (مثال: ZHR-1124-4829 أو ZOFF-1234)" class="flex-1 px-3.5 py-2.5 rounded-xl border border-lavender-300 focus:border-plum-700 focus:outline-none text-xs bg-white font-bold text-plum-900">
+        <button id="fetch-order-btn" type="button" class="shrink-0 px-3.5 py-2 rounded-xl bg-plum-900 hover:bg-plum-700 text-white text-xs font-bold transition-colors">
+          جلب الطلب
+        </button>
+      </div>
+      <div id="fetch-order-status" class="text-[11px] font-bold hidden"></div>
 
       <select id="edit-target-sheet" class="governorate-select w-full px-3.5 py-2 rounded-xl border border-lavender-300 focus:border-plum-700 focus:outline-none text-xs bg-white font-bold text-plum-900">
         <option value="auto" selected>توجيه تلقائي (شيت العروض لو فيه عرض، وإلا القطاعي)</option>
@@ -419,7 +433,7 @@
         <option value="بني سويف">بني سويف</option>
         <option value="بورسعيد">بورسعيد</option>
         <option value="دمياط">دمياط</option>
-        <option value="خزام / قنا">قنا</option>
+        <option value="قنا">قنا</option>
         <option value="جنوب سيناء">جنوب سيناء</option>
         <option value="كفر الشيخ">كفر الشيخ</option>
         <option value="مطروح">مطروح</option>
@@ -480,13 +494,13 @@ const HAIR_PRODUCTS = [
   { id:'h10', name_ar:'زيت دابر أملا جولد', name_en:'Dabur Amla Gold', image:'dabur_amla_gold.jpg', tags:['hair-care','dabur-amla'],
    variants:[{label:'300ml',price:380},{label:'100ml',price:185}] },
   { id:'h11', name_ar:'زيت فاتيكا بالثوم', name_en:'Vatika Garlic Oil', image:'vatika_garlic.jpg', tags:['hair-care','vatika'],
-    fixedPrice:350 },
+    fixedPrice:390 },
   { id:'h12', name_ar:'زيت فاتيكا بالبصل', name_en:'Vatika Onion Oil', image:'vatika_onion.jpg', tags:['hair-care','vatika'],
-    fixedPrice:350 },
+    fixedPrice:390 },
   { id:'h13', name_ar:'زيت فاتيكا باللوز', name_en:'Vatika Almond Oil', image:'vatika_almond.jpg', tags:['hair-care','vatika'],
-    fixedPrice:350 },
+    fixedPrice:390 },
   { id:'h14', name_ar:'زيت فاتيكا بجوز الهند', name_en:'Vatika Coconut Oil', image:'vatika_coconut.jpg', tags:['hair-care','vatika'],
-    fixedPrice:350 },
+    fixedPrice:390 },
   { id:'h15', name_ar:'شامبو كيش كينج بالصبار', name_en:'Kesh King Shampoo 340ml', image:'kesh_king_340ml.jpg', tags:['hair-care','kesh-king'],
  variants:[{label:'200ml',price:295},{label:'340ml',price:380}] },
   { id:'h16', name_ar:'شامبو كيش كينج جولد (200ml)', name_en:'Kesh King Gold Shampoo 200ml', image:'kesh_king_gold_200ml.jpg', tags:['hair-care','kesh-king'],
@@ -506,7 +520,7 @@ const HAIR_PRODUCTS = [
   { id:'h25', name_ar:'شامبو كيش كينج بينك ', name_en:'Kesh King Pink Shampoo 340ml', image:'kesh-king-pink-shampoo-340ml.jpg', tags:['hair-care','kesh-king'],
  variants:[{label:'200ml',price:295},{label:'340ml',price:380}] },
   { id:'h26', name_ar:'زيت فاتيكا بالروزماري', name_en:'Vatika Rosemary', image:'vatika_rosemary.jpg', tags:['hair-care','vatika'],
-    fixedPrice:350 },
+    fixedPrice:390 },
   { id:'h27', name_ar:'زيت سيسا ', name_en:'Sesa Oil 150ml', image:'sesa_oil_150ml.jpg', tags:['hair-care'],
     variants:[{label:'100ml',price:280},{label:'200ml',price:420}] },
   { id:'h28', name_ar:'شامبو كيش كينج بالبصل (340ml)', name_en:'Kesh King onion Shampoo 340ml', image:'Kesh_King_onion_Shampoo 340ml.jpg', tags:['hair-care','kesh-king'],
@@ -649,6 +663,18 @@ const COFFEE_PRODUCTS = [
     ] },
 ];
 
+// كتالوج العروض (للتعرف عليها عند جلب طلب سابق بالـ Order ID)
+const OFFERS_CATALOG = [
+  { id:'off1', name_ar:'عرض التغذية والتساقط', image:'offer1.jpg', price:840 },
+  { id:'off2', name_ar:'عرض هيشان وتقصف وترطيب', image:'offer2.jpg', price:950 },
+  { id:'off3', name_ar:'عرض إنبات وتغذية', image:'offer3.jpg', price:550 },
+  { id:'off8', name_ar:'عرض زيت دابر أملا (500ml) + شامبو هدية', image:'offer8.jpg', price:450 },
+  { id:'off4', name_ar:'عرض المسام الواسعة', image:'offer4.jpg', price:605 },
+  { id:'off5', name_ar:'عرض النضارة (Glass Skin)', image:'offer5.jpg', price:720 },
+  { id:'off6', name_ar:'عرض الحبوب', image:'offer6.jpg', price:790 },
+  { id:'off7', name_ar:'عرض التفتيح', image:'offer7.jpg', price:750 }
+];
+
 const ALL_PRODUCTS = [
   ...HAIR_PRODUCTS.map(p => ({...p, cat:'hair'})),
   ...SKIN_PRODUCTS.map(p => ({...p, cat:'skin'})),
@@ -669,10 +695,9 @@ const SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzoVA9s6Jca8D
 const OFFERS_SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbx8qm8KKqWXu7h9nlIAbBQztyl56X12OrxpKrP5AG1hCVuudhdk7CkgPIdwccZdaoWhFg/exec';
 
 let EMPLOYEE_CODES = {
-  'ZHR1': 'أحمد محمد',
-  'ZHR2': 'سارة علي',
-  'ZHR3': 'محمود حسن',
-  'ZHR4': 'منة الله طارق',
+  'ZHR1': 'شهد',
+  'ZHR2': 'تسنيم',
+  'ZHR3': 'ندي',
 };
 
 /* ===================== STATE ===================== */
@@ -947,7 +972,7 @@ const empStatus = document.getElementById('emp-status');
 
 function resolveEmployee(rawCode) {
   const code = (rawCode || '').trim().toUpperCase();
-  if (!code) return { valid: true, code: '', name: 'طلب مباشر' };
+  if (!code) return { valid: true, code: '', name: 'الموقع' };
   if (EMPLOYEE_CODES[code]) return { valid: true, code: code, name: EMPLOYEE_CODES[code] };
   return { valid: false, code: code, name: '' };
 }
@@ -1008,10 +1033,10 @@ function showToast(msg) {
   toast.textContent = msg;
   toast.classList.remove('translate-y-24', 'opacity-0');
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.add('translate-y-24', 'opacity-0'), 2200);
+  toastTimer = setTimeout(() => toast.classList.add('translate-y-24', 'opacity-0'), 2500);
 }
 
-/* ===================== STAFF EDIT MODE & WHATSAPP CHECKOUT ===================== */
+/* ===================== STAFF EDIT MODE + FETCH ORDER BY ID ===================== */
 let STAFF_PIN = 'zhr@sha2027';
 let isStaffEditMode = false;
 
@@ -1025,6 +1050,8 @@ const editOrderIdInput = document.getElementById('edit-order-id');
 const editTargetSheetSelect = document.getElementById('edit-target-sheet');
 const manualItemsInput = document.getElementById('manual-items-input');
 const manualTotalInput = document.getElementById('manual-total-input');
+const fetchOrderBtn = document.getElementById('fetch-order-btn');
+const fetchOrderStatus = document.getElementById('fetch-order-status');
 
 manualTotalInput.addEventListener('input', () => {
   document.getElementById('cart-total').textContent = `${cartTotal()} ج.م`;
@@ -1049,6 +1076,7 @@ function setStaffEditMode(enabled) {
     editOrderIdInput.value = '';
     manualItemsInput.value = '';
     manualTotalInput.value = '';
+    fetchOrderStatus.classList.add('hidden');
     document.getElementById('cart-total').textContent = `${cartTotal()} ج.م`;
   }
 }
@@ -1067,6 +1095,156 @@ staffModeBtn.addEventListener('click', () => {
 exitStaffModeBtn.addEventListener('click', () => {
   setStaffEditMode(false);
   showToast('تم العودة لوضع الطلب العادي');
+});
+
+// تحليل نص الأصناف القادم من الشيت وإعادة تحميلها في السلة
+function parseSheetItemsToCart(itemsText, sheetTotal) {
+  const tokens = String(itemsText || '').split(/\)\s*,\s*\(/).map(s => s.replace(/^\(/, '').replace(/\)$/, '').trim()).filter(Boolean);
+  const loadedCart = [];
+  const unmatchedManual = [];
+
+  tokens.forEach(token => {
+    const qtyMatch = token.match(/^(.*)\s*[×xX]\s*(\d+)$/);
+    if (!qtyMatch) {
+      unmatchedManual.push(token);
+      return;
+    }
+
+    const leftPart = qtyMatch[1].trim();
+    const qty = parseInt(qtyMatch[2], 10) || 1;
+    let itemName = leftPart;
+    let itemSize = null;
+
+    const colonIdx = leftPart.indexOf(':');
+    if (colonIdx !== -1) {
+      itemName = leftPart.slice(0, colonIdx).trim();
+      itemSize = leftPart.slice(colonIdx + 1).trim();
+    }
+
+    // 1) البحث في العروض
+    const offerMatch = OFFERS_CATALOG.find(o => o.name_ar.trim() === itemName);
+    if (offerMatch) {
+      loadedCart.push({
+        key: offerMatch.id,
+        id: offerMatch.id,
+        cat: 'offer',
+        isOffer: true,
+        name_ar: offerMatch.name_ar,
+        image: offerMatch.image,
+        size: null,
+        price: offerMatch.price,
+        qty
+      });
+      return;
+    }
+
+    // 2) البحث في منتجات القطاعي
+    const prodMatch = ALL_PRODUCTS.find(p => p.name_ar.trim() === itemName);
+    if (prodMatch) {
+      let price = prodMatch.fixedPrice || 0;
+      let matchedSize = itemSize;
+      if (prodMatch.variants) {
+        const vMatch = prodMatch.variants.find(v => v.label.trim() === (itemSize || ''));
+        if (vMatch) {
+          price = vMatch.price;
+          matchedSize = vMatch.label;
+        } else {
+          price = prodMatch.variants[0].price;
+          matchedSize = prodMatch.variants[0].label;
+        }
+      }
+      const key = matchedSize ? `${prodMatch.id}-${matchedSize}` : prodMatch.id;
+      loadedCart.push({
+        key,
+        id: prodMatch.id,
+        cat: prodMatch.cat,
+        isOffer: false,
+        name_ar: prodMatch.name_ar,
+        name_en: prodMatch.name_en,
+        image: prodMatch.image,
+        size: matchedSize,
+        price,
+        qty
+      });
+      return;
+    }
+
+    // 3) منتج يدوي غير موجود بالموقع
+    unmatchedManual.push(token);
+  });
+
+  cart = loadedCart;
+  saveCart();
+
+  manualItemsInput.value = unmatchedManual.join(', ');
+  const cartSum = loadedCart.reduce((s, c) => s + c.price * c.qty, 0);
+  const diff = (parseFloat(sheetTotal) || 0) - cartSum;
+  manualTotalInput.value = (unmatchedManual.length > 0 && diff > 0) ? diff : '';
+
+  renderCart();
+}
+
+async function querySheetForOrder(url, orderId) {
+  const res = await fetch(`${url}?action=get&orderId=${encodeURIComponent(orderId)}`);
+  if (!res.ok) throw new Error('Network error');
+  return await res.json();
+}
+
+fetchOrderBtn.addEventListener('click', async () => {
+  const orderId = editOrderIdInput.value.trim();
+  if (!orderId) {
+    showToast('اكتب رقم الطلب (Order ID) أولاً');
+    editOrderIdInput.focus();
+    return;
+  }
+
+  fetchOrderBtn.disabled = true;
+  fetchOrderBtn.textContent = 'جاري الجلب...';
+  fetchOrderStatus.className = 'text-[11px] font-bold text-plum-700';
+  fetchOrderStatus.textContent = 'جاري البحث عن الطلب في الشيت...';
+  fetchOrderStatus.classList.remove('hidden');
+
+  try {
+    const upperId = orderId.toUpperCase();
+    const choice = editTargetSheetSelect.value;
+    let data = null;
+    let foundIn = '';
+
+    if (choice === 'offers' || (choice === 'auto' && upperId.startsWith('ZOFF'))) {
+      data = await querySheetForOrder(OFFERS_SHEET_WEBHOOK_URL, orderId);
+      foundIn = 'offers';
+    } else if (choice === 'retail' || (choice === 'auto' && upperId.startsWith('ZHR'))) {
+      data = await querySheetForOrder(SHEET_WEBHOOK_URL, orderId);
+      foundIn = 'retail';
+    } else {
+      data = await querySheetForOrder(SHEET_WEBHOOK_URL, orderId);
+      if (data && data.result === 'found') {
+        foundIn = 'retail';
+      } else {
+        data = await querySheetForOrder(OFFERS_SHEET_WEBHOOK_URL, orderId);
+        foundIn = 'offers';
+      }
+    }
+
+    if (data && data.result === 'found') {
+      editOrderIdInput.value = data.orderId || orderId;
+      editTargetSheetSelect.value = foundIn;
+      parseSheetItemsToCart(data.items, data.total);
+      fetchOrderStatus.className = 'text-[11px] font-bold text-emerald-600';
+      fetchOrderStatus.textContent = `تم جلب طلب العميل: ${data.name || 'غير مسجل'} (${foundIn === 'offers' ? 'شيت العروض' : 'شيت القطاعي'})`;
+      showToast('تم تحميل منتجات الطلب في السلة بنجاح');
+    } else {
+      fetchOrderStatus.className = 'text-[11px] font-bold text-rose-500';
+      fetchOrderStatus.textContent = 'لم يتم العثور على هذا الرقم في الشيت، تأكد من الرقم أو الشيت المختار';
+    }
+  } catch (err) {
+    console.error('Fetch order error:', err);
+    fetchOrderStatus.className = 'text-[11px] font-bold text-rose-500';
+    fetchOrderStatus.textContent = 'حدث خطأ أثناء الاتصال بالشيت، تأكد من تحديث Apps Script';
+  } finally {
+    fetchOrderBtn.disabled = false;
+    fetchOrderBtn.textContent = 'جلب الطلب';
+  }
 });
 
 document.getElementById('confirm-order').addEventListener('click', () => {
@@ -1162,7 +1340,6 @@ document.getElementById('confirm-order').addEventListener('click', () => {
 
   const message = lines.join('\n');
 
-  // التوجيه الذكي: لو فيه أي عرض ينزل في شيت العروض، وإلا شيت القطاعي — مع إرسال اسم الموظف فقط
   const targetWebhook = hasOffer ? OFFERS_SHEET_WEBHOOK_URL : SHEET_WEBHOOK_URL;
   fetch(targetWebhook, {
     method: 'POST',
