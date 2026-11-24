@@ -6,6 +6,12 @@
 
 <title>ALZAHRAA | طلب الجملة</title>
 
+<!-- Favicon & App Icons -->
+<link rel="icon" type="image/jpeg" href="https://alzahraaco.com/logo.jpg">
+<link rel="shortcut icon" type="image/jpeg" href="https://alzahraaco.com/logo.jpg">
+<link rel="apple-touch-icon" href="https://alzahraaco.com/logo.jpg">
+<meta name="theme-color" content="#2E1F3D">
+
 <!-- SEO Meta Tags -->
 <meta name="description" content="ALZAHRAA الزهراء - قسم طلبات الجملة لتجار وموزعي منتجات العناية بالشعر والزيوت الطبيعية والهندية واليابانية.">
 <meta name="robots" content="noindex, nofollow">
@@ -127,20 +133,17 @@
 <header id="site-header" class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-bloom-100">
   <div class="max-w-7xl mx-auto px-4 sm:px-8">
     <div class="flex items-center justify-between h-[72px] gap-3">
-      <!-- Logo -->
       <a href="index.html" class="flex items-center gap-2 shrink-0">
         <img src="logo.jpg" alt="ALZAHRAA" class="h-10 w-10 rounded-full object-cover" onerror="this.style.display='none'">
         <span class="font-logo italic text-[26px] sm:text-[32px] tracking-wide text-plum-900">ALZAHRAA</span>
         <span class="hidden sm:inline text-lavender-500 text-xl leading-none">٭</span>
       </a>
 
-      <!-- Desktop Nav Links -->
       <nav class="hidden xl:flex items-center gap-6 text-[14px] font-medium text-plum-700">
         <a href="index.html" class="hover:text-lavender-500 transition-colors">الرئيسية</a>
         <a href="#wholesale-shop" class="hover:text-lavender-500 transition-colors">منتجات الشعر (جملة)</a>
       </nav>
 
-      <!-- Main 3 Store Buttons (Desktop) -->
       <div class="hidden md:flex items-center gap-2.5">
         <a href="retail.html" class="brand-gradient-btn text-white text-sm font-bold px-5 py-2.5 rounded-full shadow-soft transition-transform hover:-translate-y-0.5">
           طلب قطاعي
@@ -153,7 +156,6 @@
         </a>
       </div>
 
-      <!-- Cart + Mobile Menu -->
       <div class="flex items-center gap-2">
         <button id="cart-btn" aria-label="عرض سلة الجملة" class="relative w-11 h-11 rounded-full bg-lavender-100 hover:bg-lavender-200 transition-colors flex items-center justify-center">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-plum-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -168,7 +170,6 @@
       </div>
     </div>
 
-    <!-- Main 3 Store Buttons (Always visible top bar on Mobile) -->
     <div class="flex md:hidden items-center justify-center gap-2 pb-3">
       <a href="retail.html" class="flex-1 text-center brand-gradient-btn text-white text-xs font-bold py-2.5 px-2 rounded-full shadow-sm">
         طلب قطاعي
@@ -181,7 +182,6 @@
       </a>
     </div>
 
-    <!-- Mobile Secondary Nav -->
     <nav id="mobile-nav" class="hidden xl:hidden pb-4 flex flex-col gap-1 text-plum-700 font-medium border-t border-bloom-50 pt-2">
       <a href="index.html" class="py-2 px-2 rounded-lg hover:bg-bloom-50">الرئيسية (من نحن)</a>
       <a href="#wholesale-shop" class="py-2 px-2 rounded-lg hover:bg-bloom-50">منتجات الشعر (جملة)</a>
@@ -209,7 +209,6 @@
         للاطلاع على أسعار الجملة لمنتجات العناية بالشعر وتأكيد الحجز، يرجى إدخال كلمة المرور الخاصة بقسم الجملة.
       </p>
 
-      <!-- Password Form -->
       <form id="gate-form" class="mt-6 space-y-3">
         <input id="gate-password" type="password" autocomplete="off" placeholder="أدخل كلمة مرور الجملة..."
                class="w-full px-4 py-3 rounded-xl border border-lavender-200 focus:border-plum-900 focus:outline-none text-center font-bold text-plum-900">
@@ -225,7 +224,6 @@
         <div class="flex-1 h-px bg-bloom-100"></div>
       </div>
 
-      <!-- WhatsApp Activation Button (01132867267) -->
       <a href="#" data-wholesale-activate target="_blank" rel="noopener"
          class="whatsapp-activate-btn w-full font-bold py-3.5 px-5 rounded-full inline-flex items-center justify-center gap-2.5 shadow-md text-sm sm:text-base">
         <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
@@ -237,7 +235,6 @@
 
   <!-- ============ UNLOCKED WHOLESALE CONTENT ============ -->
   <div id="wholesale-content" class="hidden">
-    <!-- Hero Banner -->
     <section class="relative overflow-hidden brand-gradient-bg border-b border-bloom-100">
       <div class="max-w-7xl mx-auto px-5 sm:px-8 py-12 sm:py-16 flex flex-col md:flex-row items-center justify-between gap-6">
         <div class="text-center md:text-right">
@@ -261,9 +258,7 @@
       </div>
     </section>
 
-    <!-- Wholesale Products Grid -->
     <section id="wholesale-shop" class="max-w-7xl mx-auto px-5 sm:px-8 py-14">
-      <!-- Search + Filters -->
       <div class="max-w-md mx-auto mb-7">
         <input id="wholesale-search" type="search" placeholder="ابحثي باسم منتج الشعر بالعربي أو الإنجليزي..."
                class="w-full px-5 py-3 rounded-full border border-lavender-200 focus:border-plum-900 focus:outline-none text-sm bg-white shadow-sm">
@@ -271,8 +266,6 @@
 
       <div class="flex flex-wrap justify-center gap-2.5 mb-10" id="wholesale-filters">
         <button data-filter="all" class="filter-chip active text-sm font-bold px-4 py-2 rounded-full">الكل</button>
-        <button data-filter="karsell" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">Karsell</button>
-        <button data-filter="fino" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">Fino</button>
         <button data-filter="vatika" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">Vatika</button>
         <button data-filter="dabur-amla" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">Dabur Amla</button>
         <button data-filter="parachute" class="filter-chip text-sm font-bold px-4 py-2 rounded-full">Parachute</button>
@@ -308,7 +301,7 @@
 <!-- ============ WHOLESALE CART OVERLAY + PANEL ============ -->
 <div id="cart-overlay" class="fixed inset-0 bg-plum-900/40 backdrop-blur-sm z-50 opacity-0 pointer-events-none"></div>
 
-<aside id="cart-panel" class="fixed top-0 left-0 h-full w-full sm:w-[420px] bg-white z-50 shadow-2xl -translate-x-full flex flex-col">
+<aside id="cart-panel" class="fixed top-0 left-0 h-full w-full sm:w-[430px] bg-white z-50 shadow-2xl -translate-x-full flex flex-col">
   <div class="flex items-center justify-between px-6 py-5 border-b border-bloom-100">
     <h3 class="text-xl font-black text-plum-900">سلة طلب الجملة</h3>
     <button id="cart-close" class="w-9 h-9 rounded-full hover:bg-bloom-50 flex items-center justify-center text-plum-700">
@@ -318,13 +311,37 @@
 
   <div id="cart-items" class="flex-1 overflow-y-auto scrollbar-thin px-6 py-4 space-y-4"></div>
 
-  <div id="cart-footer" class="border-t border-bloom-100 px-6 py-5 space-y-4">
+  <div id="cart-footer" class="border-t border-bloom-100 px-6 py-4 space-y-3 overflow-y-auto max-h-[60vh] scrollbar-thin">
     <div class="flex items-center justify-between font-bold text-plum-900 text-lg">
       <span>إجمالي طلب الجملة</span>
       <span id="cart-total">٠ ج.م</span>
     </div>
 
-    <div class="space-y-2.5">
+    <!-- [STAFF EDIT BOX] -->
+    <div id="staff-edit-box" class="hidden space-y-2.5 bg-lavender-100/60 p-3.5 rounded-2xl border border-lavender-300">
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-bold text-plum-900">وضع تعديل طلب جملة سابق (للموظف)</span>
+        <button id="exit-staff-mode" type="button" class="text-[11px] text-bloom-400 hover:underline font-bold">إلغاء والعودة</button>
+      </div>
+
+      <div class="flex gap-2">
+        <input id="edit-order-id" type="text" placeholder="رقم الطلب (مثال: ZWH-4829)" class="flex-1 px-3.5 py-2.5 rounded-xl border border-lavender-300 focus:border-plum-700 focus:outline-none text-xs bg-white font-bold text-plum-900">
+        <button id="fetch-order-btn" type="button" class="shrink-0 px-3.5 py-2 rounded-xl bg-plum-900 hover:bg-plum-700 text-white text-xs font-bold transition-colors">
+          جلب الطلب
+        </button>
+      </div>
+      <div id="fetch-order-status" class="text-[11px] font-bold hidden"></div>
+
+      <div class="pt-1 border-t border-lavender-200 space-y-2">
+        <label class="block text-[11px] font-bold text-plum-800">إضافة منتجات غير موجودة بالموقع (اختياري):</label>
+        <input id="manual-items-input" type="text" placeholder="اكتب اسم/تفاصيل المنتجات اليدوية (ستنزل بولد بالشيت)..." class="w-full px-3.5 py-2 rounded-xl border border-lavender-300 focus:border-plum-700 focus:outline-none text-xs bg-white text-plum-900 font-bold">
+        <input id="manual-total-input" type="number" min="0" step="any" placeholder="إجمالي سعر المنتجات اليدوية فقط (ج.م)" class="w-full px-3.5 py-2 rounded-xl border border-lavender-300 focus:border-plum-700 focus:outline-none text-xs bg-white text-plum-900 font-bold">
+      </div>
+      <p class="text-[11px] text-plum-700 leading-relaxed">سيتم تحديث الأصناف والإجمالي لهذا الطلب في شيت الجملة مباشرة دون فتح واتساب.</p>
+    </div>
+
+    <!-- [CUSTOMER FIELDS] -->
+    <div id="customer-fields-box" class="space-y-2.5">
       <input id="w-name" type="text" placeholder="الاسم بالكامل / اسم المحل أو الصفحة" class="w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm">
       <input id="w-phone" type="tel" placeholder="رقم الهاتف (واتساب)" class="w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm">
 
@@ -361,13 +378,26 @@
 
       <input id="w-address" type="text" placeholder="العنوان التفصيلي" class="w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm">
       <input id="w-notes" type="text" placeholder="ملاحظات إضافية (اختياري)" class="w-full px-4 py-2.5 rounded-xl border border-bloom-100 focus:border-lavender-300 focus:outline-none text-sm">
+
+      <!-- Employee Code Box -->
+      <div class="bg-lavender-100/60 border border-lavender-200 rounded-2xl p-3 space-y-1.5">
+        <label for="w-emp-code" class="block text-xs font-bold text-plum-900">
+          كود الموظف (اختياري — يسجّل الاسم فقط في الشيت)
+        </label>
+        <input id="w-emp-code" type="text" autocomplete="off" placeholder="اكتب كود الموظف (مثال: ZHR1)"
+               class="w-full px-3.5 py-2 rounded-xl border border-lavender-300 focus:border-plum-900 focus:outline-none text-sm bg-white font-bold text-plum-900 uppercase" dir="ltr" style="text-align:right">
+        <div id="emp-status" class="text-[11px] font-bold hidden"></div>
+      </div>
     </div>
 
     <button id="confirm-wholesale-order" class="w-full wholesale-btn font-bold py-3.5 rounded-full flex items-center justify-center gap-2">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
-      <span>تأكيد طلب الجملة عبر واتساب</span>
+      <span id="confirm-order-text">تأكيد طلب الجملة عبر واتساب</span>
     </button>
-    <p class="text-[11px] text-plum-500 text-center">سيتم تسجيل الطلب في شيت الجملة وتحويلك لواتساب الجملة لتأكيد الحجز</p>
+    <p id="confirm-order-hint" class="text-[11px] text-plum-500 text-center">سيتم تسجيل الطلب في شيت الجملة وتحويلك لواتساب الجملة لتأكيد الحجز</p>
+    <div class="pt-1 text-center">
+      <button id="staff-mode-btn" type="button" class="text-[11px] text-plum-500/60 hover:text-plum-900 underline transition-colors">تعديل طلب سابق (للموظفين)</button>
+    </div>
   </div>
 </aside>
 
@@ -379,73 +409,80 @@
 /* ===================== WHOLESALE SETTINGS ===================== */
 let WHOLESALE_PASSWORD = 'zhr@wholesale2027';
 let WHOLESALE_WHATSAPP_NUMBER = '201132867267';
+let STAFF_PIN = 'zhr@sha2027';
 const WHOLESALE_ACTIVATE_TEXT = 'مرحباً، أرغب في تفعيل حساب/طلب الجملة والحصول على كلمة المرور';
 const WHOLESALE_SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbz6ZJ4F-HI6HcY8zxxvwKxaz68v_nlM3C06wfE3l1R4hjgRuiM8trgexAmJznviWBd-Jg/exec';
+
+let EMPLOYEE_CODES = {
+  'ZHR1': 'شهد',
+  'ZHR2': 'تسنيم',
+  'ZHR3': 'ندي',
+};
 
 document.querySelectorAll('[data-wholesale-activate]').forEach(a => {
   a.href = `https://wa.me/${WHOLESALE_WHATSAPP_NUMBER}?text=${encodeURIComponent(WHOLESALE_ACTIVATE_TEXT)}`;
 });
 
-/* ===================== WHOLESALE HAIR PRODUCTS (ALL 28 ITEMS) =====================
-   عدّل أسعار الجملة و minQty (الحد الأدنى للقطع) لكل منتج حسب قائمة الجملة بتاعتك.
-*/
+/* ===================== WHOLESALE HAIR PRODUCTS ===================== */
 const WHOLESALE_PRODUCTS = [
   // ============ زيوت وأعشاب ============
-  { id:'wh1', name_ar:'زيت الـ١٠٨ عشبة (500ml)', name_en:'108 Herbs Hair Oil 500ml', image:'108-herbs.jpg', cat:'other', minQty:6,
+  { id:'wh1', name_ar:'زيت الـ١٠٨ عشبة (500ml)', name_en:'108 Herbs Hair Oil 500ml', image:'108-herbs.jpg', cat:'other',
     fixedPrice:1050 },
-  { id:'wh2', name_ar:'زيت سيسا', name_en:'Sesa Hair Oil', image:'sesa_oil_150ml.jpg', cat:'other', minQty:6,
+  { id:'wh2', name_ar:'زيت سيسا', name_en:'Sesa Hair Oil', image:'sesa_oil_150ml.jpg', cat:'other',
     variants:[{label:'100ml',price:195},{label:'200ml',price:295}] },
 
   // ============ دابر أملا ============
-  { id:'wh3', name_ar:'زيت دابر أملا', name_en:'Dabur Amla Oil', image:'dabur_amla.jpg', cat:'dabur-amla', minQty:6,
+  { id:'wh3', name_ar:'زيت دابر أملا', name_en:'Dabur Amla Oil', image:'dabur_amla.jpg', cat:'dabur-amla',
     variants:[{label:'240ml',price:225},{label:'300ml',price:280},{label:'500ml',price:330}] },
-  { id:'wh4', name_ar:'زيت دابر أملا بالياسمين (300ml)', name_en:'Dabur Amla Jasmine Hair Oil 300ml', image:'dabur-amla-jasmine-300ml.jpg', cat:'dabur-amla', minQty:6,
+  { id:'wh4', name_ar:'زيت دابر أملا بالياسمين (300ml)', name_en:'Dabur Amla Jasmine Hair Oil 300ml', image:'dabur-amla-jasmine-300ml.jpg', cat:'dabur-amla',
     fixedPrice:275 },
-  { id:'wh5', name_ar:'زيت دابر أملا للأطفال (أملا كيدز)', name_en:'Dabur Amla Kids Oil', image:'dabur_amla_kids.jpg', cat:'dabur-amla', minQty:6,
+  { id:'wh5', name_ar:'زيت دابر أملا للأطفال (أملا كيدز)', name_en:'Dabur Amla Kids Oil', image:'dabur_amla_kids.jpg', cat:'dabur-amla',
     fixedPrice:255 },
-  { id:'wh6', name_ar:'شامبو أملا كيدز (200ml)', name_en:'Amla Kids Shampoo 200ml', image:'amla-kids-shampoo-200ml.jpg', cat:'dabur-amla', minQty:6,
+  { id:'wh6', name_ar:'شامبو أملا كيدز (200ml)', name_en:'Amla Kids Shampoo 200ml', image:'amla-kids-shampoo-200ml.jpg', cat:'dabur-amla',
     fixedPrice:235 },
 
   // ============ باراشوت ============
-  { id:'wh7', name_ar:'زيت جوز الهند باراشوت', name_en:'Parachute Coconut Oil', image:'parachute.jpg', cat:'parachute', minQty:6,
+  { id:'wh7', name_ar:'زيت جوز الهند باراشوت', name_en:'Parachute Coconut Oil', image:'parachute.jpg', cat:'parachute',
     variants:[{label:'200ml',price:210},{label:'500ml',price:285},{label:'1 لتر',price:460}] },
-  { id:'wh8', name_ar:'زيت باراشوت أدفانسد بالبصل', name_en:'Parachute Advansed Onion Hair Oil', image:'parachute-onion-300ml.jpg', cat:'parachute', minQty:6,
+  { id:'wh8', name_ar:'زيت باراشوت أدفانسد بالبصل', name_en:'Parachute Advansed Onion Hair Oil', image:'parachute-onion-300ml.jpg', cat:'parachute',
     variants:[{label:'200ml',price:215},{label:'300ml',price:260}] },
-  { id:'wh9', name_ar:'زيت باراشوت أدفانسد بالصبار', name_en:'Parachute Advansed Aloe Vera Hair Oil', image:'parachute-aloe-vera-150ml.jpg', cat:'parachute', minQty:6,
+  { id:'wh9', name_ar:'زيت باراشوت أدفانسد بالصبار', name_en:'Parachute Advansed Aloe Vera Hair Oil', image:'parachute-aloe-vera-150ml.jpg', cat:'parachute',
     fixedPrice:210 },
+  { id:'wh22', name_ar:'زيت باراشوت أدفانسد بالأرجان', name_en:'Parachute Advansed Argan Hair Oil', image:'parachute-argan.jpg', cat:'parachute',
+    variants:[{label:'200ml',price:215},{label:'300ml',price:260}] },
 
   // ============ كيش كينج ============
-  { id:'wh10', name_ar:'شامبو كيش كينج بالصبار', name_en:'Kesh King Shampoo', image:'kesh_king_340ml.jpg', cat:'kesh-king', minQty:6,
+  { id:'wh10', name_ar:'شامبو كيش كينج بالصبار', name_en:'Kesh King Shampoo', image:'kesh_king_340ml.jpg', cat:'kesh-king',
     variants:[{label:'200ml',price:195},{label:'340ml',price:265}] },
-  { id:'wh11', name_ar:'شامبو كيش كينج بينك', name_en:'Kesh King Pink Shampoo', image:'kesh-king-pink-shampoo-340ml.jpg', cat:'kesh-king', minQty:6,
+  { id:'wh11', name_ar:'شامبو كيش كينج بينك', name_en:'Kesh King Pink Shampoo', image:'kesh-king-pink-shampoo-340ml.jpg', cat:'kesh-king',
     variants:[{label:'200ml',price:195},{label:'340ml',price:265}] },
-  { id:'wh12', name_ar:'شامبو كيش كينج بالبصل (340ml)', name_en:'Kesh King Onion Shampoo 340ml', image:'Kesh_King_onion_Shampoo 340ml.jpg', cat:'kesh-king', minQty:6,
+  { id:'wh12', name_ar:'شامبو كيش كينج بالبصل (340ml)', name_en:'Kesh King Onion Shampoo 340ml', image:'Kesh_King_onion_Shampoo 340ml.jpg', cat:'kesh-king',
     fixedPrice:265 },
+  { id:'wh21', name_ar:'شامبو ساكورا الياباني (300ml)', name_en:'Japanese Sakura Shampoo 300ml', image:'sakura-shampoo-300ml.jpg', cat:'other',
+    fixedPrice:300 },
 
   // ============ فاتيكا (300ml) ============
-  { id:'wh13', name_ar:'زيت فاتيكا بالثوم (300ml)', name_en:'Vatika Garlic Oil 300ml', image:'vatika_garlic.jpg', cat:'vatika', minQty:6,
+  { id:'wh13', name_ar:'زيت فاتيكا بالثوم (300ml)', name_en:'Vatika Garlic Oil 300ml', image:'vatika_garlic.jpg', cat:'vatika',
     fixedPrice:280 },
-  { id:'wh14', name_ar:'زيت فاتيكا بالبصل (300ml)', name_en:'Vatika Onion Oil 300ml', image:'vatika_onion.jpg', cat:'vatika', minQty:6,
+  { id:'wh14', name_ar:'زيت فاتيكا بالبصل (300ml)', name_en:'Vatika Onion Oil 300ml', image:'vatika_onion.jpg', cat:'vatika',
     fixedPrice:280 },
-  { id:'wh15', name_ar:'زيت فاتيكا باللوز (300ml)', name_en:'Vatika Almond Oil 300ml', image:'vatika_almond.jpg', cat:'vatika', minQty:6,
+  { id:'wh15', name_ar:'زيت فاتيكا باللوز (300ml)', name_en:'Vatika Almond Oil 300ml', image:'vatika_almond.jpg', cat:'vatika',
     fixedPrice:280 },
-  { id:'wh16', name_ar:'زيت فاتيكا بجوز الهند (300ml)', name_en:'Vatika Coconut Oil 300ml', image:'vatika_coconut.jpg', cat:'vatika', minQty:6,
+  { id:'wh16', name_ar:'زيت فاتيكا بجوز الهند (300ml)', name_en:'Vatika Coconut Oil 300ml', image:'vatika_coconut.jpg', cat:'vatika',
     fixedPrice:280 },
-  { id:'wh17', name_ar:'زيت فاتيكا بالروزماري (300ml)', name_en:'Vatika Rosemary Oil 300ml', image:'vatika_rosemary.jpg', cat:'vatika', minQty:6,
+  { id:'wh17', name_ar:'زيت فاتيكا بالروزماري (300ml)', name_en:'Vatika Rosemary Oil 300ml', image:'vatika_rosemary.jpg', cat:'vatika',
     fixedPrice:280 },
 
   // ============ العناية والترطيب ============
-  { id:'wh18', name_ar:'تونيك فازلين للشعر', name_en:'Vaseline Hair Tonic', image:'vaseline-hair-tonic.jpg', cat:'other', minQty:6,
+  { id:'wh18', name_ar:'تونيك فازلين للشعر', name_en:'Vaseline Hair Tonic', image:'vaseline-hair-tonic.jpg', cat:'other',
     fixedPrice:255 },
-  { id:'wh19', name_ar:'مرطب نيفيا', name_en:'Nivea Moisturizer', image:'nivea-moisturizer.jpg', cat:'other', minQty:6,
+  { id:'wh19', name_ar:'مرطب نيفيا', name_en:'Nivea Moisturizer', image:'nivea-moisturizer.jpg', cat:'other',
     fixedPrice:285 },
-  { id:'wh20', name_ar:'زياتة شعر', name_en:'Hair Oil Applicator (Zyata)', image:'zyata.jpg', cat:'other', minQty:6,
+  { id:'wh20', name_ar:'زياتة شعر', name_en:'Hair Oil Applicator (Zyata)', image:'zyata.jpg', cat:'other',
     fixedPrice:45 }
 ];
 
 const CAT_LABELS = {
-  'karsell': 'Karsell',
-  'fino': 'Fino',
   'vatika': 'Vatika',
   'dabur-amla': 'Dabur Amla',
   'parachute': 'Parachute',
@@ -531,7 +568,6 @@ function renderWholesaleGrid() {
   const grid = document.getElementById('wholesale-grid');
   grid.innerHTML = WHOLESALE_PRODUCTS.map(p => {
     const visible = matchesProduct(p);
-   const minQty = 1;
     return `
       <div class="product-card card-hover bg-white rounded-3xl border border-lavender-200/80 shadow-sm hover:shadow-soft p-6 flex flex-col ${visible ? '' : 'hidden-card'}" data-id="${p.id}">
         <div class="relative h-40 rounded-2xl overflow-hidden bg-[#f9f9f9] mb-5">
@@ -539,7 +575,6 @@ function renderWholesaleGrid() {
           <img src="${p.image}" alt="${p.name_en}" loading="lazy"
                class="absolute inset-2.5 w-[calc(100%-20px)] h-[calc(100%-20px)] object-contain"
                onerror="this.remove()">
-          ${minQty > 1 ? `<span class="absolute top-2.5 left-2.5 tag-pill bg-plum-900 text-white">أقل كمية: ${minQty}</span>` : ''}
         </div>
 
         <span class="tag-pill bg-lavender-100 text-lavender-500 self-start mb-2" dir="ltr">${CAT_LABELS[p.cat] || 'جملة'}</span>
@@ -607,12 +642,11 @@ function addToCart(id) {
   const p = findProduct(id);
   const label = currentLabel(p);
   const price = currentPrice(p);
-  const minQty = 1;
   const key = label ? `${p.id}-${label}` : p.id;
 
   const existing = cart.find(c => c.key === key);
   if (existing) existing.qty += 1;
-  else cart.push({ key, id: p.id, name_ar: p.name_ar, name_en: p.name_en, size: label, price, qty: minQty, minQty });
+  else cart.push({ key, id: p.id, name_ar: p.name_ar, name_en: p.name_en, size: label, price, qty: 1 });
 
   saveCart();
   renderCart();
@@ -622,9 +656,8 @@ function addToCart(id) {
 function changeQty(key, delta) {
   const item = cart.find(c => c.key === key);
   if (!item) return;
-const minQty = 1;
   item.qty += delta;
-  if (item.qty < minQty) {
+  if (item.qty <= 0) {
     cart = cart.filter(c => c.key !== key);
   }
   saveCart();
@@ -637,7 +670,13 @@ function removeItem(key) {
   renderCart();
 }
 
-function cartTotal() { return cart.reduce((sum, c) => sum + c.price * c.qty, 0); }
+function getManualExtraTotal() {
+  const el = document.getElementById('manual-total-input');
+  if (!el || typeof isStaffEditMode === 'undefined' || !isStaffEditMode) return 0;
+  const val = parseFloat(el.value);
+  return (!isNaN(val) && val > 0) ? val : 0;
+}
+function cartTotal() { return cart.reduce((sum, c) => sum + c.price * c.qty, 0) + getManualExtraTotal(); }
 function cartCount() { return cart.reduce((sum, c) => sum + c.qty, 0); }
 
 function renderCart() {
@@ -659,7 +698,7 @@ function renderCart() {
     <div class="flex gap-3 items-start border-b border-bloom-50 pb-4">
       <div class="w-16 h-16 shrink-0 rounded-xl bg-[#f9f9f9] relative overflow-hidden">
         <div class="absolute inset-0 flex items-center justify-center">${bottleIcon('w-7 h-7 text-lavender-400')}</div>
-        <img src="${findProduct(c.id) ? findProduct(c.id).image : ''}" alt="${c.name_en}" class="absolute inset-1 w-[calc(100%-8px)] h-[calc(100%-8px)] object-contain" onerror="this.remove()">
+        <img src="${findProduct(c.id) ? findProduct(c.id).image : ''}" alt="${c.name_en || c.name_ar}" class="absolute inset-1 w-[calc(100%-8px)] h-[calc(100%-8px)] object-contain" onerror="this.remove()">
       </div>
       <div class="flex-1 min-w-0">
         <p class="font-bold text-plum-900 text-sm">${c.name_ar}</p>
@@ -682,6 +721,51 @@ function renderCart() {
   container.querySelectorAll('.qty-btn').forEach(btn => btn.addEventListener('click', () => changeQty(btn.dataset.key, parseInt(btn.dataset.delta))));
   container.querySelectorAll('.remove-btn').forEach(btn => btn.addEventListener('click', () => removeItem(btn.dataset.key)));
 }
+
+/* ===================== EMPLOYEE CODE VALIDATION ===================== */
+const empCodeInput = document.getElementById('w-emp-code');
+const empStatus = document.getElementById('emp-status');
+
+function resolveEmployee(rawCode) {
+  const code = (rawCode || '').trim().toUpperCase();
+  if (!code) return { valid: true, code: '', name: 'الموقع' };
+  if (EMPLOYEE_CODES[code]) return { valid: true, code: code, name: EMPLOYEE_CODES[code] };
+  return { valid: false, code: code, name: '' };
+}
+
+function updateEmployeeStatusUI() {
+  const code = empCodeInput.value.trim().toUpperCase();
+  if (code) sessionStorage.setItem('alzahraa_emp_code', code);
+  else sessionStorage.removeItem('alzahraa_emp_code');
+
+  const res = resolveEmployee(code);
+  if (!res.code) {
+    empStatus.classList.add('hidden');
+    empStatus.textContent = '';
+    return;
+  }
+  empStatus.classList.remove('hidden');
+  if (res.valid) {
+    empStatus.className = 'text-[11px] font-bold text-emerald-600';
+    empStatus.textContent = `تم التحقق — الموظف المسؤول: ${res.name}`;
+  } else {
+    empStatus.className = 'text-[11px] font-bold text-rose-500';
+    empStatus.textContent = 'كود الموظف غير مسجل، يرجى التأكد من الكود';
+  }
+}
+
+empCodeInput.addEventListener('input', updateEmployeeStatusUI);
+
+(function prefillCode() {
+  const params = new URLSearchParams(window.location.search);
+  const urlCode = params.get('code') || params.get('emp');
+  const savedCode = sessionStorage.getItem('alzahraa_emp_code');
+  const initialCode = urlCode || savedCode;
+  if (initialCode) {
+    empCodeInput.value = initialCode.trim().toUpperCase();
+    updateEmployeeStatusUI();
+  }
+})();
 
 /* ===================== CART PANEL & MOBILE MENU ===================== */
 const cartPanel = document.getElementById('cart-panel');
@@ -715,8 +799,169 @@ function showToast(msg) {
   toast.textContent = msg;
   toast.classList.remove('translate-y-24', 'opacity-0');
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.add('translate-y-24', 'opacity-0'), 2200);
+  toastTimer = setTimeout(() => toast.classList.add('translate-y-24', 'opacity-0'), 2500);
 }
+
+/* ===================== STAFF EDIT MODE + FETCH ORDER BY ID ===================== */
+let isStaffEditMode = false;
+const staffModeBtn = document.getElementById('staff-mode-btn');
+const exitStaffModeBtn = document.getElementById('exit-staff-mode');
+const staffEditBox = document.getElementById('staff-edit-box');
+const customerFieldsBox = document.getElementById('customer-fields-box');
+const confirmOrderText = document.getElementById('confirm-order-text');
+const confirmOrderHint = document.getElementById('confirm-order-hint');
+const editOrderIdInput = document.getElementById('edit-order-id');
+const manualItemsInput = document.getElementById('manual-items-input');
+const manualTotalInput = document.getElementById('manual-total-input');
+const fetchOrderBtn = document.getElementById('fetch-order-btn');
+const fetchOrderStatus = document.getElementById('fetch-order-status');
+
+manualTotalInput.addEventListener('input', () => {
+  document.getElementById('cart-total').textContent = `${cartTotal()} ج.م`;
+});
+
+function setStaffEditMode(enabled) {
+  isStaffEditMode = enabled;
+  if (enabled) {
+    staffEditBox.classList.remove('hidden');
+    customerFieldsBox.classList.add('hidden');
+    staffModeBtn.classList.add('hidden');
+    confirmOrderText.textContent = 'تحديث الطلب في شيت الجملة فقط';
+    confirmOrderHint.textContent = 'وضع الموظف: سيتم تعديل الأصناف والإجمالي في شيت الجملة مباشرة';
+    document.getElementById('cart-total').textContent = `${cartTotal()} ج.م`;
+    editOrderIdInput.focus();
+  } else {
+    staffEditBox.classList.add('hidden');
+    customerFieldsBox.classList.remove('hidden');
+    staffModeBtn.classList.remove('hidden');
+    confirmOrderText.textContent = 'تأكيد طلب الجملة عبر واتساب';
+    confirmOrderHint.textContent = 'سيتم تسجيل الطلب في شيت الجملة وتحويلك لواتساب الجملة لتأكيد الحجز';
+    editOrderIdInput.value = '';
+    manualItemsInput.value = '';
+    manualTotalInput.value = '';
+    fetchOrderStatus.classList.add('hidden');
+    document.getElementById('cart-total').textContent = `${cartTotal()} ج.م`;
+  }
+}
+
+staffModeBtn.addEventListener('click', () => {
+  const pin = prompt('أدخل الكود السري للموظف لتفعيل وضع تعديل الطلب:');
+  if (pin === null) return;
+  if (pin.trim() === STAFF_PIN) {
+    setStaffEditMode(true);
+    showToast('تم تفعيل وضع تعديل طلبات الجملة للموظف');
+  } else {
+    showToast('الكود السري غير صحيح!');
+  }
+});
+
+exitStaffModeBtn.addEventListener('click', () => {
+  setStaffEditMode(false);
+  showToast('تم العودة لوضع الطلب العادي');
+});
+
+function parseSheetItemsToCart(itemsText, sheetTotal) {
+  const tokens = String(itemsText || '').split(/\)\s*,\s*\(/).map(s => s.replace(/^\(/, '').replace(/\)$/, '').trim()).filter(Boolean);
+  const loadedCart = [];
+  const unmatchedManual = [];
+
+  tokens.forEach(token => {
+    const qtyMatch = token.match(/^(.*)\s*[×xX]\s*(\d+)$/);
+    if (!qtyMatch) {
+      unmatchedManual.push(token);
+      return;
+    }
+
+    const leftPart = qtyMatch[1].trim();
+    const qty = parseInt(qtyMatch[2], 10) || 1;
+    let itemName = leftPart;
+    let itemSize = null;
+
+    const colonIdx = leftPart.indexOf(':');
+    if (colonIdx !== -1) {
+      itemName = leftPart.slice(0, colonIdx).trim();
+      itemSize = leftPart.slice(colonIdx + 1).trim();
+    }
+
+    const prodMatch = WHOLESALE_PRODUCTS.find(p => p.name_ar.trim() === itemName);
+    if (prodMatch) {
+      let price = prodMatch.fixedPrice || 0;
+      let matchedSize = itemSize;
+      if (prodMatch.variants) {
+        const vMatch = prodMatch.variants.find(v => v.label.trim() === (itemSize || ''));
+        if (vMatch) {
+          price = vMatch.price;
+          matchedSize = vMatch.label;
+        } else {
+          price = prodMatch.variants[0].price;
+          matchedSize = prodMatch.variants[0].label;
+        }
+      }
+      const key = matchedSize ? `${prodMatch.id}-${matchedSize}` : prodMatch.id;
+      loadedCart.push({
+        key,
+        id: prodMatch.id,
+        name_ar: prodMatch.name_ar,
+        name_en: prodMatch.name_en,
+        size: matchedSize,
+        price,
+        qty
+      });
+      return;
+    }
+
+    unmatchedManual.push(token);
+  });
+
+  cart = loadedCart;
+  saveCart();
+
+  manualItemsInput.value = unmatchedManual.join(', ');
+  const cartSum = loadedCart.reduce((s, c) => s + c.price * c.qty, 0);
+  const diff = (parseFloat(sheetTotal) || 0) - cartSum;
+  manualTotalInput.value = (unmatchedManual.length > 0 && diff > 0) ? diff : '';
+
+  renderCart();
+}
+
+fetchOrderBtn.addEventListener('click', async () => {
+  const orderId = editOrderIdInput.value.trim();
+  if (!orderId) {
+    showToast('اكتب رقم الطلب (Order ID) أولاً');
+    editOrderIdInput.focus();
+    return;
+  }
+
+  fetchOrderBtn.disabled = true;
+  fetchOrderBtn.textContent = 'جاري الجلب...';
+  fetchOrderStatus.className = 'text-[11px] font-bold text-plum-700';
+  fetchOrderStatus.textContent = 'جاري البحث عن الطلب في شيت الجملة...';
+  fetchOrderStatus.classList.remove('hidden');
+
+  try {
+    const res = await fetch(`${WHOLESALE_SHEET_WEBHOOK_URL}?action=get&orderId=${encodeURIComponent(orderId)}`);
+    if (!res.ok) throw new Error('Network error');
+    const data = await res.json();
+
+    if (data && data.result === 'found') {
+      editOrderIdInput.value = data.orderId || orderId;
+      parseSheetItemsToCart(data.items, data.total);
+      fetchOrderStatus.className = 'text-[11px] font-bold text-emerald-600';
+      fetchOrderStatus.textContent = `تم جلب طلب العميل: ${data.name || 'غير مسجل'}`;
+      showToast('تم تحميل أصناف الطلب في سلة الجملة بنجاح');
+    } else {
+      fetchOrderStatus.className = 'text-[11px] font-bold text-rose-500';
+      fetchOrderStatus.textContent = 'لم يتم العثور على هذا الرقم في شيت الجملة';
+    }
+  } catch (err) {
+    console.error('Fetch wholesale order error:', err);
+    fetchOrderStatus.className = 'text-[11px] font-bold text-rose-500';
+    fetchOrderStatus.textContent = 'حدث خطأ أثناء الاتصال بالشيت، تأكد من تحديث Apps Script';
+  } finally {
+    fetchOrderBtn.disabled = false;
+    fetchOrderBtn.textContent = 'جلب الطلب';
+  }
+});
 
 /* ===================== CHECKOUT (WHOLESALE SHEET + WHATSAPP) ===================== */
 document.getElementById('confirm-wholesale-order').addEventListener('click', () => {
@@ -724,25 +969,69 @@ document.getElementById('confirm-wholesale-order').addEventListener('click', () 
     showToast('يرجى تفعيل قسم الجملة أولاً');
     return;
   }
-  if (cart.length === 0) {
+
+  const manualItemsText = isStaffEditMode ? manualItemsInput.value.trim() : '';
+  const manualExtraPrice = getManualExtraTotal();
+
+  if (cart.length === 0 && !manualItemsText) {
     showToast('سلة الجملة فارغة، أضيفي منتجات أولاً');
-    return;
-  }
-
-  const name = document.getElementById('w-name').value.trim();
-  const phone = document.getElementById('w-phone').value.trim();
-  const governorate = document.getElementById('w-governorate').value;
-  const address = document.getElementById('w-address').value.trim();
-  const notes = document.getElementById('w-notes').value.trim();
-
-  if (!name || !phone || !governorate || !address) {
-    showToast('من فضلك أكملي جميع البيانات المطلوبة');
     return;
   }
 
   const itemsSummary = cart.map(c => {
     return c.size ? `(${c.name_ar}: ${c.size} × ${c.qty})` : `(${c.name_ar} × ${c.qty})`;
   }).join(', ');
+
+  // 1) حالة تعديل طلب سابق (للموظف)
+  if (isStaffEditMode) {
+    const orderId = editOrderIdInput.value.trim();
+    if (!orderId) {
+      showToast('من فضلك اكتب رقم الطلب (Order ID) المراد تعديله');
+      editOrderIdInput.focus();
+      return;
+    }
+
+    fetch(WHOLESALE_SHEET_WEBHOOK_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        action: 'update',
+        orderId: orderId,
+        items: itemsSummary,
+        manualItems: manualItemsText,
+        manualTotal: manualExtraPrice,
+        total: cartTotal()
+      })
+    }).catch(err => console.error('Wholesale sheet update error:', err));
+
+    cart = [];
+    saveCart();
+    setStaffEditMode(false);
+    renderCart();
+    closeCart();
+    showToast(`تم إرسال تحديث طلب الجملة رقم (${orderId}) إلى الشيت بنجاح`);
+    return;
+  }
+
+  // 2) حالة طلب الجملة العادي
+  const name = document.getElementById('w-name').value.trim();
+  const phone = document.getElementById('w-phone').value.trim();
+  const governorate = document.getElementById('w-governorate').value;
+  const address = document.getElementById('w-address').value.trim();
+  const notes = document.getElementById('w-notes').value.trim();
+  const emp = resolveEmployee(empCodeInput.value);
+
+  if (!name || !phone || !governorate || !address) {
+    showToast('من فضلك أكملي جميع البيانات المطلوبة');
+    return;
+  }
+
+  if (!emp.valid) {
+    showToast('كود الموظف غير صحيح! صحّحه أو اتركه فارغاً');
+    empCodeInput.focus();
+    return;
+  }
 
   const lines = [];
   lines.push('📦 *طلب جملة جديد — متجر ALZAHRAA*');
@@ -761,26 +1050,26 @@ document.getElementById('confirm-wholesale-order').addEventListener('click', () 
   lines.push(`المحافظة: ${governorate}`);
   lines.push(`العنوان: ${address}`);
   if (notes) lines.push(`ملاحظات: ${notes}`);
+  if (emp.code) lines.push(`الموظف المسؤول: ${emp.name}`);
 
   const message = lines.join('\n');
 
-  if (WHOLESALE_SHEET_WEBHOOK_URL && !WHOLESALE_SHEET_WEBHOOK_URL.includes('YOUR_WHOLESALE')) {
-    fetch(WHOLESALE_SHEET_WEBHOOK_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        orderType: 'جملة',
-        phone: phone,
-        name: name,
-        governorate: governorate,
-        address: address,
-        notes: notes,
-        items: itemsSummary,
-        total: cartTotal()
-      })
-    }).catch(err => console.error('Wholesale sheet webhook error:', err));
-  }
+  fetch(WHOLESALE_SHEET_WEBHOOK_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      orderType: 'جملة',
+      phone: phone,
+      name: name,
+      governorate: governorate,
+      address: address,
+      notes: notes,
+      items: itemsSummary,
+      total: cartTotal(),
+      employeeName: emp.name
+    })
+  }).catch(err => console.error('Wholesale sheet webhook error:', err));
 
   window.open(`https://wa.me/${WHOLESALE_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
 });
@@ -794,11 +1083,20 @@ renderCart();
 <script>
   if (typeof onAlzahraaConfigReady === 'function') {
     onAlzahraaConfigReady(function(cfg) {
+      if (cfg.staff_pin) {
+        STAFF_PIN = cfg.staff_pin;
+      }
       if (cfg.wholesale_password) {
         WHOLESALE_PASSWORD = cfg.wholesale_password;
       }
       if (cfg.wholesale_whatsapp) {
         WHOLESALE_WHATSAPP_NUMBER = cfg.wholesale_whatsapp;
+      }
+      if (cfg.employees && Object.keys(cfg.employees).length > 0) {
+        EMPLOYEE_CODES = cfg.employees;
+        if (typeof updateEmployeeStatusUI === 'function') {
+          updateEmployeeStatusUI();
+        }
       }
     });
   }
