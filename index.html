@@ -4,21 +4,70 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ALZAHRAA | الزهراء للعناية بالبشرة والشعر</title>
+<title>ALZAHRAA | الزهراء للعناية بالبشرة والشعر — منتجات كورية وطبيعية أصلية</title>
+
+<!-- Favicon & App Icons (للتبويب ونتائج بحث جوجل) -->
+<link rel="icon" type="image/jpeg" href="https://alzahraaco.com/logo.jpg">
+<link rel="shortcut icon" type="image/jpeg" href="https://alzahraaco.com/logo.jpg">
+<link rel="apple-touch-icon" href="https://alzahraaco.com/logo.jpg">
+<meta name="theme-color" content="#E88CBD">
 
 <!-- SEO Meta Tags -->
-<meta name="description" content="ALZAHRAA الزهراء - اكتشفي أفضل منتجات العناية الكورية واليابانية والهندية والطبيعية بالبشرة والشعر. طلب قطاعي، طلب جملة، وأقوى العروض.">
-<meta name="robots" content="index, follow">
+<meta name="description" content="ALZAHRAA الزهراء - متجر منتجات العناية الكورية واليابانية والهندية والطبيعية الأصلية ١٠٠٪ للبشرة والشعر (سنتيلا، أنوا، كارسيل، فينو، دابر أملا، فاتيكا). متوفر تقسيمات وعبوات كاملة، قطاعي وجملة وعروض حصرية مع شحن لجميع المحافظات.">
+<meta name="keywords" content="ALZAHRAA, الزهراء, منتجات كورية اصلية, عناية بالبشرة, عناية بالشعر, تقسيمات سكين كير, سنتيلا, أنوا, كارسيل, فينو, دابر املا, فاتيكا, باراشوت, كيش كينج, عروض البشرة والشعر, جملة مستحضرات تجميل مصر">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://alzahraaco.com/">
 <meta name="author" content="ALZAHRAA">
 
-<!-- Open Graph -->
+<!-- Open Graph (Facebook / WhatsApp) -->
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="ALZAHRAA | الزهراء">
 <meta property="og:title" content="ALZAHRAA | الزهراء للعناية بالبشرة والشعر">
-<meta property="og:description" content="منتجات عناية أصلية ١٠٠٪ بالبشرة والشعر - قطاعي وجملة وعروض حصرية.">
+<meta property="og:description" content="منتجات عناية أصلية ١٠٠٪ بالبشرة والشعر - تقسيمات وعبوات كاملة، قطاعي وجملة وعروض حصرية.">
 <meta property="og:url" content="https://alzahraaco.com/">
 <meta property="og:image" content="https://alzahraaco.com/logo.jpg">
 <meta property="og:locale" content="ar_EG">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ALZAHRAA | الزهراء للعناية بالبشرة والشعر">
+<meta name="twitter:description" content="منتجات عناية أصلية ١٠٠٪ بالبشرة والشعر - قطاعي وجملة وعروض حصرية.">
+<meta name="twitter:image" content="https://alzahraaco.com/logo.jpg">
+
+<!-- Structured Data (JSON-LD) لظهور اللوجو وتقوية الظهور في جوجل -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "ALZAHRAA | الزهراء",
+      "alternateName": ["ALZAHRAA", "الزهراء للعناية بالبشرة والشعر"],
+      "url": "https://alzahraaco.com/",
+      "logo": "https://alzahraaco.com/logo.jpg",
+      "image": "https://alzahraaco.com/logo.jpg",
+      "sameAs": [
+        "https://www.instagram.com/alzhraa.co?stkn=b256bWlvd2d3dzF1",
+        "https://www.facebook.com/share/19khxEGxcd/",
+        "https://www.tiktok.com/@alzhraa__co?_r=1&_t=ZS-99dyAbHLUcJ"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+201027966872",
+        "contactType": "customer service",
+        "areaServed": "EG",
+        "availableLanguage": ["Arabic", "English"]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "name": "ALZAHRAA | الزهراء",
+      "url": "https://alzahraaco.com/",
+      "inLanguage": "ar-EG"
+    }
+  ]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -300,7 +349,7 @@
       </div>
     </div>
 
-    <!-- Screenshots / Photos Grid (Populated via JS array below) -->
+    <!-- Screenshots / Photos Grid -->
     <div id="reviews-gallery" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"></div>
   </div>
 </section>
@@ -381,18 +430,11 @@
 </div>
 
 <script>
-/* ===================== GOOGLE DRIVE REVIEWS LINK =====================
-   ضع رابط ملف أو مجلد جوجل درايف الخاص بريفيوهات الزبائن هنا
-*/
 const REVIEWS_DRIVE_URL = 'https://drive.google.com/drive/folders/YOUR_FOLDER_ID_HERE';
 document.querySelectorAll('[data-reviews-drive]').forEach(el => {
   el.href = REVIEWS_DRIVE_URL;
 });
 
-/* ===================== REVIEW IMAGES =====================
-   أضف أسماء صور آراء العملاء أو صور الطلبات هنا (بنفس مسارها بجانب الملف أو داخل مجلد reviews/)
-   مثال: 'reviews/rev1.jpg' أو 'rev1.jpg'
-*/
 const REVIEW_IMAGES = [
   { src: 'reviews/rev1.jpg', caption: 'رأي عميلة بعد تجربة المنتجات' },
   { src: 'reviews/rev2.jpg', caption: 'تقييم طلب جديد' },
@@ -430,7 +472,6 @@ function renderReviewsGallery() {
   });
 }
 
-/* ===================== LIGHTBOX ===================== */
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 
@@ -448,13 +489,11 @@ document.getElementById('lightbox-close').addEventListener('click', closeLightbo
 lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
 
-/* ===================== MOBILE MENU ===================== */
 const menuBtn = document.getElementById('menu-btn');
 const mobileNav = document.getElementById('mobile-nav');
 menuBtn.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
 mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.add('hidden')));
 
-/* ===================== INIT ===================== */
 renderReviewsGallery();
 </script>
 <script src="site-config.js"></script>
